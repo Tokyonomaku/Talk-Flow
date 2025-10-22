@@ -1086,6 +1086,86 @@ async def get_lessons(language: str = "japanese"):
                 "level": "A1",
                 "duration": "2 weeks",
                 "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
+            },
+            {
+                "id": "korean-politeness-levels",
+                "title": "Politeness Levels & Honorifics",
+                "description": "Master Korean's complex honorific system",
+                "level": "A2",
+                "duration": "4 weeks",
+                "topics": ["Formal vs informal speech", "Age-based honorifics", "Job titles and respect", "Cultural context"]
+            },
+            {
+                "id": "korean-verb-conjugation",
+                "title": "Verb Conjugation Mastery",
+                "description": "Learn Korean verb patterns and conjugations",
+                "level": "A2",
+                "duration": "5 weeks",
+                "topics": ["Present tense", "Past tense", "Future tense", "Irregular verbs"]
+            },
+            {
+                "id": "korean-particles-advanced",
+                "title": "Advanced Particles",
+                "description": "Master Korean particles for natural speech",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["은/는 vs 이/가", "을/를 usage", "에 vs 에서", "로/으로 direction"]
+            },
+            {
+                "id": "korean-adjectives",
+                "title": "Adjectives & Descriptions",
+                "description": "Learn Korean adjectives and descriptive language",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Basic adjectives", "Color descriptions", "Size and shape", "Personality traits"]
+            },
+            {
+                "id": "korean-shopping-bargaining",
+                "title": "Shopping & Bargaining",
+                "description": "Master shopping vocabulary and cultural etiquette",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["Market vocabulary", "Price negotiations", "Cultural shopping norms", "Payment methods"]
+            },
+            {
+                "id": "korean-emotions-feelings",
+                "title": "Emotions & Feelings",
+                "description": "Express emotions and feelings in Korean",
+                "level": "A2",
+                "duration": "2 weeks",
+                "topics": ["Basic emotions", "Physical feelings", "Mental states", "Expressing preferences"]
+            },
+            {
+                "id": "korean-daily-routines",
+                "title": "Daily Routines & Habits",
+                "description": "Describe daily activities and routines",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Morning routines", "Work activities", "Evening habits", "Weekend activities"]
+            },
+            {
+                "id": "korean-health-body",
+                "title": "Health & Body Parts",
+                "description": "Learn health vocabulary and body parts",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["Body parts", "Health conditions", "Medical vocabulary", "Doctor visits"]
+            },
+            {
+                "id": "korean-education-school",
+                "title": "Education & School Life",
+                "description": "Navigate Korean education system vocabulary",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["School subjects", "Academic vocabulary", "Student life", "Korean education culture"]
+            },
+            {
+                "id": "korean-technology-modern",
+                "title": "Technology & Modern Life",
+                "description": "Master technology and digital vocabulary",
+                "level": "A2",
+                "duration": "2 weeks",
+                "topics": ["Digital devices", "Internet vocabulary", "Social media", "Modern Korean tech culture"]
             }
         ]
     elif language == "german":
@@ -1161,6 +1241,86 @@ async def get_lessons(language: str = "japanese"):
                 "level": "A1",
                 "duration": "2 weeks",
                 "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
+            },
+            {
+                "id": "german-cases-mastery",
+                "title": "German Cases Mastery",
+                "description": "Master the four German cases",
+                "level": "A2",
+                "duration": "6 weeks",
+                "topics": ["Nominative case", "Accusative case", "Dative case", "Genitive case"]
+            },
+            {
+                "id": "german-verb-conjugation",
+                "title": "Verb Conjugation Patterns",
+                "description": "Learn German verb conjugation rules",
+                "level": "A2",
+                "duration": "4 weeks",
+                "topics": ["Regular verbs", "Irregular verbs", "Modal verbs", "Separable verbs"]
+            },
+            {
+                "id": "german-adjectives-declension",
+                "title": "Adjective Declension",
+                "description": "Master German adjective endings",
+                "level": "A2",
+                "duration": "5 weeks",
+                "topics": ["Strong declension", "Weak declension", "Mixed declension", "Comparative forms"]
+            },
+            {
+                "id": "german-prepositions",
+                "title": "Prepositions & Cases",
+                "description": "Learn German prepositions with their cases",
+                "level": "A2",
+                "duration": "4 weeks",
+                "topics": ["Accusative prepositions", "Dative prepositions", "Two-way prepositions", "Genitive prepositions"]
+            },
+            {
+                "id": "german-shopping-daily",
+                "title": "Shopping & Daily Life",
+                "description": "Master shopping and daily life vocabulary",
+                "level": "A1",
+                "duration": "3 weeks",
+                "topics": ["Grocery shopping", "Clothing stores", "Prices and money", "Customer service"]
+            },
+            {
+                "id": "german-emotions-personality",
+                "title": "Emotions & Personality",
+                "description": "Express emotions and describe personality",
+                "level": "A2",
+                "duration": "2 weeks",
+                "topics": ["Basic emotions", "Personality traits", "Physical feelings", "Mental states"]
+            },
+            {
+                "id": "german-hobbies-interests",
+                "title": "Hobbies & Interests",
+                "description": "Talk about hobbies and personal interests",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Sports and activities", "Music and arts", "Reading preferences", "Leisure time"]
+            },
+            {
+                "id": "german-health-medical",
+                "title": "Health & Medical",
+                "description": "Learn health and medical vocabulary",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["Body parts", "Health conditions", "Medical appointments", "Pharmacy vocabulary"]
+            },
+            {
+                "id": "german-education-work",
+                "title": "Education & Work",
+                "description": "Navigate German education and work vocabulary",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["School subjects", "University life", "Job applications", "Workplace vocabulary"]
+            },
+            {
+                "id": "german-technology-digital",
+                "title": "Technology & Digital Life",
+                "description": "Master technology and digital vocabulary",
+                "level": "A2",
+                "duration": "2 weeks",
+                "topics": ["Computer vocabulary", "Internet terms", "Social media", "Digital communication"]
             }
         ]
     elif language == "chinese":
@@ -1236,6 +1396,86 @@ async def get_lessons(language: str = "japanese"):
                 "level": "HSK1",
                 "duration": "2 weeks",
                 "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
+            },
+            {
+                "id": "chinese-characters-basics",
+                "title": "Chinese Characters Basics",
+                "description": "Learn fundamental Chinese characters",
+                "level": "HSK1",
+                "duration": "4 weeks",
+                "topics": ["Basic radicals", "Stroke order", "Character structure", "Common characters"]
+            },
+            {
+                "id": "chinese-tones-mastery",
+                "title": "Tones Mastery",
+                "description": "Master the four tones and tone changes",
+                "level": "HSK1",
+                "duration": "3 weeks",
+                "topics": ["Four tones", "Tone combinations", "Tone changes", "Pronunciation practice"]
+            },
+            {
+                "id": "chinese-measure-words",
+                "title": "Measure Words (量词)",
+                "description": "Learn Chinese measure words and classifiers",
+                "level": "HSK2",
+                "duration": "3 weeks",
+                "topics": ["Common measure words", "Specific classifiers", "Usage rules", "Practice exercises"]
+            },
+            {
+                "id": "chinese-shopping-daily",
+                "title": "Shopping & Daily Life",
+                "description": "Master shopping and daily life vocabulary",
+                "level": "HSK1",
+                "duration": "3 weeks",
+                "topics": ["Market vocabulary", "Price negotiations", "Daily necessities", "Customer service"]
+            },
+            {
+                "id": "chinese-emotions-feelings",
+                "title": "Emotions & Feelings",
+                "description": "Express emotions and feelings in Chinese",
+                "level": "HSK2",
+                "duration": "2 weeks",
+                "topics": ["Basic emotions", "Physical feelings", "Mental states", "Expressing preferences"]
+            },
+            {
+                "id": "chinese-hobbies-interests",
+                "title": "Hobbies & Interests",
+                "description": "Talk about hobbies and personal interests",
+                "level": "HSK1",
+                "duration": "2 weeks",
+                "topics": ["Sports and activities", "Music and arts", "Reading preferences", "Leisure time"]
+            },
+            {
+                "id": "chinese-health-body",
+                "title": "Health & Body Parts",
+                "description": "Learn health vocabulary and body parts",
+                "level": "HSK2",
+                "duration": "3 weeks",
+                "topics": ["Body parts", "Health conditions", "Medical vocabulary", "Doctor visits"]
+            },
+            {
+                "id": "chinese-education-school",
+                "title": "Education & School Life",
+                "description": "Navigate Chinese education system vocabulary",
+                "level": "HSK2",
+                "duration": "3 weeks",
+                "topics": ["School subjects", "Academic vocabulary", "Student life", "Chinese education culture"]
+            },
+            {
+                "id": "chinese-technology-modern",
+                "title": "Technology & Modern Life",
+                "description": "Master technology and digital vocabulary",
+                "level": "HSK2",
+                "duration": "2 weeks",
+                "topics": ["Digital devices", "Internet vocabulary", "Social media", "Modern Chinese tech culture"]
+            },
+            {
+                "id": "chinese-business-work",
+                "title": "Business & Work",
+                "description": "Learn business and workplace vocabulary",
+                "level": "HSK3",
+                "duration": "4 weeks",
+                "topics": ["Job applications", "Workplace vocabulary", "Business meetings", "Professional communication"]
             }
         ]
     elif language == "spanish":
@@ -1391,6 +1631,86 @@ async def get_lessons(language: str = "japanese"):
                 "level": "A1",
                 "duration": "2 weeks",
                 "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
+            },
+            {
+                "id": "spanish-verb-conjugation",
+                "title": "Verb Conjugation Mastery",
+                "description": "Master Spanish verb conjugations",
+                "level": "A2",
+                "duration": "6 weeks",
+                "topics": ["Present tense", "Past tenses", "Future tense", "Conditional mood"]
+            },
+            {
+                "id": "spanish-shopping-daily",
+                "title": "Shopping & Daily Life",
+                "description": "Master shopping and daily life vocabulary",
+                "level": "A1",
+                "duration": "3 weeks",
+                "topics": ["Grocery shopping", "Clothing stores", "Prices and money", "Customer service"]
+            },
+            {
+                "id": "spanish-emotions-personality",
+                "title": "Emotions & Personality",
+                "description": "Express emotions and describe personality",
+                "level": "A2",
+                "duration": "2 weeks",
+                "topics": ["Basic emotions", "Personality traits", "Physical feelings", "Mental states"]
+            },
+            {
+                "id": "spanish-hobbies-interests",
+                "title": "Hobbies & Interests",
+                "description": "Talk about hobbies and personal interests",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Sports and activities", "Music and arts", "Reading preferences", "Leisure time"]
+            },
+            {
+                "id": "spanish-health-medical",
+                "title": "Health & Medical",
+                "description": "Learn health and medical vocabulary",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["Body parts", "Health conditions", "Medical appointments", "Pharmacy vocabulary"]
+            },
+            {
+                "id": "spanish-education-work",
+                "title": "Education & Work",
+                "description": "Navigate Spanish education and work vocabulary",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["School subjects", "University life", "Job applications", "Workplace vocabulary"]
+            },
+            {
+                "id": "spanish-technology-digital",
+                "title": "Technology & Digital Life",
+                "description": "Master technology and digital vocabulary",
+                "level": "A2",
+                "duration": "2 weeks",
+                "topics": ["Computer vocabulary", "Internet terms", "Social media", "Digital communication"]
+            },
+            {
+                "id": "spanish-business-professional",
+                "title": "Business & Professional",
+                "description": "Learn business and professional vocabulary",
+                "level": "B1",
+                "duration": "4 weeks",
+                "topics": ["Job applications", "Workplace vocabulary", "Business meetings", "Professional communication"]
+            },
+            {
+                "id": "spanish-culture-traditions",
+                "title": "Culture & Traditions",
+                "description": "Explore Spanish culture and traditions",
+                "level": "B1",
+                "duration": "3 weeks",
+                "topics": ["Cultural celebrations", "Traditional foods", "Historical events", "Regional customs"]
+            },
+            {
+                "id": "spanish-advanced-grammar",
+                "title": "Advanced Grammar",
+                "description": "Master advanced Spanish grammar concepts",
+                "level": "B2",
+                "duration": "5 weeks",
+                "topics": ["Complex sentence structures", "Advanced verb forms", "Literary language", "Formal writing"]
             }
         ]
     elif language == "french":
@@ -1466,6 +1786,86 @@ async def get_lessons(language: str = "japanese"):
                 "level": "A1",
                 "duration": "2 weeks",
                 "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
+            },
+            {
+                "id": "french-verb-conjugation",
+                "title": "Verb Conjugation Mastery",
+                "description": "Master French verb conjugations",
+                "level": "A2",
+                "duration": "6 weeks",
+                "topics": ["Present tense", "Past tenses", "Future tense", "Conditional mood"]
+            },
+            {
+                "id": "french-gender-agreement",
+                "title": "Gender & Agreement",
+                "description": "Master French gender and agreement rules",
+                "level": "A2",
+                "duration": "4 weeks",
+                "topics": ["Noun gender", "Adjective agreement", "Article agreement", "Plural forms"]
+            },
+            {
+                "id": "french-shopping-daily",
+                "title": "Shopping & Daily Life",
+                "description": "Master shopping and daily life vocabulary",
+                "level": "A1",
+                "duration": "3 weeks",
+                "topics": ["Grocery shopping", "Clothing stores", "Prices and money", "Customer service"]
+            },
+            {
+                "id": "french-emotions-personality",
+                "title": "Emotions & Personality",
+                "description": "Express emotions and describe personality",
+                "level": "A2",
+                "duration": "2 weeks",
+                "topics": ["Basic emotions", "Personality traits", "Physical feelings", "Mental states"]
+            },
+            {
+                "id": "french-hobbies-interests",
+                "title": "Hobbies & Interests",
+                "description": "Talk about hobbies and personal interests",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Sports and activities", "Music and arts", "Reading preferences", "Leisure time"]
+            },
+            {
+                "id": "french-health-medical",
+                "title": "Health & Medical",
+                "description": "Learn health and medical vocabulary",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["Body parts", "Health conditions", "Medical appointments", "Pharmacy vocabulary"]
+            },
+            {
+                "id": "french-education-work",
+                "title": "Education & Work",
+                "description": "Navigate French education and work vocabulary",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["School subjects", "University life", "Job applications", "Workplace vocabulary"]
+            },
+            {
+                "id": "french-technology-digital",
+                "title": "Technology & Digital Life",
+                "description": "Master technology and digital vocabulary",
+                "level": "A2",
+                "duration": "2 weeks",
+                "topics": ["Computer vocabulary", "Internet terms", "Social media", "Digital communication"]
+            },
+            {
+                "id": "french-culture-traditions",
+                "title": "Culture & Traditions",
+                "description": "Explore French culture and traditions",
+                "level": "B1",
+                "duration": "3 weeks",
+                "topics": ["Cultural celebrations", "Traditional foods", "Historical events", "Regional customs"]
+            },
+            {
+                "id": "french-advanced-grammar",
+                "title": "Advanced Grammar",
+                "description": "Master advanced French grammar concepts",
+                "level": "B2",
+                "duration": "5 weeks",
+                "topics": ["Complex sentence structures", "Advanced verb forms", "Literary language", "Formal writing"]
             }
         ]
     elif language == "russian":
@@ -1541,6 +1941,233 @@ async def get_lessons(language: str = "japanese"):
                 "level": "A1",
                 "duration": "2 weeks",
                 "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
+            },
+            {
+                "id": "russian-cases-mastery",
+                "title": "Russian Cases Mastery",
+                "description": "Master the six Russian cases",
+                "level": "A2",
+                "duration": "8 weeks",
+                "topics": ["Nominative case", "Genitive case", "Dative case", "Accusative case", "Instrumental case", "Prepositional case"]
+            },
+            {
+                "id": "russian-verb-conjugation",
+                "title": "Verb Conjugation Patterns",
+                "description": "Learn Russian verb conjugation rules",
+                "level": "A2",
+                "duration": "5 weeks",
+                "topics": ["First conjugation", "Second conjugation", "Irregular verbs", "Aspect pairs"]
+            },
+            {
+                "id": "russian-shopping-daily",
+                "title": "Shopping & Daily Life",
+                "description": "Master shopping and daily life vocabulary",
+                "level": "A1",
+                "duration": "3 weeks",
+                "topics": ["Grocery shopping", "Clothing stores", "Prices and money", "Customer service"]
+            },
+            {
+                "id": "russian-emotions-personality",
+                "title": "Emotions & Personality",
+                "description": "Express emotions and describe personality",
+                "level": "A2",
+                "duration": "2 weeks",
+                "topics": ["Basic emotions", "Personality traits", "Physical feelings", "Mental states"]
+            },
+            {
+                "id": "russian-hobbies-interests",
+                "title": "Hobbies & Interests",
+                "description": "Talk about hobbies and personal interests",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Sports and activities", "Music and arts", "Reading preferences", "Leisure time"]
+            },
+            {
+                "id": "russian-health-medical",
+                "title": "Health & Medical",
+                "description": "Learn health and medical vocabulary",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["Body parts", "Health conditions", "Medical appointments", "Pharmacy vocabulary"]
+            },
+            {
+                "id": "russian-education-work",
+                "title": "Education & Work",
+                "description": "Navigate Russian education and work vocabulary",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["School subjects", "University life", "Job applications", "Workplace vocabulary"]
+            },
+            {
+                "id": "russian-technology-digital",
+                "title": "Technology & Digital Life",
+                "description": "Master technology and digital vocabulary",
+                "level": "A2",
+                "duration": "2 weeks",
+                "topics": ["Computer vocabulary", "Internet terms", "Social media", "Digital communication"]
+            },
+            {
+                "id": "russian-culture-traditions",
+                "title": "Culture & Traditions",
+                "description": "Explore Russian culture and traditions",
+                "level": "B1",
+                "duration": "3 weeks",
+                "topics": ["Cultural celebrations", "Traditional foods", "Historical events", "Regional customs"]
+            },
+            {
+                "id": "russian-advanced-grammar",
+                "title": "Advanced Grammar",
+                "description": "Master advanced Russian grammar concepts",
+                "level": "B2",
+                "duration": "5 weeks",
+                "topics": ["Complex sentence structures", "Advanced verb forms", "Literary language", "Formal writing"]
+            }
+        ]
+    elif language == "arabic":
+        lessons = [
+            {
+                "id": "arabic-alphabet",
+                "title": "Arabic Alphabet & Script",
+                "description": "Master the Arabic writing system",
+                "level": "A1",
+                "duration": "4 weeks",
+                "topics": ["28 letters", "Letter forms", "Right-to-left writing", "Basic reading"]
+            },
+            {
+                "id": "basic-grammar-arabic",
+                "title": "Basic Grammar",
+                "description": "Essential Arabic grammar",
+                "level": "A1",
+                "duration": "4 weeks",
+                "topics": ["Sentence structure", "Gender agreement", "Basic conjugation", "Question words"]
+            },
+            {
+                "id": "daily-conversation-arabic",
+                "title": "Daily Conversation",
+                "description": "Practical Arabic phrases",
+                "level": "A1",
+                "duration": "3 weeks",
+                "topics": ["Greetings", "Shopping", "Restaurants", "Directions"]
+            },
+            {
+                "id": "numbers-time-arabic",
+                "title": "Numbers & Time",
+                "description": "Learn numbers and telling time in Arabic",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Numbers 1-100", "Days & Months", "Telling Time", "Dates"]
+            },
+            {
+                "id": "family-relationships-arabic",
+                "title": "Family & Relationships",
+                "description": "Learn family terms and relationship vocabulary",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Family members", "Possessive pronouns", "Relationship terms", "Family descriptions"]
+            },
+            {
+                "id": "colors-shapes-arabic",
+                "title": "Colors & Shapes",
+                "description": "Master color and shape vocabulary",
+                "level": "A1",
+                "duration": "1 week",
+                "topics": ["Basic colors", "Shape names", "Adjective agreement", "Visual descriptions"]
+            },
+            {
+                "id": "weather-seasons-arabic",
+                "title": "Weather & Seasons",
+                "description": "Learn weather vocabulary and seasonal expressions",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Weather conditions", "Four seasons", "Temperature", "Weather activities"]
+            },
+            {
+                "id": "food-drinks-arabic",
+                "title": "Food & Drinks",
+                "description": "Essential Arabic food vocabulary",
+                "level": "A1",
+                "duration": "3 weeks",
+                "topics": ["Arabic cuisine", "Beverages", "Cooking verbs", "Dining culture"]
+            },
+            {
+                "id": "travel-directions-arabic",
+                "title": "Travel & Directions",
+                "description": "Navigate Arabic-speaking countries",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
+            },
+            {
+                "id": "arabic-verb-conjugation",
+                "title": "Verb Conjugation Mastery",
+                "description": "Learn Arabic verb conjugation patterns",
+                "level": "A2",
+                "duration": "6 weeks",
+                "topics": ["Present tense", "Past tense", "Future tense", "Imperative mood"]
+            },
+            {
+                "id": "arabic-shopping-daily",
+                "title": "Shopping & Daily Life",
+                "description": "Master shopping and daily life vocabulary",
+                "level": "A1",
+                "duration": "3 weeks",
+                "topics": ["Grocery shopping", "Clothing stores", "Prices and money", "Customer service"]
+            },
+            {
+                "id": "arabic-emotions-personality",
+                "title": "Emotions & Personality",
+                "description": "Express emotions and describe personality",
+                "level": "A2",
+                "duration": "2 weeks",
+                "topics": ["Basic emotions", "Personality traits", "Physical feelings", "Mental states"]
+            },
+            {
+                "id": "arabic-hobbies-interests",
+                "title": "Hobbies & Interests",
+                "description": "Talk about hobbies and personal interests",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Sports and activities", "Music and arts", "Reading preferences", "Leisure time"]
+            },
+            {
+                "id": "arabic-health-medical",
+                "title": "Health & Medical",
+                "description": "Learn health and medical vocabulary",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["Body parts", "Health conditions", "Medical appointments", "Pharmacy vocabulary"]
+            },
+            {
+                "id": "arabic-education-work",
+                "title": "Education & Work",
+                "description": "Navigate Arabic education and work vocabulary",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["School subjects", "University life", "Job applications", "Workplace vocabulary"]
+            },
+            {
+                "id": "arabic-technology-digital",
+                "title": "Technology & Digital Life",
+                "description": "Master technology and digital vocabulary",
+                "level": "A2",
+                "duration": "2 weeks",
+                "topics": ["Computer vocabulary", "Internet terms", "Social media", "Digital communication"]
+            },
+            {
+                "id": "arabic-culture-traditions",
+                "title": "Culture & Traditions",
+                "description": "Explore Arabic culture and traditions",
+                "level": "B1",
+                "duration": "3 weeks",
+                "topics": ["Cultural celebrations", "Traditional foods", "Historical events", "Regional customs"]
+            },
+            {
+                "id": "arabic-advanced-grammar",
+                "title": "Advanced Grammar",
+                "description": "Master advanced Arabic grammar concepts",
+                "level": "B2",
+                "duration": "5 weeks",
+                "topics": ["Complex sentence structures", "Advanced verb forms", "Literary language", "Formal writing"]
             }
         ]
     else:
@@ -1647,6 +2274,86 @@ async def get_lessons(language: str = "japanese"):
                 "level": "N5",
                 "duration": "2 weeks",
                 "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
+            },
+            {
+                "id": "japanese-kanji-basics",
+                "title": "Kanji Basics",
+                "description": "Learn fundamental Japanese kanji characters",
+                "level": "N5",
+                "duration": "6 weeks",
+                "topics": ["Basic radicals", "Stroke order", "Common kanji", "Reading strategies"]
+            },
+            {
+                "id": "japanese-particles-advanced",
+                "title": "Advanced Particles",
+                "description": "Master Japanese particles for natural speech",
+                "level": "N4",
+                "duration": "4 weeks",
+                "topics": ["は vs が", "を vs が", "に vs で", "から vs まで"]
+            },
+            {
+                "id": "japanese-verb-conjugation",
+                "title": "Verb Conjugation Mastery",
+                "description": "Learn Japanese verb conjugation patterns",
+                "level": "N4",
+                "duration": "5 weeks",
+                "topics": ["る-verbs", "う-verbs", "Irregular verbs", "Polite forms"]
+            },
+            {
+                "id": "japanese-shopping-daily",
+                "title": "Shopping & Daily Life",
+                "description": "Master shopping and daily life vocabulary",
+                "level": "N5",
+                "duration": "3 weeks",
+                "topics": ["Grocery shopping", "Clothing stores", "Prices and money", "Customer service"]
+            },
+            {
+                "id": "japanese-emotions-personality",
+                "title": "Emotions & Personality",
+                "description": "Express emotions and describe personality",
+                "level": "N4",
+                "duration": "2 weeks",
+                "topics": ["Basic emotions", "Personality traits", "Physical feelings", "Mental states"]
+            },
+            {
+                "id": "japanese-hobbies-interests",
+                "title": "Hobbies & Interests",
+                "description": "Talk about hobbies and personal interests",
+                "level": "N5",
+                "duration": "2 weeks",
+                "topics": ["Sports and activities", "Music and arts", "Reading preferences", "Leisure time"]
+            },
+            {
+                "id": "japanese-health-medical",
+                "title": "Health & Medical",
+                "description": "Learn health and medical vocabulary",
+                "level": "N4",
+                "duration": "3 weeks",
+                "topics": ["Body parts", "Health conditions", "Medical appointments", "Pharmacy vocabulary"]
+            },
+            {
+                "id": "japanese-education-work",
+                "title": "Education & Work",
+                "description": "Navigate Japanese education and work vocabulary",
+                "level": "N4",
+                "duration": "3 weeks",
+                "topics": ["School subjects", "University life", "Job applications", "Workplace vocabulary"]
+            },
+            {
+                "id": "japanese-technology-digital",
+                "title": "Technology & Digital Life",
+                "description": "Master technology and digital vocabulary",
+                "level": "N4",
+                "duration": "2 weeks",
+                "topics": ["Computer vocabulary", "Internet terms", "Social media", "Digital communication"]
+            },
+            {
+                "id": "japanese-culture-traditions",
+                "title": "Culture & Traditions",
+                "description": "Explore Japanese culture and traditions",
+                "level": "N3",
+                "duration": "3 weeks",
+                "topics": ["Cultural celebrations", "Traditional foods", "Historical events", "Regional customs"]
             }
         ]
     return lessons
