@@ -9,15 +9,17 @@ from pydantic import BaseModel, Field, ConfigDict
 from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
-from emergentintegrations.llm.chat import LlmChat, UserMessage
+# from emergentintegrations.llm.chat import LlmChat, UserMessage  # Temporarily disabled
+import openai
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
 # MongoDB connection
-mongo_url = os.environ['MONGO_URL']
+mongo_url = os.environ.get('MONGO_URL', 'mongodb://localhost:27017')
+db_name = os.environ.get('DB_NAME', 'vibe_language_learning')
 client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
+db = client[db_name]
 
 # Create the main app without a prefix
 app = FastAPI()
@@ -395,6 +397,32 @@ async def initialize_data(language: str = "japanese"):
             {"word": "Comer", "reading": "koh-MER", "meaning": "To eat", "level": "A1", "category": "Verbs", "example": "Yo como pan.", "language": "spanish"},
             {"word": "Beber", "reading": "bay-BER", "meaning": "To drink", "level": "A1", "category": "Verbs", "example": "Yo bebo agua.", "language": "spanish"},
             {"word": "Ser", "reading": "ser", "meaning": "To be (permanent)", "level": "A1", "category": "Verbs", "example": "Yo soy español.", "language": "spanish"},
+            # Advanced Spanish vocabulary for B1-B2 levels
+            {"word": "Embarazada", "reading": "em-bah-rah-SAH-dah", "meaning": "Pregnant (FALSE COGNATE!)", "level": "B1", "category": "False Cognates", "example": "Estoy embarazada (I'm pregnant) - NOT embarrassed!", "language": "spanish"},
+            {"word": "Avergonzada", "reading": "ah-ver-gon-SAH-dah", "meaning": "Embarrassed", "level": "B1", "category": "False Cognates", "example": "Estoy avergonzada (I'm embarrassed)", "language": "spanish"},
+            {"word": "Actual", "reading": "ahk-TWAHL", "meaning": "Current (FALSE COGNATE!)", "level": "B1", "category": "False Cognates", "example": "La situación actual (The current situation)", "language": "spanish"},
+            {"word": "Real", "reading": "ray-AHL", "meaning": "Actual/Real", "level": "B1", "category": "False Cognates", "example": "El problema real (The actual problem)", "language": "spanish"},
+            {"word": "Sopa", "reading": "SOH-pah", "meaning": "Soup (FALSE COGNATE!)", "level": "B1", "category": "False Cognates", "example": "Me gusta la sopa (I like soup) - NOT soap!", "language": "spanish"},
+            {"word": "Jabón", "reading": "hah-BOHN", "meaning": "Soap", "level": "B1", "category": "False Cognates", "example": "Necesito jabón (I need soap)", "language": "spanish"},
+            {"word": "Ropa", "reading": "ROH-pah", "meaning": "Clothes (FALSE COGNATE!)", "level": "B1", "category": "False Cognates", "example": "Mi ropa está sucia (My clothes are dirty) - NOT rope!", "language": "spanish"},
+            {"word": "Cuerda", "reading": "KWER-dah", "meaning": "Rope", "level": "B1", "category": "False Cognates", "example": "Necesito una cuerda (I need a rope)", "language": "spanish"},
+            # Subjunctive triggers
+            {"word": "Espero que", "reading": "es-PEH-roh kay", "meaning": "I hope that", "level": "B2", "category": "Subjunctive", "example": "Espero que tengas un buen día (I hope you have a good day)", "language": "spanish"},
+            {"word": "Es posible que", "reading": "es poh-SEE-bleh kay", "meaning": "It's possible that", "level": "B2", "category": "Subjunctive", "example": "Es posible que llueva (It's possible that it will rain)", "language": "spanish"},
+            {"word": "Para que", "reading": "PAH-rah kay", "meaning": "So that", "level": "B2", "category": "Subjunctive", "example": "Estudio para que pueda hablar español (I study so that I can speak Spanish)", "language": "spanish"},
+            {"word": "A menos que", "reading": "ah MEH-nos kay", "meaning": "Unless", "level": "B2", "category": "Subjunctive", "example": "No iré a menos que me invites (I won't go unless you invite me)", "language": "spanish"},
+            # Por vs Para examples
+            {"word": "Por favor", "reading": "por fah-VOR", "meaning": "Please (POR for politeness)", "level": "B1", "category": "Por vs Para", "example": "Por favor, ayúdame (Please, help me)", "language": "spanish"},
+            {"word": "Gracias por", "reading": "GRAH-see-ahs por", "meaning": "Thanks for (POR for cause)", "level": "B1", "category": "Por vs Para", "example": "Gracias por tu ayuda (Thanks for your help)", "language": "spanish"},
+            {"word": "Para mí", "reading": "PAH-rah mee", "meaning": "For me (PARA for recipient)", "level": "B1", "category": "Por vs Para", "example": "Este regalo es para mí (This gift is for me)", "language": "spanish"},
+            {"word": "Por mi", "reading": "por mee", "meaning": "For my sake (POR for cause)", "level": "B1", "category": "Por vs Para", "example": "Lo hice por mi familia (I did it for my family's sake)", "language": "spanish"},
+            # Regional differences
+            {"word": "Coche", "reading": "KOH-cheh", "meaning": "Car (Spain)", "level": "B1", "category": "Regional", "example": "Mi coche es rojo (My car is red) - Spain", "language": "spanish"},
+            {"word": "Auto", "reading": "OW-toh", "meaning": "Car (Latin America)", "level": "B1", "category": "Regional", "example": "Mi auto es rojo (My car is red) - Latin America", "language": "spanish"},
+            {"word": "Zumo", "reading": "THOO-moh", "meaning": "Juice (Spain)", "level": "B1", "category": "Regional", "example": "Quiero zumo de naranja (I want orange juice) - Spain", "language": "spanish"},
+            {"word": "Jugo", "reading": "HOO-goh", "meaning": "Juice (Latin America)", "level": "B1", "category": "Regional", "example": "Quiero jugo de naranja (I want orange juice) - Latin America", "language": "spanish"},
+            {"word": "Ordenador", "reading": "or-deh-nah-DOR", "meaning": "Computer (Spain)", "level": "B1", "category": "Regional", "example": "Necesito un ordenador (I need a computer) - Spain", "language": "spanish"},
+            {"word": "Computadora", "reading": "kom-poo-tah-DOH-rah", "meaning": "Computer (Latin America)", "level": "B1", "category": "Regional", "example": "Necesito una computadora (I need a computer) - Latin America", "language": "spanish"},
         ]
         
         # Spanish grammar lessons
@@ -444,6 +472,123 @@ async def initialize_data(language: str = "japanese"):
                     "Ellos/Ellas están (They are)"
                 ],
                 "order": 3
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "title": "Subjunctive Mood - The Ultimate Challenge",
+                "level": "B2",
+                "language": "spanish",
+                "explanation": "The subjunctive mood expresses doubt, emotion, influence, and uncertainty. It's the most challenging aspect of Spanish grammar, but essential for sounding natural. Remember: it's about uncertainty, not just memorizing conjugations!",
+                "examples": [
+                    "Espero que tengas un buen día (I hope you have a good day)",
+                    "Es posible que llueva (It's possible that it will rain)",
+                    "Estudio para que pueda hablar español (I study so that I can speak Spanish)",
+                    "No iré a menos que me invites (I won't go unless you invite me)",
+                    "Dudo que sea verdad (I doubt it's true)",
+                    "Me alegra que estés aquí (I'm glad you're here)"
+                ],
+                "commonMistakes": [
+                    "Using indicative after 'es posible que' (should be subjunctive)",
+                    "Forgetting subjunctive after 'para que' and 'a menos que'",
+                    "Mixing up 'ser' and 'estar' in subjunctive forms",
+                    "Using present subjunctive for past events (need imperfect subjunctive)"
+                ],
+                "personalAnecdote": "The subjunctive took me 8 months to truly understand! I used to avoid it completely, but my Spanish teacher told me 'You'll never sound natural without it.' The key is understanding that it's about uncertainty, emotion, and influence - not just memorizing conjugations.",
+                "order": 4
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "title": "Por vs Para - The Most Confusing Prepositions",
+                "level": "B1",
+                "language": "spanish",
+                "explanation": "POR = through/cause/duration/exchange. PARA = toward/purpose/deadline/recipient. The trick: POR = through/cause, PARA = toward/purpose. 'Voy por el parque' (I go through the park) vs 'Voy para el parque' (I go toward the park).",
+                "examples": [
+                    "POR: Gracias por tu ayuda (Thanks for your help - cause)",
+                    "POR: Trabajo por 8 horas (I work for 8 hours - duration)",
+                    "POR: Voy por el parque (I go through the park - through)",
+                    "PARA: Este regalo es para ti (This gift is for you - recipient)",
+                    "PARA: Estudio para aprender (I study to learn - purpose)",
+                    "PARA: Necesito esto para mañana (I need this for tomorrow - deadline)"
+                ],
+                "commonMistakes": [
+                    "Saying 'para mi' instead of 'por mi' (for my sake)",
+                    "Using 'para' with time expressions (should be 'por' for duration)",
+                    "Confusing 'por favor' with 'para favor' (never say this!)",
+                    "Using 'para' with 'gracias' (should be 'gracias por')"
+                ],
+                "personalAnecdote": "I used to say 'para mi' for everything until a Colombian friend laughed and said 'That sounds like you're always talking about yourself!' The trick: POR = through/cause, PARA = toward/purpose.",
+                "order": 5
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "title": "Preterite vs Imperfect - The 6-Month Challenge",
+                "level": "B1",
+                "language": "spanish",
+                "explanation": "Preterite = completed actions (photo). Imperfect = ongoing/descriptive actions (video). This took me 6 months to master! Think of it like this: preterite is a photo, imperfect is a video.",
+                "examples": [
+                    "PRETERITE: Ayer comí pizza (Yesterday I ate pizza - completed action)",
+                    "IMPERFECT: Cuando era niño, comía pizza (When I was a child, I used to eat pizza - ongoing state)",
+                    "PRETERITE: Fui al cine (I went to the cinema - completed action)",
+                    "IMPERFECT: Era estudiante (I was a student - ongoing state)",
+                    "PRETERITE: Llovió ayer (It rained yesterday - completed event)",
+                    "IMPERFECT: Llovía cuando salí (It was raining when I left - ongoing condition)"
+                ],
+                "commonMistakes": [
+                    "Using preterite for 'era' (was) in descriptions",
+                    "Mixing up 'fue' vs 'era' in past narratives",
+                    "Using imperfect for completed actions",
+                    "Forgetting that 'había' (there was) is imperfect"
+                ],
+                "personalAnecdote": "This took me 6 months to master! I kept saying 'Yo fui estudiante' (I was a student) instead of 'Yo era estudiante' (I used to be a student). My teacher finally said 'Think of it like this: preterite is a photo, imperfect is a video.' That changed everything!",
+                "order": 6
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "title": "False Cognates - The Deceptive Friends",
+                "level": "A2",
+                "language": "spanish",
+                "explanation": "False cognates are words that look similar to English but mean completely different things. They're the source of many embarrassing mistakes! Always double-check words that look too similar to English.",
+                "examples": [
+                    "Embarazada = Pregnant (NOT embarrassed!)",
+                    "Avergonzada = Embarrassed (NOT pregnant!)",
+                    "Actual = Current (NOT actual!)",
+                    "Real = Actual/Real (NOT current!)",
+                    "Sopa = Soup (NOT soap!)",
+                    "Jabón = Soap (NOT soup!)",
+                    "Ropa = Clothes (NOT rope!)",
+                    "Cuerda = Rope (NOT clothes!)"
+                ],
+                "commonMistakes": [
+                    "Saying 'embarazada' for embarrassed (should be 'avergonzada')",
+                    "Using 'actual' for actual (should be 'real' or 'verdadero')",
+                    "Saying 'sopa' for soap (should be 'jabón')",
+                    "Using 'ropa' for rope (should be 'cuerda')"
+                ],
+                "personalAnecdote": "I once told my host family 'Estoy embarazada' thinking it meant 'I'm embarrassed' - they looked shocked! Turns out it means 'I'm pregnant'! Now I always double-check words that look too similar to English.",
+                "order": 7
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "title": "Regional Differences - Spain vs Latin America",
+                "level": "B2",
+                "language": "spanish",
+                "explanation": "Spanish is spoken by 500+ million people across 20+ countries. Each region has unique expressions, vocabulary, and even grammar rules. Embrace the diversity - it's what makes Spanish so rich!",
+                "examples": [
+                    "SPAIN: Coche (car) vs LATIN AMERICA: Auto (car)",
+                    "SPAIN: Zumo (juice) vs LATIN AMERICA: Jugo (juice)",
+                    "SPAIN: Ordenador (computer) vs LATIN AMERICA: Computadora (computer)",
+                    "SPAIN: Vosotros (you all) vs LATIN AMERICA: Ustedes (you all)",
+                    "ARGENTINA/URUGUAY: Vos (you) vs REST: Tú (you)",
+                    "SPAIN: Coger (to take) vs LATIN AMERICA: Tomar/Agarrar (to take)"
+                ],
+                "commonMistakes": [
+                    "Using 'vosotros' in Latin America (they use 'ustedes')",
+                    "Saying 'coger' in Latin America (use 'tomar' or 'agarrar')",
+                    "Using 'ordenador' in Latin America (they say 'computadora')",
+                    "Mixing up 'tú' and 'vos' in Argentina/Uruguay"
+                ],
+                "personalAnecdote": "When I first visited Mexico, I asked for 'zumo' (juice) and got confused looks. They said 'jugo'! Then in Argentina, I said 'coche' (car) and they said 'auto'! Each country has its own beautiful way of speaking Spanish.",
+                "order": 8
             }
         ]
     elif language == "french":
@@ -735,9 +880,9 @@ async def practice_conversation(request: ConversationRequest):
                 "levels": "A1/A2 levels"
             },
             "spanish": {
-                "tutor": "Spanish language tutor",
+                "tutor": "Empathetic Spanish tutor who struggled with the same challenges",
                 "target_language": "Spanish", 
-                "levels": "A1/A2 levels"
+                "levels": "A1 to C2 levels"
             },
             "chinese": {
                 "tutor": "Chinese language tutor",
@@ -763,11 +908,15 @@ async def practice_conversation(request: ConversationRequest):
         
         config = language_configs.get(request.language, language_configs["japanese"])
         
-        chat = LlmChat(
-            api_key=os.environ['EMERGENT_LLM_KEY'],
-            session_id=request.session_id,
-            system_message=f"""You are a friendly {config['tutor']}. The student is at {request.level} level.
-            
+        # Initialize OpenAI client
+        client = openai.OpenAI(api_key=os.environ.get('OPENAI_API_KEY', os.environ.get('EMERGENT_LLM_KEY')))
+        
+        # Create conversation messages
+        messages = [
+            {
+                "role": "system",
+                "content": f"""You are a friendly {config['tutor']}. The student is at {request.level} level.
+                
 Your role:
 1. Respond in {config['target_language']} appropriate for their level
 2. Provide English translation in parentheses
@@ -775,18 +924,37 @@ Your role:
 4. Keep responses encouraging and educational
 5. Use simple grammar and vocabulary for {config['levels']}
 
+SPECIAL INSTRUCTIONS FOR SPANISH:
+- Focus on: Subjunctive mood, Por vs Para, Preterite vs Imperfect, False cognates, Regional differences
+- When correcting mistakes, explain like this: "That's technically correct but sounds textbook. Natives would say it THIS way instead..."
+- Share personal struggles: "I struggled with this exact same thing for months!"
+- Teach with empathy and real examples
+- Address common confusion points with patience
+- Explain regional differences (Spain vs Latin America)
+
 Format your response as:
 {config['target_language']} text
 (English translation)
 
 Then add feedback if needed."""
-        ).with_model("openai", "gpt-4o-mini")
+            },
+            {
+                "role": "user",
+                "content": request.message
+            }
+        ]
         
-        user_message = UserMessage(text=request.message)
-        response = await chat.send_message(user_message)
+        # Make API call
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=messages,
+            max_tokens=500
+        )
+        
+        response_text = response.choices[0].message.content
         
         # Parse response
-        lines = response.strip().split('\n')
+        lines = response_text.strip().split('\n')
         target_language_text = ""
         translation = ""
         feedback = ""
@@ -878,6 +1046,46 @@ async def get_lessons(language: str = "japanese"):
                 "level": "A1",
                 "duration": "2 weeks",
                 "topics": ["Korean numbers", "Sino-Korean numbers", "Telling Time", "Dates"]
+            },
+            {
+                "id": "family-relationships-korean",
+                "title": "Family & Relationships",
+                "description": "Learn family terms and relationship vocabulary",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Family members", "Age and hierarchy", "Relationship terms", "Polite forms"]
+            },
+            {
+                "id": "colors-shapes-korean",
+                "title": "Colors & Shapes",
+                "description": "Master color and shape vocabulary",
+                "level": "A1",
+                "duration": "1 week",
+                "topics": ["Basic colors", "Shape names", "Descriptive adjectives", "Visual expressions"]
+            },
+            {
+                "id": "weather-seasons-korean",
+                "title": "Weather & Seasons",
+                "description": "Learn weather vocabulary and seasonal expressions",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Weather conditions", "Four seasons", "Temperature expressions", "Weather activities"]
+            },
+            {
+                "id": "food-drinks-korean",
+                "title": "Food & Drinks",
+                "description": "Essential Korean food vocabulary",
+                "level": "A1",
+                "duration": "3 weeks",
+                "topics": ["Korean dishes", "Beverages", "Cooking verbs", "Dining etiquette"]
+            },
+            {
+                "id": "travel-directions-korean",
+                "title": "Travel & Directions",
+                "description": "Navigate Korea with confidence",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
             }
         ]
     elif language == "german":
@@ -913,6 +1121,46 @@ async def get_lessons(language: str = "japanese"):
                 "level": "A1",
                 "duration": "2 weeks",
                 "topics": ["Numbers 1-100", "Days & Months", "Telling Time", "Dates"]
+            },
+            {
+                "id": "family-relationships-german",
+                "title": "Family & Relationships",
+                "description": "Learn family terms and relationship vocabulary",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Family members", "Possessive pronouns", "Relationship terms", "Family descriptions"]
+            },
+            {
+                "id": "colors-shapes-german",
+                "title": "Colors & Shapes",
+                "description": "Master color and shape vocabulary",
+                "level": "A1",
+                "duration": "1 week",
+                "topics": ["Basic colors", "Shape names", "Adjective endings", "Visual descriptions"]
+            },
+            {
+                "id": "weather-seasons-german",
+                "title": "Weather & Seasons",
+                "description": "Learn weather vocabulary and seasonal expressions",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Weather conditions", "Four seasons", "Temperature", "Weather activities"]
+            },
+            {
+                "id": "food-drinks-german",
+                "title": "Food & Drinks",
+                "description": "Essential German food vocabulary",
+                "level": "A1",
+                "duration": "3 weeks",
+                "topics": ["German cuisine", "Beverages", "Cooking verbs", "Dining culture"]
+            },
+            {
+                "id": "travel-directions-german",
+                "title": "Travel & Directions",
+                "description": "Navigate German-speaking countries",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
             }
         ]
     elif language == "chinese":
@@ -948,6 +1196,46 @@ async def get_lessons(language: str = "japanese"):
                 "level": "HSK1",
                 "duration": "2 weeks",
                 "topics": ["Numbers 1-100", "Days & Months", "Telling Time", "Dates"]
+            },
+            {
+                "id": "family-relationships-chinese",
+                "title": "Family & Relationships",
+                "description": "Learn family terms and relationship vocabulary",
+                "level": "HSK1",
+                "duration": "2 weeks",
+                "topics": ["Family members", "Age expressions", "Relationship terms", "Polite forms"]
+            },
+            {
+                "id": "colors-shapes-chinese",
+                "title": "Colors & Shapes",
+                "description": "Master color and shape vocabulary",
+                "level": "HSK1",
+                "duration": "1 week",
+                "topics": ["Basic colors", "Shape names", "Descriptive characters", "Visual expressions"]
+            },
+            {
+                "id": "weather-seasons-chinese",
+                "title": "Weather & Seasons",
+                "description": "Learn weather vocabulary and seasonal expressions",
+                "level": "HSK1",
+                "duration": "2 weeks",
+                "topics": ["Weather conditions", "Four seasons", "Temperature expressions", "Weather activities"]
+            },
+            {
+                "id": "food-drinks-chinese",
+                "title": "Food & Drinks",
+                "description": "Essential Chinese food vocabulary",
+                "level": "HSK1",
+                "duration": "3 weeks",
+                "topics": ["Chinese cuisine", "Beverages", "Cooking verbs", "Dining etiquette"]
+            },
+            {
+                "id": "travel-directions-chinese",
+                "title": "Travel & Directions",
+                "description": "Navigate Chinese-speaking regions",
+                "level": "HSK1",
+                "duration": "2 weeks",
+                "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
             }
         ]
     elif language == "spanish":
@@ -969,6 +1257,86 @@ async def get_lessons(language: str = "japanese"):
                 "topics": ["Articles (el, la, los, las)", "Ser & Estar", "Gender agreement", "Basic conjugation"]
             },
             {
+                "id": "subjunctive-mastery",
+                "title": "Subjunctive Mood Mastery",
+                "description": "Master the subjunctive mood - the most challenging aspect of Spanish grammar",
+                "level": "B2",
+                "duration": "6 weeks",
+                "topics": ["Present subjunctive", "Imperfect subjunctive", "Subjunctive triggers", "Doubt vs certainty"],
+                "personalAnecdote": "The subjunctive took me 8 months to truly understand! I used to avoid it completely, but my Spanish teacher told me 'You'll never sound natural without it.' The key is understanding that it's about uncertainty, emotion, and influence - not just memorizing conjugations.",
+                "commonMistakes": [
+                    "Using indicative after 'es posible que' (should be subjunctive)",
+                    "Forgetting subjunctive after 'para que' and 'a menos que'",
+                    "Mixing up 'ser' and 'estar' in subjunctive forms",
+                    "Using present subjunctive for past events (need imperfect subjunctive)"
+                ],
+                "culturalContext": "The subjunctive is crucial for expressing politeness in Spanish. Saying 'Espero que tengas un buen día' (I hope you have a good day) with subjunctive sounds much more natural than the indicative form."
+            },
+            {
+                "id": "por-vs-para",
+                "title": "Por vs Para - The Ultimate Guide",
+                "description": "Master the most confusing prepositions in Spanish",
+                "level": "B1",
+                "duration": "4 weeks",
+                "topics": ["Por: cause, duration, exchange", "Para: purpose, destination, deadline", "Common expressions", "Regional variations"],
+                "personalAnecdote": "I used to say 'para mi' for everything until a Colombian friend laughed and said 'That sounds like you're always talking about yourself!' The trick: POR = through/cause, PARA = toward/purpose. 'Voy por el parque' (I go through the park) vs 'Voy para el parque' (I go toward the park).",
+                "commonMistakes": [
+                    "Saying 'para mi' instead of 'por mi' (for my sake)",
+                    "Using 'para' with time expressions (should be 'por' for duration)",
+                    "Confusing 'por favor' with 'para favor' (never say this!)",
+                    "Using 'para' with 'gracias' (should be 'gracias por')"
+                ],
+                "culturalContext": "In Spain, you might hear 'por favor' more often, while in Latin America, 'por favor' and 'por favorcito' are common. The choice between por and para can even indicate regional origin!"
+            },
+            {
+                "id": "preterite-imperfect",
+                "title": "Preterite vs Imperfect - The 6-Month Challenge",
+                "description": "Master the past tenses that confuse even advanced learners",
+                "level": "B1",
+                "duration": "8 weeks",
+                "topics": ["Preterite: completed actions", "Imperfect: ongoing/descriptive", "Trigger words", "Narrative techniques"],
+                "personalAnecdote": "This took me 6 months to master! I kept saying 'Yo fui estudiante' (I was a student) instead of 'Yo era estudiante' (I used to be a student). My teacher finally said 'Think of it like this: preterite is a photo, imperfect is a video.' That changed everything!",
+                "commonMistakes": [
+                    "Using preterite for 'era' (was) in descriptions",
+                    "Mixing up 'fue' vs 'era' in past narratives",
+                    "Using imperfect for completed actions",
+                    "Forgetting that 'había' (there was) is imperfect"
+                ],
+                "culturalContext": "The choice between preterite and imperfect can change the entire meaning of a story. In Latin America, you might hear more imperfect for ongoing states, while Spain tends to use preterite more frequently for completed actions."
+            },
+            {
+                "id": "false-cognates",
+                "title": "False Cognates - The Deceptive Friends",
+                "description": "Avoid embarrassing mistakes with words that look similar but mean different things",
+                "level": "A2",
+                "duration": "3 weeks",
+                "topics": ["Common false cognates", "Context clues", "Memory techniques", "Regional differences"],
+                "personalAnecdote": "I once told my host family 'Estoy embarazada' thinking it meant 'I'm embarrassed' - they looked shocked! Turns out it means 'I'm pregnant'! Now I always double-check words that look too similar to English.",
+                "commonMistakes": [
+                    "Saying 'embarazada' for embarrassed (should be 'avergonzada')",
+                    "Using 'actual' for actual (should be 'real' or 'verdadero')",
+                    "Saying 'sopa' for soap (should be 'jabón')",
+                    "Using 'ropa' for rope (should be 'cuerda')"
+                ],
+                "culturalContext": "False cognates vary by region. In Spain, 'coger' means 'to take,' but in Latin America, it's a vulgar term. Always be aware of regional differences!"
+            },
+            {
+                "id": "regional-differences",
+                "title": "Spain vs Latin America - Regional Mastery",
+                "description": "Navigate the beautiful diversity of Spanish across different countries",
+                "level": "B2",
+                "duration": "4 weeks",
+                "topics": ["Vocabulary differences", "Pronunciation variations", "Grammar differences", "Cultural expressions"],
+                "personalAnecdote": "When I first visited Mexico, I asked for 'zumo' (juice) and got confused looks. They said 'jugo'! Then in Argentina, I said 'coche' (car) and they said 'auto'! Each country has its own beautiful way of speaking Spanish.",
+                "commonMistakes": [
+                    "Using 'vosotros' in Latin America (they use 'ustedes')",
+                    "Saying 'coger' in Latin America (use 'tomar' or 'agarrar')",
+                    "Using 'ordenador' in Latin America (they say 'computadora')",
+                    "Mixing up 'tú' and 'vos' in Argentina/Uruguay"
+                ],
+                "culturalContext": "Spanish is spoken by 500+ million people across 20+ countries. Each region has unique expressions, vocabulary, and even grammar rules. Embrace the diversity - it's what makes Spanish so rich!"
+            },
+            {
                 "id": "daily-conversation-spanish",
                 "title": "Daily Conversation",
                 "description": "Practical Spanish phrases",
@@ -983,6 +1351,46 @@ async def get_lessons(language: str = "japanese"):
                 "level": "A1",
                 "duration": "2 weeks",
                 "topics": ["Numbers 1-100", "Days & Months", "Telling Time", "Dates"]
+            },
+            {
+                "id": "family-relationships-spanish",
+                "title": "Family & Relationships",
+                "description": "Learn family terms and relationship vocabulary",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Family members", "Possessive adjectives", "Relationship terms", "Family descriptions"]
+            },
+            {
+                "id": "colors-shapes-spanish",
+                "title": "Colors & Shapes",
+                "description": "Master color and shape vocabulary",
+                "level": "A1",
+                "duration": "1 week",
+                "topics": ["Basic colors", "Shape names", "Adjective agreement", "Visual descriptions"]
+            },
+            {
+                "id": "weather-seasons-spanish",
+                "title": "Weather & Seasons",
+                "description": "Learn weather vocabulary and seasonal expressions",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Weather conditions", "Four seasons", "Temperature", "Weather activities"]
+            },
+            {
+                "id": "food-drinks-spanish",
+                "title": "Food & Drinks",
+                "description": "Essential Spanish food vocabulary",
+                "level": "A1",
+                "duration": "3 weeks",
+                "topics": ["Spanish cuisine", "Beverages", "Cooking verbs", "Dining culture"]
+            },
+            {
+                "id": "travel-directions-spanish",
+                "title": "Travel & Directions",
+                "description": "Navigate Spanish-speaking countries",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
             }
         ]
     elif language == "french":
@@ -1018,6 +1426,46 @@ async def get_lessons(language: str = "japanese"):
                 "level": "A1",
                 "duration": "2 weeks",
                 "topics": ["Numbers 1-100", "Days & Months", "Telling Time", "Dates"]
+            },
+            {
+                "id": "family-relationships-french",
+                "title": "Family & Relationships",
+                "description": "Learn family terms and relationship vocabulary",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Family members", "Possessive adjectives", "Relationship terms", "Family descriptions"]
+            },
+            {
+                "id": "colors-shapes-french",
+                "title": "Colors & Shapes",
+                "description": "Master color and shape vocabulary",
+                "level": "A1",
+                "duration": "1 week",
+                "topics": ["Basic colors", "Shape names", "Adjective agreement", "Visual descriptions"]
+            },
+            {
+                "id": "weather-seasons-french",
+                "title": "Weather & Seasons",
+                "description": "Learn weather vocabulary and seasonal expressions",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Weather conditions", "Four seasons", "Temperature", "Weather activities"]
+            },
+            {
+                "id": "food-drinks-french",
+                "title": "Food & Drinks",
+                "description": "Essential French food vocabulary",
+                "level": "A1",
+                "duration": "3 weeks",
+                "topics": ["French cuisine", "Beverages", "Cooking verbs", "Dining culture"]
+            },
+            {
+                "id": "travel-directions-french",
+                "title": "Travel & Directions",
+                "description": "Navigate French-speaking countries",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
             }
         ]
     elif language == "russian":
@@ -1053,6 +1501,46 @@ async def get_lessons(language: str = "japanese"):
                 "level": "A1",
                 "duration": "2 weeks",
                 "topics": ["Numbers 1-100", "Days & Months", "Telling Time", "Dates"]
+            },
+            {
+                "id": "family-relationships-russian",
+                "title": "Family & Relationships",
+                "description": "Learn family terms and relationship vocabulary",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Family members", "Possessive pronouns", "Relationship terms", "Family descriptions"]
+            },
+            {
+                "id": "colors-shapes-russian",
+                "title": "Colors & Shapes",
+                "description": "Master color and shape vocabulary",
+                "level": "A1",
+                "duration": "1 week",
+                "topics": ["Basic colors", "Shape names", "Adjective endings", "Visual descriptions"]
+            },
+            {
+                "id": "weather-seasons-russian",
+                "title": "Weather & Seasons",
+                "description": "Learn weather vocabulary and seasonal expressions",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Weather conditions", "Four seasons", "Temperature", "Weather activities"]
+            },
+            {
+                "id": "food-drinks-russian",
+                "title": "Food & Drinks",
+                "description": "Essential Russian food vocabulary",
+                "level": "A1",
+                "duration": "3 weeks",
+                "topics": ["Russian cuisine", "Beverages", "Cooking verbs", "Dining culture"]
+            },
+            {
+                "id": "travel-directions-russian",
+                "title": "Travel & Directions",
+                "description": "Navigate Russian-speaking countries",
+                "level": "A1",
+                "duration": "2 weeks",
+                "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
             }
         ]
     else:
@@ -1063,7 +1551,14 @@ async def get_lessons(language: str = "japanese"):
                 "description": "Master the basic Japanese syllabary",
                 "level": "N5",
                 "duration": "2 weeks",
-                "topics": ["あ-row", "か-row", "さ-row", "た-row", "な-row"]
+                "topics": ["あ-row", "か-row", "さ-row", "た-row", "な-row"],
+                "personalAnecdote": "When I first started learning Japanese, I confused あ (a) with お (o) constantly! The key is remembering that あ looks like a person with their arms up saying 'ah!' while お has that little tail that makes it look more like 'oh!'",
+                "commonMistakes": [
+                    "Mixing up あ and お - remember the arm position!",
+                    "Writing う too wide - it should be more compact",
+                    "Forgetting the small stroke in い - it's not just two lines"
+                ],
+                "culturalContext": "The あ-row represents the most fundamental sounds in Japanese. In traditional Japanese education, children learn these characters first, often through songs and games. The character あ is sometimes called the 'mother of all hiragana' because it's the first one taught."
             },
             {
                 "id": "katakana",
@@ -1071,7 +1566,15 @@ async def get_lessons(language: str = "japanese"):
                 "description": "Learn katakana for foreign words",
                 "level": "N5",
                 "duration": "2 weeks",
-                "topics": ["ア-row", "カ-row", "サ-row", "タ-row", "ナ-row"]
+                "topics": ["ア-row", "カ-row", "サ-row", "タ-row", "ナ-row"],
+                "personalAnecdote": "Katakana was tricky because I kept trying to read it like English! My teacher told me to think of it as 'Japanese English' - the sounds are adapted to Japanese pronunciation. コーヒー (koohii) for 'coffee' was my first 'aha!' moment.",
+                "commonMistakes": [
+                    "Reading katakana like English letters",
+                    "Confusing シ (shi) and ツ (tsu) - remember the stroke direction!",
+                    "Forgetting that katakana is for foreign words only",
+                    "Making characters too wide or too narrow"
+                ],
+                "culturalContext": "Katakana reflects Japan's relationship with foreign cultures. It's used for loanwords, foreign names, and emphasis. In modern Japan, you'll see katakana everywhere - from brand names to onomatopoeia in manga."
             },
             {
                 "id": "basic-grammar",
@@ -1079,7 +1582,15 @@ async def get_lessons(language: str = "japanese"):
                 "description": "Essential grammar patterns",
                 "level": "N5",
                 "duration": "4 weeks",
-                "topics": ["です/だ", "Particles は・が・を", "Verb conjugation", "Adjectives"]
+                "topics": ["です/だ", "Particles は・が・を", "Verb conjugation", "Adjectives"],
+                "personalAnecdote": "Particles were my biggest challenge! I once said '私が田中です' instead of '私は田中です' to introduce myself, and my Japanese teacher laughed. She explained that は is for topics (like introducing yourself) while が is for new information (like answering 'who is Tanaka?').",
+                "commonMistakes": [
+                    "Using が instead of は for topic introduction",
+                    "Confusing を and が with transitive vs intransitive verbs",
+                    "Forgetting particles entirely (very common mistake!)",
+                    "Using は after question words (should use が)"
+                ],
+                "culturalContext": "Japanese grammar reflects the culture's emphasis on context and relationships. The topic-comment structure (は) is fundamental to Japanese communication - you establish what you're talking about first, then comment on it. This is very different from English subject-verb-object structure."
             },
             {
                 "id": "daily-conversation",
@@ -1087,7 +1598,55 @@ async def get_lessons(language: str = "japanese"):
                 "description": "Practical phrases for everyday life",
                 "level": "N5",
                 "duration": "3 weeks",
-                "topics": ["Greetings", "Shopping", "Restaurants", "Directions"]
+                "topics": ["Greetings", "Shopping", "Restaurants", "Directions"],
+                "personalAnecdote": "I used to say 'こんにちは' to everyone, even in the morning! My Japanese host family gently corrected me - they explained that timing matters in Japanese greetings. Now I always check the time before greeting someone.",
+                "commonMistakes": [
+                    "Using こんにちは in the morning (use おはようございます)",
+                    "Saying さようなら to close friends (too formal)",
+                    "Forgetting to bow while greeting (important in Japanese culture)",
+                    "Using casual greetings with teachers or bosses"
+                ],
+                "culturalContext": "Greetings in Japan are deeply tied to respect and social hierarchy. Bowing while greeting is essential - the deeper the bow, the more respect shown. Morning greetings are especially important in Japanese workplaces and schools."
+            },
+            {
+                "id": "family-relationships-japanese",
+                "title": "Family & Relationships",
+                "description": "Learn family terms and relationship vocabulary",
+                "level": "N5",
+                "duration": "2 weeks",
+                "topics": ["Family members", "Polite forms", "Relationship terms", "Family descriptions"]
+            },
+            {
+                "id": "colors-shapes-japanese",
+                "title": "Colors & Shapes",
+                "description": "Master color and shape vocabulary",
+                "level": "N5",
+                "duration": "1 week",
+                "topics": ["Basic colors", "Shape names", "い-adjectives", "Visual descriptions"]
+            },
+            {
+                "id": "weather-seasons-japanese",
+                "title": "Weather & Seasons",
+                "description": "Learn weather vocabulary and seasonal expressions",
+                "level": "N5",
+                "duration": "2 weeks",
+                "topics": ["Weather conditions", "Four seasons", "Temperature", "Weather activities"]
+            },
+            {
+                "id": "food-drinks-japanese",
+                "title": "Food & Drinks",
+                "description": "Essential Japanese food vocabulary",
+                "level": "N5",
+                "duration": "3 weeks",
+                "topics": ["Japanese cuisine", "Beverages", "Cooking verbs", "Dining etiquette"]
+            },
+            {
+                "id": "travel-directions-japanese",
+                "title": "Travel & Directions",
+                "description": "Navigate Japan with confidence",
+                "level": "N5",
+                "duration": "2 weeks",
+                "topics": ["Transportation", "Directions", "Places in the city", "Travel planning"]
             }
         ]
     return lessons

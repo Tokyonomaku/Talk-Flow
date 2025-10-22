@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Send, Bot, User, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 import { v4 as uuidv4 } from 'uuid';
+import { askAIWithContext } from '@/utils/aiChat';
 
 const Conversation = () => {
   const { API, refreshProgress, selectedLanguage, languages } = useContext(AppContext);
@@ -89,19 +90,42 @@ const Conversation = () => {
     setLoading(true);
     
     try {
-      const response = await axios.post(`${API}/conversation`, {
-        message: userMessage,
-        session_id: sessionId,
-        level: level,
-        language: selectedLanguage
-      });
+      // Use the new AI chat functionality
+      const aiResponse = await askAIWithContext(userMessage, selectedLanguage, level);
+      
+      // Parse the AI response to extract content, translation, and feedback
+      const lines = aiResponse.trim().split('\n');
+      let targetLanguageText = "";
+      let translation = "";
+      let feedback = "";
+      
+      let inTranslation = false;
+      let inFeedback = false;
+      
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        
+        if (line.startsWith('(') && line.endsWith(')')) {
+          translation = line.slice(1, -1);
+          inTranslation = true;
+        } else if (inTranslation && !inFeedback) {
+          if (line && !line.startsWith('(') && !line.endsWith(')')) {
+            feedback += line + "\n";
+            inFeedback = true;
+          }
+        } else if (!inTranslation && !inFeedback) {
+          targetLanguageText += line + "\n";
+        } else if (inFeedback) {
+          feedback += line + "\n";
+        }
+      }
       
       // Add assistant response
       setMessages(prev => [...prev, {
         role: 'assistant',
-        content: response.data.response,
-        translation: response.data.translation,
-        feedback: response.data.feedback
+        content: targetLanguageText.trim(),
+        translation: translation || null,
+        feedback: feedback.trim() || null
       }]);
       
       // Award XP
@@ -110,7 +134,7 @@ const Conversation = () => {
       
     } catch (error) {
       console.error('Conversation error:', error);
-      toast.error('Failed to get response. Please try again.');
+      toast.error('Failed to get AI response. Please try again.');
     } finally {
       setLoading(false);
     }

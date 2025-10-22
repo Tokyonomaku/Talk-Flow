@@ -36,7 +36,14 @@ const LessonDetail = () => {
             { char: 'う', romaji: 'u', example: 'うみ (umi) - sea' },
             { char: 'え', romaji: 'e', example: 'えき (eki) - station' },
             { char: 'お', romaji: 'o', example: 'おちゃ (ocha) - tea' }
-          ]
+          ],
+          personalAnecdote: "When I first started learning Japanese, I confused あ (a) with お (o) constantly! The key is remembering that あ looks like a person with their arms up saying 'ah!' while お has that little tail that makes it look more like 'oh!'",
+          commonMistakes: [
+            "Mixing up あ and お - remember the arm position!",
+            "Writing う too wide - it should be more compact",
+            "Forgetting the small stroke in い - it's not just two lines"
+          ],
+          culturalContext: "The あ-row represents the most fundamental sounds in Japanese. In traditional Japanese education, children learn these characters first, often through songs and games. The character あ is sometimes called the 'mother of all hiragana' because it's the first one taught."
         },
         {
           title: 'か-row (ka, ki, ku, ke, ko)',
@@ -47,7 +54,14 @@ const LessonDetail = () => {
             { char: 'く', romaji: 'ku', example: 'くち (kuchi) - mouth' },
             { char: 'け', romaji: 'ke', example: 'けさ (kesa) - this morning' },
             { char: 'こ', romaji: 'ko', example: 'ここ (koko) - here' }
-          ]
+          ],
+          personalAnecdote: "I used to struggle with き (ki) because I'd always forget the little hook at the bottom! My Japanese teacher told me to think of it as a tree with roots - the hook represents the roots going into the ground.",
+          commonMistakes: [
+            "Writing き without the bottom hook - it's not complete without it!",
+            "Making く too curved - it should be more angular",
+            "Confusing け and は - remember け has the horizontal line at the top"
+          ],
+          culturalContext: "The か-row introduces the 'k' sound family, which is very common in Japanese. Many basic words start with 'ka' sounds, like かお (face) and かばん (bag). In Japanese calligraphy, the stroke order of these characters is crucial for proper form."
         },
         {
           title: 'さ-row (sa, shi, su, se, so)',
@@ -159,7 +173,15 @@ const LessonDetail = () => {
             'これは本です。(This is a book.)',
             '今日は月曜日です。(Today is Monday.)',
             '彼は先生ですか？(Is he a teacher?)'
-          ]
+          ],
+          personalAnecdote: "When I first used です in conversation, I kept forgetting to add it at the end of sentences! My Japanese friend would gently remind me by saying 'です' after my sentences. It felt awkward at first, but now it's second nature.",
+          commonMistakes: [
+            "Forgetting です at the end of polite sentences",
+            "Using だ in formal situations (it's too casual)",
+            "Mixing up です and あります/います (different 'to be' verbs)",
+            "Adding です after adjectives (not needed with い-adjectives)"
+          ],
+          culturalContext: "The use of です reflects Japanese politeness culture. In Japan, politeness levels are crucial in communication. Using です shows respect and is expected in most social situations. The casual だ is only used with close friends or family members."
         },
         {
           title: 'Particles: は・が・を',
@@ -174,7 +196,15 @@ const LessonDetail = () => {
             '誰が来ましたか？(Who came?) - が',
             'りんごを食べます。(I eat an apple.) - を',
             '犬が好きです。(I like dogs.) - が'
-          ]
+          ],
+          personalAnecdote: "Particles were my biggest challenge! I once said '私が田中です' instead of '私は田中です' to introduce myself, and my Japanese teacher laughed. She explained that は is for topics (like introducing yourself) while が is for new information (like answering 'who is Tanaka?').",
+          commonMistakes: [
+            "Using が instead of は for topic introduction",
+            "Confusing を and が with transitive vs intransitive verbs",
+            "Forgetting particles entirely (very common mistake!)",
+            "Using は after question words (should use が)"
+          ],
+          culturalContext: "Particles reflect Japanese thinking patterns. The topic-comment structure (は) is fundamental to Japanese communication - you establish what you're talking about first, then comment on it. This is very different from English subject-verb-object structure."
         },
         {
           title: 'Verb Conjugation Basics',
@@ -221,7 +251,15 @@ const LessonDetail = () => {
             { japanese: 'こんばんは', romaji: 'Konbanwa', english: 'Good evening', context: 'Evening greeting' },
             { japanese: 'おやすみなさい', romaji: 'Oyasuminasai', english: 'Good night', context: 'Before sleeping' },
             { japanese: 'さようなら', romaji: 'Sayounara', english: 'Goodbye', context: 'Formal farewell' }
-          ]
+          ],
+          personalAnecdote: "I used to say 'こんにちは' to everyone, even in the morning! My Japanese host family gently corrected me - they explained that timing matters in Japanese greetings. Now I always check the time before greeting someone.",
+          commonMistakes: [
+            "Using こんにちは in the morning (use おはようございます)",
+            "Saying さようなら to close friends (too formal)",
+            "Forgetting to bow while greeting (important in Japanese culture)",
+            "Using casual greetings with teachers or bosses"
+          ],
+          culturalContext: "Greetings in Japan are deeply tied to respect and social hierarchy. Bowing while greeting is essential - the deeper the bow, the more respect shown. Morning greetings are especially important in Japanese workplaces and schools."
         },
         {
           title: 'Shopping',
@@ -433,6 +471,58 @@ const LessonDetail = () => {
                   </div>
                 ))}
               </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Personal Anecdote */}
+        {topic.personalAnecdote && (
+          <Card className="border-2 border-yellow-100 bg-gradient-to-br from-yellow-50 to-white">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <span>💡</span>
+                <span>Personal Learning Tip</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-800 italic">{topic.personalAnecdote}</p>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Common Mistakes */}
+        {topic.commonMistakes && (
+          <Card className="border-2 border-red-100 bg-gradient-to-br from-red-50 to-white">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <span>⚠️</span>
+                <span>Common Mistakes to Avoid</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-2">
+                {topic.commonMistakes.map((mistake, i) => (
+                  <li key={i} className="flex items-start space-x-2">
+                    <span className="text-red-500 mt-1">•</span>
+                    <span className="text-gray-800">{mistake}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Cultural Context */}
+        {topic.culturalContext && (
+          <Card className="border-2 border-indigo-100 bg-gradient-to-br from-indigo-50 to-white">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <span>🏮</span>
+                <span>Cultural Context</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-800">{topic.culturalContext}</p>
             </CardContent>
           </Card>
         )}
