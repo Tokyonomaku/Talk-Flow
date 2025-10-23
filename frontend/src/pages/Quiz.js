@@ -6,11 +6,12 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle2, XCircle, Trophy, RotateCw } from 'lucide-react';
 import { toast } from 'sonner';
+import { getCurrentLevel, getLevelSystem } from '@/utils/languageUtils';
 
 const Quiz = () => {
-  const { API, refreshProgress } = useContext(AppContext);
+  const { API, refreshProgress, selectedLanguage } = useContext(AppContext);
   const [quizState, setQuizState] = useState('setup'); // setup, active, results
-  const [level, setLevel] = useState('N5');
+  const [level, setLevel] = useState(getCurrentLevel(selectedLanguage));
   const [quizType, setQuizType] = useState('vocabulary');
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -104,7 +105,7 @@ const Quiz = () => {
                 Select Level
               </label>
               <div className="flex flex-wrap gap-2">
-                {['N5', 'N4', 'N3', 'N2', 'N1'].map((lvl) => (
+                {getLevelSystem(selectedLanguage).map((lvl) => (
                   <Button
                     key={lvl}
                     variant={level === lvl ? 'default' : 'outline'}

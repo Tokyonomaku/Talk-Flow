@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Volume2, RotateCcw, ChevronRight, ChevronLeft } from 'lucide-react';
 import { toast } from 'sonner';
 import PronunciationChecker from '@/components/PronunciationChecker';
+import { getCurrentLevel, getLevelSystem } from '@/utils/languageUtils';
 
 const Vocabulary = () => {
   const { API, refreshProgress, selectedLanguage } = useContext(AppContext);
@@ -14,7 +15,7 @@ const Vocabulary = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showMeaning, setShowMeaning] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [level, setLevel] = useState(selectedLanguage === 'russian' ? 'A1' : 'N5');
+  const [level, setLevel] = useState(getCurrentLevel(selectedLanguage));
   
   useEffect(() => {
     fetchVocabulary();
@@ -91,7 +92,7 @@ const Vocabulary = () => {
         
         {/* Level selector */}
         <div className="flex space-x-2">
-          {(selectedLanguage === 'russian' ? ['A1', 'A2', 'B1', 'B2', 'C1'] : ['N5', 'N4', 'N3', 'N2', 'N1']).map((lvl) => (
+          {getLevelSystem(selectedLanguage).map((lvl) => (
             <Button
               key={lvl}
               variant={level === lvl ? 'default' : 'outline'}

@@ -12,6 +12,7 @@ import TravelPhrases from "@/pages/TravelPhrases";
 import Quiz from "@/pages/Quiz";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import Activate from "@/pages/Activate";
 import { Toaster } from "@/components/ui/sonner";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -105,6 +106,7 @@ function AppContent() {
           <Route path="/conversation" element={<Conversation />} />
           <Route path="/travel-phrases" element={<TravelPhrases />} />
           <Route path="/quiz" element={<Quiz />} />
+          <Route path="/activate" element={<Activate />} />
         </Routes>
         <Footer />
         <Toaster />

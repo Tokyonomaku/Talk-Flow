@@ -5,12 +5,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { BookMarked } from 'lucide-react';
+import { getCurrentLevel, getLevelSystem } from '@/utils/languageUtils';
 
 const Grammar = () => {
   const { API, selectedLanguage } = useContext(AppContext);
   const [grammar, setGrammar] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [level, setLevel] = useState(selectedLanguage === 'russian' ? 'A1' : 'N5');
+  const [level, setLevel] = useState(getCurrentLevel(selectedLanguage));
   
   useEffect(() => {
     fetchGrammar();
@@ -50,7 +51,7 @@ const Grammar = () => {
         
         {/* Level selector */}
         <div className="flex space-x-2">
-          {(selectedLanguage === 'russian' ? ['A1', 'A2', 'B1', 'B2', 'C1'] : ['N5', 'N4', 'N3', 'N2', 'N1']).map((lvl) => (
+          {getLevelSystem(selectedLanguage).map((lvl) => (
             <button
               key={lvl}
               onClick={() => setLevel(lvl)}

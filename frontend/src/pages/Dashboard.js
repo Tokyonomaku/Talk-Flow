@@ -5,10 +5,16 @@ import { Award, Book, Flame, TrendingUp, Target, Zap } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
+import { getCurrentLevel, getLevelSystem, getLevelDescription } from '@/utils/languageUtils';
 
 const Dashboard = () => {
   const { progress, selectedLanguage, changeLanguage, languages } = useContext(AppContext);
   const navigate = useNavigate();
+  
+  // Get dynamic level system for current language
+  const currentLevel = getCurrentLevel(selectedLanguage);
+  const levelSystem = getLevelSystem(selectedLanguage);
+  const levelDescription = getLevelDescription(selectedLanguage, currentLevel);
   
   const stats = [
     { 
@@ -20,7 +26,7 @@ const Dashboard = () => {
     },
     { 
       label: 'Current Level', 
-      value: progress?.level || 'N5', 
+      value: progress?.level || currentLevel, 
       icon: Award, 
       color: 'from-indigo-400 to-indigo-600',
       bgColor: 'bg-indigo-50'
