@@ -97,7 +97,7 @@ const Vocabulary = () => {
               variant={level === lvl ? 'default' : 'outline'}
               onClick={() => setLevel(lvl)}
               data-testid={`level-${lvl.toLowerCase()}`}
-              className={level === lvl ? 'bg-blue-600 hover:bg-blue-700' : ''}
+              className={level === lvl ? 'bg-indigo-600 hover:bg-indigo-700' : ''}
             >
               {lvl}
             </Button>
@@ -113,7 +113,7 @@ const Vocabulary = () => {
         </div>
         <div className="w-full bg-gray-200 rounded-full h-2">
           <div 
-            className="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full transition-all duration-300"
+            className="bg-gradient-to-r from-indigo-500 to-green-500 h-2 rounded-full transition-all duration-300"
             style={{ width: `${((currentIndex + 1) / vocabulary.length) * 100}%` }}
           ></div>
         </div>
@@ -125,9 +125,9 @@ const Vocabulary = () => {
         onClick={handleFlip}
         data-testid="flashcard"
       >
-        <div className="h-2 bg-gradient-to-r from-blue-500 to-green-500"></div>
+        <div className="h-2 bg-gradient-to-r from-indigo-500 to-green-500"></div>
         <CardContent className="p-12 min-h-[400px] flex flex-col items-center justify-center">
-          <Badge variant="outline" className="mb-6 text-blue-600 border-blue-600">
+          <Badge variant="outline" className="mb-6 text-indigo-600 border-indigo-600">
             {currentWord.category}
           </Badge>
           
@@ -142,7 +142,7 @@ const Vocabulary = () => {
               <Button 
                 variant="ghost" 
                 size="sm"
-                className="text-blue-600 hover:text-blue-700"
+                className="text-indigo-600 hover:text-indigo-700"
                 data-testid="show-meaning-button"
               >
                 Tap to reveal meaning
@@ -207,7 +207,7 @@ const Vocabulary = () => {
           onClick={handleNext}
           disabled={currentIndex === vocabulary.length - 1}
           data-testid="next-button"
-          className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 font-medium"
+          className="bg-gradient-to-r from-indigo-600 to-green-600 hover:from-indigo-700 hover:to-green-700 font-medium"
         >
           Next
           <ChevronRight className="w-5 h-5 ml-2" />

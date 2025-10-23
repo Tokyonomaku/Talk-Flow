@@ -22,8 +22,8 @@ const Dashboard = () => {
       label: 'Current Level', 
       value: progress?.level || 'N5', 
       icon: Award, 
-      color: 'from-blue-400 to-blue-600',
-      bgColor: 'bg-blue-50'
+      color: 'from-indigo-400 to-indigo-600',
+      bgColor: 'bg-indigo-50'
     },
     { 
       label: 'Day Streak', 
@@ -47,7 +47,7 @@ const Dashboard = () => {
       description: 'Continue your structured learning path',
       action: () => navigate('/lessons'),
       icon: Book,
-      color: 'bg-gradient-to-br from-blue-500 to-blue-600',
+      color: 'bg-gradient-to-br from-indigo-500 to-indigo-600',
       testId: 'quick-action-lessons'
     },
     {
@@ -183,8 +183,70 @@ const Dashboard = () => {
         </div>
       </div>
       
+      {/* Premium Upgrade Section */}
+      <Card className="mb-8 border-0 shadow-lg bg-gradient-to-br from-purple-50 to-pink-50 fade-in" data-testid="premium-upgrade-card">
+        <CardContent className="p-8">
+          <div className="text-center mb-6">
+            <h3 className="text-3xl font-bold text-gray-900 mb-2">
+              🚀 Upgrade to TalkFlow Premium
+            </h3>
+            <p className="text-lg text-gray-600 mb-4">
+              Unlock unlimited AI conversations, advanced grammar lessons, and personalized learning paths
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="bg-white rounded-lg p-6 border border-purple-200">
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">✨ Premium Features</h4>
+              <ul className="space-y-2 text-gray-600">
+                <li>• Unlimited AI conversations</li>
+                <li>• Advanced grammar lessons</li>
+                <li>• Personalized learning paths</li>
+                <li>• Progress tracking & analytics</li>
+                <li>• Priority support</li>
+              </ul>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 border border-purple-200">
+              <h4 className="text-xl font-semibold text-gray-900 mb-3">💎 Choose Your Plan</h4>
+              <div className="space-y-4">
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-purple-600">$49/year</p>
+                  <p className="text-sm text-gray-500">Save 58% vs monthly</p>
+                </div>
+                <div className="text-center">
+                  <p className="text-lg font-semibold text-gray-600">$9.99/month</p>
+                  <p className="text-sm text-gray-500">Flexible monthly billing</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="https://yourname.gumroad.com/l/talkflow-annual" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
+              data-testid="upgrade-annual-button"
+            >
+              Upgrade to Premium - $49/year
+            </a>
+            <a 
+              href="https://yourname.gumroad.com/l/talkflow-monthly" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
+              data-testid="upgrade-monthly-button"
+            >
+              Upgrade to Premium - $9.99/month
+            </a>
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Daily Goal */}
-      <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-50 to-green-50 fade-in" data-testid="daily-goal-card">
+      <Card className="border-0 shadow-lg bg-gradient-to-br from-indigo-50 to-green-50 fade-in" data-testid="daily-goal-card">
         <CardContent className="p-8">
           <div className="flex items-center justify-between">
             <div>
@@ -196,7 +258,7 @@ const Dashboard = () => {
               </p>
               <Button 
                 size="lg"
-                className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white font-semibold"
+                className="bg-gradient-to-r from-indigo-600 to-green-600 hover:from-indigo-700 hover:to-green-700 text-white font-semibold"
                 onClick={() => navigate('/lessons')}
                 data-testid="start-learning-button"
               >

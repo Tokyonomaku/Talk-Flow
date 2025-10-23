@@ -1,4 +1,6 @@
 // AI Chat utility function for TalkFlow language learning app
+import { getLanguageName } from './languageUtils';
+
 export async function askAI(userMessage, language) {
   const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
   
@@ -50,9 +52,9 @@ export async function askAIWithContext(userMessage, language, level = 'A1') {
   
   // Language-specific tutor configurations
   const languageConfigs = {
-    spanish: {
+    es: {
       tutor: "Empathetic Spanish tutor who struggled with the same challenges",
-      target_language: "Spanish",
+      target_language: getLanguageName('es'),
       levels: "A1 to C2 levels",
       special_instructions: `- Focus on: Subjunctive mood, Por vs Para, Preterite vs Imperfect, False cognates, Regional differences
 - When correcting mistakes, explain like this: "That's technically correct but sounds textbook. Natives would say it THIS way instead..."
@@ -61,44 +63,44 @@ export async function askAIWithContext(userMessage, language, level = 'A1') {
 - Address common confusion points with patience
 - Explain regional differences (Spain vs Latin America)`
     },
-    japanese: {
+    ja: {
       tutor: "Japanese language tutor",
-      target_language: "Japanese",
+      target_language: getLanguageName('ja'),
       levels: "N5/N4 levels"
     },
-    french: {
+    fr: {
       tutor: "French language tutor",
-      target_language: "French",
+      target_language: getLanguageName('fr'),
       levels: "A1/A2 levels"
     },
-    german: {
+    de: {
       tutor: "German language tutor",
-      target_language: "German",
+      target_language: getLanguageName('de'),
       levels: "A1/A2 levels"
     },
-    chinese: {
+    zh: {
       tutor: "Chinese language tutor",
-      target_language: "Chinese",
+      target_language: getLanguageName('zh'),
       levels: "HSK1/HSK2 levels"
     },
-    russian: {
+    ru: {
       tutor: "Russian language tutor",
-      target_language: "Russian",
+      target_language: getLanguageName('ru'),
       levels: "A1/A2 levels"
     },
-    arabic: {
+    ar: {
       tutor: "Arabic language tutor",
-      target_language: "Arabic",
+      target_language: getLanguageName('ar'),
       levels: "A1/A2 levels"
     },
-    korean: {
+    ko: {
       tutor: "Korean language tutor",
-      target_language: "Korean",
+      target_language: getLanguageName('ko'),
       levels: "A1/A2 levels"
     }
   };
   
-  const config = languageConfigs[language] || languageConfigs.spanish;
+  const config = languageConfigs[language] || languageConfigs.es;
   
   try {
     const response = await fetch('https://api.openai.com/v1/chat/completions', {

@@ -110,7 +110,7 @@ const Quiz = () => {
                     variant={level === lvl ? 'default' : 'outline'}
                     onClick={() => setLevel(lvl)}
                     data-testid={`quiz-level-${lvl.toLowerCase()}`}
-                    className={level === lvl ? 'bg-blue-600 hover:bg-blue-700' : ''}
+                    className={level === lvl ? 'bg-indigo-600 hover:bg-indigo-700' : ''}
                   >
                     {lvl}
                   </Button>
@@ -150,7 +150,7 @@ const Quiz = () => {
               onClick={startQuiz}
               disabled={loading}
               data-testid="start-quiz-button"
-              className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 font-semibold"
+              className="w-full bg-gradient-to-r from-indigo-600 to-green-600 hover:from-indigo-700 hover:to-green-700 font-semibold"
             >
               {loading ? 'Loading...' : 'Start Quiz'}
             </Button>
@@ -171,11 +171,11 @@ const Quiz = () => {
         <div className="mb-6">
           <div className="flex justify-between text-sm text-gray-600 mb-2">
             <span>Question {currentQuestion + 1} of {questions.length}</span>
-            <Badge variant="outline" className="text-blue-600 border-blue-600">{level}</Badge>
+            <Badge variant="outline" className="text-indigo-600 border-indigo-600">{level}</Badge>
           </div>
           <div className="w-full bg-gray-200 rounded-full h-2">
             <div 
-              className="bg-gradient-to-r from-blue-500 to-green-500 h-2 rounded-full transition-all duration-300"
+              className="bg-gradient-to-r from-indigo-500 to-green-500 h-2 rounded-full transition-all duration-300"
               style={{ width: `${((currentQuestion + 1) / questions.length) * 100}%` }}
             ></div>
           </div>
@@ -198,7 +198,7 @@ const Quiz = () => {
                 let className = "w-full p-4 text-left rounded-lg border-2 transition-all font-medium ";
                 
                 if (!showResult) {
-                  className += "border-gray-200 hover:border-blue-400 hover:bg-blue-50";
+                  className += "border-gray-200 hover:border-indigo-400 hover:bg-indigo-50";
                 } else if (isCorrect) {
                   className += "border-green-500 bg-green-50 text-green-900";
                 } else if (isSelected && !isCorrect) {
@@ -226,7 +226,7 @@ const Quiz = () => {
             </div>
             
             {isAnswered && (
-              <div className="mt-6 p-4 bg-blue-50 rounded-lg fade-in" data-testid="quiz-explanation">
+              <div className="mt-6 p-4 bg-indigo-50 rounded-lg fade-in" data-testid="quiz-explanation">
                 <p className="text-sm font-semibold text-gray-900 mb-1">Explanation:</p>
                 <p className="text-sm text-gray-700">{question.explanation}</p>
               </div>
@@ -241,7 +241,7 @@ const Quiz = () => {
             onClick={handleNext}
             disabled={!isAnswered}
             data-testid="quiz-next-button"
-            className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 font-semibold"
+            className="bg-gradient-to-r from-indigo-600 to-green-600 hover:from-indigo-700 hover:to-green-700 font-semibold"
           >
             {currentQuestion < questions.length - 1 ? 'Next Question' : 'Finish Quiz'}
           </Button>
@@ -266,7 +266,7 @@ const Quiz = () => {
             </h2>
             
             <div className="mb-8">
-              <div className="text-6xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent mb-2">
+              <div className="text-6xl font-bold bg-gradient-to-r from-indigo-600 to-green-600 bg-clip-text text-transparent mb-2">
                 {percentage}%
               </div>
               <p className="text-xl text-gray-600">
@@ -289,7 +289,7 @@ const Quiz = () => {
                 size="lg"
                 onClick={() => window.location.href = '/'}
                 data-testid="quiz-dashboard-button"
-                className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 font-semibold"
+                className="bg-gradient-to-r from-indigo-600 to-green-600 hover:from-indigo-700 hover:to-green-700 font-semibold"
               >
                 Back to Dashboard
               </Button>

@@ -863,50 +863,52 @@ async def practice_conversation(request: ConversationRequest):
     """Practice conversation with AI tutor"""
     try:
         # Initialize LLM chat with language-specific tutor
+        from language_utils import get_language_name
+        
         language_configs = {
-            "japanese": {
+            "ja": {
                 "tutor": "Japanese language tutor",
-                "target_language": "Japanese",
+                "target_language": get_language_name("ja"),
                 "levels": "N5/N4 levels"
             },
-            "russian": {
+            "ru": {
                 "tutor": "Russian language tutor", 
-                "target_language": "Russian",
+                "target_language": get_language_name("ru"),
                 "levels": "A1/A2 levels"
             },
-            "french": {
+            "fr": {
                 "tutor": "French language tutor",
-                "target_language": "French", 
+                "target_language": get_language_name("fr"), 
                 "levels": "A1/A2 levels"
             },
-            "spanish": {
+            "es": {
                 "tutor": "Empathetic Spanish tutor who struggled with the same challenges",
-                "target_language": "Spanish", 
+                "target_language": get_language_name("es"), 
                 "levels": "A1 to C2 levels"
             },
-            "chinese": {
+            "zh": {
                 "tutor": "Chinese language tutor",
-                "target_language": "Chinese", 
+                "target_language": get_language_name("zh"), 
                 "levels": "HSK1/HSK2 levels"
             },
-            "german": {
+            "de": {
                 "tutor": "German language tutor",
-                "target_language": "German", 
+                "target_language": get_language_name("de"), 
                 "levels": "A1/A2 levels"
             },
-            "arabic": {
+            "ar": {
                 "tutor": "Arabic language tutor",
-                "target_language": "Arabic", 
+                "target_language": get_language_name("ar"), 
                 "levels": "A1/A2 levels"
             },
-            "korean": {
+            "ko": {
                 "tutor": "Korean language tutor",
-                "target_language": "Korean", 
+                "target_language": get_language_name("ko"), 
                 "levels": "A1/A2 levels"
             }
         }
         
-        config = language_configs.get(request.language, language_configs["japanese"])
+        config = language_configs.get(request.language, language_configs["ja"])
         
         # Initialize OpenAI client
         client = openai.OpenAI(api_key=os.environ.get('OPENAI_API_KEY', os.environ.get('EMERGENT_LLM_KEY')))

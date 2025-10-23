@@ -171,7 +171,7 @@ const Conversation = () => {
               size="sm"
               onClick={() => setLevel(lvl)}
               data-testid={`conversation-level-${lvl.toLowerCase()}`}
-              className={level === lvl ? 'bg-blue-600 hover:bg-blue-700' : ''}
+              className={level === lvl ? 'bg-indigo-600 hover:bg-indigo-700' : ''}
             >
               {lvl}
             </Button>
@@ -192,7 +192,7 @@ const Conversation = () => {
                 <div className={`flex items-start space-x-2 max-w-[80%] ${message.role === 'user' ? 'flex-row-reverse space-x-reverse' : ''}`}>
                   <div className={`flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${
                     message.role === 'user' 
-                      ? 'bg-gradient-to-br from-blue-500 to-blue-600' 
+                      ? 'bg-gradient-to-br from-indigo-500 to-indigo-600' 
                       : 'bg-gradient-to-br from-green-500 to-emerald-600'
                   }`}>
                     {message.role === 'user' ? (
@@ -205,7 +205,7 @@ const Conversation = () => {
                   <div className={`flex flex-col ${message.role === 'user' ? 'items-end' : 'items-start'}`}>
                     <div className={`px-4 py-3 rounded-2xl ${
                       message.role === 'user'
-                        ? 'bg-blue-600 text-white'
+                        ? 'bg-indigo-600 text-white'
                         : 'bg-white shadow-md'
                     }`}>
                       <p className={`text-base ${message.role === 'user' ? 'text-white' : 'text-gray-900'} font-medium`}>
@@ -260,7 +260,7 @@ const Conversation = () => {
               <Button
                 onClick={handleSend}
                 disabled={loading || !input.trim()}
-                className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700"
+                className="bg-gradient-to-r from-indigo-600 to-green-600 hover:from-indigo-700 hover:to-green-700"
                 size="lg"
                 data-testid="send-button"
               >
@@ -271,7 +271,7 @@ const Conversation = () => {
         </CardContent>
       </Card>
       
-      <Card className="border-0 shadow-md bg-blue-50">
+      <Card className="border-0 shadow-md bg-indigo-50">
         <CardContent className="p-4">
           <p className="text-sm text-gray-600">
             💡 <strong>Tip:</strong> Try greeting in {languages[selectedLanguage]?.name || 'Japanese'}, ask simple questions, or practice introducing yourself. Your AI tutor will respond at your level and provide helpful feedback!
