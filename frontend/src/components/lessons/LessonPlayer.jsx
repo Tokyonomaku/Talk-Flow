@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AppContext } from '@/App';
-import axios from 'axios';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -11,10 +10,29 @@ import { toast } from 'sonner';
 import DrawingCanvas from '@/components/DrawingCanvas';
 import StrokeOrderDiagram from '@/components/StrokeOrderDiagram';
 
+// Import lesson data
+import { lessons as japaneseLessons } from '@/data/lessons/japanese';
+import { lessons as spanishLessons } from '@/data/lessons/spanish';
+import { lessons as frenchLessons } from '@/data/lessons/french';
+import { lessons as germanLessons } from '@/data/lessons/german';
+import { lessons as chineseLessons } from '@/data/lessons/chinese';
+import { lessons as russianLessons } from '@/data/lessons/russian';
+import { lessons as arabicLessons } from '@/data/lessons/arabic';
+
+const lessonData = {
+  ja: japaneseLessons,
+  es: spanishLessons,
+  fr: frenchLessons,
+  de: germanLessons,
+  zh: chineseLessons,
+  ru: russianLessons,
+  ar: arabicLessons
+};
+
 const LessonDetail = () => {
   const { lessonId } = useParams();
   const navigate = useNavigate();
-  const { API, refreshProgress } = useContext(AppContext);
+  const { selectedLanguage, refreshProgress } = useContext(AppContext);
   const [lesson, setLesson] = useState(null);
   const [currentTopicIndex, setCurrentTopicIndex] = useState(0);
   const [completedTopics, setCompletedTopics] = useState([]);
@@ -299,16 +317,16 @@ const LessonDetail = () => {
   };
   
   useEffect(() => {
-    fetchLesson();
-  }, [lessonId]);
+    loadLesson();
+  }, [lessonId, selectedLanguage]);
   
-  const fetchLesson = async () => {
+  const loadLesson = () => {
     try {
-      const response = await axios.get(`${API}/lessons`);
-      const foundLesson = response.data.find(l => l.id === lessonId);
+      const languageLessons = lessonData[selectedLanguage] || [];
+      const foundLesson = languageLessons.find(l => l.id === parseInt(lessonId));
       setLesson(foundLesson);
     } catch (error) {
-      console.error('Failed to fetch lesson:', error);
+      console.error('Failed to load lesson:', error);
     } finally {
       setLoading(false);
     }
@@ -371,176 +389,103 @@ const LessonDetail = () => {
   };
   
   const renderContent = () => {
-    const content = lessonContent[lessonId];
-    if (!content) return null;
-    
-    const topic = content.topics[currentTopicIndex];
-    
-    // Show drawing canvas for character-based lessons
-    if (showDrawing && topic.characters) {
-      const currentChar = topic.characters[currentCharacterIndex];
-      return (
-        <div className="space-y-6">
-          <div className="text-center mb-4">
-            <Badge variant="outline" className="text-blue-600 border-blue-600 mb-3">
-              Character {currentCharacterIndex + 1} of {topic.characters.length}
-            </Badge>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
-              {currentChar.char} - {currentChar.romaji}
-            </h3>
-            <p className="text-gray-600">{currentChar.example}</p>
-          </div>
-          
-          {/* Stroke Order Guide */}
-          <StrokeOrderDiagram character={currentChar.char} />
-          
-          {/* Drawing Canvas */}
-          <DrawingCanvas 
-            character={currentChar.char} 
-            onComplete={handleDrawingComplete}
-          />
-          
-          <div className="text-center">
-            <Button
-              variant="outline"
-              onClick={() => setShowDrawing(false)}
-              data-testid="skip-drawing"
-            >
-              Skip Drawing Practice
-            </Button>
-          </div>
-        </div>
-      );
-    }
+    if (!lesson) return null;
     
     return (
       <div className="space-y-6">
         <div className="text-center mb-8">
           <Badge variant="outline" className="text-blue-600 border-blue-600 mb-3">
-            Topic {currentTopicIndex + 1} of {lesson.topics.length}
+            Lesson {lesson.id}
           </Badge>
-          <h2 className="text-3xl font-bold text-gray-900 mb-2">{topic.title}</h2>
-          <p className="text-gray-600">{topic.content}</p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2">{lesson.title}</h2>
+          <p className="text-gray-600">{lesson.description}</p>
         </div>
         
-        {/* Hiragana/Katakana Characters */}
-        {topic.characters && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {topic.characters.map((char, i) => (
-              <Card key={i} className="border-2 border-blue-100 bg-gradient-to-br from-blue-50 to-white">
-                <CardContent className="p-6 text-center">
-                  <div className="text-6xl font-bold text-gray-900 mb-3">{char.char}</div>
-                  <div className="text-xl text-blue-600 font-semibold mb-2">{char.romaji}</div>
-                  <div className="text-sm text-gray-600">{char.example}</div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        )}
+        {/* Vocabulary Section */}
+        <Card className="border-2 border-blue-100 bg-gradient-to-br from-blue-50 to-white">
+          <CardHeader>
+            <CardTitle>Vocabulary ({lesson.vocabulary.length} words)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {lesson.vocabulary.map((word, i) => (
+                <div key={i} className="p-4 bg-white rounded-lg border border-blue-200">
+                  <div className="text-lg font-bold text-gray-900 mb-1">{word.word}</div>
+                  <div className="text-blue-600 font-medium mb-1">{word.translation}</div>
+                  {word.romanization && (
+                    <div className="text-sm text-gray-500 italic">{word.romanization}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
         
-        {/* Grammar Points */}
-        {topic.points && (
-          <Card className="border-2 border-green-100 bg-gradient-to-br from-green-50 to-white">
-            <CardHeader>
-              <CardTitle>Key Points</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2">
-                {topic.points.map((point, i) => (
-                  <li key={i} className="flex items-start space-x-2">
-                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        )}
+        {/* Phrases Section */}
+        <Card className="border-2 border-green-100 bg-gradient-to-br from-green-50 to-white">
+          <CardHeader>
+            <CardTitle>Useful Phrases ({lesson.phrases.length} phrases)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-3">
+              {lesson.phrases.map((phrase, i) => (
+                <div key={i} className="p-4 bg-white rounded-lg border border-green-200">
+                  <div className="text-lg font-bold text-gray-900 mb-1">{phrase.english}</div>
+                  <div className="text-green-600 font-medium mb-1">{phrase.translation}</div>
+                  {phrase.romanization && (
+                    <div className="text-sm text-gray-500 italic">{phrase.romanization}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
         
-        {/* Examples */}
-        {topic.examples && (
-          <Card className="border-2 border-purple-100 bg-gradient-to-br from-purple-50 to-white">
-            <CardHeader>
-              <CardTitle>Examples</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-3">
-                {topic.examples.map((example, i) => (
-                  <div key={i} className="p-3 bg-white rounded-lg border border-purple-200">
-                    <p className="text-gray-800 font-medium">{example}</p>
+        {/* Grammar Section */}
+        <Card className="border-2 border-purple-100 bg-gradient-to-br from-purple-50 to-white">
+          <CardHeader>
+            <CardTitle>Grammar: {lesson.grammar.point}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-800 mb-4">{lesson.grammar.explanation}</p>
+            {lesson.grammar.examples && (
+              <div className="space-y-2">
+                <h4 className="font-semibold text-gray-900">Examples:</h4>
+                {lesson.grammar.examples.map((example, i) => (
+                  <div key={i} className="p-3 bg-white rounded border border-purple-200">
+                    <div className="font-medium text-gray-800">{example.sentence}</div>
+                    {example.romanization && (
+                      <div className="text-purple-600 text-sm">{example.romanization}</div>
+                    )}
+                    <div className="text-gray-600 text-sm italic">{example.english}</div>
                   </div>
                 ))}
               </div>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* Personal Anecdote */}
-        {topic.personalAnecdote && (
+            )}
+          </CardContent>
+        </Card>
+        
+        {/* Exercises Section */}
+        {lesson.exercises && lesson.exercises.length > 0 && (
           <Card className="border-2 border-yellow-100 bg-gradient-to-br from-yellow-50 to-white">
             <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <span>💡</span>
-                <span>Personal Learning Tip</span>
-              </CardTitle>
+              <CardTitle>Practice Exercise</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-800 italic">{topic.personalAnecdote}</p>
+              {lesson.exercises.map((exercise, i) => (
+                <div key={i} className="mb-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">{exercise.question}</h4>
+                  <div className="space-y-2">
+                    {exercise.options.map((option, j) => (
+                      <div key={j} className="p-2 bg-white rounded border border-yellow-200">
+                        {option}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </CardContent>
           </Card>
-        )}
-
-        {/* Common Mistakes */}
-        {topic.commonMistakes && (
-          <Card className="border-2 border-red-100 bg-gradient-to-br from-red-50 to-white">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <span>⚠️</span>
-                <span>Common Mistakes to Avoid</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2">
-                {topic.commonMistakes.map((mistake, i) => (
-                  <li key={i} className="flex items-start space-x-2">
-                    <span className="text-red-500 mt-1">•</span>
-                    <span className="text-gray-800">{mistake}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        )}
-
-        {/* Cultural Context */}
-        {topic.culturalContext && (
-          <Card className="border-2 border-indigo-100 bg-gradient-to-br from-indigo-50 to-white">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <span>🏮</span>
-                <span>Cultural Context</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-800">{topic.culturalContext}</p>
-            </CardContent>
-          </Card>
-        )}
-        
-        {/* Conversation Phrases */}
-        {topic.phrases && (
-          <div className="space-y-3">
-            {topic.phrases.map((phrase, i) => (
-              <Card key={i} className="border-2 border-blue-100">
-                <CardContent className="p-4">
-                  <div className="text-2xl font-bold text-gray-900 mb-1">{phrase.japanese}</div>
-                  <div className="text-blue-600 font-medium mb-1">{phrase.romaji}</div>
-                  <div className="text-gray-700 mb-1">{phrase.english}</div>
-                  <div className="text-sm text-gray-500 italic">{phrase.context}</div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
         )}
       </div>
     );
@@ -554,9 +499,8 @@ const LessonDetail = () => {
     );
   }
   
-  const progressPercentage = ((completedTopics.length + 1) / lesson.topics.length) * 100;
-  const isLastTopic = currentTopicIndex === lesson.topics.length - 1;
-  const isCompleted = completedTopics.includes(currentTopicIndex);
+  const progressPercentage = 100; // Single lesson, so always complete when viewed
+  const isCompleted = true; // Simplified for our lesson structure
   
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8" data-testid="lesson-detail-page">
@@ -595,75 +539,30 @@ const LessonDetail = () => {
       </Card>
       
       {/* Navigation */}
-      {!showDrawing && (
-        <div className="flex justify-between items-center">
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={() => setCurrentTopicIndex(Math.max(0, currentTopicIndex - 1))}
-            disabled={currentTopicIndex === 0}
-            data-testid="previous-topic"
-          >
-            Previous Topic
-          </Button>
-          
-          {!isCompleted ? (
-            <Button
-              size="lg"
-              onClick={handleTopicComplete}
-              data-testid="complete-topic"
-              className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700"
-            >
-              {isCharacterBasedLesson ? (
-                <>
-                  <Pen className="w-5 h-5 mr-2" />
-                  Practice Writing
-                </>
-              ) : isLastTopic ? (
-                <>
-                  <Trophy className="w-5 h-5 mr-2" />
-                  Complete Lesson
-                </>
-              ) : (
-                <>
-                  Complete & Continue
-                  <ChevronRight className="w-5 h-5 ml-2" />
-                </>
-              )}
-            </Button>
-          ) : (
-            <Button
-              size="lg"
-              onClick={() => {
-                if (isLastTopic) {
-                  navigate('/lessons');
-                } else {
-                  setCurrentTopicIndex(currentTopicIndex + 1);
-                }
-              }}
-              data-testid="next-topic"
-              className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700"
-            >
-              {isLastTopic ? 'Back to Lessons' : 'Next Topic'}
-              <ChevronRight className="w-5 h-5 ml-2" />
-            </Button>
-          )}
-        </div>
-      )}
+      <div className="flex justify-center items-center mt-8">
+        <Button
+          size="lg"
+          onClick={() => navigate('/lessons')}
+          data-testid="back-to-lessons"
+          className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700"
+        >
+          <ArrowLeft className="w-5 h-5 mr-2" />
+          Back to Lessons
+        </Button>
+      </div>
       
-      {completedTopics.length === lesson.topics.length && (
-        <Card className="mt-6 border-0 shadow-lg bg-gradient-to-br from-yellow-50 to-orange-50">
-          <CardContent className="p-6 text-center">
-            <Trophy className="w-16 h-16 text-yellow-500 mx-auto mb-3" />
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
-              Lesson Complete! 🎉
-            </h3>
-            <p className="text-gray-600">
-              Great job! You've completed all topics in this lesson.
-            </p>
-          </CardContent>
-        </Card>
-      )}
+      {/* Lesson Complete Message */}
+      <Card className="mt-6 border-0 shadow-lg bg-gradient-to-br from-yellow-50 to-orange-50">
+        <CardContent className="p-6 text-center">
+          <Trophy className="w-16 h-16 text-yellow-500 mx-auto mb-3" />
+          <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            Lesson Complete! 🎉
+          </h3>
+          <p className="text-gray-600">
+            Great job! You've completed this lesson. Keep practicing to improve your skills.
+          </p>
+        </CardContent>
+      </Card>
     </div>
   );
 };

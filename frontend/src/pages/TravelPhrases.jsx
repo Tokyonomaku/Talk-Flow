@@ -5,7 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Volume2, VolumeX, Plane, MapPin, Mic } from 'lucide-react';
 import { toast } from 'sonner';
-import { travelPhrasesData } from '@/data/travelPhrasesData';
+import { travelPhrasesData } from '@/data/lessons/travelPhrasesData';
 import PronunciationChecker from '@/components/PronunciationChecker';
 
 const TravelPhrases = () => {
