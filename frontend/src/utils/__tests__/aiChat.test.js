@@ -4,6 +4,16 @@ import { askAI, askAIWithContext } from '../aiChat';
 // Mock fetch for testing
 global.fetch = jest.fn();
 
+// Mock environment variable
+const originalEnv = process.env;
+beforeAll(() => {
+  process.env.REACT_APP_OPENAI_API_KEY = 'test-api-key';
+});
+
+afterAll(() => {
+  process.env = originalEnv;
+});
+
 describe('AI Chat Functions', () => {
   beforeEach(() => {
     fetch.mockClear();
