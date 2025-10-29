@@ -1,9 +1,10 @@
-from fastapi import FastAPI, APIRouter, HTTPException
+from fastapi import FastAPI, APIRouter, HTTPException, Request
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
+import time
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict
 from typing import List, Optional
@@ -2366,6 +2367,15 @@ async def get_lessons(language: str = "japanese"):
 # Include the router in the main app
 app.include_router(api_router)
 app.include_router(process_router)
+
+# Add request logging middleware
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = int((time.time() - start_time) * 1000)
+    print(f"{request.method} {request.url.path} {response.status_code} {process_time}ms")
+    return response
 
 app.add_middleware(
     CORSMiddleware,
