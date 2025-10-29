@@ -12,6 +12,9 @@ from datetime import datetime, timezone
 # from emergentintegrations.llm.chat import LlmChat, UserMessage  # Temporarily disabled
 import openai
 
+# Import process routes
+from backend.routes.process import router as process_router
+
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
@@ -2362,6 +2365,7 @@ async def get_lessons(language: str = "japanese"):
 
 # Include the router in the main app
 app.include_router(api_router)
+app.include_router(process_router)
 
 app.add_middleware(
     CORSMiddleware,
