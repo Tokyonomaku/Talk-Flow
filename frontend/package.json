@@ -59,7 +59,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "smoke": "playwright test frontend/tests/golden.spec.ts --reporter=line"
   },
   "browserslist": {
     "production": [
@@ -77,6 +78,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@craco/craco": "^7.1.0",
     "@eslint/js": "9.23.0",
+    "@playwright/test": "^1.56.1",
     "@vitejs/plugin-react": "^5.1.0",
     "autoprefixer": "^10.4.20",
     "eslint": "9.23.0",
