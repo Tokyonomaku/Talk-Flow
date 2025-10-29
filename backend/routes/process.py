@@ -12,13 +12,13 @@ class ProcessRequest(BaseModel):
 
 @router.post("/api/process")
 async def process_text(req: ProcessRequest):
-    # mock-first response, never hits external APIs
-    time.sleep(0.05)  # tiny realism
+    # Mock responses based on action
     if req.action == "summarize":
         return {"result": f"Summary: {req.text[:60]}..."}
-    if req.action == "rewrite":
+    elif req.action == "rewrite":
         return {"result": f"Rewrite (clearer): {req.text}"}
-    if req.action == "translate":
+    elif req.action == "translate":
         tag = req.targetLang or "xx"
         return {"result": f"[{tag}] {req.text}"}
-    return {"result": req.text}
+    else:
+        return {"result": req.text}
