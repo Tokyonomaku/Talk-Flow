@@ -14,6 +14,7 @@ import Navigation from "@/components/layout/Navbar.jsx";
 import Footer from "@/components/layout/Footer.js";
 import Activate from "@/pages/Activate.jsx";
 import { Toaster } from "@/components/ui/sonner";
+import { LoadingState } from "@/components/common/LoadingState";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
 const API = `${BACKEND_URL}/api`;
@@ -78,10 +79,7 @@ function AppContent() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-green-50">
-        <div className="text-center">
-          <div className="w-16 h-16 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading...</p>
-        </div>
+        <LoadingState message="Loading..." />
       </div>
     );
   }

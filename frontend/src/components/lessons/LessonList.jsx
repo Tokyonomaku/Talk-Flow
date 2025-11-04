@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { CheckCircle2, Clock, BookOpen, Play } from 'lucide-react';
+import { LoadingState } from '@/components/common/LoadingState';
 
 // Import lesson data and utility functions
 import { getLessonsForLanguage } from '@/data/lessons';
@@ -15,6 +16,7 @@ const Lessons = () => {
   const navigate = useNavigate();
   const [lessons, setLessons] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [loadingLessonId, setLoadingLessonId] = useState(null);
   const userIsPremium = isPremium();
   
   useEffect(() => {
@@ -33,7 +35,11 @@ const Lessons = () => {
   };
   
   const handleStartLesson = (lessonId) => {
-    navigate(`/lesson/${lessonId}`);
+    setLoadingLessonId(lessonId);
+    // Use setTimeout to ensure the loading state is rendered before navigation
+    setTimeout(() => {
+      navigate(`/lesson/${lessonId}`);
+    }, 0);
   };
   
   if (loading) {
@@ -46,6 +52,13 @@ const Lessons = () => {
   
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" data-testid="lessons-page">
+      {loadingLessonId && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-8 shadow-xl">
+            <LoadingState message="✨ Loading your lesson..." />
+          </div>
+        </div>
+      )}
       <div className="mb-8">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-2">
           Learning Path

@@ -9,6 +9,7 @@ import { ArrowLeft, CheckCircle2, ChevronRight, Trophy, Pen } from 'lucide-react
 import { toast } from 'sonner';
 import DrawingCanvas from '@/components/DrawingCanvas';
 import StrokeOrderDiagram from '@/components/StrokeOrderDiagram';
+import { LoadingState } from '@/components/common/LoadingState';
 
 // Import lesson data
 import { lessons as japaneseLessons } from '@/data/lessons/japanese';
@@ -493,8 +494,8 @@ const LessonDetail = () => {
   
   if (loading || !lesson) {
     return (
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="shimmer h-96 rounded-lg"></div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-green-50">
+        <LoadingState message="✨ Loading your lesson..." />
       </div>
     );
   }
