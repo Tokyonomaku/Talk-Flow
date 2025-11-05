@@ -38,6 +38,11 @@ const LessonDetail = () => {
   const [currentTopicIndex, setCurrentTopicIndex] = useState(0);
   const [completedTopics, setCompletedTopics] = useState([]);
   const [loading, setLoading] = useState(true);
+  
+  // Clear loading state from sessionStorage when component mounts
+  useEffect(() => {
+    sessionStorage.removeItem('loadingLesson');
+  }, []);
   const [showDrawing, setShowDrawing] = useState(false);
   const [currentCharacterIndex, setCurrentCharacterIndex] = useState(0);
   const [completedCharacters, setCompletedCharacters] = useState([]);

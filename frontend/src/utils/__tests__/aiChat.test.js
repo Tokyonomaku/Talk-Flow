@@ -4,14 +4,15 @@ import { askAI, askAIWithContext } from '../aiChat';
 // Mock fetch for testing
 global.fetch = jest.fn();
 
-// Mock environment variable
-const originalEnv = process.env;
+// Mock environment variables
+const originalEnv = import.meta.env;
 beforeAll(() => {
-  process.env.REACT_APP_OPENAI_API_KEY = 'test-api-key';
+  import.meta.env.VITE_ANTHROPIC_API_KEY = 'test-api-key';
+  import.meta.env.VITE_USE_REAL_LLM = '1';
 });
 
 afterAll(() => {
-  process.env = originalEnv;
+  import.meta.env = originalEnv;
 });
 
 describe('AI Chat Functions', () => {
@@ -21,7 +22,8 @@ describe('AI Chat Functions', () => {
 
   test('askAI function should make API call with correct parameters', async () => {
     const mockResponse = {
-      choices: [{ message: { content: 'Hola! ¿Cómo estás?' } }]
+      content: [{ text: 'Hola! ¿Cómo estás?' }],
+      model: 'claude-3-5-sonnet-20241022'
     };
     
     fetch.mockResolvedValueOnce({
@@ -32,12 +34,13 @@ describe('AI Chat Functions', () => {
     const result = await askAI('Hello, how are you?', 'Spanish');
     
     expect(fetch).toHaveBeenCalledWith(
-      'https://api.openai.com/v1/chat/completions',
+      'https://api.anthropic.com/v1/messages',
       expect.objectContaining({
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': expect.stringContaining('Bearer'),
+          'x-api-key': 'test-api-key',
+          'anthropic-version': '2023-06-01',
+          'content-type': 'application/json',
         },
         body: expect.stringContaining('Spanish tutor'),
       })
@@ -48,7 +51,8 @@ describe('AI Chat Functions', () => {
 
   test('askAIWithContext function should include language-specific configuration', async () => {
     const mockResponse = {
-      choices: [{ message: { content: '¡Hola! (Hello!)\n\nGreat job with your greeting!' } }]
+      content: [{ text: '¡Hola! (Hello!)\n\nGreat job with your greeting!' }],
+      model: 'claude-3-5-sonnet-20241022'
     };
     
     fetch.mockResolvedValueOnce({
@@ -59,7 +63,7 @@ describe('AI Chat Functions', () => {
     const result = await askAIWithContext('Hello', 'spanish', 'A1');
     
     expect(fetch).toHaveBeenCalledWith(
-      'https://api.openai.com/v1/chat/completions',
+      'https://api.anthropic.com/v1/messages',
       expect.objectContaining({
         body: expect.stringContaining('Empathetic Spanish tutor'),
       })

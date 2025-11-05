@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, BookOpen, MessageSquare, Brain, Award, List, Plane, Globe, Sparkles } from 'lucide-react';
+import { Home, BookOpen, MessageSquare, Brain, Award, List, Plane, Globe, Sparkles, Bot } from 'lucide-react';
 import { AppContext } from '@/App';
 import {
   DropdownMenu,
@@ -21,6 +21,7 @@ const Navigation = () => {
     { path: '/vocabulary', icon: BookOpen, label: 'Vocabulary' },
     { path: '/grammar', icon: Brain, label: 'Grammar' },
     { path: '/conversation', icon: MessageSquare, label: 'Practice' },
+    { path: '/ai-tutor', icon: Bot, label: 'AI Tutor' },
     { path: '/travel-phrases', icon: Plane, label: 'Travel' },
     { path: '/slang', icon: Sparkles, label: 'Slang 🔥' },
     { path: '/quiz', icon: Award, label: 'Quiz' },
@@ -35,7 +36,8 @@ const Navigation = () => {
     { code: 'zh', name: 'Chinese', flag: '🇨🇳' },
     { code: 'ru', name: 'Russian', flag: '🇷🇺' },
     { code: 'ar', name: 'Arabic', flag: '🇸🇦' },
-    { code: 'ko', name: 'Korean', flag: '🇰🇷' }
+    { code: 'ko', name: 'Korean', flag: '🇰🇷' },
+    { code: 'fi', name: 'Finnish', flag: '🇫🇮' }
   ];
   
   // Sync with context and localStorage
@@ -70,6 +72,7 @@ const Navigation = () => {
               {selectedLanguage === 'ru' && 'Русский '}
               {selectedLanguage === 'ar' && 'العربية '}
               {selectedLanguage === 'ko' && '한국어 '}
+              {selectedLanguage === 'fi' && 'Suomi '}
               TalkFlow
             </h1>
             

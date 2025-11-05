@@ -1,41 +1,27 @@
 // AI Chat utility function for TalkFlow language learning app
 import { getLanguageName } from './languageUtils';
+import { getClaudeResponse } from './claude';
+
+// Make API call using Claude
+async function makeAPICall(messages, maxTokens = 500, systemMessage = null) {
+  const systemPrompt = systemMessage || "You are a helpful language tutor";
+  const userMessage = messages.find(m => m.role === 'user')?.content || messages[0]?.content || '';
+  
+  return await getClaudeResponse(userMessage, systemPrompt);
+}
 
 export async function askAI(userMessage, language) {
-  const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
-  
-  if (!API_KEY) {
-    throw new Error('OpenAI API key not found. Please set REACT_APP_OPENAI_API_KEY in your environment variables.');
-  }
-  
   try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
-      },
-      body: JSON.stringify({
-        model: 'gpt-4o-mini',
-        messages: [
-          {
-            role: 'system',
-            content: `You are a ${language} tutor. Correct mistakes and explain clearly.`
-          },
-          {
-            role: 'user',
-            content: userMessage
-          }
-        ]
-      })
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data.choices[0].message.content;
+    const systemMessage = `You are a ${language} tutor. Correct mistakes and explain clearly.`;
+    const messages = [
+      {
+        role: 'user',
+        content: userMessage
+      }
+    ];
+    
+    const result = await makeAPICall(messages, 500, systemMessage);
+    return result.content; // Return just the content for backward compatibility
   } catch (error) {
     console.error('AI Chat error:', error);
     throw error;
@@ -44,12 +30,6 @@ export async function askAI(userMessage, language) {
 
 // Enhanced version with more context for language learning
 export async function askAIWithContext(userMessage, language, level = 'A1') {
-  const API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
-  
-  if (!API_KEY) {
-    throw new Error('OpenAI API key not found. Please set REACT_APP_OPENAI_API_KEY in your environment variables.');
-  }
-  
   // Language-specific tutor configurations
   const languageConfigs = {
     es: {
@@ -97,24 +77,18 @@ export async function askAIWithContext(userMessage, language, level = 'A1') {
       tutor: "Korean language tutor",
       target_language: getLanguageName('ko'),
       levels: "A1/A2 levels"
+    },
+    fi: {
+      tutor: "Finnish language tutor",
+      target_language: getLanguageName('fi'),
+      levels: "A1/A2 levels"
     }
   };
   
   const config = languageConfigs[language] || languageConfigs.es;
   
   try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
-      },
-      body: JSON.stringify({
-        model: 'gpt-4o-mini',
-        messages: [
-          {
-            role: 'system',
-            content: `You are a friendly ${config.tutor}. The student is at ${level} level.
+    const systemMessage = `You are a friendly ${config.tutor}. The student is at ${level} level.
             
 Your role:
 1. Respond in ${config.target_language} appropriate for their level
@@ -129,23 +103,17 @@ Format your response as:
 ${config.target_language} text
 (English translation)
 
-Then add feedback if needed.`
-          },
-          {
-            role: 'user',
-            content: userMessage
-          }
-        ],
-        max_tokens: 500
-      })
-    });
+Then add feedback if needed.`;
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const data = await response.json();
-    return data.choices[0].message.content;
+    const messages = [
+      {
+        role: 'user',
+        content: userMessage
+      }
+    ];
+    
+    const result = await makeAPICall(messages, 500, systemMessage);
+    return result.content; // Return just the content for backward compatibility
   } catch (error) {
     console.error('AI Chat error:', error);
     throw error;

@@ -16,11 +16,20 @@ const Lessons = () => {
   const navigate = useNavigate();
   const [lessons, setLessons] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [loadingLessonId, setLoadingLessonId] = useState(null);
+  const [loadingLessonId, setLoadingLessonId] = useState(() => {
+    // Check if there's a loading lesson in sessionStorage
+    return sessionStorage.getItem('loadingLesson');
+  });
   const userIsPremium = isPremium();
   
   useEffect(() => {
     loadLessons();
+    // Clear loading state if we're on the lessons page and it was set
+    const stored = sessionStorage.getItem('loadingLesson');
+    if (stored) {
+      sessionStorage.removeItem('loadingLesson');
+      setLoadingLessonId(null);
+    }
   }, [selectedLanguage]);
   
   const loadLessons = () => {
@@ -35,11 +44,17 @@ const Lessons = () => {
   };
   
   const handleStartLesson = (lessonId) => {
+    // Set loading state immediately
     setLoadingLessonId(lessonId);
-    // Use setTimeout to ensure the loading state is rendered before navigation
-    setTimeout(() => {
-      navigate(`/lesson/${lessonId}`);
-    }, 0);
+    // Store in sessionStorage so it persists across navigation
+    sessionStorage.setItem('loadingLesson', lessonId);
+    // Force a re-render to show the overlay
+    requestAnimationFrame(() => {
+      // Navigate after the overlay is visible
+      setTimeout(() => {
+        navigate(`/lesson/${lessonId}`);
+      }, 150);
+    });
   };
   
   if (loading) {

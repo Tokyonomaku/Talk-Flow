@@ -11,13 +11,16 @@ import Conversation from "@/pages/Conversation.jsx";
 import TravelPhrases from "@/pages/TravelPhrases.jsx";
 import Quiz from "@/pages/Quiz.jsx";
 import SlangDictionary from "@/pages/SlangDictionary.jsx";
+import LanguageTool from "@/pages/LanguageTool.jsx";
+import AITutorPage from "@/pages/AITutorPage.jsx";
 import Navigation from "@/components/layout/Navbar.jsx";
-import Footer from "@/components/layout/Footer.js";
+import Footer from "@/components/layout/Footer.jsx";
 import Activate from "@/pages/Activate.jsx";
 import { Toaster } from "@/components/ui/sonner";
 import { LoadingState } from "@/components/common/LoadingState";
+import { LoadingOverlay } from "@/components/common/LoadingOverlay";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
+const BACKEND_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 const API = `${BACKEND_URL}/api`;
 
 export const AppContext = React.createContext();
@@ -30,7 +33,8 @@ const LANGUAGES = {
   zh: { name: 'Chinese', flag: '🇨🇳', nativeName: '中文' },
   ru: { name: 'Russian', flag: '🇷🇺', nativeName: 'Русский' },
   ar: { name: 'Arabic', flag: '🇸🇦', nativeName: 'العربية' },
-  ko: { name: 'Korean', flag: '🇰🇷', nativeName: '한국어' }
+  ko: { name: 'Korean', flag: '🇰🇷', nativeName: '한국어' },
+  fi: { name: 'Finnish', flag: '🇫🇮', nativeName: 'Suomi' }
 };
 
 function AppContent() {
@@ -95,6 +99,7 @@ function AppContent() {
       languages: LANGUAGES 
     }}>
       <div className="App min-h-screen bg-gradient-to-br from-indigo-50 via-white to-green-50">
+        <LoadingOverlay />
         <Navigation />
         <Routes>
           <Route path="/" element={<Dashboard />} />
@@ -106,6 +111,8 @@ function AppContent() {
           <Route path="/travel-phrases" element={<TravelPhrases />} />
           <Route path="/slang" element={<SlangDictionary />} />
           <Route path="/quiz" element={<Quiz />} />
+          <Route path="/languagetool" element={<LanguageTool />} />
+          <Route path="/ai-tutor" element={<AITutorPage />} />
           <Route path="/activate" element={<Activate />} />
         </Routes>
         <Footer />
