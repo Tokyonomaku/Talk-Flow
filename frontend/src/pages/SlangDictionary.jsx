@@ -1,34 +1,22 @@
 import React, { useState, useContext } from 'react';
 import { AppContext } from '@/App';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Input } from '@/components/ui/input';
-import { BookOpen, Lock, Search } from 'lucide-react';
-import { isPremium } from '@/utils/premiumCheck';
-import LockedFeature from '@/components/premium/LockedFeature';
-import { getSlangForLanguage, getSlangRegions, getAllSlangLanguages, getPhrasesByRegion } from '@/data/slang';
-import { useNavigate } from 'react-router-dom';
+import { PremiumFeature } from '@/components/premium/PremiumFeature';
+import { getSlangForLanguage, getSlangRegions, getPhrasesByRegion } from '@/data/slang';
 
 const SlangDictionary = () => {
   const { selectedLanguage } = useContext(AppContext);
-  const navigate = useNavigate();
-  const [selectedLang, setSelectedLang] = useState(selectedLanguage === 'es' ? 'es' : 'ja');
   const [selectedRegion, setSelectedRegion] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
-  const userIsPremium = isPremium();
   
-  const slangData = getSlangForLanguage(selectedLang);
-  const regions = getSlangRegions(selectedLang);
-  const allLanguages = getAllSlangLanguages();
+  const slangData = getSlangForLanguage('es'); // Focus on Spanish for now
+  const regions = getSlangRegions('es');
   
-  // Get phrases based on language structure
+  // Get phrases based on region filter
   const getPhrases = () => {
     if (!slangData) return [];
     
-    if (slangData.hasRegions && selectedRegion && selectedRegion !== 'all') {
-      return getPhrasesByRegion(selectedLang, selectedRegion);
+    if (selectedRegion && selectedRegion !== 'all') {
+      return getPhrasesByRegion('es', selectedRegion);
     }
     
     return slangData.phrases || [];
@@ -37,187 +25,100 @@ const SlangDictionary = () => {
   const phrases = getPhrases();
   
   // Filter phrases by search term
-  const filteredPhrases = phrases.filter(phrase => {
+  const filteredSlang = phrases.filter(entry => {
     if (!searchTerm) return true;
     const term = searchTerm.toLowerCase();
     return (
-      phrase.slang.toLowerCase().includes(term) ||
-      phrase.meaning.toLowerCase().includes(term) ||
-      phrase.literal.toLowerCase().includes(term) ||
-      phrase.example.toLowerCase().includes(term) ||
-      (phrase.exampleTranslation && phrase.exampleTranslation.toLowerCase().includes(term))
+      entry.slang.toLowerCase().includes(term) ||
+      entry.meaning.toLowerCase().includes(term) ||
+      entry.literal.toLowerCase().includes(term) ||
+      entry.example.toLowerCase().includes(term) ||
+      (entry.exampleTranslation && entry.exampleTranslation.toLowerCase().includes(term))
     );
   });
   
-  const handleUpgrade = () => {
-    navigate('/pricing');
-  };
-  
-  if (!userIsPremium) {
-    return (
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-2">
-            Slang Dictionary 🔥
-          </h1>
-          <p className="text-lg text-gray-600 mb-4">
-            Learn real conversational slang - what people ACTUALLY say
-          </p>
-        </div>
-        
-        <LockedFeature onUpgrade={handleUpgrade}>
-          <Card className="border-0 shadow-lg">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Lock className="w-5 h-5" />
-                Premium Feature
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 mb-4">
-                Unlock the Slang Dictionary to learn real conversational phrases that people actually use!
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <div className="p-4 bg-gray-50 rounded-lg">
-                  <h3 className="font-semibold mb-2">Spanish Regional Slang</h3>
-                  <p className="text-sm text-gray-600">Mexico, Spain, Argentina, Colombia</p>
-                </div>
-                <div className="p-4 bg-gray-50 rounded-lg">
-                  <h3 className="font-semibold mb-2">Japanese Slang</h3>
-                  <p className="text-sm text-gray-600">Modern conversational phrases</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </LockedFeature>
-      </div>
-    );
-  }
-  
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div className="mb-8">
+    <PremiumFeature featureName="Slang Dictionary">
+      <div className="slang-dictionary max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-2">
-          Slang Dictionary 🔥
+          🗣️ Spanish Slang Dictionary
         </h1>
-        <p className="text-lg text-gray-600">
-          Learn real conversational slang - what people ACTUALLY say, not textbook phrases
+        <p className="text-lg text-gray-600 mb-8">
+          Learn what people ACTUALLY say on the streets
         </p>
-      </div>
-      
-      {/* Language and Region Selectors */}
-      <div className="mb-6 space-y-4">
-        <div className="flex flex-wrap gap-4">
-          <div className="flex-1 min-w-[200px]">
-            <label className="block text-sm font-semibold text-gray-900 mb-2">
-              Language
-            </label>
-            <Select value={selectedLang} onValueChange={setSelectedLang}>
-              <SelectTrigger>
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                {allLanguages.map(lang => (
-                  <SelectItem key={lang.code} value={lang.code}>
-                    {lang.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          
-          {regions.length > 0 && (
-            <div className="flex-1 min-w-[200px]">
-              <label className="block text-sm font-semibold text-gray-900 mb-2">
-                Region
-              </label>
-              <Select value={selectedRegion} onValueChange={setSelectedRegion}>
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Regions</SelectItem>
-                  {regions.map(region => (
-                    <SelectItem key={region.code} value={region.name}>
-                      {region.name} ({region.phraseCount} phrases)
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          )}
-        </div>
         
-        {/* Search */}
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-          <Input
-            type="text"
-            placeholder="Search phrases, translations, or meanings..."
+        {/* Filters */}
+        <div className="filters mb-6 flex flex-wrap gap-4">
+          <select 
+            value={selectedRegion}
+            onChange={(e) => setSelectedRegion(e.target.value)}
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          >
+            <option value="all">All Regions</option>
+            {regions.map(region => (
+              <option key={region.code} value={region.name}>
+                {region.name} ({region.phraseCount})
+              </option>
+            ))}
+          </select>
+          
+          <input 
+            type="search"
+            placeholder="Search slang..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="pl-10"
+            className="flex-1 min-w-[200px] px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>
-      </div>
-      
-      {/* Phrases Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredPhrases.map((phrase) => (
-          <Card key={phrase.id} className="border-0 shadow-md hover:shadow-lg transition-shadow">
-            <CardHeader>
-              <div className="flex items-start justify-between mb-2">
-                <CardTitle className="text-xl">
-                  {phrase.slang}
-                </CardTitle>
-                <Badge variant="secondary" className="text-xs">
-                  {phrase.formality}
-                </Badge>
+        
+        {/* Slang Cards */}
+        <div className="slang-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {filteredSlang.map(entry => (
+            <div key={entry.id} className="slang-card bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
+              <div className="slang-header flex items-start justify-between mb-3">
+                <h3 className="text-xl font-bold text-gray-900">{entry.slang}</h3>
+                <span className="region-badge bg-indigo-100 text-indigo-800 text-xs font-semibold px-2 py-1 rounded-full">
+                  {entry.region.split(',')[0]}
+                </span>
               </div>
-              <p className="text-lg font-semibold text-indigo-600 mb-1">
-                {phrase.meaning}
-              </p>
-              {phrase.literal && (
-                <p className="text-sm text-gray-500 italic">
-                  Literal: "{phrase.literal}"
-                </p>
-              )}
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-gray-700 mb-2">
-                <strong>Usage:</strong> {phrase.usage}
-              </p>
-              <p className="text-xs text-gray-500 mb-3">
-                <strong>Region:</strong> {phrase.region}
-              </p>
-              {phrase.example && (
-                <div className="mt-3 pt-3 border-t">
-                  <p className="text-sm italic text-gray-600 mb-1">
-                    "{phrase.example}"
-                  </p>
-                  {phrase.exampleTranslation && (
-                    <p className="text-xs text-gray-500">
-                      "{phrase.exampleTranslation}"
-                    </p>
+              
+              <div className="slang-meaning mb-2">
+                <strong className="text-gray-700">Meaning:</strong> <span className="text-indigo-600 font-semibold">{entry.meaning}</span>
+              </div>
+              
+              <div className="slang-literal mb-3 text-sm text-gray-500 italic">
+                <em>Literally:</em> "{entry.literal}"
+              </div>
+              
+              {entry.example && (
+                <div className="slang-example mb-3 pt-3 border-t border-gray-200">
+                  <p className="example-foreign text-sm italic text-gray-700 mb-1">"{entry.example}"</p>
+                  {entry.exampleTranslation && (
+                    <p className="example-english text-xs text-gray-500">"{entry.exampleTranslation}"</p>
                   )}
                 </div>
               )}
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-      
-      {filteredPhrases.length === 0 && (
-        <div className="text-center py-12">
-          <BookOpen className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-          <p className="text-gray-600">
-            {searchTerm ? 'No phrases found matching your search.' : 'No phrases available.'}
-          </p>
+              
+              <div className="slang-usage flex items-center gap-2 flex-wrap">
+                <span className="formality-badge bg-gray-100 text-gray-700 text-xs font-semibold px-2 py-1 rounded">
+                  {entry.formality}
+                </span>
+                <span className="text-xs text-gray-600">{entry.usage}</span>
+              </div>
+            </div>
+          ))}
         </div>
-      )}
-    </div>
+        
+        {filteredSlang.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-gray-600">
+              {searchTerm ? 'No slang found matching your search.' : 'No slang available.'}
+            </p>
+          </div>
+        )}
+      </div>
+    </PremiumFeature>
   );
 };
 
 export default SlangDictionary;
-
