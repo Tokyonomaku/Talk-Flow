@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, BookOpen, MessageSquare, Brain, Award, List, Plane, Globe } from 'lucide-react';
+import { Home, BookOpen, MessageSquare, Brain, Award, List, Plane, Globe, Sparkles } from 'lucide-react';
 import { AppContext } from '@/App';
 import {
   DropdownMenu,
@@ -22,6 +22,7 @@ const Navigation = () => {
     { path: '/grammar', icon: Brain, label: 'Grammar' },
     { path: '/conversation', icon: MessageSquare, label: 'Practice' },
     { path: '/travel-phrases', icon: Plane, label: 'Travel' },
+    { path: '/slang', icon: Sparkles, label: 'Slang 🔥' },
     { path: '/quiz', icon: Award, label: 'Quiz' },
   ];
   

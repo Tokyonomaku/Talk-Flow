@@ -10,6 +10,7 @@ import Grammar from "@/pages/Grammar.jsx";
 import Conversation from "@/pages/Conversation.jsx";
 import TravelPhrases from "@/pages/TravelPhrases.jsx";
 import Quiz from "@/pages/Quiz.jsx";
+import SlangDictionary from "@/pages/SlangDictionary.jsx";
 import Navigation from "@/components/layout/Navbar.jsx";
 import Footer from "@/components/layout/Footer.js";
 import Activate from "@/pages/Activate.jsx";
@@ -103,6 +104,7 @@ function AppContent() {
           <Route path="/grammar" element={<Grammar />} />
           <Route path="/conversation" element={<Conversation />} />
           <Route path="/travel-phrases" element={<TravelPhrases />} />
+          <Route path="/slang" element={<SlangDictionary />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/activate" element={<Activate />} />
         </Routes>
