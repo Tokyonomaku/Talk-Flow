@@ -8,14 +8,14 @@ import { Input } from '@/components/ui/input';
 import { BookOpen, Lock, Search } from 'lucide-react';
 import { isPremium } from '@/utils/premiumCheck';
 import LockedFeature from '@/components/premium/LockedFeature';
-import { getSlangForLanguage, getSlangRegions, getAllSlangLanguages } from '@/data/slang';
+import { getSlangForLanguage, getSlangRegions, getAllSlangLanguages, getPhrasesByRegion } from '@/data/slang';
 import { useNavigate } from 'react-router-dom';
 
 const SlangDictionary = () => {
   const { selectedLanguage } = useContext(AppContext);
   const navigate = useNavigate();
   const [selectedLang, setSelectedLang] = useState(selectedLanguage === 'es' ? 'es' : 'ja');
-  const [selectedRegion, setSelectedRegion] = useState('mexico');
+  const [selectedRegion, setSelectedRegion] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const userIsPremium = isPremium();
   
@@ -27,8 +27,8 @@ const SlangDictionary = () => {
   const getPhrases = () => {
     if (!slangData) return [];
     
-    if (slangData.regions && selectedRegion) {
-      return slangData.regions[selectedRegion]?.phrases || [];
+    if (slangData.hasRegions && selectedRegion && selectedRegion !== 'all') {
+      return getPhrasesByRegion(selectedLang, selectedRegion);
     }
     
     return slangData.phrases || [];
@@ -41,10 +41,11 @@ const SlangDictionary = () => {
     if (!searchTerm) return true;
     const term = searchTerm.toLowerCase();
     return (
-      phrase.phrase.toLowerCase().includes(term) ||
-      phrase.translation.toLowerCase().includes(term) ||
+      phrase.slang.toLowerCase().includes(term) ||
       phrase.meaning.toLowerCase().includes(term) ||
-      (phrase.reading && phrase.reading.toLowerCase().includes(term))
+      phrase.literal.toLowerCase().includes(term) ||
+      phrase.example.toLowerCase().includes(term) ||
+      (phrase.exampleTranslation && phrase.exampleTranslation.toLowerCase().includes(term))
     );
   });
   
@@ -135,8 +136,9 @@ const SlangDictionary = () => {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="all">All Regions</SelectItem>
                   {regions.map(region => (
-                    <SelectItem key={region.code} value={region.code}>
+                    <SelectItem key={region.code} value={region.name}>
                       {region.name} ({region.phraseCount} phrases)
                     </SelectItem>
                   ))}
@@ -166,24 +168,27 @@ const SlangDictionary = () => {
             <CardHeader>
               <div className="flex items-start justify-between mb-2">
                 <CardTitle className="text-xl">
-                  {phrase.phrase}
-                  {phrase.reading && (
-                    <span className="text-sm font-normal text-gray-500 ml-2">
-                      ({phrase.reading})
-                    </span>
-                  )}
+                  {phrase.slang}
                 </CardTitle>
                 <Badge variant="secondary" className="text-xs">
-                  {phrase.usage}
+                  {phrase.formality}
                 </Badge>
               </div>
-              <p className="text-lg font-semibold text-indigo-600">
-                {phrase.translation}
+              <p className="text-lg font-semibold text-indigo-600 mb-1">
+                {phrase.meaning}
               </p>
+              {phrase.literal && (
+                <p className="text-sm text-gray-500 italic">
+                  Literal: "{phrase.literal}"
+                </p>
+              )}
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-gray-700 mb-3">
-                {phrase.meaning}
+              <p className="text-sm text-gray-700 mb-2">
+                <strong>Usage:</strong> {phrase.usage}
+              </p>
+              <p className="text-xs text-gray-500 mb-3">
+                <strong>Region:</strong> {phrase.region}
               </p>
               {phrase.example && (
                 <div className="mt-3 pt-3 border-t">
@@ -196,11 +201,6 @@ const SlangDictionary = () => {
                     </p>
                   )}
                 </div>
-              )}
-              {phrase.category && (
-                <Badge variant="outline" className="mt-2 text-xs">
-                  {phrase.category}
-                </Badge>
               )}
             </CardContent>
           </Card>
