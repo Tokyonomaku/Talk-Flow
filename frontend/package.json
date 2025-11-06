@@ -58,7 +58,7 @@
   },
   "scripts": {
     "start": "craco start",
-    "build": "craco build",
+    "build": "vite build",
     "test": "craco test",
     "smoke": "playwright test frontend/tests/golden.spec.ts --reporter=line"
   },
