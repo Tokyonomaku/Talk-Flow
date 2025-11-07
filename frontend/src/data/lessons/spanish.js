@@ -2,826 +2,1590 @@ export const lessons = [
   {
     id: 1,
     title: "Basic Greetings",
-    description: "Learn how to say hello, goodbye, and introduce yourself",
-    isPremium: false,
+    description: "Learn essential greetings and polite phrases",
     difficulty: "beginner",
-    estimatedTime: "15 minutes",
+    estimatedTime: "10 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "hello", translation: "hola", romanization: "OH-lah" },
-      { word: "goodbye", translation: "adiós", romanization: "ah-DYOHS" },
-      { word: "good morning", translation: "buenos días", romanization: "BWEH-nohs DEE-ahs" },
-      { word: "good afternoon", translation: "buenas tardes", romanization: "BWEH-nahs TAHR-dehs" },
-      { word: "good evening", translation: "buenas noches", romanization: "BWEH-nahs NOH-chehs" },
-      { word: "thank you", translation: "gracias", romanization: "GRAH-syahs" },
-      { word: "please", translation: "por favor", romanization: "pohr fah-VOHR" },
-      { word: "excuse me", translation: "disculpe", romanization: "dees-KOOL-peh" },
-      { word: "yes", translation: "sí", romanization: "SEE" },
-      { word: "no", translation: "no", romanization: "NOH" }
-    ],
-    phrases: [
-      { english: "Nice to meet you", translation: "Mucho gusto", romanization: "MOO-choh GOOS-toh" },
-      { english: "My name is...", translation: "Me llamo...", romanization: "meh YAH-moh" },
-      { english: "How are you?", translation: "¿Cómo estás?", romanization: "KOH-moh ehs-TAHS?" },
-      { english: "I'm fine, thank you", translation: "Estoy bien, gracias", romanization: "ehs-TOY byehn, GRAH-syahs" },
-      { english: "See you later", translation: "Hasta luego", romanization: "AHS-tah LWEH-goh" },
-      { english: "Take care", translation: "Cuídate", romanization: "KOO-ee-dah-teh" },
-      { english: "Good night", translation: "Buenas noches", romanization: "BWEH-nahs NOH-chehs" }
-    ],
-    grammar: {
-      point: "Basic sentence structure",
-      explanation: "Spanish follows Subject-Verb-Object order. The verb 'ser' (to be) is used for permanent characteristics.",
-      examples: [
-        { sentence: "Yo soy estudiante", romanization: "YOH soy ehs-too-DYAHN-teh", english: "I am a student" },
-        { sentence: "Tú eres profesor", romanization: "TOO EH-rehs proh-feh-SOHR", english: "You are a teacher" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'hello' in Spanish?",
-        options: ["hola", "adiós", "gracias", "por favor"],
-        correct: 0
+        english: "Hello",
+        translation: "Hola",
+        pronunciation: "OH-lah",
+        example: "Hola, ¿cómo estás?",
+        exampleEnglish: "Hello, how are you?"
       },
       {
-        type: "multiple-choice",
-        question: "What does 'gracias' mean?",
-        options: ["Hello", "Thank you", "Goodbye", "Please"],
-        correct: 1
+        english: "Goodbye",
+        translation: "Adiós",
+        pronunciation: "ah-DYOHS",
+        example: "Adiós, hasta luego",
+        exampleEnglish: "Goodbye, see you later"
+      },
+      {
+        english: "Good morning",
+        translation: "Buenos días",
+        pronunciation: "BWEH-nohs DEE-ahs",
+        example: "Buenos días, ¿cómo amaneciste?",
+        exampleEnglish: "Good morning, how did you wake up?"
+      },
+      {
+        english: "Good afternoon",
+        translation: "Buenas tardes",
+        pronunciation: "BWEH-nahs TAHR-dehs",
+        example: "Buenas tardes, señor",
+        exampleEnglish: "Good afternoon, sir"
+      },
+      {
+        english: "Good evening",
+        translation: "Buenas noches",
+        pronunciation: "BWEH-nahs NOH-chehs",
+        example: "Buenas noches, ¿cómo está?",
+        exampleEnglish: "Good evening, how are you?"
+      },
+      {
+        english: "Please",
+        translation: "Por favor",
+        pronunciation: "pohr fah-VOHR",
+        example: "Por favor, ayúdame",
+        exampleEnglish: "Please, help me"
+      },
+      {
+        english: "Thank you",
+        translation: "Gracias",
+        pronunciation: "GRAH-syahs",
+        example: "Muchas gracias por tu ayuda",
+        exampleEnglish: "Thank you very much for your help"
+      },
+      {
+        english: "You're welcome",
+        translation: "De nada",
+        pronunciation: "deh NAH-dah",
+        example: "De nada, fue un placer",
+        exampleEnglish: "You're welcome, it was a pleasure"
+      },
+      {
+        english: "Excuse me",
+        translation: "Disculpe",
+        pronunciation: "dees-KOOL-peh",
+        example: "Disculpe, ¿dónde está el baño?",
+        exampleEnglish: "Excuse me, where is the bathroom?"
+      },
+      {
+        english: "Sorry",
+        translation: "Lo siento",
+        pronunciation: "loh SYEHN-toh",
+        example: "Lo siento por el retraso",
+        exampleEnglish: "Sorry for the delay"
       }
     ]
   },
   {
     id: 2,
-    title: "Numbers 1-10",
-    description: "Learn to count from 1 to 10 in Spanish",
-    isPremium: false,
+    title: "Introducing Yourself",
+    description: "Learn how to introduce yourself and ask basic questions",
     difficulty: "beginner",
     estimatedTime: "12 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "one", translation: "uno", romanization: "OO-noh" },
-      { word: "two", translation: "dos", romanization: "DOHS" },
-      { word: "three", translation: "tres", romanization: "TREHS" },
-      { word: "four", translation: "cuatro", romanization: "KWAH-troh" },
-      { word: "five", translation: "cinco", romanization: "SEEN-koh" },
-      { word: "six", translation: "seis", romanization: "SAYS" },
-      { word: "seven", translation: "siete", romanization: "SYEH-teh" },
-      { word: "eight", translation: "ocho", romanization: "OH-choh" },
-      { word: "nine", translation: "nueve", romanization: "NWEH-beh" },
-      { word: "ten", translation: "diez", romanization: "DYEHS" }
-    ],
-    phrases: [
-      { english: "How many?", translation: "¿Cuántos?", romanization: "KWAHN-tohs?" },
-      { english: "One more, please", translation: "Uno más, por favor", romanization: "OO-noh MAHS, pohr fah-VOHR" },
-      { english: "That's too many", translation: "Son demasiados", romanization: "sohn deh-mah-SYAH-dohs" },
-      { english: "Just one", translation: "Solo uno", romanization: "SOH-loh OO-noh" },
-      { english: "All of them", translation: "Todos", romanization: "TOH-dohs" }
-    ],
-    grammar: {
-      point: "Number agreement",
-      explanation: "Numbers agree with the gender of the noun they modify. 'Uno' becomes 'una' with feminine nouns.",
-      examples: [
-        { sentence: "Una manzana", romanization: "OO-nah mahn-SAH-nah", english: "One apple" },
-        { sentence: "Un libro", romanization: "oon LEE-broh", english: "One book" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'five' in Spanish?",
-        options: ["tres", "cuatro", "cinco", "seis"],
-        correct: 2
+        english: "My name is",
+        translation: "Me llamo",
+        pronunciation: "meh YAH-moh",
+        example: "Me llamo María",
+        exampleEnglish: "My name is María"
+      },
+      {
+        english: "I am",
+        translation: "Soy",
+        pronunciation: "SOY",
+        example: "Soy estudiante",
+        exampleEnglish: "I am a student"
+      },
+      {
+        english: "Nice to meet you",
+        translation: "Mucho gusto",
+        pronunciation: "MOO-choh GOOS-toh",
+        example: "Mucho gusto en conocerte",
+        exampleEnglish: "Nice to meet you"
+      },
+      {
+        english: "Where are you from?",
+        translation: "¿De dónde eres?",
+        pronunciation: "deh DOHN-deh EH-rehs",
+        example: "¿De dónde eres tú?",
+        exampleEnglish: "Where are you from?"
+      },
+      {
+        english: "I am from",
+        translation: "Soy de",
+        pronunciation: "SOY deh",
+        example: "Soy de España",
+        exampleEnglish: "I am from Spain"
+      },
+      {
+        english: "How old are you?",
+        translation: "¿Cuántos años tienes?",
+        pronunciation: "KWAHN-tohs AH-nyohs TYEH-nehs",
+        example: "¿Cuántos años tienes?",
+        exampleEnglish: "How old are you?"
+      },
+      {
+        english: "I am ... years old",
+        translation: "Tengo ... años",
+        pronunciation: "TEHN-goh AH-nyohs",
+        example: "Tengo veinticinco años",
+        exampleEnglish: "I am twenty-five years old"
+      },
+      {
+        english: "What do you do?",
+        translation: "¿A qué te dedicas?",
+        pronunciation: "ah keh teh deh-DEE-kahs",
+        example: "¿A qué te dedicas?",
+        exampleEnglish: "What do you do?"
+      },
+      {
+        english: "I work as",
+        translation: "Trabajo como",
+        pronunciation: "trah-BAH-hoh KOH-moh",
+        example: "Trabajo como profesor",
+        exampleEnglish: "I work as a teacher"
+      },
+      {
+        english: "Pleased to meet you",
+        translation: "Encantado de conocerte",
+        pronunciation: "ehn-kahn-TAH-doh deh koh-noh-SEHR-teh",
+        example: "Encantado de conocerte",
+        exampleEnglish: "Pleased to meet you"
       }
     ]
   },
   {
     id: 3,
-    title: "Family Members",
-    description: "Learn to talk about your family in Spanish",
-    isPremium: false,
+    title: "Numbers 1-20",
+    description: "Learn to count from one to twenty",
     difficulty: "beginner",
-    estimatedTime: "18 minutes",
+    estimatedTime: "15 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "mother", translation: "madre", romanization: "MAH-dreh" },
-      { word: "father", translation: "padre", romanization: "PAH-dreh" },
-      { word: "sister", translation: "hermana", romanization: "ehr-MAH-nah" },
-      { word: "brother", translation: "hermano", romanization: "ehr-MAH-noh" },
-      { word: "grandmother", translation: "abuela", romanization: "ah-BWEH-lah" },
-      { word: "grandfather", translation: "abuelo", romanization: "ah-BWEH-loh" },
-      { word: "aunt", translation: "tía", romanization: "TEE-ah" },
-      { word: "uncle", translation: "tío", romanization: "TEE-oh" },
-      { word: "cousin", translation: "primo/prima", romanization: "PREE-moh/PREE-mah" },
-      { word: "child", translation: "niño/niña", romanization: "NEE-nyoh/NEE-nyah" }
-    ],
-    phrases: [
-      { english: "This is my family", translation: "Esta es mi familia", romanization: "EHS-tah ehs mee fah-MEE-lyah" },
-      { english: "I have two sisters", translation: "Tengo dos hermanas", romanization: "TEHN-goh dohs ehr-MAH-nahs" },
-      { english: "My mother is a teacher", translation: "Mi madre es profesora", romanization: "Mee MAH-dreh ehs proh-feh-SOH-rah" },
-      { english: "How many people in your family?", translation: "¿Cuántas personas hay en tu familia?", romanization: "KWAHN-tahs pehr-SOH-nahs ahy ehn too fah-MEE-lyah?" },
-      { english: "I live with my parents", translation: "Vivo con mis padres", romanization: "BEE-boh kohn mees PAH-drehs" }
-    ],
-    grammar: {
-      point: "Possessive adjectives",
-      explanation: "Use 'mi' (my), 'tu' (your), 'su' (his/her) before family members. 'Mis', 'tus', 'sus' for plural.",
-      examples: [
-        { sentence: "Mi madre", romanization: "Mee MAH-dreh", english: "my mother" },
-        { sentence: "Mis hermanos", romanization: "Mees ehr-MAH-nohs", english: "my brothers" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'mother' in Spanish?",
-        options: ["padre", "madre", "abuela", "tía"],
-        correct: 1
+        english: "One",
+        translation: "Uno",
+        pronunciation: "OO-noh",
+        example: "Tengo uno",
+        exampleEnglish: "I have one"
+      },
+      {
+        english: "Two",
+        translation: "Dos",
+        pronunciation: "DOHS",
+        example: "Dos personas",
+        exampleEnglish: "Two people"
+      },
+      {
+        english: "Three",
+        translation: "Tres",
+        pronunciation: "TREHS",
+        example: "Tres manzanas",
+        exampleEnglish: "Three apples"
+      },
+      {
+        english: "Four",
+        translation: "Cuatro",
+        pronunciation: "KWAH-troh",
+        example: "Cuatro días",
+        exampleEnglish: "Four days"
+      },
+      {
+        english: "Five",
+        translation: "Cinco",
+        pronunciation: "SEEN-koh",
+        example: "Cinco minutos",
+        exampleEnglish: "Five minutes"
+      },
+      {
+        english: "Six",
+        translation: "Seis",
+        pronunciation: "SAYS",
+        example: "Seis libros",
+        exampleEnglish: "Six books"
+      },
+      {
+        english: "Seven",
+        translation: "Siete",
+        pronunciation: "SYEH-teh",
+        example: "Siete horas",
+        exampleEnglish: "Seven hours"
+      },
+      {
+        english: "Eight",
+        translation: "Ocho",
+        pronunciation: "OH-choh",
+        example: "Ocho estudiantes",
+        exampleEnglish: "Eight students"
+      },
+      {
+        english: "Nine",
+        translation: "Nueve",
+        pronunciation: "NWEH-beh",
+        example: "Nueve meses",
+        exampleEnglish: "Nine months"
+      },
+      {
+        english: "Ten",
+        translation: "Diez",
+        pronunciation: "DYEHS",
+        example: "Diez años",
+        exampleEnglish: "Ten years"
+      },
+      {
+        english: "Eleven",
+        translation: "Once",
+        pronunciation: "OHN-seh",
+        example: "Once personas",
+        exampleEnglish: "Eleven people"
+      },
+      {
+        english: "Twelve",
+        translation: "Doce",
+        pronunciation: "DOH-seh",
+        example: "Doce horas",
+        exampleEnglish: "Twelve hours"
+      },
+      {
+        english: "Thirteen",
+        translation: "Trece",
+        pronunciation: "TREH-seh",
+        example: "Trece días",
+        exampleEnglish: "Thirteen days"
+      },
+      {
+        english: "Fourteen",
+        translation: "Catorce",
+        pronunciation: "kah-TOHR-seh",
+        example: "Catorce años",
+        exampleEnglish: "Fourteen years"
+      },
+      {
+        english: "Fifteen",
+        translation: "Quince",
+        pronunciation: "KEEN-seh",
+        example: "Quince minutos",
+        exampleEnglish: "Fifteen minutes"
+      },
+      {
+        english: "Sixteen",
+        translation: "Dieciséis",
+        pronunciation: "dyeh-see-SAYS",
+        example: "Dieciséis libros",
+        exampleEnglish: "Sixteen books"
+      },
+      {
+        english: "Seventeen",
+        translation: "Diecisiete",
+        pronunciation: "dyeh-see-SYEH-teh",
+        example: "Diecisiete estudiantes",
+        exampleEnglish: "Seventeen students"
+      },
+      {
+        english: "Eighteen",
+        translation: "Dieciocho",
+        pronunciation: "dyeh-see-OH-choh",
+        example: "Dieciocho meses",
+        exampleEnglish: "Eighteen months"
+      },
+      {
+        english: "Nineteen",
+        translation: "Diecinueve",
+        pronunciation: "dyeh-see-NWEH-beh",
+        example: "Diecinueve años",
+        exampleEnglish: "Nineteen years"
+      },
+      {
+        english: "Twenty",
+        translation: "Veinte",
+        pronunciation: "BAYN-teh",
+        example: "Veinte personas",
+        exampleEnglish: "Twenty people"
       }
     ]
   },
   {
     id: 4,
-    title: "Food and Drinks",
-    description: "Essential vocabulary for ordering food and drinks",
-    isPremium: false,
+    title: "Common Questions",
+    description: "Essential questions for everyday conversations",
     difficulty: "beginner",
-    estimatedTime: "20 minutes",
+    estimatedTime: "12 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "water", translation: "agua", romanization: "AH-gwah" },
-      { word: "tea", translation: "té", romanization: "TEH" },
-      { word: "coffee", translation: "café", romanization: "kah-FEH" },
-      { word: "rice", translation: "arroz", romanization: "ah-ROHS" },
-      { word: "bread", translation: "pan", romanization: "PAHN" },
-      { word: "meat", translation: "carne", romanization: "KAHR-neh" },
-      { word: "fish", translation: "pescado", romanization: "pehs-KAH-doh" },
-      { word: "vegetables", translation: "verduras", romanization: "behr-DOO-rahs" },
-      { word: "fruit", translation: "fruta", romanization: "FROO-tah" },
-      { word: "soup", translation: "sopa", romanization: "SOH-pah" }
-    ],
-    phrases: [
-      { english: "I'm hungry", translation: "Tengo hambre", romanization: "TEHN-goh AHM-breh" },
-      { english: "I'm thirsty", translation: "Tengo sed", romanization: "TEHN-goh SEHD" },
-      { english: "What would you like to eat?", translation: "¿Qué te gustaría comer?", romanization: "KEH teh goos-tah-REE-ah koh-MEHR?" },
-      { english: "This is delicious", translation: "Está delicioso", romanization: "ehs-TAH deh-lee-SYOH-soh" },
-      { english: "I don't like this", translation: "No me gusta esto", romanization: "NOH meh GOOS-tah EHS-toh" },
-      { english: "Check, please", translation: "La cuenta, por favor", romanization: "Lah KWEHN-tah, pohr fah-VOHR" }
-    ],
-    grammar: {
-      point: "Gustar (to like)",
-      explanation: "Use 'me gusta' for 'I like' and 'te gusta' for 'you like'. The verb agrees with the thing liked.",
-      examples: [
-        { sentence: "Me gusta el café", romanization: "Meh GOOS-tah ehl kah-FEH", english: "I like coffee" },
-        { sentence: "Te gusta la comida", romanization: "Teh GOOS-tah lah koh-MEE-dah", english: "You like the food" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I'm hungry' in Spanish?",
-        options: ["Tengo sed", "Tengo hambre", "Está delicioso", "No me gusta esto"],
-        correct: 1
+        english: "What?",
+        translation: "¿Qué?",
+        pronunciation: "KEH",
+        example: "¿Qué quieres?",
+        exampleEnglish: "What do you want?"
+      },
+      {
+        english: "Who?",
+        translation: "¿Quién?",
+        pronunciation: "KYEHN",
+        example: "¿Quién es él?",
+        exampleEnglish: "Who is he?"
+      },
+      {
+        english: "Where?",
+        translation: "¿Dónde?",
+        pronunciation: "DOHN-deh",
+        example: "¿Dónde vives?",
+        exampleEnglish: "Where do you live?"
+      },
+      {
+        english: "When?",
+        translation: "¿Cuándo?",
+        pronunciation: "KWAHN-doh",
+        example: "¿Cuándo llegas?",
+        exampleEnglish: "When do you arrive?"
+      },
+      {
+        english: "Why?",
+        translation: "¿Por qué?",
+        pronunciation: "pohr KEH",
+        example: "¿Por qué estás triste?",
+        exampleEnglish: "Why are you sad?"
+      },
+      {
+        english: "How?",
+        translation: "¿Cómo?",
+        pronunciation: "KOH-moh",
+        example: "¿Cómo estás?",
+        exampleEnglish: "How are you?"
+      },
+      {
+        english: "How much?",
+        translation: "¿Cuánto?",
+        pronunciation: "KWAHN-toh",
+        example: "¿Cuánto cuesta?",
+        exampleEnglish: "How much does it cost?"
+      },
+      {
+        english: "How many?",
+        translation: "¿Cuántos?",
+        pronunciation: "KWAHN-tohs",
+        example: "¿Cuántos años tienes?",
+        exampleEnglish: "How many years old are you?"
+      },
+      {
+        english: "Which?",
+        translation: "¿Cuál?",
+        pronunciation: "KWAHL",
+        example: "¿Cuál prefieres?",
+        exampleEnglish: "Which do you prefer?"
+      },
+      {
+        english: "Do you have?",
+        translation: "¿Tienes?",
+        pronunciation: "TYEH-nehs",
+        example: "¿Tienes tiempo?",
+        exampleEnglish: "Do you have time?"
       }
     ]
   },
   {
     id: 5,
-    title: "Colors and Descriptions",
-    description: "Learn colors and basic descriptive words",
-    isPremium: false,
+    title: "Essential Phrases",
+    description: "Important phrases for daily communication",
     difficulty: "beginner",
-    estimatedTime: "16 minutes",
+    estimatedTime: "10 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "red", translation: "rojo", romanization: "ROH-hoh" },
-      { word: "blue", translation: "azul", romanization: "ah-SOOL" },
-      { word: "green", translation: "verde", romanization: "BEHR-deh" },
-      { word: "yellow", translation: "amarillo", romanization: "ah-mah-REE-yoh" },
-      { word: "black", translation: "negro", romanization: "NEH-groh" },
-      { word: "white", translation: "blanco", romanization: "BLAHN-koh" },
-      { word: "big", translation: "grande", romanization: "GRAHN-deh" },
-      { word: "small", translation: "pequeño", romanization: "peh-KEH-nyoh" },
-      { word: "beautiful", translation: "hermoso", romanization: "ehr-MOH-soh" },
-      { word: "new", translation: "nuevo", romanization: "NWEH-boh" }
-    ],
-    phrases: [
-      { english: "What color is this?", translation: "¿De qué color es esto?", romanization: "Deh keh koh-LOHR ehs EHS-toh?" },
-      { english: "I like blue", translation: "Me gusta el azul", romanization: "Meh GOOS-tah ehl ah-SOOL" },
-      { english: "This is beautiful", translation: "Esto es hermoso", romanization: "EHS-toh ehs ehr-MOH-soh" },
-      { english: "It's too big", translation: "Es demasiado grande", romanization: "Ehs deh-mah-SYAH-doh GRAHN-deh" },
-      { english: "I want a small one", translation: "Quiero uno pequeño", romanization: "KYEH-roh OO-noh peh-KEH-nyoh" }
-    ],
-    grammar: {
-      point: "Adjective agreement",
-      explanation: "Adjectives must agree with the gender and number of the noun they describe. Add 'a' for feminine, 's' for plural.",
-      examples: [
-        { sentence: "Coche rojo", romanization: "KOH-cheh ROH-hoh", english: "red car" },
-        { sentence: "Casa roja", romanization: "KAH-sah ROH-hah", english: "red house" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'blue' in Spanish?",
-        options: ["rojo", "azul", "verde", "amarillo"],
-        correct: 1
+        english: "Yes",
+        translation: "Sí",
+        pronunciation: "SEE",
+        example: "Sí, por favor",
+        exampleEnglish: "Yes, please"
+      },
+      {
+        english: "No",
+        translation: "No",
+        pronunciation: "NOH",
+        example: "No, gracias",
+        exampleEnglish: "No, thank you"
+      },
+      {
+        english: "Maybe",
+        translation: "Tal vez",
+        pronunciation: "tahl BEHS",
+        example: "Tal vez mañana",
+        exampleEnglish: "Maybe tomorrow"
+      },
+      {
+        english: "I don't know",
+        translation: "No sé",
+        pronunciation: "noh SEH",
+        example: "No sé dónde está",
+        exampleEnglish: "I don't know where it is"
+      },
+      {
+        english: "I understand",
+        translation: "Entiendo",
+        pronunciation: "ehn-TYEHN-doh",
+        example: "Entiendo perfectamente",
+        exampleEnglish: "I understand perfectly"
+      },
+      {
+        english: "I don't understand",
+        translation: "No entiendo",
+        pronunciation: "noh ehn-TYEHN-doh",
+        example: "No entiendo esta palabra",
+        exampleEnglish: "I don't understand this word"
+      },
+      {
+        english: "Can you help me?",
+        translation: "¿Puedes ayudarme?",
+        pronunciation: "PWEH-dehs ah-yoo-DAHR-meh",
+        example: "¿Puedes ayudarme con esto?",
+        exampleEnglish: "Can you help me with this?"
+      },
+      {
+        english: "I need",
+        translation: "Necesito",
+        pronunciation: "neh-seh-SEE-toh",
+        example: "Necesito ayuda",
+        exampleEnglish: "I need help"
+      },
+      {
+        english: "I want",
+        translation: "Quiero",
+        pronunciation: "KYEH-roh",
+        example: "Quiero aprender español",
+        exampleEnglish: "I want to learn Spanish"
+      },
+      {
+        english: "I like",
+        translation: "Me gusta",
+        pronunciation: "meh GOOS-tah",
+        example: "Me gusta la música",
+        exampleEnglish: "I like music"
       }
     ]
   },
   {
     id: 6,
-    title: "Time and Dates",
-    description: "Learn to tell time and talk about dates",
+    title: "Family Members",
+    description: "Learn vocabulary for family relationships",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "25 minutes",
     vocabulary: [
-      { word: "hour", translation: "hora", romanization: "OH-rah" },
-      { word: "minute", translation: "minuto", romanization: "mee-NOO-toh" },
-      { word: "morning", translation: "mañana", romanization: "mah-NYAH-nah" },
-      { word: "afternoon", translation: "tarde", romanization: "TAHR-deh" },
-      { word: "evening", translation: "noche", romanization: "NOH-cheh" },
-      { word: "night", translation: "noche", romanization: "NOH-cheh" },
-      { word: "today", translation: "hoy", romanization: "OY" },
-      { word: "tomorrow", translation: "mañana", romanization: "mah-NYAH-nah" },
-      { word: "yesterday", translation: "ayer", romanization: "ah-YEHR" },
-      { word: "week", translation: "semana", romanization: "seh-MAH-nah" }
-    ],
-    phrases: [
-      { english: "What time is it?", translation: "¿Qué hora es?", romanization: "KEH OH-rah ehs?" },
-      { english: "It's 3 o'clock", translation: "Son las tres", romanization: "Sohn lahs TREHS" },
-      { english: "What day is today?", translation: "¿Qué día es hoy?", romanization: "KEH DEE-ah ehs OY?" },
-      { english: "I'm busy tomorrow", translation: "Estoy ocupado mañana", romanization: "Ehs-TOY oh-koo-PAH-doh mah-NYAH-nah" },
-      { english: "See you next week", translation: "Nos vemos la próxima semana", romanization: "Nohs BEH-mohs lah PROHK-see-mah seh-MAH-nah" }
-    ],
-    grammar: {
-      point: "Time expressions",
-      explanation: "Use 'son las' for hours and 'es la' for one o'clock. Time expressions often use 'a' (at) for specific times.",
-      examples: [
-        { sentence: "A las tres", romanization: "Ah lahs TREHS", english: "At three o'clock" },
-        { sentence: "Es la una", romanization: "Ehs lah OO-nah", english: "It's one o'clock" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'What time is it?' in Spanish?",
-        options: ["¿Qué hora es?", "Son las tres", "¿Qué día es hoy?", "Estoy ocupado mañana"],
-        correct: 0
+        english: "Mother",
+        translation: "Madre",
+        pronunciation: "MAH-dreh",
+        example: "Mi madre es muy amable",
+        exampleEnglish: "My mother is very kind"
+      },
+      {
+        english: "Father",
+        translation: "Padre",
+        pronunciation: "PAH-dreh",
+        example: "Mi padre trabaja mucho",
+        exampleEnglish: "My father works a lot"
+      },
+      {
+        english: "Sister",
+        translation: "Hermana",
+        pronunciation: "ehr-MAH-nah",
+        example: "Tengo una hermana mayor",
+        exampleEnglish: "I have an older sister"
+      },
+      {
+        english: "Brother",
+        translation: "Hermano",
+        pronunciation: "ehr-MAH-noh",
+        example: "Mi hermano estudia medicina",
+        exampleEnglish: "My brother studies medicine"
+      },
+      {
+        english: "Grandmother",
+        translation: "Abuela",
+        pronunciation: "ah-BWEH-lah",
+        example: "Visito a mi abuela los domingos",
+        exampleEnglish: "I visit my grandmother on Sundays"
+      },
+      {
+        english: "Grandfather",
+        translation: "Abuelo",
+        pronunciation: "ah-BWEH-loh",
+        example: "Mi abuelo cuenta historias",
+        exampleEnglish: "My grandfather tells stories"
+      },
+      {
+        english: "Aunt",
+        translation: "Tía",
+        pronunciation: "TEE-ah",
+        example: "Mi tía vive en Madrid",
+        exampleEnglish: "My aunt lives in Madrid"
+      },
+      {
+        english: "Uncle",
+        translation: "Tío",
+        pronunciation: "TEE-oh",
+        example: "Mi tío es ingeniero",
+        exampleEnglish: "My uncle is an engineer"
+      },
+      {
+        english: "Cousin",
+        translation: "Primo",
+        pronunciation: "PREE-moh",
+        example: "Juego con mi primo",
+        exampleEnglish: "I play with my cousin"
+      },
+      {
+        english: "Son",
+        translation: "Hijo",
+        pronunciation: "EE-hoh",
+        example: "Mi hijo tiene cinco años",
+        exampleEnglish: "My son is five years old"
       }
     ]
   },
   {
     id: 7,
-    title: "Shopping and Money",
-    description: "Essential phrases for shopping and handling money",
+    title: "Food & Dining",
+    description: "Essential vocabulary for restaurants and food",
+    difficulty: "beginner",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "22 minutes",
     vocabulary: [
-      { word: "money", translation: "dinero", romanization: "dee-NEH-roh" },
-      { word: "price", translation: "precio", romanization: "PREH-syoh" },
-      { word: "expensive", translation: "caro", romanization: "KAH-roh" },
-      { word: "cheap", translation: "barato", romanization: "bah-RAH-toh" },
-      { word: "store", translation: "tienda", romanization: "TYEHN-dah" },
-      { word: "buy", translation: "comprar", romanization: "kohm-PRAHR" },
-      { word: "sell", translation: "vender", romanization: "behn-DEHR" },
-      { word: "discount", translation: "descuento", romanization: "dehs-KWEHN-toh" },
-      { word: "receipt", translation: "recibo", romanization: "reh-SEE-boh" },
-      { word: "change", translation: "cambio", romanization: "KAHM-byoh" }
-    ],
-    phrases: [
-      { english: "How much is this?", translation: "¿Cuánto cuesta esto?", romanization: "KWAHN-toh KWEHS-tah EHS-toh?" },
-      { english: "It's too expensive", translation: "Es demasiado caro", romanization: "Ehs deh-mah-SYAH-doh KAH-roh" },
-      { english: "Do you have a discount?", translation: "¿Tienen descuento?", romanization: "TYEH-nehn dehs-KWEHN-toh?" },
-      { english: "I'll take this", translation: "Me llevo esto", romanization: "Meh YEH-boh EHS-toh" },
-      { english: "Can I pay by card?", translation: "¿Puedo pagar con tarjeta?", romanization: "PWEH-doh pah-GAHR kohn tahr-HEH-tah?" }
-    ],
-    grammar: {
-      point: "Cost expressions",
-      explanation: "Use 'cuesta' for 'it costs' and 'cuestan' for plural items. 'Cuánto' means 'how much'.",
-      examples: [
-        { sentence: "Cuesta diez euros", romanization: "KWEHS-tah DYEHS EH-oo-rohs", english: "It costs ten euros" },
-        { sentence: "¿Cuánto cuesta?", romanization: "KWAHN-toh KWEHS-tah?", english: "How much does it cost?" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'How much is this?' in Spanish?",
-        options: ["¿Cuánto cuesta esto?", "Es demasiado caro", "¿Tienen descuento?", "Me llevo esto"],
-        correct: 0
+        english: "Water",
+        translation: "Agua",
+        pronunciation: "AH-gwah",
+        example: "Quiero un vaso de agua",
+        exampleEnglish: "I want a glass of water"
+      },
+      {
+        english: "Bread",
+        translation: "Pan",
+        pronunciation: "PAHN",
+        example: "El pan está caliente",
+        exampleEnglish: "The bread is warm"
+      },
+      {
+        english: "Rice",
+        translation: "Arroz",
+        pronunciation: "ah-ROHS",
+        example: "Me gusta el arroz con pollo",
+        exampleEnglish: "I like rice with chicken"
+      },
+      {
+        english: "Meat",
+        translation: "Carne",
+        pronunciation: "KAHR-neh",
+        example: "Prefiero la carne bien cocida",
+        exampleEnglish: "I prefer the meat well cooked"
+      },
+      {
+        english: "Fish",
+        translation: "Pescado",
+        pronunciation: "pehs-KAH-doh",
+        example: "El pescado está delicioso",
+        exampleEnglish: "The fish is delicious"
+      },
+      {
+        english: "Vegetables",
+        translation: "Verduras",
+        pronunciation: "behr-DOO-rahs",
+        example: "Como muchas verduras",
+        exampleEnglish: "I eat many vegetables"
+      },
+      {
+        english: "Fruit",
+        translation: "Fruta",
+        pronunciation: "FROO-tah",
+        example: "La fruta está fresca",
+        exampleEnglish: "The fruit is fresh"
+      },
+      {
+        english: "Coffee",
+        translation: "Café",
+        pronunciation: "kah-FEH",
+        example: "Tomo café por la mañana",
+        exampleEnglish: "I drink coffee in the morning"
+      },
+      {
+        english: "Menu",
+        translation: "Menú",
+        pronunciation: "meh-NOO",
+        example: "¿Puedo ver el menú?",
+        exampleEnglish: "Can I see the menu?"
+      },
+      {
+        english: "Bill",
+        translation: "Cuenta",
+        pronunciation: "KWEHN-tah",
+        example: "La cuenta, por favor",
+        exampleEnglish: "The bill, please"
       }
     ]
   },
   {
     id: 8,
-    title: "Directions and Transportation",
-    description: "Learn to ask for directions and use transportation",
+    title: "Colors & Descriptions",
+    description: "Learn colors and descriptive adjectives",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "28 minutes",
     vocabulary: [
-      { word: "station", translation: "estación", romanization: "ehs-tah-SYOHN" },
-      { word: "train", translation: "tren", romanization: "TREHN" },
-      { word: "bus", translation: "autobús", romanization: "ow-toh-BOOS" },
-      { word: "taxi", translation: "taxi", romanization: "TAHK-see" },
-      { word: "right", translation: "derecha", romanization: "deh-REH-chah" },
-      { word: "left", translation: "izquierda", romanization: "ees-KYEHR-dah" },
-      { word: "straight", translation: "derecho", romanization: "deh-REH-choh" },
-      { word: "near", translation: "cerca", romanization: "SEHR-kah" },
-      { word: "far", translation: "lejos", romanization: "LEH-hohs" },
-      { word: "map", translation: "mapa", romanization: "MAH-pah" }
-    ],
-    phrases: [
-      { english: "Where is the station?", translation: "¿Dónde está la estación?", romanization: "DOHN-deh ehs-TAH lah ehs-tah-SYOHN?" },
-      { english: "How do I get to...?", translation: "¿Cómo llego a...?", romanization: "KOH-moh YEH-goh ah...?" },
-      { english: "Go straight", translation: "Ve derecho", romanization: "Beh deh-REH-choh" },
-      { english: "Turn right", translation: "Gira a la derecha", romanization: "HEE-rah ah lah deh-REH-chah" },
-      { english: "Is it far?", translation: "¿Está lejos?", romanization: "Ehs-TAH LEH-hohs?" }
-    ],
-    grammar: {
-      point: "Direction prepositions",
-      explanation: "Use 'a' (to) for destination, 'en' (in/on) for transportation, and 'de' (from) for origin.",
-      examples: [
-        { sentence: "Voy a la estación", romanization: "Boy ah lah ehs-tah-SYOHN", english: "I go to the station" },
-        { sentence: "Voy en tren", romanization: "Boy ehn TREHN", english: "I go by train" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'Where is the station?' in Spanish?",
-        options: ["¿Dónde está la estación?", "Ve derecho", "Gira a la derecha", "¿Está lejos?"],
-        correct: 0
+        english: "Red",
+        translation: "Rojo",
+        pronunciation: "ROH-hoh",
+        example: "El coche es rojo",
+        exampleEnglish: "The car is red"
+      },
+      {
+        english: "Blue",
+        translation: "Azul",
+        pronunciation: "ah-SOOL",
+        example: "El cielo está azul",
+        exampleEnglish: "The sky is blue"
+      },
+      {
+        english: "Green",
+        translation: "Verde",
+        pronunciation: "BEHR-deh",
+        example: "La hierba es verde",
+        exampleEnglish: "The grass is green"
+      },
+      {
+        english: "Yellow",
+        translation: "Amarillo",
+        pronunciation: "ah-mah-REE-yoh",
+        example: "El sol es amarillo",
+        exampleEnglish: "The sun is yellow"
+      },
+      {
+        english: "Black",
+        translation: "Negro",
+        pronunciation: "NEH-groh",
+        example: "Visto de negro",
+        exampleEnglish: "I'm dressed in black"
+      },
+      {
+        english: "White",
+        translation: "Blanco",
+        pronunciation: "BLAHN-koh",
+        example: "La nieve es blanca",
+        exampleEnglish: "The snow is white"
+      },
+      {
+        english: "Big",
+        translation: "Grande",
+        pronunciation: "GRAHN-deh",
+        example: "Tengo una casa grande",
+        exampleEnglish: "I have a big house"
+      },
+      {
+        english: "Small",
+        translation: "Pequeño",
+        pronunciation: "peh-KEH-nyoh",
+        example: "Es un perro pequeño",
+        exampleEnglish: "It's a small dog"
+      },
+      {
+        english: "Beautiful",
+        translation: "Hermoso",
+        pronunciation: "ehr-MOH-soh",
+        example: "Qué día tan hermoso",
+        exampleEnglish: "What a beautiful day"
+      },
+      {
+        english: "New",
+        translation: "Nuevo",
+        pronunciation: "NWEH-boh",
+        example: "Tengo un coche nuevo",
+        exampleEnglish: "I have a new car"
       }
     ]
   },
   {
     id: 9,
-    title: "Weather and Seasons",
-    description: "Talk about weather conditions and seasons",
+    title: "Days & Time",
+    description: "Learn days of the week and time expressions",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "20 minutes",
     vocabulary: [
-      { word: "weather", translation: "tiempo", romanization: "TYEHM-poh" },
-      { word: "sunny", translation: "soleado", romanization: "soh-leh-AH-doh" },
-      { word: "rainy", translation: "lluvioso", romanization: "yoo-BYOH-soh" },
-      { word: "cloudy", translation: "nublado", romanization: "noo-BLAH-doh" },
-      { word: "snow", translation: "nieve", romanization: "NYEH-beh" },
-      { word: "hot", translation: "caliente", romanization: "kah-LYEHN-teh" },
-      { word: "cold", translation: "frío", romanization: "FREE-oh" },
-      { word: "spring", translation: "primavera", romanization: "pree-mah-BEH-rah" },
-      { word: "summer", translation: "verano", romanization: "beh-RAH-noh" },
-      { word: "autumn", translation: "otoño", romanization: "oh-TOH-nyoh" }
-    ],
-    phrases: [
-      { english: "What's the weather like?", translation: "¿Qué tiempo hace?", romanization: "KEH TYEHM-poh AH-seh?" },
-      { english: "It's sunny today", translation: "Hoy hace sol", romanization: "OY AH-seh SOHL" },
-      { english: "It's raining", translation: "Está lloviendo", romanization: "Ehs-TAH yoh-BYEHN-doh" },
-      { english: "It's very hot", translation: "Hace mucho calor", romanization: "AH-seh MOO-choh kah-LOHR" },
-      { english: "I like spring", translation: "Me gusta la primavera", romanization: "Meh GOOS-tah lah pree-mah-BEH-rah" }
-    ],
-    grammar: {
-      point: "Weather expressions",
-      explanation: "Use 'hace' for weather conditions like 'hace sol' (it's sunny) and 'está' for ongoing conditions like 'está lloviendo' (it's raining).",
-      examples: [
-        { sentence: "Hace sol", romanization: "AH-seh SOHL", english: "It's sunny" },
-        { sentence: "Está lloviendo", romanization: "Ehs-TAH yoh-BYEHN-doh", english: "It's raining" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'It's raining' in Spanish?",
-        options: ["Está lloviendo", "Hoy hace sol", "Hace mucho calor", "Me gusta la primavera"],
-        correct: 0
+        english: "Monday",
+        translation: "Lunes",
+        pronunciation: "LOO-nehs",
+        example: "El lunes voy al trabajo",
+        exampleEnglish: "On Monday I go to work"
+      },
+      {
+        english: "Tuesday",
+        translation: "Martes",
+        pronunciation: "MAHR-tehs",
+        example: "Martes es mi día favorito",
+        exampleEnglish: "Tuesday is my favorite day"
+      },
+      {
+        english: "Wednesday",
+        translation: "Miércoles",
+        pronunciation: "MYEHR-koh-lehs",
+        example: "Los miércoles estudio",
+        exampleEnglish: "On Wednesdays I study"
+      },
+      {
+        english: "Thursday",
+        translation: "Jueves",
+        pronunciation: "HWEH-behs",
+        example: "El jueves tengo clase",
+        exampleEnglish: "On Thursday I have class"
+      },
+      {
+        english: "Friday",
+        translation: "Viernes",
+        pronunciation: "BYEHR-nehs",
+        example: "Viernes es el fin de semana",
+        exampleEnglish: "Friday is the weekend"
+      },
+      {
+        english: "Saturday",
+        translation: "Sábado",
+        pronunciation: "SAH-bah-doh",
+        example: "Los sábados descanso",
+        exampleEnglish: "On Saturdays I rest"
+      },
+      {
+        english: "Sunday",
+        translation: "Domingo",
+        pronunciation: "doh-MEEN-goh",
+        example: "El domingo voy a la iglesia",
+        exampleEnglish: "On Sunday I go to church"
+      },
+      {
+        english: "Today",
+        translation: "Hoy",
+        pronunciation: "OY",
+        example: "Hoy hace buen tiempo",
+        exampleEnglish: "Today the weather is good"
+      },
+      {
+        english: "Tomorrow",
+        translation: "Mañana",
+        pronunciation: "mah-NYAH-nah",
+        example: "Mañana tengo una cita",
+        exampleEnglish: "Tomorrow I have an appointment"
+      },
+      {
+        english: "Yesterday",
+        translation: "Ayer",
+        pronunciation: "ah-YEHR",
+        example: "Ayer fui al cine",
+        exampleEnglish: "Yesterday I went to the movies"
       }
     ]
   },
   {
     id: 10,
-    title: "Hobbies and Interests",
-    description: "Talk about your hobbies and interests",
+    title: "Weather",
+    description: "Learn to talk about weather conditions",
+    difficulty: "beginner",
+    estimatedTime: "12 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "24 minutes",
     vocabulary: [
-      { word: "hobby", translation: "pasatiempo", romanization: "pah-sah-TYEHM-poh" },
-      { word: "music", translation: "música", romanization: "MOO-see-kah" },
-      { word: "sports", translation: "deportes", romanization: "deh-POHR-tehs" },
-      { word: "reading", translation: "lectura", romanization: "lehk-TOO-rah" },
-      { word: "cooking", translation: "cocinar", romanization: "koh-see-NAHR" },
-      { word: "traveling", translation: "viajar", romanization: "byah-HAHR" },
-      { word: "photography", translation: "fotografía", romanization: "foh-toh-grah-FEE-ah" },
-      { word: "dancing", translation: "bailar", romanization: "bahy-LAHR" },
-      { word: "swimming", translation: "nadar", romanization: "nah-DAHR" },
-      { word: "painting", translation: "pintar", romanization: "peen-TAHR" }
-    ],
-    phrases: [
-      { english: "What's your hobby?", translation: "¿Cuál es tu pasatiempo?", romanization: "KWAHL ehs too pah-sah-TYEHM-poh?" },
-      { english: "I like music", translation: "Me gusta la música", romanization: "Meh GOOS-tah lah MOO-see-kah" },
-      { english: "I play tennis", translation: "Juego al tenis", romanization: "HWEH-goh ahl TEH-nees" },
-      { english: "I enjoy reading", translation: "Disfruto leyendo", romanization: "dees-FROO-toh leh-YEHN-doh" },
-      { english: "What do you do in your free time?", translation: "¿Qué haces en tu tiempo libre?", romanization: "KEH AH-sehs ehn too TYEHM-poh LEE-breh?" }
-    ],
-    grammar: {
-      point: "Activity verbs",
-      explanation: "Use 'jugar' (to play) for sports and games, 'tocar' (to play) for musical instruments, and 'hacer' (to do) for activities.",
-      examples: [
-        { sentence: "Juego al fútbol", romanization: "HWEH-goh ahl FOOT-bohl", english: "I play soccer" },
-        { sentence: "Toco la guitarra", romanization: "TOH-koh lah gee-TAH-rrah", english: "I play the guitar" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'What's your hobby?' in Spanish?",
-        options: ["¿Cuál es tu pasatiempo?", "Me gusta la música", "Juego al tenis", "¿Qué haces en tu tiempo libre?"],
-        correct: 0
+        english: "Sunny",
+        translation: "Soleado",
+        pronunciation: "soh-leh-AH-doh",
+        example: "Hoy está soleado",
+        exampleEnglish: "Today is sunny"
+      },
+      {
+        english: "Rainy",
+        translation: "Lluvioso",
+        pronunciation: "yoo-BYOH-soh",
+        example: "Es un día lluvioso",
+        exampleEnglish: "It's a rainy day"
+      },
+      {
+        english: "Cloudy",
+        translation: "Nublado",
+        pronunciation: "noo-BLAH-doh",
+        example: "El cielo está nublado",
+        exampleEnglish: "The sky is cloudy"
+      },
+      {
+        english: "Hot",
+        translation: "Caliente",
+        pronunciation: "kah-LYEHN-teh",
+        example: "Hace mucho calor",
+        exampleEnglish: "It's very hot"
+      },
+      {
+        english: "Cold",
+        translation: "Frío",
+        pronunciation: "FREE-oh",
+        example: "Hace frío hoy",
+        exampleEnglish: "It's cold today"
+      },
+      {
+        english: "Windy",
+        translation: "Ventoso",
+        pronunciation: "behn-TOH-soh",
+        example: "Está muy ventoso",
+        exampleEnglish: "It's very windy"
+      },
+      {
+        english: "Snow",
+        translation: "Nieve",
+        pronunciation: "NYEH-beh",
+        example: "Está nevando",
+        exampleEnglish: "It's snowing"
+      },
+      {
+        english: "Rain",
+        translation: "Lluvia",
+        pronunciation: "YOO-byah",
+        example: "Hay mucha lluvia",
+        exampleEnglish: "There's a lot of rain"
+      },
+      {
+        english: "Temperature",
+        translation: "Temperatura",
+        pronunciation: "tehm-peh-rah-TOO-rah",
+        example: "La temperatura es alta",
+        exampleEnglish: "The temperature is high"
+      },
+      {
+        english: "Weather",
+        translation: "Tiempo",
+        pronunciation: "TYEHM-poh",
+        example: "¿Qué tiempo hace?",
+        exampleEnglish: "What's the weather like?"
       }
     ]
   },
   {
     id: 11,
-    title: "Work and Occupation",
-    description: "Learn vocabulary related to work and professions",
+    title: "Directions & Places",
+    description: "Learn to ask for directions and name places",
+    difficulty: "beginner",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "26 minutes",
     vocabulary: [
-      { word: "work", translation: "trabajo", romanization: "trah-BAH-hoh" },
-      { word: "office", translation: "oficina", romanization: "oh-fee-SEE-nah" },
-      { word: "company", translation: "empresa", romanization: "ehm-PREH-sah" },
-      { word: "teacher", translation: "profesor", romanization: "proh-feh-SOHR" },
-      { word: "doctor", translation: "médico", romanization: "MEH-dee-koh" },
-      { word: "engineer", translation: "ingeniero", romanization: "een-heh-NYEHR-oh" },
-      { word: "student", translation: "estudiante", romanization: "ehs-too-DYAHN-teh" },
-      { word: "manager", translation: "gerente", romanization: "heh-REHN-teh" },
-      { word: "secretary", translation: "secretaria", romanization: "seh-kreh-TAH-ryah" },
-      { word: "retired", translation: "jubilado", romanization: "hoo-bee-LAH-doh" }
-    ],
-    phrases: [
-      { english: "What do you do for work?", translation: "¿A qué te dedicas?", romanization: "Ah keh teh deh-DEE-kahs?" },
-      { english: "I work at a company", translation: "Trabajo en una empresa", romanization: "Trah-BAH-hoh ehn OO-nah ehm-PREH-sah" },
-      { english: "I'm a teacher", translation: "Soy profesor", romanization: "Soy proh-feh-SOHR" },
-      { english: "I'm looking for a job", translation: "Busco trabajo", romanization: "BOOS-koh trah-BAH-hoh" },
-      { english: "I work from home", translation: "Trabajo desde casa", romanization: "Trah-BAH-hoh DEHS-deh KAH-sah" }
-    ],
-    grammar: {
-      point: "Work-related prepositions",
-      explanation: "Use 'en' (in/at) for workplace, 'de' (of) for type of work, and 'para' (for) for employer.",
-      examples: [
-        { sentence: "Trabajo en una oficina", romanization: "Trah-BAH-hoh ehn OO-nah oh-fee-SEE-nah", english: "I work in an office" },
-        { sentence: "Trabajo para una empresa", romanization: "Trah-BAH-hoh PAH-rah OO-nah ehm-PREH-sah", english: "I work for a company" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'What do you do for work?' in Spanish?",
-        options: ["¿A qué te dedicas?", "Trabajo en una empresa", "Soy profesor", "Busco trabajo"],
-        correct: 0
+        english: "Right",
+        translation: "Derecha",
+        pronunciation: "deh-REH-chah",
+        example: "Gira a la derecha",
+        exampleEnglish: "Turn right"
+      },
+      {
+        english: "Left",
+        translation: "Izquierda",
+        pronunciation: "ees-KYEHR-dah",
+        example: "Gira a la izquierda",
+        exampleEnglish: "Turn left"
+      },
+      {
+        english: "Straight",
+        translation: "Derecho",
+        pronunciation: "deh-REH-choh",
+        example: "Sigue derecho",
+        exampleEnglish: "Go straight"
+      },
+      {
+        english: "Near",
+        translation: "Cerca",
+        pronunciation: "SEHR-kah",
+        example: "Está cerca de aquí",
+        exampleEnglish: "It's near here"
+      },
+      {
+        english: "Far",
+        translation: "Lejos",
+        pronunciation: "LEH-hohs",
+        example: "Está muy lejos",
+        exampleEnglish: "It's very far"
+      },
+      {
+        english: "Hospital",
+        translation: "Hospital",
+        pronunciation: "ohs-pee-TAHL",
+        example: "Voy al hospital",
+        exampleEnglish: "I'm going to the hospital"
+      },
+      {
+        english: "School",
+        translation: "Escuela",
+        pronunciation: "ehs-KWEH-lah",
+        example: "Mi escuela está cerca",
+        exampleEnglish: "My school is nearby"
+      },
+      {
+        english: "Restaurant",
+        translation: "Restaurante",
+        pronunciation: "rehs-tow-RAHN-teh",
+        example: "Comemos en un restaurante",
+        exampleEnglish: "We eat at a restaurant"
+      },
+      {
+        english: "Store",
+        translation: "Tienda",
+        pronunciation: "TYEHN-dah",
+        example: "Voy a la tienda",
+        exampleEnglish: "I'm going to the store"
+      },
+      {
+        english: "Bank",
+        translation: "Banco",
+        pronunciation: "BAHN-koh",
+        example: "El banco está cerrado",
+        exampleEnglish: "The bank is closed"
       }
     ]
   },
   {
     id: 12,
-    title: "Health and Body",
-    description: "Learn to talk about health and body parts",
+    title: "Shopping",
+    description: "Essential phrases for shopping",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "23 minutes",
     vocabulary: [
-      { word: "head", translation: "cabeza", romanization: "kah-BEH-sah" },
-      { word: "eye", translation: "ojo", romanization: "OH-hoh" },
-      { word: "nose", translation: "nariz", romanization: "nah-REES" },
-      { word: "mouth", translation: "boca", romanization: "BOH-kah" },
-      { word: "hand", translation: "mano", romanization: "MAH-noh" },
-      { word: "foot", translation: "pie", romanization: "PYEH" },
-      { word: "sick", translation: "enfermo", romanization: "ehn-FEHR-moh" },
-      { word: "healthy", translation: "saludable", romanization: "sah-loo-DAH-bleh" },
-      { word: "hospital", translation: "hospital", romanization: "ohs-pee-TAHL" },
-      { word: "medicine", translation: "medicina", romanization: "meh-dee-SEE-nah" }
-    ],
-    phrases: [
-      { english: "I don't feel well", translation: "No me siento bien", romanization: "NOH meh SYEHN-toh byehn" },
-      { english: "I have a headache", translation: "Tengo dolor de cabeza", romanization: "TEHN-goh doh-LOHR deh kah-BEH-sah" },
-      { english: "I need to see a doctor", translation: "Necesito ver a un médico", romanization: "Neh-seh-SEE-toh behr ah oon MEH-dee-koh" },
-      { english: "Are you okay?", translation: "¿Estás bien?", romanization: "Ehs-TAHS byehn?" },
-      { english: "I feel better now", translation: "Ahora me siento mejor", romanization: "Ah-OH-rah meh SYEHN-toh meh-HOHR" }
-    ],
-    grammar: {
-      point: "Body part expressions",
-      explanation: "Use 'tener' (to have) with 'dolor de' (pain in) for body aches. 'Me duele' means 'it hurts me'.",
-      examples: [
-        { sentence: "Tengo dolor de cabeza", romanization: "TEHN-goh doh-LOHR deh kah-BEH-sah", english: "I have a headache" },
-        { sentence: "Me duele la espalda", romanization: "Meh DWEH-leh lah ehs-PAHL-dah", english: "My back hurts" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I have a headache' in Spanish?",
-        options: ["Tengo dolor de cabeza", "No me siento bien", "Necesito ver a un médico", "¿Estás bien?"],
-        correct: 0
+        english: "How much?",
+        translation: "¿Cuánto cuesta?",
+        pronunciation: "KWAHN-toh KWEHS-tah",
+        example: "¿Cuánto cuesta esto?",
+        exampleEnglish: "How much does this cost?"
+      },
+      {
+        english: "Expensive",
+        translation: "Caro",
+        pronunciation: "KAH-roh",
+        example: "Es muy caro",
+        exampleEnglish: "It's very expensive"
+      },
+      {
+        english: "Cheap",
+        translation: "Barato",
+        pronunciation: "bah-RAH-toh",
+        example: "Es bastante barato",
+        exampleEnglish: "It's quite cheap"
+      },
+      {
+        english: "I'll take it",
+        translation: "Me lo llevo",
+        pronunciation: "meh loh YEH-boh",
+        example: "Me lo llevo, gracias",
+        exampleEnglish: "I'll take it, thank you"
+      },
+      {
+        english: "Do you have?",
+        translation: "¿Tiene?",
+        pronunciation: "TYEH-neh",
+        example: "¿Tiene una talla más grande?",
+        exampleEnglish: "Do you have a larger size?"
+      },
+      {
+        english: "Size",
+        translation: "Talla",
+        pronunciation: "TAH-yah",
+        example: "¿Qué talla usa?",
+        exampleEnglish: "What size do you wear?"
+      },
+      {
+        english: "Color",
+        translation: "Color",
+        pronunciation: "koh-LOHR",
+        example: "¿De qué color lo quiere?",
+        exampleEnglish: "What color do you want?"
+      },
+      {
+        english: "Cash",
+        translation: "Efectivo",
+        pronunciation: "eh-fehk-TEE-boh",
+        example: "Pago en efectivo",
+        exampleEnglish: "I pay in cash"
+      },
+      {
+        english: "Credit card",
+        translation: "Tarjeta de crédito",
+        pronunciation: "tahr-HEH-tah deh KREH-dee-toh",
+        example: "¿Acepta tarjeta de crédito?",
+        exampleEnglish: "Do you accept credit card?"
+      },
+      {
+        english: "Receipt",
+        translation: "Recibo",
+        pronunciation: "reh-SEE-boh",
+        example: "¿Puedo tener el recibo?",
+        exampleEnglish: "Can I have the receipt?"
       }
     ]
   },
   {
     id: 13,
-    title: "Technology and Internet",
-    description: "Modern technology vocabulary and phrases",
+    title: "Hobbies & Activities",
+    description: "Learn to talk about hobbies and activities",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "21 minutes",
     vocabulary: [
-      { word: "computer", translation: "computadora", romanization: "kohm-poo-tah-DOH-rah" },
-      { word: "phone", translation: "teléfono", romanization: "teh-LEH-foh-noh" },
-      { word: "internet", translation: "internet", romanization: "een-tehr-NEHT" },
-      { word: "email", translation: "correo electrónico", romanization: "koh-REH-oh ehl-ehk-TROH-nee-koh" },
-      { word: "website", translation: "sitio web", romanization: "SEE-tyoh WEHB" },
-      { word: "password", translation: "contraseña", romanization: "kohn-trah-SEH-nyah" },
-      { word: "download", translation: "descargar", romanization: "dehs-kahr-GAHR" },
-      { word: "upload", translation: "subir", romanization: "soo-BEER" },
-      { word: "app", translation: "aplicación", romanization: "ah-plee-kah-SYOHN" },
-      { word: "social media", translation: "redes sociales", romanization: "REH-dehs soh-SYAH-lehs" }
-    ],
-    phrases: [
-      { english: "I use the internet every day", translation: "Uso internet todos los días", romanization: "OO-soh een-tehr-NEHT TOH-dohs lohs DEE-ahs" },
-      { english: "Can you help me with my computer?", translation: "¿Puedes ayudarme con mi computadora?", romanization: "PWEH-dehs ah-yoo-DAHR-meh kohn mee kohm-poo-tah-DOH-rah?" },
-      { english: "I forgot my password", translation: "Olvidé mi contraseña", romanization: "Ohl-bee-DEH mee kohn-trah-SEH-nyah" },
-      { english: "Do you have WiFi?", translation: "¿Tienes WiFi?", romanization: "TYEH-nehs WEE-fee?" },
-      { english: "I'll send you an email", translation: "Te enviaré un correo electrónico", romanization: "Teh ehn-byah-REH oon koh-REH-oh ehl-ehk-TROH-nee-koh" }
-    ],
-    grammar: {
-      point: "Technology verbs",
-      explanation: "Use 'usar' (to use) for technology, 'enviar' (to send) for emails, and 'descargar' (to download) for files.",
-      examples: [
-        { sentence: "Uso mi computadora", romanization: "OO-soh mee kohm-poo-tah-DOH-rah", english: "I use my computer" },
-        { sentence: "Envío un email", romanization: "Ehn-BYOH oon EE-mayl", english: "I send an email" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I use the internet every day' in Spanish?",
-        options: ["Uso internet todos los días", "¿Puedes ayudarme con mi computadora?", "Olvidé mi contraseña", "¿Tienes WiFi?"],
-        correct: 0
+        english: "Reading",
+        translation: "Leer",
+        pronunciation: "leh-EHR",
+        example: "Me gusta leer libros",
+        exampleEnglish: "I like reading books"
+      },
+      {
+        english: "Writing",
+        translation: "Escribir",
+        pronunciation: "ehs-kree-BEER",
+        example: "Escribo en mi diario",
+        exampleEnglish: "I write in my journal"
+      },
+      {
+        english: "Swimming",
+        translation: "Nadar",
+        pronunciation: "nah-DAHR",
+        example: "Nado en la piscina",
+        exampleEnglish: "I swim in the pool"
+      },
+      {
+        english: "Running",
+        translation: "Correr",
+        pronunciation: "koh-RREHR",
+        example: "Corro por las mañanas",
+        exampleEnglish: "I run in the mornings"
+      },
+      {
+        english: "Dancing",
+        translation: "Bailar",
+        pronunciation: "bahy-LAHR",
+        example: "Bailo salsa los sábados",
+        exampleEnglish: "I dance salsa on Saturdays"
+      },
+      {
+        english: "Singing",
+        translation: "Cantar",
+        pronunciation: "kahn-TAHR",
+        example: "Canto en un coro",
+        exampleEnglish: "I sing in a choir"
+      },
+      {
+        english: "Cooking",
+        translation: "Cocinar",
+        pronunciation: "koh-see-NAHR",
+        example: "Me encanta cocinar",
+        exampleEnglish: "I love cooking"
+      },
+      {
+        english: "Playing",
+        translation: "Jugar",
+        pronunciation: "hoo-GAHR",
+        example: "Juego al fútbol",
+        exampleEnglish: "I play soccer"
+      },
+      {
+        english: "Watching",
+        translation: "Ver",
+        pronunciation: "BEHR",
+        example: "Veo películas los domingos",
+        exampleEnglish: "I watch movies on Sundays"
+      },
+      {
+        english: "Traveling",
+        translation: "Viajar",
+        pronunciation: "byah-HAHR",
+        example: "Me gusta viajar",
+        exampleEnglish: "I like traveling"
       }
     ]
   },
   {
     id: 14,
-    title: "Travel and Tourism",
-    description: "Essential phrases for travelers and tourists",
+    title: "Travel Phrases",
+    description: "Essential phrases for travelers",
+    difficulty: "beginner",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "27 minutes",
     vocabulary: [
-      { word: "passport", translation: "pasaporte", romanization: "pah-sah-POHR-teh" },
-      { word: "visa", translation: "visa", romanization: "BEE-sah" },
-      { word: "hotel", translation: "hotel", romanization: "oh-TEHL" },
-      { word: "restaurant", translation: "restaurante", romanization: "rehs-tow-RAHN-teh" },
-      { word: "tourist", translation: "turista", romanization: "too-REES-tah" },
-      { word: "sightseeing", translation: "turismo", romanization: "too-REES-moh" },
-      { word: "museum", translation: "museo", romanization: "moo-SEH-oh" },
-      { word: "temple", translation: "templo", romanization: "TEHM-ploh" },
-      { word: "church", translation: "iglesia", romanization: "ee-GLEH-syah" },
-      { word: "garden", translation: "jardín", romanization: "hahr-DEEN" }
-    ],
-    phrases: [
-      { english: "I'm a tourist", translation: "Soy turista", romanization: "Soy too-REES-tah" },
-      { english: "Where is the hotel?", translation: "¿Dónde está el hotel?", romanization: "DOHN-deh ehs-TAH ehl oh-TEHL?" },
-      { english: "I want to see the museum", translation: "Quiero ver el museo", romanization: "KYEH-roh behr ehl moo-SEH-oh" },
-      { english: "How much is the entrance fee?", translation: "¿Cuánto cuesta la entrada?", romanization: "KWAHN-toh KWEHS-tah lah ehn-TRAH-dah?" },
-      { english: "Can you take a photo?", translation: "¿Puedes tomar una foto?", romanization: "PWEH-dehs toh-MAHR OO-nah FOH-toh?" }
-    ],
-    grammar: {
-      point: "Travel expressions",
-      explanation: "Use 'quiero ver' (I want to see) for sightseeing and 'tomar' (to take) for photos.",
-      examples: [
-        { sentence: "Quiero ver el museo", romanization: "KYEH-roh behr ehl moo-SEH-oh", english: "I want to see the museum" },
-        { sentence: "Tomar una foto", romanization: "Toh-MAHR OO-nah FOH-toh", english: "Take a photo" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I'm a tourist' in Spanish?",
-        options: ["Soy turista", "¿Dónde está el hotel?", "Quiero ver el museo", "¿Cuánto cuesta la entrada?"],
-        correct: 0
+        english: "Airport",
+        translation: "Aeropuerto",
+        pronunciation: "ah-eh-roh-PWEHR-toh",
+        example: "Voy al aeropuerto",
+        exampleEnglish: "I'm going to the airport"
+      },
+      {
+        english: "Train station",
+        translation: "Estación de tren",
+        pronunciation: "ehs-tah-SYOHN deh TREHN",
+        example: "La estación está cerca",
+        exampleEnglish: "The station is nearby"
+      },
+      {
+        english: "Ticket",
+        translation: "Boleto",
+        pronunciation: "boh-LEH-toh",
+        example: "Necesito un boleto",
+        exampleEnglish: "I need a ticket"
+      },
+      {
+        english: "Passport",
+        translation: "Pasaporte",
+        pronunciation: "pah-sah-POHR-teh",
+        example: "¿Dónde está mi pasaporte?",
+        exampleEnglish: "Where is my passport?"
+      },
+      {
+        english: "Hotel",
+        translation: "Hotel",
+        pronunciation: "oh-TEHL",
+        example: "Reservé un hotel",
+        exampleEnglish: "I booked a hotel"
+      },
+      {
+        english: "Room",
+        translation: "Habitación",
+        pronunciation: "ah-bee-tah-SYOHN",
+        example: "Quiero una habitación",
+        exampleEnglish: "I want a room"
+      },
+      {
+        english: "Luggage",
+        translation: "Equipaje",
+        pronunciation: "eh-kee-PAH-heh",
+        example: "¿Dónde está mi equipaje?",
+        exampleEnglish: "Where is my luggage?"
+      },
+      {
+        english: "Map",
+        translation: "Mapa",
+        pronunciation: "MAH-pah",
+        example: "Necesito un mapa",
+        exampleEnglish: "I need a map"
+      },
+      {
+        english: "Tourist",
+        translation: "Turista",
+        pronunciation: "too-REES-tah",
+        example: "Soy turista",
+        exampleEnglish: "I'm a tourist"
+      },
+      {
+        english: "Beach",
+        translation: "Playa",
+        pronunciation: "PLAH-yah",
+        example: "Vamos a la playa",
+        exampleEnglish: "Let's go to the beach"
       }
     ]
   },
   {
     id: 15,
-    title: "Entertainment and Culture",
-    description: "Learn about Spanish entertainment and cultural activities",
+    title: "At the Hotel",
+    description: "Useful phrases for hotel stays",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "25 minutes",
     vocabulary: [
-      { word: "movie", translation: "película", romanization: "peh-LEE-koo-lah" },
-      { word: "music", translation: "música", romanization: "MOO-see-kah" },
-      { word: "concert", translation: "concierto", romanization: "kohn-SYEHR-toh" },
-      { word: "theater", translation: "teatro", romanization: "teh-AH-troh" },
-      { word: "museum", translation: "museo", romanization: "moo-SEH-oh" },
-      { word: "art", translation: "arte", romanization: "AHR-teh" },
-      { word: "tradition", translation: "tradición", romanization: "trah-dee-SYOHN" },
-      { word: "festival", translation: "festival", romanization: "fehs-tee-BAHL" },
-      { word: "dance", translation: "baile", romanization: "BAHY-leh" },
-      { word: "flamenco", translation: "flamenco", romanization: "flah-MEHN-koh" }
-    ],
-    phrases: [
-      { english: "I like Spanish movies", translation: "Me gustan las películas españolas", romanization: "Meh GOOS-tahn lahs peh-LEE-koo-lahs ehs-pah-NYOH-lahs" },
-      { english: "Let's go to a concert", translation: "Vamos a un concierto", romanization: "BAH-mohs ah oon kohn-SYEHR-toh" },
-      { english: "I want to see traditional art", translation: "Quiero ver arte tradicional", romanization: "KYEH-roh behr AHR-teh trah-dee-syoh-NAHL" },
-      { english: "When is the festival?", translation: "¿Cuándo es el festival?", romanization: "KWAHN-doh ehs ehl fehs-tee-BAHL?" },
-      { english: "I want to learn flamenco", translation: "Quiero aprender flamenco", romanization: "KYEH-roh ah-prehn-DEHR flah-MEHN-koh" }
-    ],
-    grammar: {
-      point: "Cultural expressions",
-      explanation: "Use 'aprender' (to learn) for skills and 'enseñar' (to teach) for sharing knowledge.",
-      examples: [
-        { sentence: "Aprender flamenco", romanization: "Ah-prehn-DEHR flah-MEHN-koh", english: "Learn flamenco" },
-        { sentence: "Enseñar español", romanization: "Ehn-seh-NYAHR ehs-pah-NYOHL", english: "Teach Spanish" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I like Spanish movies' in Spanish?",
-        options: ["Me gustan las películas españolas", "Vamos a un concierto", "Quiero ver arte tradicional", "¿Cuándo es el festival?"],
-        correct: 0
+        english: "Reservation",
+        translation: "Reserva",
+        pronunciation: "reh-SEHR-bah",
+        example: "Tengo una reserva",
+        exampleEnglish: "I have a reservation"
+      },
+      {
+        english: "Check-in",
+        translation: "Registro",
+        pronunciation: "reh-HEES-troh",
+        example: "¿A qué hora es el registro?",
+        exampleEnglish: "What time is check-in?"
+      },
+      {
+        english: "Check-out",
+        translation: "Salida",
+        pronunciation: "sah-LEE-dah",
+        example: "La hora de salida es a las doce",
+        exampleEnglish: "Check-out time is at twelve"
+      },
+      {
+        english: "Key",
+        translation: "Llave",
+        pronunciation: "YAH-beh",
+        example: "¿Puedo tener la llave?",
+        exampleEnglish: "Can I have the key?"
+      },
+      {
+        english: "WiFi",
+        translation: "WiFi",
+        pronunciation: "WEE-fee",
+        example: "¿Tiene WiFi?",
+        exampleEnglish: "Do you have WiFi?"
+      },
+      {
+        english: "Breakfast",
+        translation: "Desayuno",
+        pronunciation: "deh-sah-YOO-noh",
+        example: "El desayuno está incluido",
+        exampleEnglish: "Breakfast is included"
+      },
+      {
+        english: "Room service",
+        translation: "Servicio a la habitación",
+        pronunciation: "sehr-BEE-syoh ah lah ah-bee-tah-SYOHN",
+        example: "¿Tiene servicio a la habitación?",
+        exampleEnglish: "Do you have room service?"
+      },
+      {
+        english: "Wake-up call",
+        translation: "Llamada de despertador",
+        pronunciation: "yah-MAH-dah deh dehs-pehr-tah-DOHR",
+        example: "Quiero una llamada a las siete",
+        exampleEnglish: "I want a wake-up call at seven"
+      },
+      {
+        english: "Towels",
+        translation: "Toallas",
+        pronunciation: "toh-AH-yahs",
+        example: "Necesito toallas limpias",
+        exampleEnglish: "I need clean towels"
+      },
+      {
+        english: "Elevator",
+        translation: "Ascensor",
+        pronunciation: "ahs-sehn-SOHR",
+        example: "¿Dónde está el ascensor?",
+        exampleEnglish: "Where is the elevator?"
       }
     ]
   },
   {
     id: 16,
-    title: "Business and Formal Language",
-    description: "Learn formal business Spanish and polite expressions",
+    title: "Body Parts & Health",
+    description: "Learn body parts and health vocabulary",
+    difficulty: "beginner",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "advanced",
-    estimatedTime: "30 minutes",
     vocabulary: [
-      { word: "meeting", translation: "reunión", romanization: "reh-oo-NYOHN" },
-      { word: "presentation", translation: "presentación", romanization: "preh-sehn-tah-SYOHN" },
-      { word: "contract", translation: "contrato", romanization: "kohn-TRAH-toh" },
-      { word: "client", translation: "cliente", romanization: "KLYEHN-teh" },
-      { word: "colleague", translation: "colega", romanization: "koh-LEH-gah" },
-      { word: "boss", translation: "jefe", romanization: "HEH-feh" },
-      { word: "deadline", translation: "fecha límite", romanization: "FEH-chah LEE-mee-teh" },
-      { word: "project", translation: "proyecto", romanization: "proh-YEHK-toh" },
-      { word: "budget", translation: "presupuesto", romanization: "preh-soo-PWEHS-toh" },
-      { word: "report", translation: "informe", romanization: "een-FOHR-meh" }
-    ],
-    phrases: [
-      { english: "Nice to meet you (formal)", translation: "Mucho gusto en conocerle", romanization: "MOO-choh GOOS-toh ehn koh-noh-SEHR-leh" },
-      { english: "Thank you for your time", translation: "Gracias por su tiempo", romanization: "GRAH-syahs pohr soo TYEHM-poh" },
-      { english: "I look forward to working with you", translation: "Espero trabajar con usted", romanization: "Ehs-PEH-roh trah-bah-HAHR kohn oos-TEHD" },
-      { english: "Could you please...?", translation: "¿Podría usted...?", romanization: "Poh-DREE-ah oos-TEHD...?" },
-      { english: "I apologize for the inconvenience", translation: "Disculpe las molestias", romanization: "Dees-KOOL-peh lahs moh-LEHS-tyahs" }
-    ],
-    grammar: {
-      point: "Formal language",
-      explanation: "Business Spanish uses 'usted' (formal you) and 'su' (your) instead of 'tú' and 'tu'. Use 'podría' for polite requests.",
-      examples: [
-        { sentence: "¿Podría ayudarme?", romanization: "Poh-DREE-ah ah-yoo-DAHR-meh?", english: "Could you help me?" },
-        { sentence: "Su oficina", romanization: "Soo oh-fee-SEE-nah", english: "Your office" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'Nice to meet you (formal)' in Spanish?",
-        options: ["Mucho gusto en conocerle", "Gracias por su tiempo", "Espero trabajar con usted", "¿Podría usted...?"],
-        correct: 0
+        english: "Head",
+        translation: "Cabeza",
+        pronunciation: "kah-BEH-sah",
+        example: "Me duele la cabeza",
+        exampleEnglish: "My head hurts"
+      },
+      {
+        english: "Eye",
+        translation: "Ojo",
+        pronunciation: "OH-hoh",
+        example: "Tengo los ojos azules",
+        exampleEnglish: "I have blue eyes"
+      },
+      {
+        english: "Nose",
+        translation: "Nariz",
+        pronunciation: "nah-REES",
+        example: "Mi nariz está tapada",
+        exampleEnglish: "My nose is stuffy"
+      },
+      {
+        english: "Mouth",
+        translation: "Boca",
+        pronunciation: "BOH-kah",
+        example: "Abre la boca",
+        exampleEnglish: "Open your mouth"
+      },
+      {
+        english: "Hand",
+        translation: "Mano",
+        pronunciation: "MAH-noh",
+        example: "Levanta la mano",
+        exampleEnglish: "Raise your hand"
+      },
+      {
+        english: "Foot",
+        translation: "Pie",
+        pronunciation: "PYEH",
+        example: "Me duele el pie",
+        exampleEnglish: "My foot hurts"
+      },
+      {
+        english: "Doctor",
+        translation: "Médico",
+        pronunciation: "MEH-dee-koh",
+        example: "Necesito ver al médico",
+        exampleEnglish: "I need to see the doctor"
+      },
+      {
+        english: "Medicine",
+        translation: "Medicina",
+        pronunciation: "meh-dee-SEE-nah",
+        example: "Tomo medicina para el dolor",
+        exampleEnglish: "I take medicine for the pain"
+      },
+      {
+        english: "Sick",
+        translation: "Enfermo",
+        pronunciation: "ehn-FEHR-moh",
+        example: "Estoy enfermo",
+        exampleEnglish: "I'm sick"
+      },
+      {
+        english: "Healthy",
+        translation: "Saludable",
+        pronunciation: "sah-loo-DAH-bleh",
+        example: "Comer sano es saludable",
+        exampleEnglish: "Eating healthy is good for you"
       }
     ]
   },
   {
     id: 17,
-    title: "Advanced Grammar Structures",
-    description: "Complex sentence structures and advanced grammar patterns",
+    title: "Emotions & Feelings",
+    description: "Learn to express emotions and feelings",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "advanced",
-    estimatedTime: "35 minutes",
     vocabulary: [
-      { word: "although", translation: "aunque", romanization: "OWHN-keh" },
-      { word: "however", translation: "sin embargo", romanization: "seen ehm-BAHR-goh" },
-      { word: "therefore", translation: "por lo tanto", romanization: "pohr loh TAHN-toh" },
-      { word: "moreover", translation: "además", romanization: "ah-deh-MAHS" },
-      { word: "nevertheless", translation: "no obstante", romanization: "noh ohbs-TAHN-teh" },
-      { word: "consequently", translation: "consecuentemente", romanization: "kohn-seh-kwehn-TEHN-teh" },
-      { word: "meanwhile", translation: "mientras tanto", romanization: "MYEHN-trahs TAHN-toh" },
-      { word: "furthermore", translation: "además", romanization: "ah-deh-MAHS" },
-      { word: "likewise", translation: "igualmente", romanization: "ee-gwahl-MEHN-teh" },
-      { word: "otherwise", translation: "de lo contrario", romanization: "deh loh kohn-TRAH-ryoh" }
-    ],
-    phrases: [
-      { english: "Although it's difficult, I'll try", translation: "Aunque es difícil, lo intentaré", romanization: "OWHN-keh ehs dee-FEE-seel, loh een-tehn-tah-REH" },
-      { english: "However, I think it's possible", translation: "Sin embargo, creo que es posible", romanization: "Seen ehm-BAHR-goh, KREH-oh keh ehs poh-SEE-bleh" },
-      { english: "Therefore, we should continue", translation: "Por lo tanto, deberíamos continuar", romanization: "Pohr loh TAHN-toh, deh-beh-REE-ah-mohs kohn-tee-NWAHR" },
-      { english: "Moreover, it's important", translation: "Además, es importante", romanization: "Ah-deh-MAHS, ehs eem-pohr-TAHN-teh" },
-      { english: "Nevertheless, I believe", translation: "No obstante, creo", romanization: "Noh ohbs-TAHN-teh, KREH-oh" }
-    ],
-    grammar: {
-      point: "Complex conjunctions",
-      explanation: "Advanced Spanish uses complex conjunctions to connect ideas. 'Aunque' means 'although' and 'por lo tanto' means 'therefore'.",
-      examples: [
-        { sentence: "Aunque es difícil, lo intentaré", romanization: "OWHN-keh ehs dee-FEE-seel, loh een-tehn-tah-REH", english: "Although it's difficult, I'll try" },
-        { sentence: "Por lo tanto, continuaré", romanization: "Pohr loh TAHN-toh, kohn-tee-noo-ah-REH", english: "Therefore, I'll continue" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'Although it's difficult, I'll try' in Spanish?",
-        options: ["Aunque es difícil, lo intentaré", "Sin embargo, creo que es posible", "Por lo tanto, deberíamos continuar", "Además, es importante"],
-        correct: 0
+        english: "Happy",
+        translation: "Feliz",
+        pronunciation: "feh-LEES",
+        example: "Estoy muy feliz",
+        exampleEnglish: "I'm very happy"
+      },
+      {
+        english: "Sad",
+        translation: "Triste",
+        pronunciation: "TREES-teh",
+        example: "Me siento triste",
+        exampleEnglish: "I feel sad"
+      },
+      {
+        english: "Angry",
+        translation: "Enojado",
+        pronunciation: "eh-noh-HAH-doh",
+        example: "Estoy enojado contigo",
+        exampleEnglish: "I'm angry with you"
+      },
+      {
+        english: "Excited",
+        translation: "Emocionado",
+        pronunciation: "eh-moh-syoh-NAH-doh",
+        example: "Estoy emocionado por el viaje",
+        exampleEnglish: "I'm excited about the trip"
+      },
+      {
+        english: "Tired",
+        translation: "Cansado",
+        pronunciation: "kahn-SAH-doh",
+        example: "Estoy muy cansado",
+        exampleEnglish: "I'm very tired"
+      },
+      {
+        english: "Worried",
+        translation: "Preocupado",
+        pronunciation: "preh-oh-koo-PAH-doh",
+        example: "Estoy preocupado por ti",
+        exampleEnglish: "I'm worried about you"
+      },
+      {
+        english: "Surprised",
+        translation: "Sorprendido",
+        pronunciation: "sohr-prehn-DEE-doh",
+        example: "Estoy sorprendido",
+        exampleEnglish: "I'm surprised"
+      },
+      {
+        english: "Nervous",
+        translation: "Nervioso",
+        pronunciation: "nehr-BYOH-soh",
+        example: "Estoy nervioso antes del examen",
+        exampleEnglish: "I'm nervous before the exam"
+      },
+      {
+        english: "Calm",
+        translation: "Tranquilo",
+        pronunciation: "trahn-KEE-loh",
+        example: "Mantén la calma",
+        exampleEnglish: "Stay calm"
+      },
+      {
+        english: "Love",
+        translation: "Amor",
+        pronunciation: "ah-MOHR",
+        example: "Te amo",
+        exampleEnglish: "I love you"
       }
     ]
   },
   {
     id: 18,
-    title: "Idioms and Expressions",
-    description: "Learn common Spanish idioms and cultural expressions",
+    title: "Past Tense Basics",
+    description: "Learn basic past tense verbs",
+    difficulty: "intermediate",
+    estimatedTime: "20 minutes",
     isPremium: true,
-    difficulty: "advanced",
-    estimatedTime: "32 minutes",
     vocabulary: [
-      { word: "idiom", translation: "modismo", romanization: "moh-DEES-moh" },
-      { word: "expression", translation: "expresión", romanization: "ehks-preh-SYOHN" },
-      { word: "proverb", translation: "proverbio", romanization: "proh-behr-BYOH" },
-      { word: "metaphor", translation: "metáfora", romanization: "meh-TAH-foh-rah" },
-      { word: "saying", translation: "dicho", romanization: "DEE-choh" },
-      { word: "cultural", translation: "cultural", romanization: "kool-too-RAHL" },
-      { word: "traditional", translation: "tradicional", romanization: "trah-dee-syoh-NAHL" },
-      { word: "modern", translation: "moderno", romanization: "moh-DEHR-noh" },
-      { word: "colloquial", translation: "coloquial", romanization: "koh-loh-KYAHL" },
-      { word: "formal", translation: "formal", romanization: "fohr-MAHL" }
-    ],
-    phrases: [
-      { english: "It's a piece of cake", translation: "Es pan comido", romanization: "Ehs pahn koh-MEE-doh" },
-      { english: "Don't count your chickens", translation: "No vendas la piel del oso", romanization: "Noh BEHN-dahs lah pyehl dehl OH-soh" },
-      { english: "The early bird catches the worm", translation: "A quien madruga, Dios le ayuda", romanization: "Ah kyehn mah-DROO-gah, DYOHS leh ah-YOO-dah" },
-      { english: "Actions speak louder than words", translation: "Obras son amores", romanization: "OH-brahs sohn ah-MOH-rehs" },
-      { english: "Better late than never", translation: "Más vale tarde que nunca", romanization: "Mahs BAH-leh TAHR-deh keh NOON-kah" }
-    ],
-    grammar: {
-      point: "Cultural context",
-      explanation: "Spanish idioms often reflect cultural values and historical context. Understanding the cultural background helps in proper usage.",
-      examples: [
-        { sentence: "Es pan comido", romanization: "Ehs pahn koh-MEE-doh", english: "It's a piece of cake (literally: it's eaten bread)" },
-        { sentence: "A quien madruga, Dios le ayuda", romanization: "Ah kyehn mah-DROO-gah, DYOHS leh ah-YOO-dah", english: "God helps those who rise early" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'It's a piece of cake' in Spanish?",
-        options: ["Es pan comido", "No vendas la piel del oso", "A quien madruga, Dios le ayuda", "Obras son amores"],
-        correct: 0
+        english: "I went",
+        translation: "Fui",
+        pronunciation: "FWEE",
+        example: "Fui al cine ayer",
+        exampleEnglish: "I went to the movies yesterday"
+      },
+      {
+        english: "I ate",
+        translation: "Comí",
+        pronunciation: "koh-MEE",
+        example: "Comí pizza anoche",
+        exampleEnglish: "I ate pizza last night"
+      },
+      {
+        english: "I saw",
+        translation: "Vi",
+        pronunciation: "BEE",
+        example: "Vi una película",
+        exampleEnglish: "I saw a movie"
+      },
+      {
+        english: "I did",
+        translation: "Hice",
+        pronunciation: "EE-seh",
+        example: "Hice mi tarea",
+        exampleEnglish: "I did my homework"
+      },
+      {
+        english: "I said",
+        translation: "Dije",
+        pronunciation: "DEE-heh",
+        example: "Dije que sí",
+        exampleEnglish: "I said yes"
+      },
+      {
+        english: "I came",
+        translation: "Vine",
+        pronunciation: "BEE-neh",
+        example: "Vine temprano",
+        exampleEnglish: "I came early"
+      },
+      {
+        english: "I had",
+        translation: "Tuve",
+        pronunciation: "TOO-beh",
+        example: "Tuve una idea",
+        exampleEnglish: "I had an idea"
+      },
+      {
+        english: "I was",
+        translation: "Estaba",
+        pronunciation: "ehs-TAH-bah",
+        example: "Estaba en casa",
+        exampleEnglish: "I was at home"
+      },
+      {
+        english: "I wanted",
+        translation: "Quise",
+        pronunciation: "KEE-seh",
+        example: "Quise ayudarte",
+        exampleEnglish: "I wanted to help you"
+      },
+      {
+        english: "I knew",
+        translation: "Supe",
+        pronunciation: "SOO-peh",
+        example: "Supe la respuesta",
+        exampleEnglish: "I knew the answer"
       }
     ]
   },
   {
     id: 19,
-    title: "Conversation Practice",
-    description: "Advanced conversation skills and natural dialogue",
+    title: "Making Plans",
+    description: "Learn phrases for making plans and arrangements",
+    difficulty: "intermediate",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "advanced",
-    estimatedTime: "40 minutes",
     vocabulary: [
-      { word: "conversation", translation: "conversación", romanization: "kohn-behr-sah-SYOHN" },
-      { word: "dialogue", translation: "diálogo", romanization: "DYAH-loh-goh" },
-      { word: "discussion", translation: "discusión", romanization: "dees-koo-SYOHN" },
-      { word: "debate", translation: "debate", romanization: "deh-BAH-teh" },
-      { word: "negotiation", translation: "negociación", romanization: "neh-goh-syah-SYOHN" },
-      { word: "persuasion", translation: "persuasión", romanization: "pehr-swah-SYOHN" },
-      { word: "agreement", translation: "acuerdo", romanization: "ah-KWEHR-doh" },
-      { word: "disagreement", translation: "desacuerdo", romanization: "deh-sah-KWEHR-doh" },
-      { word: "compromise", translation: "compromiso", romanization: "kohm-proh-MEE-soh" },
-      { word: "consensus", translation: "consenso", romanization: "kohn-SEHN-soh" }
-    ],
-    phrases: [
-      { english: "What do you think about...?", translation: "¿Qué opinas de...?", romanization: "KEH oh-PEE-nahs deh...?" },
-      { english: "I agree with you", translation: "Estoy de acuerdo contigo", romanization: "Ehs-TOY deh ah-KWEHR-doh kohn-TEE-goh" },
-      { english: "I have a different opinion", translation: "Tengo una opinión diferente", romanization: "TEHN-goh OO-nah oh-pee-NYOHN dee-feh-REHN-teh" },
-      { english: "Let's discuss this further", translation: "Hablemos más sobre esto", romanization: "Ah-BLEH-mohs mahs SOH-breh EHS-toh" },
-      { english: "I understand your point", translation: "Entiendo tu punto", romanization: "Ehn-TYEHN-doh too POON-toh" }
-    ],
-    grammar: {
-      point: "Advanced conversation patterns",
-      explanation: "Advanced conversations use complex sentence structures, conditional forms, and nuanced expressions to convey subtle meanings.",
-      examples: [
-        { sentence: "¿Qué opinas de...?", romanization: "KEH oh-PEE-nahs deh...?", english: "What do you think about...?" },
-        { sentence: "Estoy de acuerdo contigo", romanization: "Ehs-TOY deh ah-KWEHR-doh kohn-TEE-goh", english: "I agree with you" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'What do you think about...?' in Spanish?",
-        options: ["¿Qué opinas de...?", "Estoy de acuerdo contigo", "Tengo una opinión diferente", "Hablemos más sobre esto"],
-        correct: 0
+        english: "Let's meet",
+        translation: "Quedemos",
+        pronunciation: "keh-DEH-mohs",
+        example: "Quedemos a las ocho",
+        exampleEnglish: "Let's meet at eight"
+      },
+      {
+        english: "I'm free",
+        translation: "Estoy libre",
+        pronunciation: "ehs-TOY LEE-breh",
+        example: "Estoy libre el sábado",
+        exampleEnglish: "I'm free on Saturday"
+      },
+      {
+        english: "I'm busy",
+        translation: "Estoy ocupado",
+        pronunciation: "ehs-TOY oh-koo-PAH-doh",
+        example: "Estoy ocupado mañana",
+        exampleEnglish: "I'm busy tomorrow"
+      },
+      {
+        english: "What time?",
+        translation: "¿A qué hora?",
+        pronunciation: "ah keh OH-rah",
+        example: "¿A qué hora quieres quedar?",
+        exampleEnglish: "What time do you want to meet?"
+      },
+      {
+        english: "Where?",
+        translation: "¿Dónde?",
+        pronunciation: "DOHN-deh",
+        example: "¿Dónde nos encontramos?",
+        exampleEnglish: "Where do we meet?"
+      },
+      {
+        english: "I can't",
+        translation: "No puedo",
+        pronunciation: "noh PWEH-doh",
+        example: "No puedo ir mañana",
+        exampleEnglish: "I can't go tomorrow"
+      },
+      {
+        english: "I can",
+        translation: "Puedo",
+        pronunciation: "PWEH-doh",
+        example: "Puedo ir el viernes",
+        exampleEnglish: "I can go on Friday"
+      },
+      {
+        english: "Maybe",
+        translation: "Tal vez",
+        pronunciation: "tahl BEHS",
+        example: "Tal vez pueda ir",
+        exampleEnglish: "Maybe I can go"
+      },
+      {
+        english: "See you",
+        translation: "Nos vemos",
+        pronunciation: "nohs BEH-mohs",
+        example: "Nos vemos mañana",
+        exampleEnglish: "See you tomorrow"
+      },
+      {
+        english: "Cancel",
+        translation: "Cancelar",
+        pronunciation: "kahn-seh-LAHR",
+        example: "Tengo que cancelar",
+        exampleEnglish: "I have to cancel"
       }
     ]
   }

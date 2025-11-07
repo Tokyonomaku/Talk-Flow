@@ -2,826 +2,1590 @@ export const lessons = [
   {
     id: 1,
     title: "Basic Greetings",
-    description: "Learn how to say hello, goodbye, and introduce yourself",
-    isPremium: false,
+    description: "Learn essential greetings and polite phrases",
     difficulty: "beginner",
-    estimatedTime: "15 minutes",
+    estimatedTime: "10 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "hello", translation: "こんにちは", romanization: "konnichiwa" },
-      { word: "goodbye", translation: "さようなら", romanization: "sayonara" },
-      { word: "good morning", translation: "おはよう", romanization: "ohayou" },
-      { word: "good evening", translation: "こんばんは", romanization: "konbanwa" },
-      { word: "thank you", translation: "ありがとう", romanization: "arigatou" },
-      { word: "excuse me", translation: "すみません", romanization: "sumimasen" },
-      { word: "yes", translation: "はい", romanization: "hai" },
-      { word: "no", translation: "いいえ", romanization: "iie" },
-      { word: "please", translation: "お願いします", romanization: "onegaishimasu" },
-      { word: "sorry", translation: "ごめんなさい", romanization: "gomennasai" }
-    ],
-    phrases: [
-      { english: "Nice to meet you", translation: "はじめまして", romanization: "hajimemashite" },
-      { english: "My name is...", translation: "私の名前は...です", romanization: "Watashi no namae wa... desu" },
-      { english: "How are you?", translation: "元気ですか？", romanization: "Genki desu ka?" },
-      { english: "I'm fine, thank you", translation: "元気です、ありがとう", romanization: "Genki desu, arigatou" },
-      { english: "See you later", translation: "また後で", romanization: "Mata ato de" },
-      { english: "Take care", translation: "気をつけて", romanization: "Ki wo tsukete" },
-      { english: "Good night", translation: "おやすみなさい", romanization: "Oyasumi nasai" }
-    ],
-    grammar: {
-      point: "Basic sentence structure",
-      explanation: "In Japanese, the basic word order is Subject-Object-Verb. The particle 'は' (wa) marks the topic of the sentence.",
-      examples: [
-        { sentence: "私は学生です", romanization: "Watashi wa gakusei desu", english: "I am a student" },
-        { sentence: "あなたは先生です", romanization: "Anata wa sensei desu", english: "You are a teacher" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'hello' in Japanese?",
-        options: ["こんにちは", "さようなら", "ありがとう", "すみません"],
-        correct: 0
+        english: "Hello",
+        translation: "こんにちは",
+        pronunciation: "kon-ni-chi-wa",
+        example: "こんにちは、元気ですか？",
+        exampleEnglish: "Hello, how are you?"
       },
       {
-        type: "multiple-choice",
-        question: "What does 'ありがとう' mean?",
-        options: ["Hello", "Thank you", "Goodbye", "Excuse me"],
-        correct: 1
+        english: "Goodbye",
+        translation: "さようなら",
+        pronunciation: "sa-yo-u-na-ra",
+        example: "さようなら、また後で",
+        exampleEnglish: "Goodbye, see you later"
+      },
+      {
+        english: "Good morning",
+        translation: "おはようございます",
+        pronunciation: "o-ha-yo-u go-za-i-ma-su",
+        example: "おはようございます、今日もよろしく",
+        exampleEnglish: "Good morning, nice to meet you today too"
+      },
+      {
+        english: "Good evening",
+        translation: "こんばんは",
+        pronunciation: "kon-ban-wa",
+        example: "こんばんは、お疲れ様です",
+        exampleEnglish: "Good evening, thank you for your hard work"
+      },
+      {
+        english: "Please",
+        translation: "お願いします",
+        pronunciation: "o-ne-ga-i shi-ma-su",
+        example: "お願いします、助けてください",
+        exampleEnglish: "Please, help me"
+      },
+      {
+        english: "Thank you",
+        translation: "ありがとうございます",
+        pronunciation: "a-ri-ga-to-u go-za-i-ma-su",
+        example: "ありがとうございます、助かりました",
+        exampleEnglish: "Thank you very much, you helped me"
+      },
+      {
+        english: "You're welcome",
+        translation: "どういたしまして",
+        pronunciation: "do-u i-ta-shi-ma-shi-te",
+        example: "どういたしまして、喜んで",
+        exampleEnglish: "You're welcome, my pleasure"
+      },
+      {
+        english: "Excuse me",
+        translation: "すみません",
+        pronunciation: "su-mi-ma-sen",
+        example: "すみません、お手洗いはどこですか？",
+        exampleEnglish: "Excuse me, where is the bathroom?"
+      },
+      {
+        english: "Sorry",
+        translation: "ごめんなさい",
+        pronunciation: "go-men-na-sa-i",
+        example: "ごめんなさい、遅れました",
+        exampleEnglish: "Sorry, I'm late"
+      },
+      {
+        english: "Good night",
+        translation: "おやすみなさい",
+        pronunciation: "o-ya-su-mi-na-sa-i",
+        example: "おやすみなさい、良い夢を",
+        exampleEnglish: "Good night, sweet dreams"
       }
     ]
   },
   {
     id: 2,
-    title: "Numbers 1-10",
-    description: "Learn to count from 1 to 10 in Japanese",
-    isPremium: false,
+    title: "Introducing Yourself",
+    description: "Learn how to introduce yourself and ask basic questions",
     difficulty: "beginner",
     estimatedTime: "12 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "one", translation: "一", romanization: "ichi" },
-      { word: "two", translation: "二", romanization: "ni" },
-      { word: "three", translation: "三", romanization: "san" },
-      { word: "four", translation: "四", romanization: "yon" },
-      { word: "five", translation: "五", romanization: "go" },
-      { word: "six", translation: "六", romanization: "roku" },
-      { word: "seven", translation: "七", romanization: "nana" },
-      { word: "eight", translation: "八", romanization: "hachi" },
-      { word: "nine", translation: "九", romanization: "kyuu" },
-      { word: "ten", translation: "十", romanization: "juu" }
-    ],
-    phrases: [
-      { english: "How many?", translation: "いくつですか？", romanization: "Ikutsu desu ka?" },
-      { english: "One more, please", translation: "もう一つお願いします", romanization: "Mou hitotsu onegaishimasu" },
-      { english: "That's too many", translation: "多すぎます", romanization: "Oosugimasu" },
-      { english: "Just one", translation: "一つだけ", romanization: "Hitotsu dake" },
-      { english: "All of them", translation: "全部", romanization: "Zenbu" }
-    ],
-    grammar: {
-      point: "Counting objects",
-      explanation: "Japanese uses different counters for different types of objects. The general counter is 'つ' (tsu).",
-      examples: [
-        { sentence: "りんごを三つください", romanization: "Ringo wo mittsu kudasai", english: "Please give me three apples" },
-        { sentence: "本が五冊あります", romanization: "Hon ga gosatsu arimasu", english: "There are five books" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'five' in Japanese?",
-        options: ["三", "四", "五", "六"],
-        correct: 2
+        english: "My name is",
+        translation: "私の名前は",
+        pronunciation: "wa-ta-shi no na-ma-e wa",
+        example: "私の名前は田中です",
+        exampleEnglish: "My name is Tanaka"
+      },
+      {
+        english: "I am",
+        translation: "私は",
+        pronunciation: "wa-ta-shi wa",
+        example: "私は学生です",
+        exampleEnglish: "I am a student"
+      },
+      {
+        english: "Nice to meet you",
+        translation: "初めまして",
+        pronunciation: "ha-ji-me-ma-shi-te",
+        example: "初めまして、よろしくお願いします",
+        exampleEnglish: "Nice to meet you, pleased to meet you"
+      },
+      {
+        english: "Where are you from?",
+        translation: "出身はどこですか？",
+        pronunciation: "shu-sshin wa do-ko de-su ka",
+        example: "出身はどこですか？",
+        exampleEnglish: "Where are you from?"
+      },
+      {
+        english: "I am from",
+        translation: "出身は",
+        pronunciation: "shu-sshin wa",
+        example: "出身は日本です",
+        exampleEnglish: "I am from Japan"
+      },
+      {
+        english: "How old are you?",
+        translation: "おいくつですか？",
+        pronunciation: "o-i-ku-tsu de-su ka",
+        example: "おいくつですか？",
+        exampleEnglish: "How old are you?"
+      },
+      {
+        english: "I am ... years old",
+        translation: "歳です",
+        pronunciation: "sa-i de-su",
+        example: "二十五歳です",
+        exampleEnglish: "I am twenty-five years old"
+      },
+      {
+        english: "What do you do?",
+        translation: "お仕事は何ですか？",
+        pronunciation: "o-shi-go-to wa na-n de-su ka",
+        example: "お仕事は何ですか？",
+        exampleEnglish: "What do you do?"
+      },
+      {
+        english: "I work as",
+        translation: "として働いています",
+        pronunciation: "to shi-te ha-ta-ra-i-te i-ma-su",
+        example: "教師として働いています",
+        exampleEnglish: "I work as a teacher"
+      },
+      {
+        english: "Pleased to meet you",
+        translation: "よろしくお願いします",
+        pronunciation: "yo-ro-shi-ku o-ne-ga-i shi-ma-su",
+        example: "よろしくお願いします",
+        exampleEnglish: "Pleased to meet you"
       }
     ]
   },
   {
     id: 3,
-    title: "Family Members",
-    description: "Learn to talk about your family in Japanese",
-    isPremium: false,
+    title: "Numbers 1-20",
+    description: "Learn to count from one to twenty",
     difficulty: "beginner",
-    estimatedTime: "18 minutes",
+    estimatedTime: "15 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "mother", translation: "お母さん", romanization: "okaasan" },
-      { word: "father", translation: "お父さん", romanization: "otousan" },
-      { word: "sister", translation: "姉妹", romanization: "shimai" },
-      { word: "brother", translation: "兄弟", romanization: "kyoudai" },
-      { word: "grandmother", translation: "お祖母さん", romanization: "obaasan" },
-      { word: "grandfather", translation: "お祖父さん", romanization: "ojiisan" },
-      { word: "aunt", translation: "叔母さん", romanization: "obasan" },
-      { word: "uncle", translation: "叔父さん", romanization: "ojisan" },
-      { word: "cousin", translation: "いとこ", romanization: "itoko" },
-      { word: "child", translation: "子供", romanization: "kodomo" }
-    ],
-    phrases: [
-      { english: "This is my family", translation: "これは私の家族です", romanization: "Kore wa watashi no kazoku desu" },
-      { english: "I have two sisters", translation: "姉妹が二人います", romanization: "Shimai ga futari imasu" },
-      { english: "My mother is a teacher", translation: "母は先生です", romanization: "Haha wa sensei desu" },
-      { english: "How many people in your family?", translation: "家族は何人ですか？", romanization: "Kazoku wa nannin desu ka?" },
-      { english: "I live with my parents", translation: "両親と一緒に住んでいます", romanization: "Ryoushin to issho ni sunde imasu" }
-    ],
-    grammar: {
-      point: "Possessive particles",
-      explanation: "Use 'の' (no) to show possession. '私の' means 'my' and 'あなたの' means 'your'.",
-      examples: [
-        { sentence: "私の母", romanization: "Watashi no haha", english: "my mother" },
-        { sentence: "あなたの家族", romanization: "Anata no kazoku", english: "your family" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'mother' in Japanese?",
-        options: ["お父さん", "お母さん", "お祖母さん", "お祖父さん"],
-        correct: 1
+        english: "One",
+        translation: "一",
+        pronunciation: "i-chi",
+        example: "一つあります",
+        exampleEnglish: "I have one"
+      },
+      {
+        english: "Two",
+        translation: "二",
+        pronunciation: "ni",
+        example: "二人います",
+        exampleEnglish: "There are two people"
+      },
+      {
+        english: "Three",
+        translation: "三",
+        pronunciation: "san",
+        example: "三つのりんご",
+        exampleEnglish: "Three apples"
+      },
+      {
+        english: "Four",
+        translation: "四",
+        pronunciation: "yon",
+        example: "四日間",
+        exampleEnglish: "Four days"
+      },
+      {
+        english: "Five",
+        translation: "五",
+        pronunciation: "go",
+        example: "五分間",
+        exampleEnglish: "Five minutes"
+      },
+      {
+        english: "Six",
+        translation: "六",
+        pronunciation: "ro-ku",
+        example: "六冊の本",
+        exampleEnglish: "Six books"
+      },
+      {
+        english: "Seven",
+        translation: "七",
+        pronunciation: "na-na",
+        example: "七時間",
+        exampleEnglish: "Seven hours"
+      },
+      {
+        english: "Eight",
+        translation: "八",
+        pronunciation: "ha-chi",
+        example: "八人の学生",
+        exampleEnglish: "Eight students"
+      },
+      {
+        english: "Nine",
+        translation: "九",
+        pronunciation: "kyu-u",
+        example: "九ヶ月",
+        exampleEnglish: "Nine months"
+      },
+      {
+        english: "Ten",
+        translation: "十",
+        pronunciation: "jyu-u",
+        example: "十年",
+        exampleEnglish: "Ten years"
+      },
+      {
+        english: "Eleven",
+        translation: "十一",
+        pronunciation: "jyu-u i-chi",
+        example: "十一人",
+        exampleEnglish: "Eleven people"
+      },
+      {
+        english: "Twelve",
+        translation: "十二",
+        pronunciation: "jyu-u ni",
+        example: "十二時間",
+        exampleEnglish: "Twelve hours"
+      },
+      {
+        english: "Thirteen",
+        translation: "十三",
+        pronunciation: "jyu-u san",
+        example: "十三日間",
+        exampleEnglish: "Thirteen days"
+      },
+      {
+        english: "Fourteen",
+        translation: "十四",
+        pronunciation: "jyu-u yon",
+        example: "十四歳",
+        exampleEnglish: "Fourteen years old"
+      },
+      {
+        english: "Fifteen",
+        translation: "十五",
+        pronunciation: "jyu-u go",
+        example: "十五分",
+        exampleEnglish: "Fifteen minutes"
+      },
+      {
+        english: "Sixteen",
+        translation: "十六",
+        pronunciation: "jyu-u ro-ku",
+        example: "十六冊",
+        exampleEnglish: "Sixteen books"
+      },
+      {
+        english: "Seventeen",
+        translation: "十七",
+        pronunciation: "jyu-u na-na",
+        example: "十七人の学生",
+        exampleEnglish: "Seventeen students"
+      },
+      {
+        english: "Eighteen",
+        translation: "十八",
+        pronunciation: "jyu-u ha-chi",
+        example: "十八ヶ月",
+        exampleEnglish: "Eighteen months"
+      },
+      {
+        english: "Nineteen",
+        translation: "十九",
+        pronunciation: "jyu-u kyu-u",
+        example: "十九歳",
+        exampleEnglish: "Nineteen years old"
+      },
+      {
+        english: "Twenty",
+        translation: "二十",
+        pronunciation: "ni-jyu-u",
+        example: "二十人",
+        exampleEnglish: "Twenty people"
       }
     ]
   },
   {
     id: 4,
-    title: "Food and Drinks",
-    description: "Essential vocabulary for ordering food and drinks",
-    isPremium: false,
+    title: "Common Questions",
+    description: "Essential questions for everyday conversations",
     difficulty: "beginner",
-    estimatedTime: "20 minutes",
+    estimatedTime: "12 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "water", translation: "水", romanization: "mizu" },
-      { word: "tea", translation: "お茶", romanization: "ocha" },
-      { word: "coffee", translation: "コーヒー", romanization: "koohii" },
-      { word: "rice", translation: "ご飯", romanization: "gohan" },
-      { word: "bread", translation: "パン", romanization: "pan" },
-      { word: "meat", translation: "肉", romanization: "niku" },
-      { word: "fish", translation: "魚", romanization: "sakana" },
-      { word: "vegetables", translation: "野菜", romanization: "yasai" },
-      { word: "fruit", translation: "果物", romanization: "kudamono" },
-      { word: "soup", translation: "スープ", romanization: "suupu" }
-    ],
-    phrases: [
-      { english: "I'm hungry", translation: "お腹が空きました", romanization: "Onaka ga sukimashita" },
-      { english: "I'm thirsty", translation: "喉が渇きました", romanization: "Nodo ga kawakimashita" },
-      { english: "What would you like to eat?", translation: "何を食べたいですか？", romanization: "Nani wo tabetai desu ka?" },
-      { english: "This is delicious", translation: "美味しいです", romanization: "Oishii desu" },
-      { english: "I don't like this", translation: "これは好きではありません", romanization: "Kore wa suki dewa arimasen" },
-      { english: "Check, please", translation: "お会計お願いします", romanization: "Okaikei onegaishimasu" }
-    ],
-    grammar: {
-      point: "Polite requests",
-      explanation: "Use 'ください' (kudasai) to make polite requests. 'お願いします' (onegaishimasu) is even more polite.",
-      examples: [
-        { sentence: "水をください", romanization: "Mizu wo kudasai", english: "Water, please" },
-        { sentence: "メニューをお願いします", romanization: "Menyuu wo onegaishimasu", english: "Menu, please" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I'm hungry' in Japanese?",
-        options: ["喉が渇きました", "お腹が空きました", "美味しいです", "水をください"],
-        correct: 1
+        english: "What?",
+        translation: "何",
+        pronunciation: "na-n",
+        example: "何が欲しいですか？",
+        exampleEnglish: "What do you want?"
+      },
+      {
+        english: "Who?",
+        translation: "誰",
+        pronunciation: "da-re",
+        example: "あの人は誰ですか？",
+        exampleEnglish: "Who is that person?"
+      },
+      {
+        english: "Where?",
+        translation: "どこ",
+        pronunciation: "do-ko",
+        example: "どこに住んでいますか？",
+        exampleEnglish: "Where do you live?"
+      },
+      {
+        english: "When?",
+        translation: "いつ",
+        pronunciation: "i-tsu",
+        example: "いつ到着しますか？",
+        exampleEnglish: "When do you arrive?"
+      },
+      {
+        english: "Why?",
+        translation: "なぜ",
+        pronunciation: "na-ze",
+        example: "なぜ悲しいのですか？",
+        exampleEnglish: "Why are you sad?"
+      },
+      {
+        english: "How?",
+        translation: "どう",
+        pronunciation: "do-u",
+        example: "お元気ですか？",
+        exampleEnglish: "How are you?"
+      },
+      {
+        english: "How much?",
+        translation: "いくら",
+        pronunciation: "i-ku-ra",
+        example: "いくらですか？",
+        exampleEnglish: "How much does it cost?"
+      },
+      {
+        english: "How many?",
+        translation: "いくつ",
+        pronunciation: "i-ku-tsu",
+        example: "いくつありますか？",
+        exampleEnglish: "How many are there?"
+      },
+      {
+        english: "Which?",
+        translation: "どちら",
+        pronunciation: "do-chi-ra",
+        example: "どちらが好きですか？",
+        exampleEnglish: "Which do you prefer?"
+      },
+      {
+        english: "Do you have?",
+        translation: "ありますか？",
+        pronunciation: "a-ri-ma-su ka",
+        example: "時間がありますか？",
+        exampleEnglish: "Do you have time?"
       }
     ]
   },
   {
     id: 5,
-    title: "Colors and Descriptions",
-    description: "Learn colors and basic descriptive words",
-    isPremium: false,
+    title: "Essential Phrases",
+    description: "Important phrases for daily communication",
     difficulty: "beginner",
-    estimatedTime: "16 minutes",
+    estimatedTime: "10 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "red", translation: "赤", romanization: "aka" },
-      { word: "blue", translation: "青", romanization: "ao" },
-      { word: "green", translation: "緑", romanization: "midori" },
-      { word: "yellow", translation: "黄色", romanization: "kiiro" },
-      { word: "black", translation: "黒", romanization: "kuro" },
-      { word: "white", translation: "白", romanization: "shiro" },
-      { word: "big", translation: "大きい", romanization: "ookii" },
-      { word: "small", translation: "小さい", romanization: "chiisai" },
-      { word: "beautiful", translation: "美しい", romanization: "utsukushii" },
-      { word: "new", translation: "新しい", romanization: "atarashii" }
-    ],
-    phrases: [
-      { english: "What color is this?", translation: "これは何色ですか？", romanization: "Kore wa nani iro desu ka?" },
-      { english: "I like blue", translation: "青が好きです", romanization: "Ao ga suki desu" },
-      { english: "This is beautiful", translation: "これは美しいです", romanization: "Kore wa utsukushii desu" },
-      { english: "It's too big", translation: "大きすぎます", romanization: "Ookisugimasu" },
-      { english: "I want a small one", translation: "小さいのが欲しいです", romanization: "Chiisai no ga hoshii desu" }
-    ],
-    grammar: {
-      point: "Adjective usage",
-      explanation: "Japanese adjectives can be used directly before nouns. 'い' adjectives end in 'い' and 'な' adjectives need 'な' before nouns.",
-      examples: [
-        { sentence: "赤い車", romanization: "Akai kuruma", english: "red car" },
-        { sentence: "美しい花", romanization: "Utsukushii hana", english: "beautiful flower" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'blue' in Japanese?",
-        options: ["赤", "青", "緑", "黄色"],
-        correct: 1
+        english: "Yes",
+        translation: "はい",
+        pronunciation: "ha-i",
+        example: "はい、お願いします",
+        exampleEnglish: "Yes, please"
+      },
+      {
+        english: "No",
+        translation: "いいえ",
+        pronunciation: "i-i-e",
+        example: "いいえ、結構です",
+        exampleEnglish: "No, thank you"
+      },
+      {
+        english: "Maybe",
+        translation: "たぶん",
+        pronunciation: "ta-bun",
+        example: "たぶん明日",
+        exampleEnglish: "Maybe tomorrow"
+      },
+      {
+        english: "I don't know",
+        translation: "わかりません",
+        pronunciation: "wa-ka-ri-ma-sen",
+        example: "どこにあるかわかりません",
+        exampleEnglish: "I don't know where it is"
+      },
+      {
+        english: "I understand",
+        translation: "わかりました",
+        pronunciation: "wa-ka-ri-ma-shi-ta",
+        example: "完璧にわかりました",
+        exampleEnglish: "I understand perfectly"
+      },
+      {
+        english: "I don't understand",
+        translation: "わかりません",
+        pronunciation: "wa-ka-ri-ma-sen",
+        example: "この言葉がわかりません",
+        exampleEnglish: "I don't understand this word"
+      },
+      {
+        english: "Can you help me?",
+        translation: "手伝ってくれますか？",
+        pronunciation: "te-tsu-da-tte ku-re-ma-su ka",
+        example: "これを手伝ってくれますか？",
+        exampleEnglish: "Can you help me with this?"
+      },
+      {
+        english: "I need",
+        translation: "必要です",
+        pronunciation: "hi-tsu-yo-u de-su",
+        example: "助けが必要です",
+        exampleEnglish: "I need help"
+      },
+      {
+        english: "I want",
+        translation: "欲しいです",
+        pronunciation: "ho-shi-i de-su",
+        example: "日本語を学びたいです",
+        exampleEnglish: "I want to learn Japanese"
+      },
+      {
+        english: "I like",
+        translation: "好きです",
+        pronunciation: "su-ki de-su",
+        example: "音楽が好きです",
+        exampleEnglish: "I like music"
       }
     ]
   },
   {
     id: 6,
-    title: "Time and Dates",
-    description: "Learn to tell time and talk about dates",
+    title: "Family Members",
+    description: "Learn vocabulary for family relationships",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "25 minutes",
     vocabulary: [
-      { word: "hour", translation: "時", romanization: "ji" },
-      { word: "minute", translation: "分", romanization: "fun" },
-      { word: "morning", translation: "朝", romanization: "asa" },
-      { word: "afternoon", translation: "午後", romanization: "gogo" },
-      { word: "evening", translation: "夕方", romanization: "yuugata" },
-      { word: "night", translation: "夜", romanization: "yoru" },
-      { word: "today", translation: "今日", romanization: "kyou" },
-      { word: "tomorrow", translation: "明日", romanization: "ashita" },
-      { word: "yesterday", translation: "昨日", romanization: "kinou" },
-      { word: "week", translation: "週", romanization: "shuu" }
-    ],
-    phrases: [
-      { english: "What time is it?", translation: "今何時ですか？", romanization: "Ima nanji desu ka?" },
-      { english: "It's 3 o'clock", translation: "3時です", romanization: "Sanji desu" },
-      { english: "What day is today?", translation: "今日は何曜日ですか？", romanization: "Kyou wa nan youbi desu ka?" },
-      { english: "I'm busy tomorrow", translation: "明日は忙しいです", romanization: "Ashita wa isogashii desu" },
-      { english: "See you next week", translation: "来週会いましょう", romanization: "Raishuu aimashou" }
-    ],
-    grammar: {
-      point: "Time expressions",
-      explanation: "Time expressions often use the particle 'に' (ni) to indicate when something happens.",
-      examples: [
-        { sentence: "3時に会いましょう", romanization: "Sanji ni aimashou", english: "Let's meet at 3 o'clock" },
-        { sentence: "明日に電話します", romanization: "Ashita ni denwa shimasu", english: "I'll call tomorrow" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'What time is it?' in Japanese?",
-        options: ["今何時ですか？", "今日は何曜日ですか？", "明日は忙しいです", "来週会いましょう"],
-        correct: 0
+        english: "Mother",
+        translation: "母",
+        pronunciation: "ha-ha",
+        example: "母はとても優しいです",
+        exampleEnglish: "My mother is very kind"
+      },
+      {
+        english: "Father",
+        translation: "父",
+        pronunciation: "chi-chi",
+        example: "父はよく働きます",
+        exampleEnglish: "My father works a lot"
+      },
+      {
+        english: "Sister",
+        translation: "姉",
+        pronunciation: "a-ne",
+        example: "姉が一人います",
+        exampleEnglish: "I have one older sister"
+      },
+      {
+        english: "Brother",
+        translation: "兄",
+        pronunciation: "a-ni",
+        example: "兄は医学を勉強しています",
+        exampleEnglish: "My brother studies medicine"
+      },
+      {
+        english: "Grandmother",
+        translation: "祖母",
+        pronunciation: "so-bo",
+        example: "日曜日に祖母を訪ねます",
+        exampleEnglish: "I visit my grandmother on Sundays"
+      },
+      {
+        english: "Grandfather",
+        translation: "祖父",
+        pronunciation: "so-fu",
+        example: "祖父は物語を話します",
+        exampleEnglish: "My grandfather tells stories"
+      },
+      {
+        english: "Aunt",
+        translation: "叔母",
+        pronunciation: "o-ba",
+        example: "叔母は東京に住んでいます",
+        exampleEnglish: "My aunt lives in Tokyo"
+      },
+      {
+        english: "Uncle",
+        translation: "叔父",
+        pronunciation: "o-ji",
+        example: "叔父はエンジニアです",
+        exampleEnglish: "My uncle is an engineer"
+      },
+      {
+        english: "Cousin",
+        translation: "いとこ",
+        pronunciation: "i-to-ko",
+        example: "いとこと遊びます",
+        exampleEnglish: "I play with my cousin"
+      },
+      {
+        english: "Son",
+        translation: "息子",
+        pronunciation: "mu-su-ko",
+        example: "息子は五歳です",
+        exampleEnglish: "My son is five years old"
       }
     ]
   },
   {
     id: 7,
-    title: "Shopping and Money",
-    description: "Essential phrases for shopping and handling money",
+    title: "Food & Dining",
+    description: "Essential vocabulary for restaurants and food",
+    difficulty: "beginner",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "22 minutes",
     vocabulary: [
-      { word: "money", translation: "お金", romanization: "okane" },
-      { word: "price", translation: "値段", romanization: "nedan" },
-      { word: "expensive", translation: "高い", romanization: "takai" },
-      { word: "cheap", translation: "安い", romanization: "yasui" },
-      { word: "store", translation: "店", romanization: "mise" },
-      { word: "buy", translation: "買う", romanization: "kau" },
-      { word: "sell", translation: "売る", romanization: "uru" },
-      { word: "discount", translation: "割引", romanization: "waribiki" },
-      { word: "receipt", translation: "領収書", romanization: "ryoushuusho" },
-      { word: "change", translation: "お釣り", romanization: "otsuri" }
-    ],
-    phrases: [
-      { english: "How much is this?", translation: "これはいくらですか？", romanization: "Kore wa ikura desu ka?" },
-      { english: "It's too expensive", translation: "高すぎます", romanization: "Takasugimasu" },
-      { english: "Do you have a discount?", translation: "割引はありますか？", romanization: "Waribiki wa arimasu ka?" },
-      { english: "I'll take this", translation: "これをください", romanization: "Kore wo kudasai" },
-      { english: "Can I pay by card?", translation: "カードで払えますか？", romanization: "Kaado de haraemasu ka?" }
-    ],
-    grammar: {
-      point: "Price expressions",
-      explanation: "Prices are expressed with '円' (en) for yen. Large numbers use different counting systems.",
-      examples: [
-        { sentence: "これは千円です", romanization: "Kore wa sen en desu", english: "This is 1000 yen" },
-        { sentence: "安いですね", romanization: "Yasui desu ne", english: "It's cheap, isn't it?" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'How much is this?' in Japanese?",
-        options: ["これはいくらですか？", "高すぎます", "割引はありますか？", "カードで払えますか？"],
-        correct: 0
+        english: "Water",
+        translation: "水",
+        pronunciation: "mi-zu",
+        example: "水を一杯ください",
+        exampleEnglish: "I want a glass of water"
+      },
+      {
+        english: "Bread",
+        translation: "パン",
+        pronunciation: "pan",
+        example: "パンは温かいです",
+        exampleEnglish: "The bread is warm"
+      },
+      {
+        english: "Rice",
+        translation: "ご飯",
+        pronunciation: "go-han",
+        example: "チキンライスが好きです",
+        exampleEnglish: "I like rice with chicken"
+      },
+      {
+        english: "Meat",
+        translation: "肉",
+        pronunciation: "ni-ku",
+        example: "よく焼いた肉が好きです",
+        exampleEnglish: "I prefer the meat well cooked"
+      },
+      {
+        english: "Fish",
+        translation: "魚",
+        pronunciation: "sa-ka-na",
+        example: "魚は美味しいです",
+        exampleEnglish: "The fish is delicious"
+      },
+      {
+        english: "Vegetables",
+        translation: "野菜",
+        pronunciation: "ya-sa-i",
+        example: "たくさんの野菜を食べます",
+        exampleEnglish: "I eat many vegetables"
+      },
+      {
+        english: "Fruit",
+        translation: "果物",
+        pronunciation: "ku-da-mo-no",
+        example: "果物は新鮮です",
+        exampleEnglish: "The fruit is fresh"
+      },
+      {
+        english: "Coffee",
+        translation: "コーヒー",
+        pronunciation: "ko-u-hi-i",
+        example: "朝にコーヒーを飲みます",
+        exampleEnglish: "I drink coffee in the morning"
+      },
+      {
+        english: "Menu",
+        translation: "メニュー",
+        pronunciation: "me-nyu-u",
+        example: "メニューを見せてください",
+        exampleEnglish: "Can I see the menu?"
+      },
+      {
+        english: "Bill",
+        translation: "お会計",
+        pronunciation: "o-ka-i-ke-i",
+        example: "お会計をお願いします",
+        exampleEnglish: "The bill, please"
       }
     ]
   },
   {
     id: 8,
-    title: "Directions and Transportation",
-    description: "Learn to ask for directions and use transportation",
+    title: "Colors & Descriptions",
+    description: "Learn colors and descriptive adjectives",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "28 minutes",
     vocabulary: [
-      { word: "station", translation: "駅", romanization: "eki" },
-      { word: "train", translation: "電車", romanization: "densha" },
-      { word: "bus", translation: "バス", romanization: "basu" },
-      { word: "taxi", translation: "タクシー", romanization: "takushii" },
-      { word: "right", translation: "右", romanization: "migi" },
-      { word: "left", translation: "左", romanization: "hidari" },
-      { word: "straight", translation: "まっすぐ", romanization: "massugu" },
-      { word: "near", translation: "近い", romanization: "chikai" },
-      { word: "far", translation: "遠い", romanization: "tooi" },
-      { word: "map", translation: "地図", romanization: "chizu" }
-    ],
-    phrases: [
-      { english: "Where is the station?", translation: "駅はどこですか？", romanization: "Eki wa doko desu ka?" },
-      { english: "How do I get to...?", translation: "...へはどう行けばいいですか？", romanization: "...e wa dou ikeba ii desu ka?" },
-      { english: "Go straight", translation: "まっすぐ行ってください", romanization: "Massugu itte kudasai" },
-      { english: "Turn right", translation: "右に曲がってください", romanization: "Migi ni magatte kudasai" },
-      { english: "Is it far?", translation: "遠いですか？", romanization: "Tooi desu ka?" }
-    ],
-    grammar: {
-      point: "Direction particles",
-      explanation: "Use 'へ' (e) to indicate direction and 'に' (ni) to indicate destination.",
-      examples: [
-        { sentence: "駅へ行きます", romanization: "Eki e ikimasu", english: "I go to the station" },
-        { sentence: "東京に行きます", romanization: "Toukyou ni ikimasu", english: "I go to Tokyo" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'Where is the station?' in Japanese?",
-        options: ["駅はどこですか？", "まっすぐ行ってください", "右に曲がってください", "遠いですか？"],
-        correct: 0
+        english: "Red",
+        translation: "赤",
+        pronunciation: "a-ka",
+        example: "車は赤です",
+        exampleEnglish: "The car is red"
+      },
+      {
+        english: "Blue",
+        translation: "青",
+        pronunciation: "a-o",
+        example: "空は青です",
+        exampleEnglish: "The sky is blue"
+      },
+      {
+        english: "Green",
+        translation: "緑",
+        pronunciation: "mi-do-ri",
+        example: "草は緑です",
+        exampleEnglish: "The grass is green"
+      },
+      {
+        english: "Yellow",
+        translation: "黄色",
+        pronunciation: "ki-i-ro",
+        example: "太陽は黄色です",
+        exampleEnglish: "The sun is yellow"
+      },
+      {
+        english: "Black",
+        translation: "黒",
+        pronunciation: "ku-ro",
+        example: "黒い服を着ています",
+        exampleEnglish: "I'm dressed in black"
+      },
+      {
+        english: "White",
+        translation: "白",
+        pronunciation: "shi-ro",
+        example: "雪は白です",
+        exampleEnglish: "The snow is white"
+      },
+      {
+        english: "Big",
+        translation: "大きい",
+        pronunciation: "o-o-ki-i",
+        example: "大きな家があります",
+        exampleEnglish: "I have a big house"
+      },
+      {
+        english: "Small",
+        translation: "小さい",
+        pronunciation: "chi-i-sa-i",
+        example: "小さな犬です",
+        exampleEnglish: "It's a small dog"
+      },
+      {
+        english: "Beautiful",
+        translation: "美しい",
+        pronunciation: "u-tsu-ku-shi-i",
+        example: "なんて美しい日でしょう",
+        exampleEnglish: "What a beautiful day"
+      },
+      {
+        english: "New",
+        translation: "新しい",
+        pronunciation: "a-ta-ra-shi-i",
+        example: "新しい車があります",
+        exampleEnglish: "I have a new car"
       }
     ]
   },
   {
     id: 9,
-    title: "Weather and Seasons",
-    description: "Talk about weather conditions and seasons",
+    title: "Days & Time",
+    description: "Learn days of the week and time expressions",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "20 minutes",
     vocabulary: [
-      { word: "weather", translation: "天気", romanization: "tenki" },
-      { word: "sunny", translation: "晴れ", romanization: "hare" },
-      { word: "rainy", translation: "雨", romanization: "ame" },
-      { word: "cloudy", translation: "曇り", romanization: "kumori" },
-      { word: "snow", translation: "雪", romanization: "yuki" },
-      { word: "hot", translation: "暑い", romanization: "atsui" },
-      { word: "cold", translation: "寒い", romanization: "samui" },
-      { word: "spring", translation: "春", romanization: "haru" },
-      { word: "summer", translation: "夏", romanization: "natsu" },
-      { word: "autumn", translation: "秋", romanization: "aki" }
-    ],
-    phrases: [
-      { english: "What's the weather like?", translation: "天気はどうですか？", romanization: "Tenki wa dou desu ka?" },
-      { english: "It's sunny today", translation: "今日は晴れです", romanization: "Kyou wa hare desu" },
-      { english: "It's raining", translation: "雨が降っています", romanization: "Ame ga futte imasu" },
-      { english: "It's very hot", translation: "とても暑いです", romanization: "Totemo atsui desu" },
-      { english: "I like spring", translation: "春が好きです", romanization: "Haru ga suki desu" }
-    ],
-    grammar: {
-      point: "Weather expressions",
-      explanation: "Weather conditions use different verb forms. '降る' (furu) means 'to fall' for rain and snow.",
-      examples: [
-        { sentence: "雨が降っています", romanization: "Ame ga futte imasu", english: "It's raining" },
-        { sentence: "雪が降りました", romanization: "Yuki ga furimashita", english: "It snowed" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'It's raining' in Japanese?",
-        options: ["雨が降っています", "今日は晴れです", "とても暑いです", "春が好きです"],
-        correct: 0
+        english: "Monday",
+        translation: "月曜日",
+        pronunciation: "ge-tsu-yo-u-bi",
+        example: "月曜日に仕事に行きます",
+        exampleEnglish: "On Monday I go to work"
+      },
+      {
+        english: "Tuesday",
+        translation: "火曜日",
+        pronunciation: "ka-yo-u-bi",
+        example: "火曜日が好きな日です",
+        exampleEnglish: "Tuesday is my favorite day"
+      },
+      {
+        english: "Wednesday",
+        translation: "水曜日",
+        pronunciation: "su-i-yo-u-bi",
+        example: "水曜日に勉強します",
+        exampleEnglish: "On Wednesdays I study"
+      },
+      {
+        english: "Thursday",
+        translation: "木曜日",
+        pronunciation: "mo-ku-yo-u-bi",
+        example: "木曜日に授業があります",
+        exampleEnglish: "On Thursday I have class"
+      },
+      {
+        english: "Friday",
+        translation: "金曜日",
+        pronunciation: "ki-n-yo-u-bi",
+        example: "金曜日は週末です",
+        exampleEnglish: "Friday is the weekend"
+      },
+      {
+        english: "Saturday",
+        translation: "土曜日",
+        pronunciation: "do-yo-u-bi",
+        example: "土曜日に休みます",
+        exampleEnglish: "On Saturdays I rest"
+      },
+      {
+        english: "Sunday",
+        translation: "日曜日",
+        pronunciation: "ni-chi-yo-u-bi",
+        example: "日曜日に教会に行きます",
+        exampleEnglish: "On Sunday I go to church"
+      },
+      {
+        english: "Today",
+        translation: "今日",
+        pronunciation: "kyo-u",
+        example: "今日は良い天気です",
+        exampleEnglish: "Today the weather is good"
+      },
+      {
+        english: "Tomorrow",
+        translation: "明日",
+        pronunciation: "a-shi-ta",
+        example: "明日は約束があります",
+        exampleEnglish: "Tomorrow I have an appointment"
+      },
+      {
+        english: "Yesterday",
+        translation: "昨日",
+        pronunciation: "ki-no-u",
+        example: "昨日は映画を見に行きました",
+        exampleEnglish: "Yesterday I went to the movies"
       }
     ]
   },
   {
     id: 10,
-    title: "Hobbies and Interests",
-    description: "Talk about your hobbies and interests",
+    title: "Weather",
+    description: "Learn to talk about weather conditions",
+    difficulty: "beginner",
+    estimatedTime: "12 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "24 minutes",
     vocabulary: [
-      { word: "hobby", translation: "趣味", romanization: "shumi" },
-      { word: "music", translation: "音楽", romanization: "ongaku" },
-      { word: "sports", translation: "スポーツ", romanization: "supootsu" },
-      { word: "reading", translation: "読書", romanization: "dokusho" },
-      { word: "cooking", translation: "料理", romanization: "ryouri" },
-      { word: "traveling", translation: "旅行", romanization: "ryokou" },
-      { word: "photography", translation: "写真", romanization: "shashin" },
-      { word: "dancing", translation: "ダンス", romanization: "dansu" },
-      { word: "swimming", translation: "水泳", romanization: "suiei" },
-      { word: "painting", translation: "絵画", romanization: "kaiga" }
-    ],
-    phrases: [
-      { english: "What's your hobby?", translation: "趣味は何ですか？", romanization: "Shumi wa nan desu ka?" },
-      { english: "I like music", translation: "音楽が好きです", romanization: "Ongaku ga suki desu" },
-      { english: "I play tennis", translation: "テニスをします", romanization: "Tenisu wo shimasu" },
-      { english: "I enjoy reading", translation: "読書を楽しみます", romanization: "Dokusho wo tanoshimimasu" },
-      { english: "What do you do in your free time?", translation: "暇な時は何をしますか？", romanization: "Hima na toki wa nani wo shimasu ka?" }
-    ],
-    grammar: {
-      point: "Activity particles",
-      explanation: "Use 'を' (wo) to indicate the object of an action. 'する' (suru) means 'to do'.",
-      examples: [
-        { sentence: "テニスをします", romanization: "Tenisu wo shimasu", english: "I play tennis" },
-        { sentence: "料理をします", romanization: "Ryouri wo shimasu", english: "I cook" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'What's your hobby?' in Japanese?",
-        options: ["趣味は何ですか？", "音楽が好きです", "テニスをします", "暇な時は何をしますか？"],
-        correct: 0
+        english: "Sunny",
+        translation: "晴れ",
+        pronunciation: "ha-re",
+        example: "今日は晴れです",
+        exampleEnglish: "Today is sunny"
+      },
+      {
+        english: "Rainy",
+        translation: "雨",
+        pronunciation: "a-me",
+        example: "雨の日です",
+        exampleEnglish: "It's a rainy day"
+      },
+      {
+        english: "Cloudy",
+        translation: "曇り",
+        pronunciation: "ku-mo-ri",
+        example: "空は曇っています",
+        exampleEnglish: "The sky is cloudy"
+      },
+      {
+        english: "Hot",
+        translation: "暑い",
+        pronunciation: "a-tsu-i",
+        example: "とても暑いです",
+        exampleEnglish: "It's very hot"
+      },
+      {
+        english: "Cold",
+        translation: "寒い",
+        pronunciation: "sa-mu-i",
+        example: "今日は寒いです",
+        exampleEnglish: "It's cold today"
+      },
+      {
+        english: "Windy",
+        translation: "風が強い",
+        pronunciation: "ka-ze ga tsu-yo-i",
+        example: "とても風が強いです",
+        exampleEnglish: "It's very windy"
+      },
+      {
+        english: "Snow",
+        translation: "雪",
+        pronunciation: "yu-ki",
+        example: "雪が降っています",
+        exampleEnglish: "It's snowing"
+      },
+      {
+        english: "Rain",
+        translation: "雨",
+        pronunciation: "a-me",
+        example: "たくさんの雨が降っています",
+        exampleEnglish: "There's a lot of rain"
+      },
+      {
+        english: "Temperature",
+        translation: "気温",
+        pronunciation: "ki-on",
+        example: "気温が高いです",
+        exampleEnglish: "The temperature is high"
+      },
+      {
+        english: "Weather",
+        translation: "天気",
+        pronunciation: "ten-ki",
+        example: "天気はどうですか？",
+        exampleEnglish: "What's the weather like?"
       }
     ]
   },
   {
     id: 11,
-    title: "Work and Occupation",
-    description: "Learn vocabulary related to work and professions",
+    title: "Directions & Places",
+    description: "Learn to ask for directions and name places",
+    difficulty: "beginner",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "26 minutes",
     vocabulary: [
-      { word: "work", translation: "仕事", romanization: "shigoto" },
-      { word: "office", translation: "オフィス", romanization: "ofisu" },
-      { word: "company", translation: "会社", romanization: "kaisha" },
-      { word: "teacher", translation: "先生", romanization: "sensei" },
-      { word: "doctor", translation: "医者", romanization: "isha" },
-      { word: "engineer", translation: "エンジニア", romanization: "enjinia" },
-      { word: "student", translation: "学生", romanization: "gakusei" },
-      { word: "manager", translation: "マネージャー", romanization: "maneejaa" },
-      { word: "secretary", translation: "秘書", romanization: "hisho" },
-      { word: "retired", translation: "退職", romanization: "taishoku" }
-    ],
-    phrases: [
-      { english: "What do you do for work?", translation: "お仕事は何ですか？", romanization: "Oshigoto wa nan desu ka?" },
-      { english: "I work at a company", translation: "会社で働いています", romanization: "Kaisha de hataraite imasu" },
-      { english: "I'm a teacher", translation: "先生です", romanization: "Sensei desu" },
-      { english: "I'm looking for a job", translation: "仕事を探しています", romanization: "Shigoto wo sagashite imasu" },
-      { english: "I work from home", translation: "在宅勤務です", romanization: "Zaitaku kinmu desu" }
-    ],
-    grammar: {
-      point: "Work-related particles",
-      explanation: "Use 'で' (de) to indicate where you work and 'に' (ni) to indicate where you go to work.",
-      examples: [
-        { sentence: "会社で働きます", romanization: "Kaisha de hatarakimasu", english: "I work at a company" },
-        { sentence: "オフィスに行きます", romanization: "Ofisu ni ikimasu", english: "I go to the office" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'What do you do for work?' in Japanese?",
-        options: ["お仕事は何ですか？", "会社で働いています", "先生です", "仕事を探しています"],
-        correct: 0
+        english: "Right",
+        translation: "右",
+        pronunciation: "mi-gi",
+        example: "右に曲がってください",
+        exampleEnglish: "Turn right"
+      },
+      {
+        english: "Left",
+        translation: "左",
+        pronunciation: "hi-da-ri",
+        example: "左に曲がってください",
+        exampleEnglish: "Turn left"
+      },
+      {
+        english: "Straight",
+        translation: "まっすぐ",
+        pronunciation: "ma-ssu-gu",
+        example: "まっすぐ進んでください",
+        exampleEnglish: "Go straight"
+      },
+      {
+        english: "Near",
+        translation: "近い",
+        pronunciation: "chi-ka-i",
+        example: "ここから近いです",
+        exampleEnglish: "It's near here"
+      },
+      {
+        english: "Far",
+        translation: "遠い",
+        pronunciation: "to-o-i",
+        example: "とても遠いです",
+        exampleEnglish: "It's very far"
+      },
+      {
+        english: "Hospital",
+        translation: "病院",
+        pronunciation: "byo-u-i-n",
+        example: "病院に行きます",
+        exampleEnglish: "I'm going to the hospital"
+      },
+      {
+        english: "School",
+        translation: "学校",
+        pronunciation: "ga-kko-u",
+        example: "学校は近いです",
+        exampleEnglish: "My school is nearby"
+      },
+      {
+        english: "Restaurant",
+        translation: "レストラン",
+        pronunciation: "re-su-to-ran",
+        example: "レストランで食べます",
+        exampleEnglish: "We eat at a restaurant"
+      },
+      {
+        english: "Store",
+        translation: "店",
+        pronunciation: "mi-se",
+        example: "店に行きます",
+        exampleEnglish: "I'm going to the store"
+      },
+      {
+        english: "Bank",
+        translation: "銀行",
+        pronunciation: "gi-n-ko-u",
+        example: "銀行は閉まっています",
+        exampleEnglish: "The bank is closed"
       }
     ]
   },
   {
     id: 12,
-    title: "Health and Body",
-    description: "Learn to talk about health and body parts",
+    title: "Shopping",
+    description: "Essential phrases for shopping",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "23 minutes",
     vocabulary: [
-      { word: "head", translation: "頭", romanization: "atama" },
-      { word: "eye", translation: "目", romanization: "me" },
-      { word: "nose", translation: "鼻", romanization: "hana" },
-      { word: "mouth", translation: "口", romanization: "kuchi" },
-      { word: "hand", translation: "手", romanization: "te" },
-      { word: "foot", translation: "足", romanization: "ashi" },
-      { word: "sick", translation: "病気", romanization: "byouki" },
-      { word: "healthy", translation: "健康", romanization: "kenkou" },
-      { word: "hospital", translation: "病院", romanization: "byouin" },
-      { word: "medicine", translation: "薬", romanization: "kusuri" }
-    ],
-    phrases: [
-      { english: "I don't feel well", translation: "気分が悪いです", romanization: "Kibun ga warui desu" },
-      { english: "I have a headache", translation: "頭が痛いです", romanization: "Atama ga itai desu" },
-      { english: "I need to see a doctor", translation: "医者に診てもらう必要があります", romanization: "Isha ni mite morau hitsuyou ga arimasu" },
-      { english: "Are you okay?", translation: "大丈夫ですか？", romanization: "Daijoubu desu ka?" },
-      { english: "I feel better now", translation: "今は良くなりました", romanization: "Ima wa yoku narimashita" }
-    ],
-    grammar: {
-      point: "Body part expressions",
-      explanation: "Use 'が' (ga) to indicate the subject when talking about body parts and feelings.",
-      examples: [
-        { sentence: "頭が痛いです", romanization: "Atama ga itai desu", english: "My head hurts" },
-        { sentence: "お腹が空いています", romanization: "Onaka ga suite imasu", english: "I'm hungry" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I have a headache' in Japanese?",
-        options: ["頭が痛いです", "気分が悪いです", "医者に診てもらう必要があります", "大丈夫ですか？"],
-        correct: 0
+        english: "How much?",
+        translation: "いくらですか？",
+        pronunciation: "i-ku-ra de-su ka",
+        example: "これはいくらですか？",
+        exampleEnglish: "How much does this cost?"
+      },
+      {
+        english: "Expensive",
+        translation: "高い",
+        pronunciation: "ta-ka-i",
+        example: "とても高いです",
+        exampleEnglish: "It's very expensive"
+      },
+      {
+        english: "Cheap",
+        translation: "安い",
+        pronunciation: "ya-su-i",
+        example: "かなり安いです",
+        exampleEnglish: "It's quite cheap"
+      },
+      {
+        english: "I'll take it",
+        translation: "これをください",
+        pronunciation: "ko-re wo ku-da-sa-i",
+        example: "これをください、ありがとう",
+        exampleEnglish: "I'll take it, thank you"
+      },
+      {
+        english: "Do you have?",
+        translation: "ありますか？",
+        pronunciation: "a-ri-ma-su ka",
+        example: "もっと大きいサイズはありますか？",
+        exampleEnglish: "Do you have a larger size?"
+      },
+      {
+        english: "Size",
+        translation: "サイズ",
+        pronunciation: "sa-i-zu",
+        example: "サイズは何ですか？",
+        exampleEnglish: "What size do you wear?"
+      },
+      {
+        english: "Color",
+        translation: "色",
+        pronunciation: "i-ro",
+        example: "何色が欲しいですか？",
+        exampleEnglish: "What color do you want?"
+      },
+      {
+        english: "Cash",
+        translation: "現金",
+        pronunciation: "ge-n-ki-n",
+        example: "現金で支払います",
+        exampleEnglish: "I pay in cash"
+      },
+      {
+        english: "Credit card",
+        translation: "クレジットカード",
+        pronunciation: "ku-re-ji-tto ka-do",
+        example: "クレジットカードは使えますか？",
+        exampleEnglish: "Do you accept credit card?"
+      },
+      {
+        english: "Receipt",
+        translation: "領収書",
+        pronunciation: "ryo-u-shu-u-sho",
+        example: "領収書をいただけますか？",
+        exampleEnglish: "Can I have the receipt?"
       }
     ]
   },
   {
     id: 13,
-    title: "Technology and Internet",
-    description: "Modern technology vocabulary and phrases",
+    title: "Hobbies & Activities",
+    description: "Learn to talk about hobbies and activities",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "21 minutes",
     vocabulary: [
-      { word: "computer", translation: "コンピューター", romanization: "konpyuutaa" },
-      { word: "phone", translation: "電話", romanization: "denwa" },
-      { word: "internet", translation: "インターネット", romanization: "intaanetto" },
-      { word: "email", translation: "メール", romanization: "meeru" },
-      { word: "website", translation: "ウェブサイト", romanization: "uebusaito" },
-      { word: "password", translation: "パスワード", romanization: "pasuwaado" },
-      { word: "download", translation: "ダウンロード", romanization: "daunroodo" },
-      { word: "upload", translation: "アップロード", romanization: "appuroodo" },
-      { word: "app", translation: "アプリ", romanization: "apuri" },
-      { word: "social media", translation: "ソーシャルメディア", romanization: "soosharu media" }
-    ],
-    phrases: [
-      { english: "I use the internet every day", translation: "毎日インターネットを使います", romanization: "Mainichi intaanetto wo tsukaimasu" },
-      { english: "Can you help me with my computer?", translation: "コンピューターのことで手伝ってもらえますか？", romanization: "Konpyuutaa no koto de tetsudatte moraemasu ka?" },
-      { english: "I forgot my password", translation: "パスワードを忘れました", romanization: "Pasuwaado wo wasuremashita" },
-      { english: "Do you have WiFi?", translation: "WiFiはありますか？", romanization: "WiFi wa arimasu ka?" },
-      { english: "I'll send you an email", translation: "メールを送ります", romanization: "Meeru wo okurimasu" }
-    ],
-    grammar: {
-      point: "Technology verbs",
-      explanation: "Use '使う' (tsukau) for 'to use' and '送る' (okuru) for 'to send'.",
-      examples: [
-        { sentence: "コンピューターを使います", romanization: "Konpyuutaa wo tsukaimasu", english: "I use a computer" },
-        { sentence: "メールを送ります", romanization: "Meeru wo okurimasu", english: "I send an email" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I use the internet every day' in Japanese?",
-        options: ["毎日インターネットを使います", "コンピューターのことで手伝ってもらえますか？", "パスワードを忘れました", "WiFiはありますか？"],
-        correct: 0
+        english: "Reading",
+        translation: "読書",
+        pronunciation: "do-ku-sho",
+        example: "本を読むのが好きです",
+        exampleEnglish: "I like reading books"
+      },
+      {
+        english: "Writing",
+        translation: "書くこと",
+        pronunciation: "ka-ku ko-to",
+        example: "日記を書きます",
+        exampleEnglish: "I write in my journal"
+      },
+      {
+        english: "Swimming",
+        translation: "水泳",
+        pronunciation: "su-i-e-i",
+        example: "プールで泳ぎます",
+        exampleEnglish: "I swim in the pool"
+      },
+      {
+        english: "Running",
+        translation: "走ること",
+        pronunciation: "ha-shi-ru ko-to",
+        example: "朝に走ります",
+        exampleEnglish: "I run in the mornings"
+      },
+      {
+        english: "Dancing",
+        translation: "ダンス",
+        pronunciation: "dan-su",
+        example: "土曜日にサルサを踊ります",
+        exampleEnglish: "I dance salsa on Saturdays"
+      },
+      {
+        english: "Singing",
+        translation: "歌うこと",
+        pronunciation: "u-ta-u ko-to",
+        example: "合唱団で歌います",
+        exampleEnglish: "I sing in a choir"
+      },
+      {
+        english: "Cooking",
+        translation: "料理",
+        pronunciation: "ryo-u-ri",
+        example: "料理が大好きです",
+        exampleEnglish: "I love cooking"
+      },
+      {
+        english: "Playing",
+        translation: "遊ぶこと",
+        pronunciation: "a-so-bu ko-to",
+        example: "サッカーをします",
+        exampleEnglish: "I play soccer"
+      },
+      {
+        english: "Watching",
+        translation: "見ること",
+        pronunciation: "mi-ru ko-to",
+        example: "日曜日に映画を見ます",
+        exampleEnglish: "I watch movies on Sundays"
+      },
+      {
+        english: "Traveling",
+        translation: "旅行",
+        pronunciation: "ryo-ko-u",
+        example: "旅行が好きです",
+        exampleEnglish: "I like traveling"
       }
     ]
   },
   {
     id: 14,
-    title: "Travel and Tourism",
-    description: "Essential phrases for travelers and tourists",
+    title: "Travel Phrases",
+    description: "Essential phrases for travelers",
+    difficulty: "beginner",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "27 minutes",
     vocabulary: [
-      { word: "passport", translation: "パスポート", romanization: "pasupooto" },
-      { word: "visa", translation: "ビザ", romanization: "biza" },
-      { word: "hotel", translation: "ホテル", romanization: "hoteru" },
-      { word: "restaurant", translation: "レストラン", romanization: "resutoran" },
-      { word: "tourist", translation: "観光客", romanization: "kankoukyaku" },
-      { word: "sightseeing", translation: "観光", romanization: "kankou" },
-      { word: "museum", translation: "博物館", romanization: "hakubutsukan" },
-      { word: "temple", translation: "寺", romanization: "tera" },
-      { word: "shrine", translation: "神社", romanization: "jinja" },
-      { word: "garden", translation: "庭園", romanization: "teien" }
-    ],
-    phrases: [
-      { english: "I'm a tourist", translation: "観光客です", romanization: "Kankoukyaku desu" },
-      { english: "Where is the hotel?", translation: "ホテルはどこですか？", romanization: "Hoteru wa doko desu ka?" },
-      { english: "I want to see the temple", translation: "寺を見たいです", romanization: "Tera wo mitai desu" },
-      { english: "How much is the entrance fee?", translation: "入場料はいくらですか？", romanization: "Nyuujou-ryou wa ikura desu ka?" },
-      { english: "Can you take a photo?", translation: "写真を撮ってもらえますか？", romanization: "Shashin wo totte moraemasu ka?" }
-    ],
-    grammar: {
-      point: "Travel expressions",
-      explanation: "Use '見たい' (mitai) for 'want to see' and '撮る' (toru) for 'to take' photos.",
-      examples: [
-        { sentence: "寺を見たいです", romanization: "Tera wo mitai desu", english: "I want to see the temple" },
-        { sentence: "写真を撮ります", romanization: "Shashin wo torimasu", english: "I take a photo" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I'm a tourist' in Japanese?",
-        options: ["観光客です", "ホテルはどこですか？", "寺を見たいです", "入場料はいくらですか？"],
-        correct: 0
+        english: "Airport",
+        translation: "空港",
+        pronunciation: "ku-u-ko-u",
+        example: "空港に行きます",
+        exampleEnglish: "I'm going to the airport"
+      },
+      {
+        english: "Train station",
+        translation: "駅",
+        pronunciation: "e-ki",
+        example: "駅は近いです",
+        exampleEnglish: "The station is nearby"
+      },
+      {
+        english: "Ticket",
+        translation: "切符",
+        pronunciation: "ki-ppu",
+        example: "切符が必要です",
+        exampleEnglish: "I need a ticket"
+      },
+      {
+        english: "Passport",
+        translation: "パスポート",
+        pronunciation: "pa-su-po-to",
+        example: "パスポートはどこですか？",
+        exampleEnglish: "Where is my passport?"
+      },
+      {
+        english: "Hotel",
+        translation: "ホテル",
+        pronunciation: "ho-te-ru",
+        example: "ホテルを予約しました",
+        exampleEnglish: "I booked a hotel"
+      },
+      {
+        english: "Room",
+        translation: "部屋",
+        pronunciation: "he-ya",
+        example: "部屋が欲しいです",
+        exampleEnglish: "I want a room"
+      },
+      {
+        english: "Luggage",
+        translation: "荷物",
+        pronunciation: "ni-mo-tsu",
+        example: "荷物はどこですか？",
+        exampleEnglish: "Where is my luggage?"
+      },
+      {
+        english: "Map",
+        translation: "地図",
+        pronunciation: "chi-zu",
+        example: "地図が必要です",
+        exampleEnglish: "I need a map"
+      },
+      {
+        english: "Tourist",
+        translation: "観光客",
+        pronunciation: "kan-ko-u-kyaku",
+        example: "観光客です",
+        exampleEnglish: "I'm a tourist"
+      },
+      {
+        english: "Beach",
+        translation: "海岸",
+        pronunciation: "ka-i-gan",
+        example: "海岸に行きましょう",
+        exampleEnglish: "Let's go to the beach"
       }
     ]
   },
   {
     id: 15,
-    title: "Entertainment and Culture",
-    description: "Learn about Japanese entertainment and cultural activities",
+    title: "At the Hotel",
+    description: "Useful phrases for hotel stays",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "25 minutes",
     vocabulary: [
-      { word: "movie", translation: "映画", romanization: "eiga" },
-      { word: "music", translation: "音楽", romanization: "ongaku" },
-      { word: "concert", translation: "コンサート", romanization: "konsaato" },
-      { word: "theater", translation: "劇場", romanization: "gekijou" },
-      { word: "museum", translation: "博物館", romanization: "hakubutsukan" },
-      { word: "art", translation: "芸術", romanization: "geijutsu" },
-      { word: "tradition", translation: "伝統", romanization: "dento" },
-      { word: "festival", translation: "祭り", romanization: "matsuri" },
-      { word: "kimono", translation: "着物", romanization: "kimono" },
-      { word: "tea ceremony", translation: "茶道", romanization: "sadou" }
-    ],
-    phrases: [
-      { english: "I like Japanese movies", translation: "日本の映画が好きです", romanization: "Nihon no eiga ga suki desu" },
-      { english: "Let's go to a concert", translation: "コンサートに行きましょう", romanization: "Konsaato ni ikimashou" },
-      { english: "I want to see traditional art", translation: "伝統的な芸術を見たいです", romanization: "Dentouteki na geijutsu wo mitai desu" },
-      { english: "When is the festival?", translation: "祭りはいつですか？", romanization: "Matsuri wa itsu desu ka?" },
-      { english: "I want to try on a kimono", translation: "着物を着てみたいです", romanization: "Kimono wo kite mitai desu" }
-    ],
-    grammar: {
-      point: "Cultural expressions",
-      explanation: "Use 'てみたい' (te mitai) for 'want to try' and 'てみる' (te miru) for 'to try'.",
-      examples: [
-        { sentence: "着物を着てみたいです", romanization: "Kimono wo kite mitai desu", english: "I want to try on a kimono" },
-        { sentence: "日本料理を食べてみます", romanization: "Nihon ryouri wo tabete mimasu", english: "I'll try Japanese food" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I like Japanese movies' in Japanese?",
-        options: ["日本の映画が好きです", "コンサートに行きましょう", "伝統的な芸術を見たいです", "祭りはいつですか？"],
-        correct: 0
+        english: "Reservation",
+        translation: "予約",
+        pronunciation: "yo-ya-ku",
+        example: "予約があります",
+        exampleEnglish: "I have a reservation"
+      },
+      {
+        english: "Check-in",
+        translation: "チェックイン",
+        pronunciation: "che-kku i-n",
+        example: "チェックインは何時ですか？",
+        exampleEnglish: "What time is check-in?"
+      },
+      {
+        english: "Check-out",
+        translation: "チェックアウト",
+        pronunciation: "che-kku a-u-to",
+        example: "チェックアウトは十二時です",
+        exampleEnglish: "Check-out time is at twelve"
+      },
+      {
+        english: "Key",
+        translation: "鍵",
+        pronunciation: "ka-gi",
+        example: "鍵をいただけますか？",
+        exampleEnglish: "Can I have the key?"
+      },
+      {
+        english: "WiFi",
+        translation: "WiFi",
+        pronunciation: "wa-i-fa-i",
+        example: "WiFiはありますか？",
+        exampleEnglish: "Do you have WiFi?"
+      },
+      {
+        english: "Breakfast",
+        translation: "朝食",
+        pronunciation: "cho-u-shoku",
+        example: "朝食は含まれています",
+        exampleEnglish: "Breakfast is included"
+      },
+      {
+        english: "Room service",
+        translation: "ルームサービス",
+        pronunciation: "ru-u-mu sa-bi-su",
+        example: "ルームサービスはありますか？",
+        exampleEnglish: "Do you have room service?"
+      },
+      {
+        english: "Wake-up call",
+        translation: "モーニングコール",
+        pronunciation: "mo-u-ni-n-gu ko-ru",
+        example: "七時にモーニングコールをお願いします",
+        exampleEnglish: "I want a wake-up call at seven"
+      },
+      {
+        english: "Towels",
+        translation: "タオル",
+        pronunciation: "ta-o-ru",
+        example: "清潔なタオルが必要です",
+        exampleEnglish: "I need clean towels"
+      },
+      {
+        english: "Elevator",
+        translation: "エレベーター",
+        pronunciation: "e-re-be-ta-",
+        example: "エレベーターはどこですか？",
+        exampleEnglish: "Where is the elevator?"
       }
     ]
   },
   {
     id: 16,
-    title: "Business and Formal Language",
-    description: "Learn formal business Japanese and polite expressions",
+    title: "Body Parts & Health",
+    description: "Learn body parts and health vocabulary",
+    difficulty: "beginner",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "advanced",
-    estimatedTime: "30 minutes",
     vocabulary: [
-      { word: "meeting", translation: "会議", romanization: "kaigi" },
-      { word: "presentation", translation: "プレゼンテーション", romanization: "purezenteeshon" },
-      { word: "contract", translation: "契約", romanization: "keiyaku" },
-      { word: "client", translation: "クライアント", romanization: "kuraianto" },
-      { word: "colleague", translation: "同僚", romanization: "douryou" },
-      { word: "boss", translation: "上司", romanization: "joushi" },
-      { word: "deadline", translation: "締切", romanization: "shimekiri" },
-      { word: "project", translation: "プロジェクト", romanization: "purojekuto" },
-      { word: "budget", translation: "予算", romanization: "yosan" },
-      { word: "report", translation: "報告書", romanization: "houkoku-sho" }
-    ],
-    phrases: [
-      { english: "Nice to meet you (formal)", translation: "初めまして、よろしくお願いします", romanization: "Hajimemashite, yoroshiku onegaishimasu" },
-      { english: "Thank you for your time", translation: "お時間をいただき、ありがとうございます", romanization: "Ojikan wo itadaki, arigatou gozaimasu" },
-      { english: "I look forward to working with you", translation: "ご一緒にお仕事ができることを楽しみにしています", romanization: "Goissho ni oshigoto ga dekiru koto wo tanoshimi ni shite imasu" },
-      { english: "Could you please...?", translation: "...していただけますか？", romanization: "...shite itadakemasu ka?" },
-      { english: "I apologize for the inconvenience", translation: "ご迷惑をおかけして申し訳ありません", romanization: "Gomeiwaku wo okakeshite moushiwake arimasen" }
-    ],
-    grammar: {
-      point: "Honorific language",
-      explanation: "Business Japanese uses honorific forms like 'お' (o) and 'ご' (go) prefixes, and 'いただく' (itadaku) for receiving.",
-      examples: [
-        { sentence: "お時間をいただき", romanization: "Ojikan wo itadaki", english: "Thank you for your time" },
-        { sentence: "ご連絡いたします", romanization: "Gorenraku itashimasu", english: "I will contact you" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'Nice to meet you (formal)' in Japanese?",
-        options: ["初めまして、よろしくお願いします", "お時間をいただき、ありがとうございます", "ご一緒にお仕事ができることを楽しみにしています", "ご迷惑をおかけして申し訳ありません"],
-        correct: 0
+        english: "Head",
+        translation: "頭",
+        pronunciation: "a-ta-ma",
+        example: "頭が痛いです",
+        exampleEnglish: "My head hurts"
+      },
+      {
+        english: "Eye",
+        translation: "目",
+        pronunciation: "me",
+        example: "目は青いです",
+        exampleEnglish: "I have blue eyes"
+      },
+      {
+        english: "Nose",
+        translation: "鼻",
+        pronunciation: "ha-na",
+        example: "鼻が詰まっています",
+        exampleEnglish: "My nose is stuffy"
+      },
+      {
+        english: "Mouth",
+        translation: "口",
+        pronunciation: "ku-chi",
+        example: "口を開けてください",
+        exampleEnglish: "Open your mouth"
+      },
+      {
+        english: "Hand",
+        translation: "手",
+        pronunciation: "te",
+        example: "手を上げてください",
+        exampleEnglish: "Raise your hand"
+      },
+      {
+        english: "Foot",
+        translation: "足",
+        pronunciation: "a-shi",
+        example: "足が痛いです",
+        exampleEnglish: "My foot hurts"
+      },
+      {
+        english: "Doctor",
+        translation: "医者",
+        pronunciation: "i-sha",
+        example: "医者に診てもらう必要があります",
+        exampleEnglish: "I need to see the doctor"
+      },
+      {
+        english: "Medicine",
+        translation: "薬",
+        pronunciation: "ku-su-ri",
+        example: "痛み止めの薬を飲みます",
+        exampleEnglish: "I take medicine for the pain"
+      },
+      {
+        english: "Sick",
+        translation: "病気",
+        pronunciation: "byo-u-ki",
+        example: "病気です",
+        exampleEnglish: "I'm sick"
+      },
+      {
+        english: "Healthy",
+        translation: "健康的",
+        pronunciation: "ken-ko-u-te-ki",
+        example: "健康的な食事は体に良いです",
+        exampleEnglish: "Eating healthy is good for you"
       }
     ]
   },
   {
     id: 17,
-    title: "Advanced Grammar Structures",
-    description: "Complex sentence structures and advanced grammar patterns",
+    title: "Emotions & Feelings",
+    description: "Learn to express emotions and feelings",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "advanced",
-    estimatedTime: "35 minutes",
     vocabulary: [
-      { word: "although", translation: "けれども", romanization: "keredomo" },
-      { word: "however", translation: "しかし", romanization: "shikashi" },
-      { word: "therefore", translation: "したがって", romanization: "shitagatte" },
-      { word: "moreover", translation: "さらに", romanization: "sara ni" },
-      { word: "nevertheless", translation: "それにもかかわらず", romanization: "sore ni mo kakawarazu" },
-      { word: "consequently", translation: "その結果", romanization: "sono kekka" },
-      { word: "meanwhile", translation: "その間に", romanization: "sono aida ni" },
-      { word: "furthermore", translation: "さらに", romanization: "sara ni" },
-      { word: "likewise", translation: "同様に", romanization: "douyou ni" },
-      { word: "otherwise", translation: "そうでなければ", romanization: "sou de nakereba" }
-    ],
-    phrases: [
-      { english: "Although it's difficult, I'll try", translation: "難しいけれども、やってみます", romanization: "Muzukashii keredomo, yatte mimasu" },
-      { english: "However, I think it's possible", translation: "しかし、可能だと思います", romanization: "Shikashi, kanou da to omoimasu" },
-      { english: "Therefore, we should continue", translation: "したがって、続けるべきです", romanization: "Shitagatte, tsuzukeru beki desu" },
-      { english: "Moreover, it's important", translation: "さらに、重要です", romanization: "Sara ni, juuyou desu" },
-      { english: "Nevertheless, I believe", translation: "それにもかかわらず、信じています", romanization: "Sore ni mo kakawarazu, shinjite imasu" }
-    ],
-    grammar: {
-      point: "Complex conjunctions",
-      explanation: "Advanced Japanese uses complex conjunctions to connect ideas. 'けれども' (keredomo) means 'although' and 'したがって' (shitagatte) means 'therefore'.",
-      examples: [
-        { sentence: "難しいけれども、やってみます", romanization: "Muzukashii keredomo, yatte mimasu", english: "Although it's difficult, I'll try" },
-        { sentence: "したがって、続けます", romanization: "Shitagatte, tsuzukemasu", english: "Therefore, I'll continue" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'Although it's difficult, I'll try' in Japanese?",
-        options: ["難しいけれども、やってみます", "しかし、可能だと思います", "したがって、続けるべきです", "さらに、重要です"],
-        correct: 0
+        english: "Happy",
+        translation: "嬉しい",
+        pronunciation: "u-re-shi-i",
+        example: "とても嬉しいです",
+        exampleEnglish: "I'm very happy"
+      },
+      {
+        english: "Sad",
+        translation: "悲しい",
+        pronunciation: "ka-na-shi-i",
+        example: "悲しい気持ちです",
+        exampleEnglish: "I feel sad"
+      },
+      {
+        english: "Angry",
+        translation: "怒っている",
+        pronunciation: "o-ko-tte i-ru",
+        example: "あなたに怒っています",
+        exampleEnglish: "I'm angry with you"
+      },
+      {
+        english: "Excited",
+        translation: "興奮している",
+        pronunciation: "ko-u-fun shi-te i-ru",
+        example: "旅行に興奮しています",
+        exampleEnglish: "I'm excited about the trip"
+      },
+      {
+        english: "Tired",
+        translation: "疲れた",
+        pronunciation: "tsu-ka-re-ta",
+        example: "とても疲れています",
+        exampleEnglish: "I'm very tired"
+      },
+      {
+        english: "Worried",
+        translation: "心配している",
+        pronunciation: "shi-n-pa-i shi-te i-ru",
+        example: "あなたのことを心配しています",
+        exampleEnglish: "I'm worried about you"
+      },
+      {
+        english: "Surprised",
+        translation: "驚いた",
+        pronunciation: "o-do-ro-i-ta",
+        example: "驚きました",
+        exampleEnglish: "I'm surprised"
+      },
+      {
+        english: "Nervous",
+        translation: "緊張している",
+        pronunciation: "ki-n-cho-u shi-te i-ru",
+        example: "試験の前に緊張しています",
+        exampleEnglish: "I'm nervous before the exam"
+      },
+      {
+        english: "Calm",
+        translation: "落ち着いた",
+        pronunciation: "o-chi-tsu-i-ta",
+        example: "落ち着いてください",
+        exampleEnglish: "Stay calm"
+      },
+      {
+        english: "Love",
+        translation: "愛",
+        pronunciation: "a-i",
+        example: "愛しています",
+        exampleEnglish: "I love you"
       }
     ]
   },
   {
     id: 18,
-    title: "Idioms and Expressions",
-    description: "Learn common Japanese idioms and cultural expressions",
+    title: "Past Tense Basics",
+    description: "Learn basic past tense verbs",
+    difficulty: "intermediate",
+    estimatedTime: "20 minutes",
     isPremium: true,
-    difficulty: "advanced",
-    estimatedTime: "32 minutes",
     vocabulary: [
-      { word: "idiom", translation: "慣用句", romanization: "kan'youku" },
-      { word: "expression", translation: "表現", romanization: "hyougen" },
-      { word: "proverb", translation: "ことわざ", romanization: "kotowaza" },
-      { word: "metaphor", translation: "比喩", romanization: "hiyu" },
-      { word: "saying", translation: "言い回し", romanization: "iimawashi" },
-      { word: "cultural", translation: "文化的", romanization: "bunkateki" },
-      { word: "traditional", translation: "伝統的", romanization: "dentouteki" },
-      { word: "modern", translation: "現代的", romanization: "gendaiteki" },
-      { word: "colloquial", translation: "口語的", romanization: "kougoteki" },
-      { word: "formal", translation: "形式的", romanization: "keishikiteki" }
-    ],
-    phrases: [
-      { english: "It's a piece of cake", translation: "朝飯前です", romanization: "Asameshi mae desu" },
-      { english: "Don't count your chickens", translation: "取らぬ狸の皮算用", romanization: "Toranu tanuki no kawazan'you" },
-      { english: "The early bird catches the worm", translation: "早起きは三文の徳", romanization: "Hayaoki wa sanmon no toku" },
-      { english: "Actions speak louder than words", translation: "口で言うより手で示せ", romanization: "Kuchi de iu yori te de shimese" },
-      { english: "Better late than never", translation: "遅くてもしないよりまし", romanization: "Osokute mo shinai yori mashi" }
-    ],
-    grammar: {
-      point: "Cultural context",
-      explanation: "Japanese idioms often reflect cultural values and historical context. Understanding the cultural background helps in proper usage.",
-      examples: [
-        { sentence: "朝飯前です", romanization: "Asameshi mae desu", english: "It's a piece of cake (literally: before breakfast)" },
-        { sentence: "早起きは三文の徳", romanization: "Hayaoki wa sanmon no toku", english: "Early rising is worth three coins" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'It's a piece of cake' in Japanese?",
-        options: ["朝飯前です", "取らぬ狸の皮算用", "早起きは三文の徳", "口で言うより手で示せ"],
-        correct: 0
+        english: "I went",
+        translation: "行きました",
+        pronunciation: "i-ki-ma-shi-ta",
+        example: "昨日映画に行きました",
+        exampleEnglish: "I went to the movies yesterday"
+      },
+      {
+        english: "I ate",
+        translation: "食べました",
+        pronunciation: "ta-be-ma-shi-ta",
+        example: "昨夜ピザを食べました",
+        exampleEnglish: "I ate pizza last night"
+      },
+      {
+        english: "I saw",
+        translation: "見ました",
+        pronunciation: "mi-ma-shi-ta",
+        example: "映画を見ました",
+        exampleEnglish: "I saw a movie"
+      },
+      {
+        english: "I did",
+        translation: "しました",
+        pronunciation: "shi-ma-shi-ta",
+        example: "宿題をしました",
+        exampleEnglish: "I did my homework"
+      },
+      {
+        english: "I said",
+        translation: "言いました",
+        pronunciation: "i-i-ma-shi-ta",
+        example: "はいと言いました",
+        exampleEnglish: "I said yes"
+      },
+      {
+        english: "I came",
+        translation: "来ました",
+        pronunciation: "ki-ma-shi-ta",
+        example: "早く来ました",
+        exampleEnglish: "I came early"
+      },
+      {
+        english: "I had",
+        translation: "ありました",
+        pronunciation: "a-ri-ma-shi-ta",
+        example: "アイデアがありました",
+        exampleEnglish: "I had an idea"
+      },
+      {
+        english: "I was",
+        translation: "でした",
+        pronunciation: "de-shi-ta",
+        example: "家にいました",
+        exampleEnglish: "I was at home"
+      },
+      {
+        english: "I wanted",
+        translation: "欲しかったです",
+        pronunciation: "ho-shi-ka-tta de-su",
+        example: "手伝いたかったです",
+        exampleEnglish: "I wanted to help you"
+      },
+      {
+        english: "I knew",
+        translation: "知っていました",
+        pronunciation: "shi-tte i-ma-shi-ta",
+        example: "答えを知っていました",
+        exampleEnglish: "I knew the answer"
       }
     ]
   },
   {
     id: 19,
-    title: "Conversation Practice",
-    description: "Advanced conversation skills and natural dialogue",
+    title: "Making Plans",
+    description: "Learn phrases for making plans and arrangements",
+    difficulty: "intermediate",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "advanced",
-    estimatedTime: "40 minutes",
     vocabulary: [
-      { word: "conversation", translation: "会話", romanization: "kaiwa" },
-      { word: "dialogue", translation: "対話", romanization: "taiwa" },
-      { word: "discussion", translation: "議論", romanization: "giron" },
-      { word: "debate", translation: "討論", romanization: "touron" },
-      { word: "negotiation", translation: "交渉", romanization: "koushou" },
-      { word: "persuasion", translation: "説得", romanization: "settoku" },
-      { word: "agreement", translation: "合意", romanization: "goui" },
-      { word: "disagreement", translation: "不同意", romanization: "fudoui" },
-      { word: "compromise", translation: "妥協", romanization: "dakyou" },
-      { word: "consensus", translation: "合意", romanization: "goui" }
-    ],
-    phrases: [
-      { english: "What do you think about...?", translation: "...についてどう思いますか？", romanization: "...ni tsuite dou omoimasu ka?" },
-      { english: "I agree with you", translation: "あなたの意見に賛成です", romanization: "Anata no iken ni sansei desu" },
-      { english: "I have a different opinion", translation: "異なる意見があります", romanization: "Kotonaru iken ga arimasu" },
-      { english: "Let's discuss this further", translation: "さらに話し合いましょう", romanization: "Sara ni hanashiai mashou" },
-      { english: "I understand your point", translation: "あなたのポイントを理解しました", romanization: "Anata no point wo rikai shimashita" }
-    ],
-    grammar: {
-      point: "Advanced conversation patterns",
-      explanation: "Advanced conversations use complex sentence structures, conditional forms, and nuanced expressions to convey subtle meanings.",
-      examples: [
-        { sentence: "...についてどう思いますか？", romanization: "...ni tsuite dou omoimasu ka?", english: "What do you think about...?" },
-        { sentence: "あなたの意見に賛成です", romanization: "Anata no iken ni sansei desu", english: "I agree with you" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'What do you think about...?' in Japanese?",
-        options: ["...についてどう思いますか？", "あなたの意見に賛成です", "異なる意見があります", "さらに話し合いましょう"],
-        correct: 0
+        english: "Let's meet",
+        translation: "会いましょう",
+        pronunciation: "a-i-ma-sho-u",
+        example: "八時に会いましょう",
+        exampleEnglish: "Let's meet at eight"
+      },
+      {
+        english: "I'm free",
+        translation: "暇です",
+        pronunciation: "hi-ma de-su",
+        example: "土曜日は暇です",
+        exampleEnglish: "I'm free on Saturday"
+      },
+      {
+        english: "I'm busy",
+        translation: "忙しいです",
+        pronunciation: "i-so-ga-shi-i de-su",
+        example: "明日は忙しいです",
+        exampleEnglish: "I'm busy tomorrow"
+      },
+      {
+        english: "What time?",
+        translation: "何時ですか？",
+        pronunciation: "na-n-ji de-su ka",
+        example: "何時に会いたいですか？",
+        exampleEnglish: "What time do you want to meet?"
+      },
+      {
+        english: "Where?",
+        translation: "どこですか？",
+        pronunciation: "do-ko de-su ka",
+        example: "どこで会いますか？",
+        exampleEnglish: "Where do we meet?"
+      },
+      {
+        english: "I can't",
+        translation: "できません",
+        pronunciation: "de-ki-ma-sen",
+        example: "明日は行けません",
+        exampleEnglish: "I can't go tomorrow"
+      },
+      {
+        english: "I can",
+        translation: "できます",
+        pronunciation: "de-ki-ma-su",
+        example: "金曜日は行けます",
+        exampleEnglish: "I can go on Friday"
+      },
+      {
+        english: "Maybe",
+        translation: "たぶん",
+        pronunciation: "ta-bun",
+        example: "たぶん行けると思います",
+        exampleEnglish: "Maybe I can go"
+      },
+      {
+        english: "See you",
+        translation: "また後で",
+        pronunciation: "ma-ta a-to de",
+        example: "また明日",
+        exampleEnglish: "See you tomorrow"
+      },
+      {
+        english: "Cancel",
+        translation: "キャンセル",
+        pronunciation: "kyan-se-ru",
+        example: "キャンセルする必要があります",
+        exampleEnglish: "I have to cancel"
       }
     ]
   }

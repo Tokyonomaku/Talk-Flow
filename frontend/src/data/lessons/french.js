@@ -2,826 +2,1590 @@ export const lessons = [
   {
     id: 1,
     title: "Basic Greetings",
-    description: "Learn how to say hello, goodbye, and introduce yourself",
-    isPremium: false,
+    description: "Learn essential greetings and polite phrases",
     difficulty: "beginner",
-    estimatedTime: "15 minutes",
+    estimatedTime: "10 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "hello", translation: "bonjour", romanization: "bohn-ZHOOR" },
-      { word: "goodbye", translation: "au revoir", romanization: "oh ruh-VWAHR" },
-      { word: "good morning", translation: "bonjour", romanization: "bohn-ZHOOR" },
-      { word: "good afternoon", translation: "bon après-midi", romanization: "bohn ah-preh mee-DEE" },
-      { word: "good evening", translation: "bonsoir", romanization: "bohn-SWAHR" },
-      { word: "thank you", translation: "merci", romanization: "mehr-SEE" },
-      { word: "please", translation: "s'il vous plaît", romanization: "seel voo PLEH" },
-      { word: "excuse me", translation: "excusez-moi", romanization: "ehk-skoo-zay MWAH" },
-      { word: "yes", translation: "oui", romanization: "WEE" },
-      { word: "no", translation: "non", romanization: "NOHN" }
-    ],
-    phrases: [
-      { english: "Nice to meet you", translation: "Enchanté(e)", romanization: "ahn-shahn-TAY" },
-      { english: "My name is...", translation: "Je m'appelle...", romanization: "zhuh mah-PEHL" },
-      { english: "How are you?", translation: "Comment allez-vous?", romanization: "koh-MAHN tah-lay VOO?" },
-      { english: "I'm fine, thank you", translation: "Je vais bien, merci", romanization: "zhuh VEH byehn, mehr-SEE" },
-      { english: "See you later", translation: "À bientôt", romanization: "ah byehn-TOH" },
-      { english: "Take care", translation: "Prenez soin de vous", romanization: "pruh-NAY swahn duh VOO" },
-      { english: "Good night", translation: "Bonne nuit", romanization: "bohn NWEE" }
-    ],
-    grammar: {
-      point: "Basic sentence structure",
-      explanation: "French follows Subject-Verb-Object order. The verb 'être' (to be) is used for permanent characteristics.",
-      examples: [
-        { sentence: "Je suis étudiant", romanization: "zhuh SWEE ay-too-DYAHN", english: "I am a student" },
-        { sentence: "Tu es professeur", romanization: "too EH proh-feh-SUHR", english: "You are a teacher" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'hello' in French?",
-        options: ["bonjour", "au revoir", "merci", "s'il vous plaît"],
-        correct: 0
+        english: "Hello",
+        translation: "Bonjour",
+        pronunciation: "bon-ZHOOR",
+        example: "Bonjour, comment allez-vous ?",
+        exampleEnglish: "Hello, how are you?"
       },
       {
-        type: "multiple-choice",
-        question: "What does 'merci' mean?",
-        options: ["Hello", "Thank you", "Goodbye", "Please"],
-        correct: 1
+        english: "Goodbye",
+        translation: "Au revoir",
+        pronunciation: "oh ruh-VWAHR",
+        example: "Au revoir, à bientôt",
+        exampleEnglish: "Goodbye, see you soon"
+      },
+      {
+        english: "Good morning",
+        translation: "Bonjour",
+        pronunciation: "bon-ZHOOR",
+        example: "Bonjour, comment avez-vous dormi ?",
+        exampleEnglish: "Good morning, how did you sleep?"
+      },
+      {
+        english: "Good evening",
+        translation: "Bonsoir",
+        pronunciation: "bon-SWAHR",
+        example: "Bonsoir, comment allez-vous ?",
+        exampleEnglish: "Good evening, how are you?"
+      },
+      {
+        english: "Please",
+        translation: "S'il vous plaît",
+        pronunciation: "seel voo PLEH",
+        example: "S'il vous plaît, aidez-moi",
+        exampleEnglish: "Please, help me"
+      },
+      {
+        english: "Thank you",
+        translation: "Merci",
+        pronunciation: "mehr-SEE",
+        example: "Merci beaucoup pour votre aide",
+        exampleEnglish: "Thank you very much for your help"
+      },
+      {
+        english: "You're welcome",
+        translation: "De rien",
+        pronunciation: "duh RYEHN",
+        example: "De rien, c'était un plaisir",
+        exampleEnglish: "You're welcome, it was a pleasure"
+      },
+      {
+        english: "Excuse me",
+        translation: "Excusez-moi",
+        pronunciation: "ehk-skew-ZAY mwah",
+        example: "Excusez-moi, où sont les toilettes ?",
+        exampleEnglish: "Excuse me, where is the bathroom?"
+      },
+      {
+        english: "Sorry",
+        translation: "Désolé",
+        pronunciation: "day-zoh-LAY",
+        example: "Désolé pour le retard",
+        exampleEnglish: "Sorry for the delay"
+      },
+      {
+        english: "Good night",
+        translation: "Bonne nuit",
+        pronunciation: "bohn NWEE",
+        example: "Bonne nuit, faites de beaux rêves",
+        exampleEnglish: "Good night, sweet dreams"
       }
     ]
   },
   {
     id: 2,
-    title: "Numbers 1-10",
-    description: "Learn to count from 1 to 10 in French",
-    isPremium: false,
+    title: "Introducing Yourself",
+    description: "Learn how to introduce yourself and ask basic questions",
     difficulty: "beginner",
     estimatedTime: "12 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "one", translation: "un", romanization: "UHN" },
-      { word: "two", translation: "deux", romanization: "DUH" },
-      { word: "three", translation: "trois", romanization: "TWAH" },
-      { word: "four", translation: "quatre", romanization: "KAHT-ruh" },
-      { word: "five", translation: "cinq", romanization: "SANK" },
-      { word: "six", translation: "six", romanization: "SEES" },
-      { word: "seven", translation: "sept", romanization: "SEHT" },
-      { word: "eight", translation: "huit", romanization: "WEET" },
-      { word: "nine", translation: "neuf", romanization: "NUHF" },
-      { word: "ten", translation: "dix", romanization: "DEES" }
-    ],
-    phrases: [
-      { english: "How many?", translation: "Combien?", romanization: "kohn-BYEHN?" },
-      { english: "One more, please", translation: "Encore un, s'il vous plaît", romanization: "ahn-KOHR uhn, seel voo PLEH" },
-      { english: "That's too many", translation: "C'est trop", romanization: "seh TROH" },
-      { english: "Just one", translation: "Seulement un", romanization: "suhl-MAHN uhn" },
-      { english: "All of them", translation: "Tous", romanization: "TOO" }
-    ],
-    grammar: {
-      point: "Number agreement",
-      explanation: "Numbers are generally invariable, but 'un' becomes 'une' with feminine nouns.",
-      examples: [
-        { sentence: "Une pomme", romanization: "oon POHM", english: "One apple" },
-        { sentence: "Un livre", romanization: "uhn LEEV-ruh", english: "One book" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'five' in French?",
-        options: ["trois", "quatre", "cinq", "six"],
-        correct: 2
+        english: "My name is",
+        translation: "Je m'appelle",
+        pronunciation: "zhuh mah-PEHL",
+        example: "Je m'appelle Marie",
+        exampleEnglish: "My name is Marie"
+      },
+      {
+        english: "I am",
+        translation: "Je suis",
+        pronunciation: "zhuh SWEE",
+        example: "Je suis étudiant",
+        exampleEnglish: "I am a student"
+      },
+      {
+        english: "Nice to meet you",
+        translation: "Enchanté",
+        pronunciation: "ahn-shahn-TAY",
+        example: "Enchanté de vous rencontrer",
+        exampleEnglish: "Nice to meet you"
+      },
+      {
+        english: "Where are you from?",
+        translation: "D'où venez-vous ?",
+        pronunciation: "doo vuh-NAY voo",
+        example: "D'où venez-vous ?",
+        exampleEnglish: "Where are you from?"
+      },
+      {
+        english: "I am from",
+        translation: "Je viens de",
+        pronunciation: "zhuh VYEHN duh",
+        example: "Je viens de France",
+        exampleEnglish: "I am from France"
+      },
+      {
+        english: "How old are you?",
+        translation: "Quel âge avez-vous ?",
+        pronunciation: "kehl ahzh ah-VAY voo",
+        example: "Quel âge avez-vous ?",
+        exampleEnglish: "How old are you?"
+      },
+      {
+        english: "I am ... years old",
+        translation: "J'ai ... ans",
+        pronunciation: "zhay ... ahn",
+        example: "J'ai vingt-cinq ans",
+        exampleEnglish: "I am twenty-five years old"
+      },
+      {
+        english: "What do you do?",
+        translation: "Que faites-vous ?",
+        pronunciation: "kuh FEHT voo",
+        example: "Que faites-vous ?",
+        exampleEnglish: "What do you do?"
+      },
+      {
+        english: "I work as",
+        translation: "Je travaille comme",
+        pronunciation: "zhuh trah-VAY kohm",
+        example: "Je travaille comme professeur",
+        exampleEnglish: "I work as a teacher"
+      },
+      {
+        english: "Pleased to meet you",
+        translation: "Ravi de vous rencontrer",
+        pronunciation: "rah-VEE duh voo rahn-kohn-TRAY",
+        example: "Ravi de vous rencontrer",
+        exampleEnglish: "Pleased to meet you"
       }
     ]
   },
   {
     id: 3,
-    title: "Family Members",
-    description: "Learn to talk about your family in French",
-    isPremium: false,
+    title: "Numbers 1-20",
+    description: "Learn to count from one to twenty",
     difficulty: "beginner",
-    estimatedTime: "18 minutes",
+    estimatedTime: "15 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "mother", translation: "mère", romanization: "MEHR" },
-      { word: "father", translation: "père", romanization: "PEHR" },
-      { word: "sister", translation: "sœur", romanization: "SUHR" },
-      { word: "brother", translation: "frère", romanization: "FREHR" },
-      { word: "grandmother", translation: "grand-mère", romanization: "grahn-MEHR" },
-      { word: "grandfather", translation: "grand-père", romanization: "grahn-PEHR" },
-      { word: "aunt", translation: "tante", romanization: "TAHNT" },
-      { word: "uncle", translation: "oncle", romanization: "OHN-kluh" },
-      { word: "cousin", translation: "cousin/cousine", romanization: "koo-ZEHN/koo-ZEEN" },
-      { word: "child", translation: "enfant", romanization: "ahn-FAHN" }
-    ],
-    phrases: [
-      { english: "This is my family", translation: "Voici ma famille", romanization: "vwah-SEE mah fah-MEE-yuh" },
-      { english: "I have two sisters", translation: "J'ai deux sœurs", romanization: "zhay duh SUHR" },
-      { english: "My mother is a teacher", translation: "Ma mère est professeur", romanization: "mah MEHR eh proh-feh-SUHR" },
-      { english: "How many people in your family?", translation: "Combien de personnes dans votre famille?", romanization: "kohn-BYEHN duh pehr-SOHN dahns voh-truh fah-MEE-yuh?" },
-      { english: "I live with my parents", translation: "Je vis avec mes parents", romanization: "zhuh VEE ah-VEHK meh pah-RAHN" }
-    ],
-    grammar: {
-      point: "Possessive adjectives",
-      explanation: "Use 'ma' (my), 'ta' (your), 'sa' (his/her) before feminine family members. 'Mon', 'ton', 'son' for masculine.",
-      examples: [
-        { sentence: "Ma mère", romanization: "mah MEHR", english: "my mother" },
-        { sentence: "Mon père", romanization: "mohn PEHR", english: "my father" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'mother' in French?",
-        options: ["père", "mère", "grand-mère", "tante"],
-        correct: 1
+        english: "One",
+        translation: "Un",
+        pronunciation: "uhn",
+        example: "J'en ai un",
+        exampleEnglish: "I have one"
+      },
+      {
+        english: "Two",
+        translation: "Deux",
+        pronunciation: "duh",
+        example: "Deux personnes",
+        exampleEnglish: "Two people"
+      },
+      {
+        english: "Three",
+        translation: "Trois",
+        pronunciation: "trwah",
+        example: "Trois pommes",
+        exampleEnglish: "Three apples"
+      },
+      {
+        english: "Four",
+        translation: "Quatre",
+        pronunciation: "KAHT-ruh",
+        example: "Quatre jours",
+        exampleEnglish: "Four days"
+      },
+      {
+        english: "Five",
+        translation: "Cinq",
+        pronunciation: "sank",
+        example: "Cinq minutes",
+        exampleEnglish: "Five minutes"
+      },
+      {
+        english: "Six",
+        translation: "Six",
+        pronunciation: "sees",
+        example: "Six livres",
+        exampleEnglish: "Six books"
+      },
+      {
+        english: "Seven",
+        translation: "Sept",
+        pronunciation: "seht",
+        example: "Sept heures",
+        exampleEnglish: "Seven hours"
+      },
+      {
+        english: "Eight",
+        translation: "Huit",
+        pronunciation: "weet",
+        example: "Huit étudiants",
+        exampleEnglish: "Eight students"
+      },
+      {
+        english: "Nine",
+        translation: "Neuf",
+        pronunciation: "nuhf",
+        example: "Neuf mois",
+        exampleEnglish: "Nine months"
+      },
+      {
+        english: "Ten",
+        translation: "Dix",
+        pronunciation: "dees",
+        example: "Dix ans",
+        exampleEnglish: "Ten years"
+      },
+      {
+        english: "Eleven",
+        translation: "Onze",
+        pronunciation: "ohnz",
+        example: "Onze personnes",
+        exampleEnglish: "Eleven people"
+      },
+      {
+        english: "Twelve",
+        translation: "Douze",
+        pronunciation: "dooz",
+        example: "Douze heures",
+        exampleEnglish: "Twelve hours"
+      },
+      {
+        english: "Thirteen",
+        translation: "Treize",
+        pronunciation: "trehz",
+        example: "Treize jours",
+        exampleEnglish: "Thirteen days"
+      },
+      {
+        english: "Fourteen",
+        translation: "Quatorze",
+        pronunciation: "kah-TOHRZ",
+        example: "Quatorze ans",
+        exampleEnglish: "Fourteen years"
+      },
+      {
+        english: "Fifteen",
+        translation: "Quinze",
+        pronunciation: "kanz",
+        example: "Quinze minutes",
+        exampleEnglish: "Fifteen minutes"
+      },
+      {
+        english: "Sixteen",
+        translation: "Seize",
+        pronunciation: "sehz",
+        example: "Seize livres",
+        exampleEnglish: "Sixteen books"
+      },
+      {
+        english: "Seventeen",
+        translation: "Dix-sept",
+        pronunciation: "dees-SEHT",
+        example: "Dix-sept étudiants",
+        exampleEnglish: "Seventeen students"
+      },
+      {
+        english: "Eighteen",
+        translation: "Dix-huit",
+        pronunciation: "dees-WEET",
+        example: "Dix-huit mois",
+        exampleEnglish: "Eighteen months"
+      },
+      {
+        english: "Nineteen",
+        translation: "Dix-neuf",
+        pronunciation: "dees-NUHF",
+        example: "Dix-neuf ans",
+        exampleEnglish: "Nineteen years"
+      },
+      {
+        english: "Twenty",
+        translation: "Vingt",
+        pronunciation: "vahn",
+        example: "Vingt personnes",
+        exampleEnglish: "Twenty people"
       }
     ]
   },
   {
     id: 4,
-    title: "Food and Drinks",
-    description: "Essential vocabulary for ordering food and drinks",
-    isPremium: false,
+    title: "Common Questions",
+    description: "Essential questions for everyday conversations",
     difficulty: "beginner",
-    estimatedTime: "20 minutes",
+    estimatedTime: "12 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "water", translation: "eau", romanization: "OH" },
-      { word: "tea", translation: "thé", romanization: "TAY" },
-      { word: "coffee", translation: "café", romanization: "kah-FAY" },
-      { word: "rice", translation: "riz", romanization: "REE" },
-      { word: "bread", translation: "pain", romanization: "PEHN" },
-      { word: "meat", translation: "viande", romanization: "vyahnd" },
-      { word: "fish", translation: "poisson", romanization: "pwah-SOHN" },
-      { word: "vegetables", translation: "légumes", romanization: "lay-GOOM" },
-      { word: "fruit", translation: "fruit", romanization: "FRWEE" },
-      { word: "soup", translation: "soupe", romanization: "SOOP" }
-    ],
-    phrases: [
-      { english: "I'm hungry", translation: "J'ai faim", romanization: "zhay FEHM" },
-      { english: "I'm thirsty", translation: "J'ai soif", romanization: "zhay SWAHF" },
-      { english: "What would you like to eat?", translation: "Que voulez-vous manger?", romanization: "kuh voo-lay VOO mahn-ZHAY?" },
-      { english: "This is delicious", translation: "C'est délicieux", romanization: "seh day-lee-SYUH" },
-      { english: "I don't like this", translation: "Je n'aime pas ça", romanization: "zhuh nehm pah SAH" },
-      { english: "Check, please", translation: "L'addition, s'il vous plaît", romanization: "lah-dee-SYOHN, seel voo PLEH" }
-    ],
-    grammar: {
-      point: "Aimer (to like)",
-      explanation: "Use 'j'aime' for 'I like' and 'tu aimes' for 'you like'. Use 'ne...pas' for negative.",
-      examples: [
-        { sentence: "J'aime le café", romanization: "zhehm luh kah-FAY", english: "I like coffee" },
-        { sentence: "Je n'aime pas le thé", romanization: "zhuh nehm pah luh TAY", english: "I don't like tea" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I'm hungry' in French?",
-        options: ["J'ai soif", "J'ai faim", "C'est délicieux", "Je n'aime pas ça"],
-        correct: 1
+        english: "What?",
+        translation: "Quoi",
+        pronunciation: "kwah",
+        example: "Que voulez-vous ?",
+        exampleEnglish: "What do you want?"
+      },
+      {
+        english: "Who?",
+        translation: "Qui",
+        pronunciation: "kee",
+        example: "Qui est-il ?",
+        exampleEnglish: "Who is he?"
+      },
+      {
+        english: "Where?",
+        translation: "Où",
+        pronunciation: "oo",
+        example: "Où habitez-vous ?",
+        exampleEnglish: "Where do you live?"
+      },
+      {
+        english: "When?",
+        translation: "Quand",
+        pronunciation: "kahn",
+        example: "Quand arrivez-vous ?",
+        exampleEnglish: "When do you arrive?"
+      },
+      {
+        english: "Why?",
+        translation: "Pourquoi",
+        pronunciation: "poor-KWAH",
+        example: "Pourquoi êtes-vous triste ?",
+        exampleEnglish: "Why are you sad?"
+      },
+      {
+        english: "How?",
+        translation: "Comment",
+        pronunciation: "koh-MAHN",
+        example: "Comment allez-vous ?",
+        exampleEnglish: "How are you?"
+      },
+      {
+        english: "How much?",
+        translation: "Combien",
+        pronunciation: "kohm-BYEHN",
+        example: "Combien ça coûte ?",
+        exampleEnglish: "How much does it cost?"
+      },
+      {
+        english: "How many?",
+        translation: "Combien",
+        pronunciation: "kohm-BYEHN",
+        example: "Quel âge avez-vous ?",
+        exampleEnglish: "How many years old are you?"
+      },
+      {
+        english: "Which?",
+        translation: "Quel",
+        pronunciation: "kehl",
+        example: "Lequel préférez-vous ?",
+        exampleEnglish: "Which do you prefer?"
+      },
+      {
+        english: "Do you have?",
+        translation: "Avez-vous",
+        pronunciation: "ah-VAY voo",
+        example: "Avez-vous le temps ?",
+        exampleEnglish: "Do you have time?"
       }
     ]
   },
   {
     id: 5,
-    title: "Colors and Descriptions",
-    description: "Learn colors and basic descriptive words",
-    isPremium: false,
+    title: "Essential Phrases",
+    description: "Important phrases for daily communication",
     difficulty: "beginner",
-    estimatedTime: "16 minutes",
+    estimatedTime: "10 minutes",
+    isPremium: false,
     vocabulary: [
-      { word: "red", translation: "rouge", romanization: "ROOZH" },
-      { word: "blue", translation: "bleu", romanization: "BLUH" },
-      { word: "green", translation: "vert", romanization: "VEHR" },
-      { word: "yellow", translation: "jaune", romanization: "ZHOHN" },
-      { word: "black", translation: "noir", romanization: "NWAHR" },
-      { word: "white", translation: "blanc", romanization: "BLAHNK" },
-      { word: "big", translation: "grand", romanization: "GRAHN" },
-      { word: "small", translation: "petit", romanization: "puh-TEE" },
-      { word: "beautiful", translation: "beau/belle", romanization: "BOH/BEHL" },
-      { word: "new", translation: "nouveau/nouvelle", romanization: "noo-VOH/noo-VEHL" }
-    ],
-    phrases: [
-      { english: "What color is this?", translation: "De quelle couleur est-ce?", romanization: "duh kehl koo-LUHR ehs?" },
-      { english: "I like blue", translation: "J'aime le bleu", romanization: "zhehm luh BLUH" },
-      { english: "This is beautiful", translation: "C'est beau", romanization: "seh BOH" },
-      { english: "It's too big", translation: "C'est trop grand", romanization: "seh TROH GRAHN" },
-      { english: "I want a small one", translation: "Je veux un petit", romanization: "zhuh vuh uhn puh-TEE" }
-    ],
-    grammar: {
-      point: "Adjective agreement",
-      explanation: "Adjectives must agree with the gender and number of the noun they describe. Add 'e' for feminine, 's' for plural.",
-      examples: [
-        { sentence: "Voiture rouge", romanization: "vwah-TOOR ROOZH", english: "red car" },
-        { sentence: "Maison rouge", romanization: "meh-ZOHN ROOZH", english: "red house" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'blue' in French?",
-        options: ["rouge", "bleu", "vert", "jaune"],
-        correct: 1
+        english: "Yes",
+        translation: "Oui",
+        pronunciation: "wee",
+        example: "Oui, s'il vous plaît",
+        exampleEnglish: "Yes, please"
+      },
+      {
+        english: "No",
+        translation: "Non",
+        pronunciation: "nohn",
+        example: "Non, merci",
+        exampleEnglish: "No, thank you"
+      },
+      {
+        english: "Maybe",
+        translation: "Peut-être",
+        pronunciation: "puh-TEHT-ruh",
+        example: "Peut-être demain",
+        exampleEnglish: "Maybe tomorrow"
+      },
+      {
+        english: "I don't know",
+        translation: "Je ne sais pas",
+        pronunciation: "zhuh nuh say pah",
+        example: "Je ne sais pas où c'est",
+        exampleEnglish: "I don't know where it is"
+      },
+      {
+        english: "I understand",
+        translation: "Je comprends",
+        pronunciation: "zhuh kohm-PRAHN",
+        example: "Je comprends parfaitement",
+        exampleEnglish: "I understand perfectly"
+      },
+      {
+        english: "I don't understand",
+        translation: "Je ne comprends pas",
+        pronunciation: "zhuh nuh kohm-PRAHN pah",
+        example: "Je ne comprends pas ce mot",
+        exampleEnglish: "I don't understand this word"
+      },
+      {
+        english: "Can you help me?",
+        translation: "Pouvez-vous m'aider ?",
+        pronunciation: "poo-VAY voo may-DAY",
+        example: "Pouvez-vous m'aider avec ça ?",
+        exampleEnglish: "Can you help me with this?"
+      },
+      {
+        english: "I need",
+        translation: "J'ai besoin",
+        pronunciation: "zhay buh-ZWEHN",
+        example: "J'ai besoin d'aide",
+        exampleEnglish: "I need help"
+      },
+      {
+        english: "I want",
+        translation: "Je veux",
+        pronunciation: "zhuh vuh",
+        example: "Je veux apprendre le français",
+        exampleEnglish: "I want to learn French"
+      },
+      {
+        english: "I like",
+        translation: "J'aime",
+        pronunciation: "zhehm",
+        example: "J'aime la musique",
+        exampleEnglish: "I like music"
       }
     ]
   },
   {
     id: 6,
-    title: "Time and Dates",
-    description: "Learn to tell time and talk about dates",
+    title: "Family Members",
+    description: "Learn vocabulary for family relationships",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "25 minutes",
     vocabulary: [
-      { word: "hour", translation: "heure", romanization: "UHR" },
-      { word: "minute", translation: "minute", romanization: "mee-NOOT" },
-      { word: "morning", translation: "matin", romanization: "mah-TEHN" },
-      { word: "afternoon", translation: "après-midi", romanization: "ah-preh mee-DEE" },
-      { word: "evening", translation: "soir", romanization: "SWAHR" },
-      { word: "night", translation: "nuit", romanization: "NWEE" },
-      { word: "today", translation: "aujourd'hui", romanization: "oh-zhoor-DWEE" },
-      { word: "tomorrow", translation: "demain", romanization: "duh-MEHN" },
-      { word: "yesterday", translation: "hier", romanization: "YEHR" },
-      { word: "week", translation: "semaine", romanization: "suh-MEHN" }
-    ],
-    phrases: [
-      { english: "What time is it?", translation: "Quelle heure est-il?", romanization: "kehl UHR eh-TEEL?" },
-      { english: "It's 3 o'clock", translation: "Il est trois heures", romanization: "eel eh TWAH UHR" },
-      { english: "What day is today?", translation: "Quel jour sommes-nous?", romanization: "kehl ZHOOR sohm NOO?" },
-      { english: "I'm busy tomorrow", translation: "Je suis occupé demain", romanization: "zhuh SWEE oh-koo-PAY duh-MEHN" },
-      { english: "See you next week", translation: "À la semaine prochaine", romanization: "ah lah suh-MEHN proh-SHEHN" }
-    ],
-    grammar: {
-      point: "Time expressions",
-      explanation: "Use 'il est' for 'it is' with time. 'À' means 'at' for specific times.",
-      examples: [
-        { sentence: "À trois heures", romanization: "ah TWAH UHR", english: "At three o'clock" },
-        { sentence: "Il est midi", romanization: "eel eh mee-DEE", english: "It's noon" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'What time is it?' in French?",
-        options: ["Quelle heure est-il?", "Il est trois heures", "Quel jour sommes-nous?", "Je suis occupé demain"],
-        correct: 0
+        english: "Mother",
+        translation: "Mère",
+        pronunciation: "mehr",
+        example: "Ma mère est très gentille",
+        exampleEnglish: "My mother is very kind"
+      },
+      {
+        english: "Father",
+        translation: "Père",
+        pronunciation: "pehr",
+        example: "Mon père travaille beaucoup",
+        exampleEnglish: "My father works a lot"
+      },
+      {
+        english: "Sister",
+        translation: "Sœur",
+        pronunciation: "suhr",
+        example: "J'ai une sœur aînée",
+        exampleEnglish: "I have an older sister"
+      },
+      {
+        english: "Brother",
+        translation: "Frère",
+        pronunciation: "frehr",
+        example: "Mon frère étudie la médecine",
+        exampleEnglish: "My brother studies medicine"
+      },
+      {
+        english: "Grandmother",
+        translation: "Grand-mère",
+        pronunciation: "grahn-MEHR",
+        example: "Je rends visite à ma grand-mère le dimanche",
+        exampleEnglish: "I visit my grandmother on Sundays"
+      },
+      {
+        english: "Grandfather",
+        translation: "Grand-père",
+        pronunciation: "grahn-PEHR",
+        example: "Mon grand-père raconte des histoires",
+        exampleEnglish: "My grandfather tells stories"
+      },
+      {
+        english: "Aunt",
+        translation: "Tante",
+        pronunciation: "tahnt",
+        example: "Ma tante vit à Paris",
+        exampleEnglish: "My aunt lives in Paris"
+      },
+      {
+        english: "Uncle",
+        translation: "Oncle",
+        pronunciation: "ohn-kluh",
+        example: "Mon oncle est ingénieur",
+        exampleEnglish: "My uncle is an engineer"
+      },
+      {
+        english: "Cousin",
+        translation: "Cousin",
+        pronunciation: "koo-ZEHN",
+        example: "Je joue avec mon cousin",
+        exampleEnglish: "I play with my cousin"
+      },
+      {
+        english: "Son",
+        translation: "Fils",
+        pronunciation: "fees",
+        example: "Mon fils a cinq ans",
+        exampleEnglish: "My son is five years old"
       }
     ]
   },
   {
     id: 7,
-    title: "Shopping and Money",
-    description: "Essential phrases for shopping and handling money",
+    title: "Food & Dining",
+    description: "Essential vocabulary for restaurants and food",
+    difficulty: "beginner",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "22 minutes",
     vocabulary: [
-      { word: "money", translation: "argent", romanization: "ahr-ZHAHN" },
-      { word: "price", translation: "prix", romanization: "PREE" },
-      { word: "expensive", translation: "cher", romanization: "SHEHR" },
-      { word: "cheap", translation: "bon marché", romanization: "bohn mahr-SHAY" },
-      { word: "store", translation: "magasin", romanization: "mah-gah-ZEHN" },
-      { word: "buy", translation: "acheter", romanization: "ah-shuh-TAY" },
-      { word: "sell", translation: "vendre", romanization: "vahn-druh" },
-      { word: "discount", translation: "réduction", romanization: "ray-dook-SYOHN" },
-      { word: "receipt", translation: "reçu", romanization: "ruh-SOO" },
-      { word: "change", translation: "monnaie", romanization: "moh-NAY" }
-    ],
-    phrases: [
-      { english: "How much is this?", translation: "Combien ça coûte?", romanization: "kohn-BYEHN sah KOOT?" },
-      { english: "It's too expensive", translation: "C'est trop cher", romanization: "seh TROH SHEHR" },
-      { english: "Do you have a discount?", translation: "Avez-vous une réduction?", romanization: "ah-vay VOO oon ray-dook-SYOHN?" },
-      { english: "I'll take this", translation: "Je prends ça", romanization: "zhuh prahn SAH" },
-      { english: "Can I pay by card?", translation: "Puis-je payer par carte?", romanization: "pweezh pay-AY pahr KAHRT?" }
-    ],
-    grammar: {
-      point: "Cost expressions",
-      explanation: "Use 'coûter' for 'to cost' and 'combien' for 'how much'. 'Ça coûte' means 'it costs'.",
-      examples: [
-        { sentence: "Ça coûte dix euros", romanization: "sah KOOT deez uh-ROH", english: "It costs ten euros" },
-        { sentence: "Combien ça coûte?", romanization: "kohn-BYEHN sah KOOT?", english: "How much does it cost?" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'How much is this?' in French?",
-        options: ["Combien ça coûte?", "C'est trop cher", "Avez-vous une réduction?", "Je prends ça"],
-        correct: 0
+        english: "Water",
+        translation: "Eau",
+        pronunciation: "oh",
+        example: "Je voudrais un verre d'eau",
+        exampleEnglish: "I want a glass of water"
+      },
+      {
+        english: "Bread",
+        translation: "Pain",
+        pronunciation: "pahn",
+        example: "Le pain est chaud",
+        exampleEnglish: "The bread is warm"
+      },
+      {
+        english: "Rice",
+        translation: "Riz",
+        pronunciation: "ree",
+        example: "J'aime le riz au poulet",
+        exampleEnglish: "I like rice with chicken"
+      },
+      {
+        english: "Meat",
+        translation: "Viande",
+        pronunciation: "vyahnd",
+        example: "Je préfère la viande bien cuite",
+        exampleEnglish: "I prefer the meat well cooked"
+      },
+      {
+        english: "Fish",
+        translation: "Poisson",
+        pronunciation: "pwah-SOHN",
+        example: "Le poisson est délicieux",
+        exampleEnglish: "The fish is delicious"
+      },
+      {
+        english: "Vegetables",
+        translation: "Légumes",
+        pronunciation: "lay-GEWM",
+        example: "Je mange beaucoup de légumes",
+        exampleEnglish: "I eat many vegetables"
+      },
+      {
+        english: "Fruit",
+        translation: "Fruit",
+        pronunciation: "frwee",
+        example: "Le fruit est frais",
+        exampleEnglish: "The fruit is fresh"
+      },
+      {
+        english: "Coffee",
+        translation: "Café",
+        pronunciation: "kah-FAY",
+        example: "Je bois du café le matin",
+        exampleEnglish: "I drink coffee in the morning"
+      },
+      {
+        english: "Menu",
+        translation: "Menu",
+        pronunciation: "muh-NEW",
+        example: "Puis-je voir le menu ?",
+        exampleEnglish: "Can I see the menu?"
+      },
+      {
+        english: "Bill",
+        translation: "L'addition",
+        pronunciation: "lah-dee-SYOHN",
+        example: "L'addition, s'il vous plaît",
+        exampleEnglish: "The bill, please"
       }
     ]
   },
   {
     id: 8,
-    title: "Directions and Transportation",
-    description: "Learn to ask for directions and use transportation",
+    title: "Colors & Descriptions",
+    description: "Learn colors and descriptive adjectives",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "28 minutes",
     vocabulary: [
-      { word: "station", translation: "gare", romanization: "GAHR" },
-      { word: "train", translation: "train", romanization: "TREHN" },
-      { word: "bus", translation: "bus", romanization: "BOOS" },
-      { word: "taxi", translation: "taxi", romanization: "tahk-SEE" },
-      { word: "right", translation: "droite", romanization: "DWAHT" },
-      { word: "left", translation: "gauche", romanization: "GOHSH" },
-      { word: "straight", translation: "tout droit", romanization: "too DWAH" },
-      { word: "near", translation: "près", romanization: "PREH" },
-      { word: "far", translation: "loin", romanization: "LWEHN" },
-      { word: "map", translation: "carte", romanization: "KAHRT" }
-    ],
-    phrases: [
-      { english: "Where is the station?", translation: "Où est la gare?", romanization: "oo eh lah GAHR?" },
-      { english: "How do I get to...?", translation: "Comment aller à...?", romanization: "koh-MAHN tah-lay ah...?" },
-      { english: "Go straight", translation: "Allez tout droit", romanization: "ah-lay too DWAH" },
-      { english: "Turn right", translation: "Tournez à droite", romanization: "toor-NAY ah DWAHT" },
-      { english: "Is it far?", translation: "C'est loin?", romanization: "seh LWEHN?" }
-    ],
-    grammar: {
-      point: "Direction prepositions",
-      explanation: "Use 'à' (to) for destination, 'en' (in/on) for transportation, and 'de' (from) for origin.",
-      examples: [
-        { sentence: "Je vais à la gare", romanization: "zhuh VEH ah lah GAHR", english: "I go to the station" },
-        { sentence: "Je vais en train", romanization: "zhuh VEH ahn TREHN", english: "I go by train" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'Where is the station?' in French?",
-        options: ["Où est la gare?", "Allez tout droit", "Tournez à droite", "C'est loin?"],
-        correct: 0
+        english: "Red",
+        translation: "Rouge",
+        pronunciation: "roozh",
+        example: "La voiture est rouge",
+        exampleEnglish: "The car is red"
+      },
+      {
+        english: "Blue",
+        translation: "Bleu",
+        pronunciation: "bluh",
+        example: "Le ciel est bleu",
+        exampleEnglish: "The sky is blue"
+      },
+      {
+        english: "Green",
+        translation: "Vert",
+        pronunciation: "vehr",
+        example: "L'herbe est verte",
+        exampleEnglish: "The grass is green"
+      },
+      {
+        english: "Yellow",
+        translation: "Jaune",
+        pronunciation: "zhohn",
+        example: "Le soleil est jaune",
+        exampleEnglish: "The sun is yellow"
+      },
+      {
+        english: "Black",
+        translation: "Noir",
+        pronunciation: "nwahr",
+        example: "Je suis habillé en noir",
+        exampleEnglish: "I'm dressed in black"
+      },
+      {
+        english: "White",
+        translation: "Blanc",
+        pronunciation: "blahn",
+        example: "La neige est blanche",
+        exampleEnglish: "The snow is white"
+      },
+      {
+        english: "Big",
+        translation: "Grand",
+        pronunciation: "grahn",
+        example: "J'ai une grande maison",
+        exampleEnglish: "I have a big house"
+      },
+      {
+        english: "Small",
+        translation: "Petit",
+        pronunciation: "puh-TEE",
+        example: "C'est un petit chien",
+        exampleEnglish: "It's a small dog"
+      },
+      {
+        english: "Beautiful",
+        translation: "Beau",
+        pronunciation: "boh",
+        example: "Quelle belle journée",
+        exampleEnglish: "What a beautiful day"
+      },
+      {
+        english: "New",
+        translation: "Nouveau",
+        pronunciation: "noo-VOH",
+        example: "J'ai une nouvelle voiture",
+        exampleEnglish: "I have a new car"
       }
     ]
   },
   {
     id: 9,
-    title: "Weather and Seasons",
-    description: "Talk about weather conditions and seasons",
+    title: "Days & Time",
+    description: "Learn days of the week and time expressions",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "20 minutes",
     vocabulary: [
-      { word: "weather", translation: "temps", romanization: "TAHN" },
-      { word: "sunny", translation: "ensoleillé", romanization: "ahn-soh-lay-YAY" },
-      { word: "rainy", translation: "pluvieux", romanization: "ploo-VYUH" },
-      { word: "cloudy", translation: "nuageux", romanization: "noo-ah-ZHUH" },
-      { word: "snow", translation: "neige", romanization: "NEHZH" },
-      { word: "hot", translation: "chaud", romanization: "SHOH" },
-      { word: "cold", translation: "froid", romanization: "FWAH" },
-      { word: "spring", translation: "printemps", romanization: "prehn-TAHN" },
-      { word: "summer", translation: "été", romanization: "ay-TAY" },
-      { word: "autumn", translation: "automne", romanization: "oh-TOHN" }
-    ],
-    phrases: [
-      { english: "What's the weather like?", translation: "Quel temps fait-il?", romanization: "kehl TAHN feh-TEEL?" },
-      { english: "It's sunny today", translation: "Il fait soleil aujourd'hui", romanization: "eel feh soh-LEH oh-zhoor-DWEE" },
-      { english: "It's raining", translation: "Il pleut", romanization: "eel PLUH" },
-      { english: "It's very hot", translation: "Il fait très chaud", romanization: "eel feh treh SHOH" },
-      { english: "I like spring", translation: "J'aime le printemps", romanization: "zhehm luh prehn-TAHN" }
-    ],
-    grammar: {
-      point: "Weather expressions",
-      explanation: "Use 'il fait' for weather conditions like 'il fait soleil' (it's sunny) and 'il pleut' (it's raining).",
-      examples: [
-        { sentence: "Il fait soleil", romanization: "eel feh soh-LEH", english: "It's sunny" },
-        { sentence: "Il pleut", romanization: "eel PLUH", english: "It's raining" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'It's raining' in French?",
-        options: ["Il pleut", "Il fait soleil aujourd'hui", "Il fait très chaud", "J'aime le printemps"],
-        correct: 0
+        english: "Monday",
+        translation: "Lundi",
+        pronunciation: "luhn-DEE",
+        example: "Lundi je vais au travail",
+        exampleEnglish: "On Monday I go to work"
+      },
+      {
+        english: "Tuesday",
+        translation: "Mardi",
+        pronunciation: "mahr-DEE",
+        example: "Mardi est mon jour préféré",
+        exampleEnglish: "Tuesday is my favorite day"
+      },
+      {
+        english: "Wednesday",
+        translation: "Mercredi",
+        pronunciation: "mehr-kruh-DEE",
+        example: "Mercredi j'étudie",
+        exampleEnglish: "On Wednesdays I study"
+      },
+      {
+        english: "Thursday",
+        translation: "Jeudi",
+        pronunciation: "zhuh-DEE",
+        example: "Jeudi j'ai cours",
+        exampleEnglish: "On Thursday I have class"
+      },
+      {
+        english: "Friday",
+        translation: "Vendredi",
+        pronunciation: "vahn-druh-DEE",
+        example: "Vendredi c'est le week-end",
+        exampleEnglish: "Friday is the weekend"
+      },
+      {
+        english: "Saturday",
+        translation: "Samedi",
+        pronunciation: "sahm-DEE",
+        example: "Samedi je me repose",
+        exampleEnglish: "On Saturdays I rest"
+      },
+      {
+        english: "Sunday",
+        translation: "Dimanche",
+        pronunciation: "dee-MAHNSH",
+        example: "Dimanche je vais à l'église",
+        exampleEnglish: "On Sunday I go to church"
+      },
+      {
+        english: "Today",
+        translation: "Aujourd'hui",
+        pronunciation: "oh-zhoor-DWEE",
+        example: "Aujourd'hui il fait beau",
+        exampleEnglish: "Today the weather is good"
+      },
+      {
+        english: "Tomorrow",
+        translation: "Demain",
+        pronunciation: "duh-MEHN",
+        example: "Demain j'ai un rendez-vous",
+        exampleEnglish: "Tomorrow I have an appointment"
+      },
+      {
+        english: "Yesterday",
+        translation: "Hier",
+        pronunciation: "yehr",
+        example: "Hier je suis allé au cinéma",
+        exampleEnglish: "Yesterday I went to the movies"
       }
     ]
   },
   {
     id: 10,
-    title: "Hobbies and Interests",
-    description: "Talk about your hobbies and interests",
+    title: "Weather",
+    description: "Learn to talk about weather conditions",
+    difficulty: "beginner",
+    estimatedTime: "12 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "24 minutes",
     vocabulary: [
-      { word: "hobby", translation: "passe-temps", romanization: "pahs-TAHN" },
-      { word: "music", translation: "musique", romanization: "moo-ZEEK" },
-      { word: "sports", translation: "sports", romanization: "SPOHR" },
-      { word: "reading", translation: "lecture", romanization: "lehk-TOOR" },
-      { word: "cooking", translation: "cuisine", romanization: "kwee-ZEEN" },
-      { word: "traveling", translation: "voyage", romanization: "vwah-YAHZH" },
-      { word: "photography", translation: "photographie", romanization: "foh-toh-grah-FEE" },
-      { word: "dancing", translation: "danse", romanization: "DAHNS" },
-      { word: "swimming", translation: "natation", romanization: "nah-tah-SYOHN" },
-      { word: "painting", translation: "peinture", romanization: "pehn-TOOR" }
-    ],
-    phrases: [
-      { english: "What's your hobby?", translation: "Quel est votre passe-temps?", romanization: "kehl eh voh-truh pahs-TAHN?" },
-      { english: "I like music", translation: "J'aime la musique", romanization: "zhehm lah moo-ZEEK" },
-      { english: "I play tennis", translation: "Je joue au tennis", romanization: "zhuh zhoo oh teh-NEES" },
-      { english: "I enjoy reading", translation: "J'aime lire", romanization: "zhehm LEER" },
-      { english: "What do you do in your free time?", translation: "Que faites-vous pendant votre temps libre?", romanization: "kuh feht VOO pahn-DAHN voh-truh TAHN LEE-bruh?" }
-    ],
-    grammar: {
-      point: "Activity verbs",
-      explanation: "Use 'jouer à' (to play) for sports and games, 'jouer de' (to play) for musical instruments, and 'faire' (to do) for activities.",
-      examples: [
-        { sentence: "Je joue au football", romanization: "zhuh zhoo oh foot-BAHL", english: "I play soccer" },
-        { sentence: "Je joue du piano", romanization: "zhuh zhoo doo pyah-NOH", english: "I play the piano" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'What's your hobby?' in French?",
-        options: ["Quel est votre passe-temps?", "J'aime la musique", "Je joue au tennis", "Que faites-vous pendant votre temps libre?"],
-        correct: 0
+        english: "Sunny",
+        translation: "Ensoleillé",
+        pronunciation: "ahn-soh-lay-YAY",
+        example: "Aujourd'hui il fait soleil",
+        exampleEnglish: "Today is sunny"
+      },
+      {
+        english: "Rainy",
+        translation: "Pluvieux",
+        pronunciation: "plew-VYUH",
+        example: "C'est une journée pluvieuse",
+        exampleEnglish: "It's a rainy day"
+      },
+      {
+        english: "Cloudy",
+        translation: "Nuageux",
+        pronunciation: "nwah-ZHUH",
+        example: "Le ciel est nuageux",
+        exampleEnglish: "The sky is cloudy"
+      },
+      {
+        english: "Hot",
+        translation: "Chaud",
+        pronunciation: "shoh",
+        example: "Il fait très chaud",
+        exampleEnglish: "It's very hot"
+      },
+      {
+        english: "Cold",
+        translation: "Froid",
+        pronunciation: "frwah",
+        example: "Il fait froid aujourd'hui",
+        exampleEnglish: "It's cold today"
+      },
+      {
+        english: "Windy",
+        translation: "Venteux",
+        pronunciation: "vahn-TUH",
+        example: "Il fait très venteux",
+        exampleEnglish: "It's very windy"
+      },
+      {
+        english: "Snow",
+        translation: "Neige",
+        pronunciation: "nehzh",
+        example: "Il neige",
+        exampleEnglish: "It's snowing"
+      },
+      {
+        english: "Rain",
+        translation: "Pluie",
+        pronunciation: "plwee",
+        example: "Il pleut beaucoup",
+        exampleEnglish: "There's a lot of rain"
+      },
+      {
+        english: "Temperature",
+        translation: "Température",
+        pronunciation: "tahn-pay-rah-TEWR",
+        example: "La température est élevée",
+        exampleEnglish: "The temperature is high"
+      },
+      {
+        english: "Weather",
+        translation: "Temps",
+        pronunciation: "tahn",
+        example: "Quel temps fait-il ?",
+        exampleEnglish: "What's the weather like?"
       }
     ]
   },
   {
     id: 11,
-    title: "Work and Occupation",
-    description: "Learn vocabulary related to work and professions",
+    title: "Directions & Places",
+    description: "Learn to ask for directions and name places",
+    difficulty: "beginner",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "26 minutes",
     vocabulary: [
-      { word: "work", translation: "travail", romanization: "trah-VAHY" },
-      { word: "office", translation: "bureau", romanization: "boo-ROH" },
-      { word: "company", translation: "entreprise", romanization: "ahn-truh-PREEZ" },
-      { word: "teacher", translation: "professeur", romanization: "proh-feh-SUHR" },
-      { word: "doctor", translation: "médecin", romanization: "mayd-SEHN" },
-      { word: "engineer", translation: "ingénieur", romanization: "ehn-zhay-NYUHR" },
-      { word: "student", translation: "étudiant", romanization: "ay-too-DYAHN" },
-      { word: "manager", translation: "directeur", romanization: "dee-rehk-TUHR" },
-      { word: "secretary", translation: "secrétaire", romanization: "suh-kray-TEHR" },
-      { word: "retired", translation: "retraité", romanization: "ruh-treh-TAY" }
-    ],
-    phrases: [
-      { english: "What do you do for work?", translation: "Que faites-vous comme travail?", romanization: "kuh feht VOO kohm trah-VAHY?" },
-      { english: "I work at a company", translation: "Je travaille dans une entreprise", romanization: "zhuh trah-VAHY dahn oon ahn-truh-PREEZ" },
-      { english: "I'm a teacher", translation: "Je suis professeur", romanization: "zhuh SWEE proh-feh-SUHR" },
-      { english: "I'm looking for a job", translation: "Je cherche un emploi", romanization: "zhuh SHEHR-sh uhn ahn-PLWAH" },
-      { english: "I work from home", translation: "Je travaille à domicile", romanization: "zhuh trah-VAHY ah doh-mee-SEEL" }
-    ],
-    grammar: {
-      point: "Work-related prepositions",
-      explanation: "Use 'dans' (in) for workplace, 'de' (of) for type of work, and 'pour' (for) for employer.",
-      examples: [
-        { sentence: "Je travaille dans un bureau", romanization: "zhuh trah-VAHY dahn uhn boo-ROH", english: "I work in an office" },
-        { sentence: "Je travaille pour une entreprise", romanization: "zhuh trah-VAHY poor oon ahn-truh-PREEZ", english: "I work for a company" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'What do you do for work?' in French?",
-        options: ["Que faites-vous comme travail?", "Je travaille dans une entreprise", "Je suis professeur", "Je cherche un emploi"],
-        correct: 0
+        english: "Right",
+        translation: "Droite",
+        pronunciation: "drwaht",
+        example: "Tournez à droite",
+        exampleEnglish: "Turn right"
+      },
+      {
+        english: "Left",
+        translation: "Gauche",
+        pronunciation: "gohsh",
+        example: "Tournez à gauche",
+        exampleEnglish: "Turn left"
+      },
+      {
+        english: "Straight",
+        translation: "Tout droit",
+        pronunciation: "too DRWAH",
+        example: "Allez tout droit",
+        exampleEnglish: "Go straight"
+      },
+      {
+        english: "Near",
+        translation: "Près",
+        pronunciation: "preh",
+        example: "C'est près d'ici",
+        exampleEnglish: "It's near here"
+      },
+      {
+        english: "Far",
+        translation: "Loin",
+        pronunciation: "lwehn",
+        example: "C'est très loin",
+        exampleEnglish: "It's very far"
+      },
+      {
+        english: "Hospital",
+        translation: "Hôpital",
+        pronunciation: "oh-pee-TAHL",
+        example: "Je vais à l'hôpital",
+        exampleEnglish: "I'm going to the hospital"
+      },
+      {
+        english: "School",
+        translation: "École",
+        pronunciation: "ay-KOHL",
+        example: "Mon école est proche",
+        exampleEnglish: "My school is nearby"
+      },
+      {
+        english: "Restaurant",
+        translation: "Restaurant",
+        pronunciation: "rehs-toh-RAHN",
+        example: "Nous mangeons au restaurant",
+        exampleEnglish: "We eat at a restaurant"
+      },
+      {
+        english: "Store",
+        translation: "Magasin",
+        pronunciation: "mah-gah-ZEHN",
+        example: "Je vais au magasin",
+        exampleEnglish: "I'm going to the store"
+      },
+      {
+        english: "Bank",
+        translation: "Banque",
+        pronunciation: "bahnk",
+        example: "La banque est fermée",
+        exampleEnglish: "The bank is closed"
       }
     ]
   },
   {
     id: 12,
-    title: "Health and Body",
-    description: "Learn to talk about health and body parts",
+    title: "Shopping",
+    description: "Essential phrases for shopping",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "23 minutes",
     vocabulary: [
-      { word: "head", translation: "tête", romanization: "TEHT" },
-      { word: "eye", translation: "œil", romanization: "UH-yuh" },
-      { word: "nose", translation: "nez", romanization: "NAY" },
-      { word: "mouth", translation: "bouche", romanization: "BOOSH" },
-      { word: "hand", translation: "main", romanization: "MEHN" },
-      { word: "foot", translation: "pied", romanization: "PYAY" },
-      { word: "sick", translation: "malade", romanization: "mah-LAHD" },
-      { word: "healthy", translation: "en bonne santé", romanization: "ahn bohn sahn-TAY" },
-      { word: "hospital", translation: "hôpital", romanization: "oh-pee-TAHL" },
-      { word: "medicine", translation: "médicament", romanization: "may-dee-kah-MAHN" }
-    ],
-    phrases: [
-      { english: "I don't feel well", translation: "Je ne me sens pas bien", romanization: "zhuh nuh muh sahn pah BYEHN" },
-      { english: "I have a headache", translation: "J'ai mal à la tête", romanization: "zhay mahl ah lah TEHT" },
-      { english: "I need to see a doctor", translation: "Je dois voir un médecin", romanization: "zhuh DWAH vwahr uhn mayd-SEHN" },
-      { english: "Are you okay?", translation: "Ça va?", romanization: "sah VAH?" },
-      { english: "I feel better now", translation: "Je me sens mieux maintenant", romanization: "zhuh muh sahn MYUH mehn-tuh-NAHN" }
-    ],
-    grammar: {
-      point: "Body part expressions",
-      explanation: "Use 'avoir mal à' (to have pain in) for body aches. 'J'ai mal à' means 'I have pain in'.",
-      examples: [
-        { sentence: "J'ai mal à la tête", romanization: "zhay mahl ah lah TEHT", english: "I have a headache" },
-        { sentence: "J'ai mal au dos", romanization: "zhay mahl oh DOH", english: "My back hurts" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I have a headache' in French?",
-        options: ["J'ai mal à la tête", "Je ne me sens pas bien", "Je dois voir un médecin", "Ça va?"],
-        correct: 0
+        english: "How much?",
+        translation: "Combien ça coûte ?",
+        pronunciation: "kohm-BYEHN sah KOOT",
+        example: "Combien ça coûte ?",
+        exampleEnglish: "How much does this cost?"
+      },
+      {
+        english: "Expensive",
+        translation: "Cher",
+        pronunciation: "shehr",
+        example: "C'est très cher",
+        exampleEnglish: "It's very expensive"
+      },
+      {
+        english: "Cheap",
+        translation: "Bon marché",
+        pronunciation: "bohn mahr-SHAY",
+        example: "C'est assez bon marché",
+        exampleEnglish: "It's quite cheap"
+      },
+      {
+        english: "I'll take it",
+        translation: "Je le prends",
+        pronunciation: "zhuh luh prahn",
+        example: "Je le prends, merci",
+        exampleEnglish: "I'll take it, thank you"
+      },
+      {
+        english: "Do you have?",
+        translation: "Avez-vous",
+        pronunciation: "ah-VAY voo",
+        example: "Avez-vous une taille plus grande ?",
+        exampleEnglish: "Do you have a larger size?"
+      },
+      {
+        english: "Size",
+        translation: "Taille",
+        pronunciation: "tahy",
+        example: "Quelle taille portez-vous ?",
+        exampleEnglish: "What size do you wear?"
+      },
+      {
+        english: "Color",
+        translation: "Couleur",
+        pronunciation: "koo-LUHR",
+        example: "De quelle couleur le voulez-vous ?",
+        exampleEnglish: "What color do you want?"
+      },
+      {
+        english: "Cash",
+        translation: "Espèces",
+        pronunciation: "eh-SPEHS",
+        example: "Je paie en espèces",
+        exampleEnglish: "I pay in cash"
+      },
+      {
+        english: "Credit card",
+        translation: "Carte de crédit",
+        pronunciation: "kahrt duh kray-DEE",
+        example: "Acceptez-vous les cartes de crédit ?",
+        exampleEnglish: "Do you accept credit card?"
+      },
+      {
+        english: "Receipt",
+        translation: "Reçu",
+        pronunciation: "ruh-SEW",
+        example: "Puis-je avoir le reçu ?",
+        exampleEnglish: "Can I have the receipt?"
       }
     ]
   },
   {
     id: 13,
-    title: "Technology and Internet",
-    description: "Modern technology vocabulary and phrases",
+    title: "Hobbies & Activities",
+    description: "Learn to talk about hobbies and activities",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "21 minutes",
     vocabulary: [
-      { word: "computer", translation: "ordinateur", romanization: "ohr-dee-nah-TUHR" },
-      { word: "phone", translation: "téléphone", romanization: "tay-lay-FOHN" },
-      { word: "internet", translation: "internet", romanization: "ehn-tehr-NEHT" },
-      { word: "email", translation: "email", romanization: "ee-MEHL" },
-      { word: "website", translation: "site web", romanization: "SEET WEHB" },
-      { word: "password", translation: "mot de passe", romanization: "moh duh PAHS" },
-      { word: "download", translation: "télécharger", romanization: "tay-lay-shahr-ZHAY" },
-      { word: "upload", translation: "téléverser", romanization: "tay-lay-vehr-SAY" },
-      { word: "app", translation: "application", romanization: "ah-plee-kah-SYOHN" },
-      { word: "social media", translation: "réseaux sociaux", romanization: "ray-ZOH soh-SYOH" }
-    ],
-    phrases: [
-      { english: "I use the internet every day", translation: "J'utilise internet tous les jours", romanization: "zhoo-tee-LEEZ ehn-tehr-NEHT too lay ZHOOR" },
-      { english: "Can you help me with my computer?", translation: "Pouvez-vous m'aider avec mon ordinateur?", romanization: "poo-vay VOO meh-DAY ah-VEHK mohn ohr-dee-nah-TUHR?" },
-      { english: "I forgot my password", translation: "J'ai oublié mon mot de passe", romanization: "zhay oo-blee-AY mohn moh duh PAHS" },
-      { english: "Do you have WiFi?", translation: "Avez-vous le WiFi?", romanization: "ah-vay VOO luh WEE-fee?" },
-      { english: "I'll send you an email", translation: "Je vous enverrai un email", romanization: "zhuh voo ahn-vay-RAY uhn ee-MEHL" }
-    ],
-    grammar: {
-      point: "Technology verbs",
-      explanation: "Use 'utiliser' (to use) for technology, 'envoyer' (to send) for emails, and 'télécharger' (to download) for files.",
-      examples: [
-        { sentence: "J'utilise mon ordinateur", romanization: "zhoo-tee-LEEZ mohn ohr-dee-nah-TUHR", english: "I use my computer" },
-        { sentence: "J'envoie un email", romanization: "zhahn-VWAH uhn ee-MEHL", english: "I send an email" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I use the internet every day' in French?",
-        options: ["J'utilise internet tous les jours", "Pouvez-vous m'aider avec mon ordinateur?", "J'ai oublié mon mot de passe", "Avez-vous le WiFi?"],
-        correct: 0
+        english: "Reading",
+        translation: "Lecture",
+        pronunciation: "lehk-TEWR",
+        example: "J'aime lire des livres",
+        exampleEnglish: "I like reading books"
+      },
+      {
+        english: "Writing",
+        translation: "Écriture",
+        pronunciation: "ay-kree-TEWR",
+        example: "J'écris dans mon journal",
+        exampleEnglish: "I write in my journal"
+      },
+      {
+        english: "Swimming",
+        translation: "Natation",
+        pronunciation: "nah-tah-SYOHN",
+        example: "Je nage dans la piscine",
+        exampleEnglish: "I swim in the pool"
+      },
+      {
+        english: "Running",
+        translation: "Course",
+        pronunciation: "koors",
+        example: "Je cours le matin",
+        exampleEnglish: "I run in the mornings"
+      },
+      {
+        english: "Dancing",
+        translation: "Danse",
+        pronunciation: "dahns",
+        example: "Je danse la salsa le samedi",
+        exampleEnglish: "I dance salsa on Saturdays"
+      },
+      {
+        english: "Singing",
+        translation: "Chant",
+        pronunciation: "shahn",
+        example: "Je chante dans une chorale",
+        exampleEnglish: "I sing in a choir"
+      },
+      {
+        english: "Cooking",
+        translation: "Cuisine",
+        pronunciation: "kwee-ZEEN",
+        example: "J'adore cuisiner",
+        exampleEnglish: "I love cooking"
+      },
+      {
+        english: "Playing",
+        translation: "Jouer",
+        pronunciation: "zhoo-AY",
+        example: "Je joue au football",
+        exampleEnglish: "I play soccer"
+      },
+      {
+        english: "Watching",
+        translation: "Regarder",
+        pronunciation: "ruh-gahr-DAY",
+        example: "Je regarde des films le dimanche",
+        exampleEnglish: "I watch movies on Sundays"
+      },
+      {
+        english: "Traveling",
+        translation: "Voyager",
+        pronunciation: "vwah-yah-ZHAY",
+        example: "J'aime voyager",
+        exampleEnglish: "I like traveling"
       }
     ]
   },
   {
     id: 14,
-    title: "Travel and Tourism",
-    description: "Essential phrases for travelers and tourists",
+    title: "Travel Phrases",
+    description: "Essential phrases for travelers",
+    difficulty: "beginner",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "27 minutes",
     vocabulary: [
-      { word: "passport", translation: "passeport", romanization: "pahs-POHR" },
-      { word: "visa", translation: "visa", romanization: "VEE-zah" },
-      { word: "hotel", translation: "hôtel", romanization: "oh-TEHL" },
-      { word: "restaurant", translation: "restaurant", romanization: "rehs-toh-RAHN" },
-      { word: "tourist", translation: "touriste", romanization: "too-REEST" },
-      { word: "sightseeing", translation: "tourisme", romanization: "too-REES-muh" },
-      { word: "museum", translation: "musée", romanization: "moo-ZAY" },
-      { word: "church", translation: "église", romanization: "ay-GLEEZ" },
-      { word: "castle", translation: "château", romanization: "shah-TOH" },
-      { word: "garden", translation: "jardin", romanization: "zhahr-DEHN" }
-    ],
-    phrases: [
-      { english: "I'm a tourist", translation: "Je suis touriste", romanization: "zhuh SWEE too-REEST" },
-      { english: "Where is the hotel?", translation: "Où est l'hôtel?", romanization: "oo eh loh-TEHL?" },
-      { english: "I want to see the museum", translation: "Je veux voir le musée", romanization: "zhuh vuh VWAHR luh moo-ZAY" },
-      { english: "How much is the entrance fee?", translation: "Combien coûte l'entrée?", romanization: "kohn-BYEHN KOOT lahn-TRAY?" },
-      { english: "Can you take a photo?", translation: "Pouvez-vous prendre une photo?", romanization: "poo-vay VOO prahn-druh oon foh-TOH?" }
-    ],
-    grammar: {
-      point: "Travel expressions",
-      explanation: "Use 'vouloir voir' (to want to see) for sightseeing and 'prendre' (to take) for photos.",
-      examples: [
-        { sentence: "Je veux voir le musée", romanization: "zhuh vuh VWAHR luh moo-ZAY", english: "I want to see the museum" },
-        { sentence: "Prendre une photo", romanization: "prahn-druh oon foh-TOH", english: "Take a photo" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I'm a tourist' in French?",
-        options: ["Je suis touriste", "Où est l'hôtel?", "Je veux voir le musée", "Combien coûte l'entrée?"],
-        correct: 0
+        english: "Airport",
+        translation: "Aéroport",
+        pronunciation: "ay-ay-roh-POHR",
+        example: "Je vais à l'aéroport",
+        exampleEnglish: "I'm going to the airport"
+      },
+      {
+        english: "Train station",
+        translation: "Gare",
+        pronunciation: "gahr",
+        example: "La gare est proche",
+        exampleEnglish: "The station is nearby"
+      },
+      {
+        english: "Ticket",
+        translation: "Billet",
+        pronunciation: "bee-YAY",
+        example: "J'ai besoin d'un billet",
+        exampleEnglish: "I need a ticket"
+      },
+      {
+        english: "Passport",
+        translation: "Passeport",
+        pronunciation: "pahs-POHR",
+        example: "Où est mon passeport ?",
+        exampleEnglish: "Where is my passport?"
+      },
+      {
+        english: "Hotel",
+        translation: "Hôtel",
+        pronunciation: "oh-TEHL",
+        example: "J'ai réservé un hôtel",
+        exampleEnglish: "I booked a hotel"
+      },
+      {
+        english: "Room",
+        translation: "Chambre",
+        pronunciation: "shahm-bruh",
+        example: "Je voudrais une chambre",
+        exampleEnglish: "I want a room"
+      },
+      {
+        english: "Luggage",
+        translation: "Bagage",
+        pronunciation: "bah-GAHZH",
+        example: "Où sont mes bagages ?",
+        exampleEnglish: "Where is my luggage?"
+      },
+      {
+        english: "Map",
+        translation: "Carte",
+        pronunciation: "kahrt",
+        example: "J'ai besoin d'une carte",
+        exampleEnglish: "I need a map"
+      },
+      {
+        english: "Tourist",
+        translation: "Touriste",
+        pronunciation: "too-REEST",
+        example: "Je suis touriste",
+        exampleEnglish: "I'm a tourist"
+      },
+      {
+        english: "Beach",
+        translation: "Plage",
+        pronunciation: "plahzh",
+        example: "Allons à la plage",
+        exampleEnglish: "Let's go to the beach"
       }
     ]
   },
   {
     id: 15,
-    title: "Entertainment and Culture",
-    description: "Learn about French entertainment and cultural activities",
+    title: "At the Hotel",
+    description: "Useful phrases for hotel stays",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "intermediate",
-    estimatedTime: "25 minutes",
     vocabulary: [
-      { word: "movie", translation: "film", romanization: "FEELM" },
-      { word: "music", translation: "musique", romanization: "moo-ZEEK" },
-      { word: "concert", translation: "concert", romanization: "kohn-SEHR" },
-      { word: "theater", translation: "théâtre", romanization: "tay-AH-truh" },
-      { word: "museum", translation: "musée", romanization: "moo-ZAY" },
-      { word: "art", translation: "art", romanization: "AHR" },
-      { word: "tradition", translation: "tradition", romanization: "trah-dee-SYOHN" },
-      { word: "festival", translation: "festival", romanization: "fehs-tee-VAHL" },
-      { word: "dance", translation: "danse", romanization: "DAHNS" },
-      { word: "opera", translation: "opéra", romanization: "oh-pay-RAH" }
-    ],
-    phrases: [
-      { english: "I like French movies", translation: "J'aime les films français", romanization: "zhehm lay FEELM frahn-SEH" },
-      { english: "Let's go to a concert", translation: "Allons à un concert", romanization: "ah-LOHN ah uhn kohn-SEHR" },
-      { english: "I want to see traditional art", translation: "Je veux voir l'art traditionnel", romanization: "zhuh vuh VWAHR lahr trah-dee-syoh-NEHL" },
-      { english: "When is the festival?", translation: "Quand est le festival?", romanization: "kahn eh luh fehs-tee-VAHL?" },
-      { english: "I want to learn French", translation: "Je veux apprendre le français", romanization: "zhuh vuh ah-prahn-druh luh frahn-SEH" }
-    ],
-    grammar: {
-      point: "Cultural expressions",
-      explanation: "Use 'apprendre' (to learn) for skills and 'enseigner' (to teach) for sharing knowledge.",
-      examples: [
-        { sentence: "Apprendre le français", romanization: "ah-prahn-druh luh frahn-SEH", english: "Learn French" },
-        { sentence: "Enseigner l'anglais", romanization: "ahn-seh-NYAY lahn-GLEH", english: "Teach English" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'I like French movies' in French?",
-        options: ["J'aime les films français", "Allons à un concert", "Je veux voir l'art traditionnel", "Quand est le festival?"],
-        correct: 0
+        english: "Reservation",
+        translation: "Réservation",
+        pronunciation: "ray-zehr-vah-SYOHN",
+        example: "J'ai une réservation",
+        exampleEnglish: "I have a reservation"
+      },
+      {
+        english: "Check-in",
+        translation: "Enregistrement",
+        pronunciation: "ahn-ruh-zhee-struh-MAHN",
+        example: "À quelle heure est l'enregistrement ?",
+        exampleEnglish: "What time is check-in?"
+      },
+      {
+        english: "Check-out",
+        translation: "Départ",
+        pronunciation: "day-PAHR",
+        example: "L'heure de départ est à midi",
+        exampleEnglish: "Check-out time is at twelve"
+      },
+      {
+        english: "Key",
+        translation: "Clé",
+        pronunciation: "klay",
+        example: "Puis-je avoir la clé ?",
+        exampleEnglish: "Can I have the key?"
+      },
+      {
+        english: "WiFi",
+        translation: "WiFi",
+        pronunciation: "wee-FEE",
+        example: "Avez-vous le WiFi ?",
+        exampleEnglish: "Do you have WiFi?"
+      },
+      {
+        english: "Breakfast",
+        translation: "Petit déjeuner",
+        pronunciation: "puh-TEE day-zhuh-NAY",
+        example: "Le petit déjeuner est inclus",
+        exampleEnglish: "Breakfast is included"
+      },
+      {
+        english: "Room service",
+        translation: "Service en chambre",
+        pronunciation: "sehr-VEES ahn SHAHM-bruh",
+        example: "Avez-vous le service en chambre ?",
+        exampleEnglish: "Do you have room service?"
+      },
+      {
+        english: "Wake-up call",
+        translation: "Réveil",
+        pronunciation: "ray-VAY",
+        example: "Je voudrais un réveil à sept heures",
+        exampleEnglish: "I want a wake-up call at seven"
+      },
+      {
+        english: "Towels",
+        translation: "Serviettes",
+        pronunciation: "sehr-VYEHT",
+        example: "J'ai besoin de serviettes propres",
+        exampleEnglish: "I need clean towels"
+      },
+      {
+        english: "Elevator",
+        translation: "Ascenseur",
+        pronunciation: "ah-sahn-SUHR",
+        example: "Où est l'ascenseur ?",
+        exampleEnglish: "Where is the elevator?"
       }
     ]
   },
   {
     id: 16,
-    title: "Business and Formal Language",
-    description: "Learn formal business French and polite expressions",
+    title: "Body Parts & Health",
+    description: "Learn body parts and health vocabulary",
+    difficulty: "beginner",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "advanced",
-    estimatedTime: "30 minutes",
     vocabulary: [
-      { word: "meeting", translation: "réunion", romanization: "ray-oo-NYOHN" },
-      { word: "presentation", translation: "présentation", romanization: "pray-zahn-tah-SYOHN" },
-      { word: "contract", translation: "contrat", romanization: "kohn-TRAH" },
-      { word: "client", translation: "client", romanization: "klee-AHN" },
-      { word: "colleague", translation: "collègue", romanization: "koh-LEHG" },
-      { word: "boss", translation: "patron", romanization: "pah-TROHN" },
-      { word: "deadline", translation: "échéance", romanization: "ay-shay-AHNS" },
-      { word: "project", translation: "projet", romanization: "proh-ZHEH" },
-      { word: "budget", translation: "budget", romanization: "boo-ZHEH" },
-      { word: "report", translation: "rapport", romanization: "rah-POHR" }
-    ],
-    phrases: [
-      { english: "Nice to meet you (formal)", translation: "Enchanté de faire votre connaissance", romanization: "ahn-shahn-TAY duh fehr voh-truh koh-neh-SAHNS" },
-      { english: "Thank you for your time", translation: "Merci pour votre temps", romanization: "mehr-SEE poor voh-truh TAHN" },
-      { english: "I look forward to working with you", translation: "J'ai hâte de travailler avec vous", romanization: "zhay AHT duh trah-vah-YAY ah-VEHK VOO" },
-      { english: "Could you please...?", translation: "Pourriez-vous...?", romanization: "poor-ree-ay VOO...?" },
-      { english: "I apologize for the inconvenience", translation: "Je m'excuse pour le dérangement", romanization: "zhuh mehk-SKOOS poor luh day-rahn-zhuh-MAHN" }
-    ],
-    grammar: {
-      point: "Formal language",
-      explanation: "Business French uses 'vous' (formal you) and 'votre' (your) instead of 'tu' and 'ton'. Use 'pourriez-vous' for polite requests.",
-      examples: [
-        { sentence: "Pourriez-vous m'aider?", romanization: "poor-ree-ay VOO meh-DAY?", english: "Could you help me?" },
-        { sentence: "Votre bureau", romanization: "voh-truh boo-ROH", english: "Your office" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'Nice to meet you (formal)' in French?",
-        options: ["Enchanté de faire votre connaissance", "Merci pour votre temps", "J'ai hâte de travailler avec vous", "Pourriez-vous...?"],
-        correct: 0
+        english: "Head",
+        translation: "Tête",
+        pronunciation: "teht",
+        example: "J'ai mal à la tête",
+        exampleEnglish: "My head hurts"
+      },
+      {
+        english: "Eye",
+        translation: "Œil",
+        pronunciation: "uhy",
+        example: "J'ai les yeux bleus",
+        exampleEnglish: "I have blue eyes"
+      },
+      {
+        english: "Nose",
+        translation: "Nez",
+        pronunciation: "nay",
+        example: "Mon nez est bouché",
+        exampleEnglish: "My nose is stuffy"
+      },
+      {
+        english: "Mouth",
+        translation: "Bouche",
+        pronunciation: "boosh",
+        example: "Ouvrez la bouche",
+        exampleEnglish: "Open your mouth"
+      },
+      {
+        english: "Hand",
+        translation: "Main",
+        pronunciation: "mehn",
+        example: "Levez la main",
+        exampleEnglish: "Raise your hand"
+      },
+      {
+        english: "Foot",
+        translation: "Pied",
+        pronunciation: "pyay",
+        example: "J'ai mal au pied",
+        exampleEnglish: "My foot hurts"
+      },
+      {
+        english: "Doctor",
+        translation: "Médecin",
+        pronunciation: "mayd-SEHN",
+        example: "J'ai besoin de voir un médecin",
+        exampleEnglish: "I need to see the doctor"
+      },
+      {
+        english: "Medicine",
+        translation: "Médicament",
+        pronunciation: "may-dee-kah-MAHN",
+        example: "Je prends un médicament pour la douleur",
+        exampleEnglish: "I take medicine for the pain"
+      },
+      {
+        english: "Sick",
+        translation: "Malade",
+        pronunciation: "mah-LAHD",
+        example: "Je suis malade",
+        exampleEnglish: "I'm sick"
+      },
+      {
+        english: "Healthy",
+        translation: "Sain",
+        pronunciation: "sehn",
+        example: "Manger sainement est bon pour la santé",
+        exampleEnglish: "Eating healthy is good for you"
       }
     ]
   },
   {
     id: 17,
-    title: "Advanced Grammar Structures",
-    description: "Complex sentence structures and advanced grammar patterns",
+    title: "Emotions & Feelings",
+    description: "Learn to express emotions and feelings",
+    difficulty: "beginner",
+    estimatedTime: "15 minutes",
     isPremium: true,
-    difficulty: "advanced",
-    estimatedTime: "35 minutes",
     vocabulary: [
-      { word: "although", translation: "bien que", romanization: "byehn kuh" },
-      { word: "however", translation: "cependant", romanization: "suh-pahn-DAHN" },
-      { word: "therefore", translation: "donc", romanization: "DOHN" },
-      { word: "moreover", translation: "de plus", romanization: "duh PLUHS" },
-      { word: "nevertheless", translation: "néanmoins", romanization: "nay-ahn-MWEHN" },
-      { word: "consequently", translation: "par conséquent", romanization: "pahr kohn-say-KAHN" },
-      { word: "meanwhile", translation: "pendant ce temps", romanization: "pahn-DAHN suh TAHN" },
-      { word: "furthermore", translation: "en outre", romanization: "ahn OO-truh" },
-      { word: "likewise", translation: "de même", romanization: "duh MEHM" },
-      { word: "otherwise", translation: "sinon", romanization: "see-NOHN" }
-    ],
-    phrases: [
-      { english: "Although it's difficult, I'll try", translation: "Bien que ce soit difficile, je vais essayer", romanization: "byehn kuh suh swah dee-fee-SEEL, zhuh VEH eh-say-YAY" },
-      { english: "However, I think it's possible", translation: "Cependant, je pense que c'est possible", romanization: "suh-pahn-DAHN, zhuh PAHNS kuh seh poh-SEE-bluh" },
-      { english: "Therefore, we should continue", translation: "Donc, nous devrions continuer", romanization: "DOHN, noo duh-VRYOHN kohn-tee-NOO-ay" },
-      { english: "Moreover, it's important", translation: "De plus, c'est important", romanization: "duh PLUHS, seh ehm-pohr-TAHN" },
-      { english: "Nevertheless, I believe", translation: "Néanmoins, je crois", romanization: "nay-ahn-MWEHN, zhuh KRWAH" }
-    ],
-    grammar: {
-      point: "Complex conjunctions",
-      explanation: "Advanced French uses complex conjunctions to connect ideas. 'Bien que' means 'although' and 'donc' means 'therefore'.",
-      examples: [
-        { sentence: "Bien que ce soit difficile, je vais essayer", romanization: "byehn kuh suh swah dee-fee-SEEL, zhuh VEH eh-say-YAY", english: "Although it's difficult, I'll try" },
-        { sentence: "Donc, je continue", romanization: "DOHN, zhuh kohn-tee-NOO", english: "Therefore, I continue" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'Although it's difficult, I'll try' in French?",
-        options: ["Bien que ce soit difficile, je vais essayer", "Cependant, je pense que c'est possible", "Donc, nous devrions continuer", "De plus, c'est important"],
-        correct: 0
+        english: "Happy",
+        translation: "Heureux",
+        pronunciation: "uh-RUH",
+        example: "Je suis très heureux",
+        exampleEnglish: "I'm very happy"
+      },
+      {
+        english: "Sad",
+        translation: "Triste",
+        pronunciation: "treest",
+        example: "Je me sens triste",
+        exampleEnglish: "I feel sad"
+      },
+      {
+        english: "Angry",
+        translation: "En colère",
+        pronunciation: "ahn koh-LEHR",
+        example: "Je suis en colère contre vous",
+        exampleEnglish: "I'm angry with you"
+      },
+      {
+        english: "Excited",
+        translation: "Excité",
+        pronunciation: "ehk-see-TAY",
+        example: "Je suis excité pour le voyage",
+        exampleEnglish: "I'm excited about the trip"
+      },
+      {
+        english: "Tired",
+        translation: "Fatigué",
+        pronunciation: "fah-tee-GAY",
+        example: "Je suis très fatigué",
+        exampleEnglish: "I'm very tired"
+      },
+      {
+        english: "Worried",
+        translation: "Inquiet",
+        pronunciation: "ahn-KYEH",
+        example: "Je suis inquiet pour vous",
+        exampleEnglish: "I'm worried about you"
+      },
+      {
+        english: "Surprised",
+        translation: "Surpris",
+        pronunciation: "sewr-PREE",
+        example: "Je suis surpris",
+        exampleEnglish: "I'm surprised"
+      },
+      {
+        english: "Nervous",
+        translation: "Nerveux",
+        pronunciation: "nehr-VUH",
+        example: "Je suis nerveux avant l'examen",
+        exampleEnglish: "I'm nervous before the exam"
+      },
+      {
+        english: "Calm",
+        translation: "Calme",
+        pronunciation: "kahlm",
+        example: "Restez calme",
+        exampleEnglish: "Stay calm"
+      },
+      {
+        english: "Love",
+        translation: "Amour",
+        pronunciation: "ah-MOOR",
+        example: "Je t'aime",
+        exampleEnglish: "I love you"
       }
     ]
   },
   {
     id: 18,
-    title: "Idioms and Expressions",
-    description: "Learn common French idioms and cultural expressions",
+    title: "Past Tense Basics",
+    description: "Learn basic past tense verbs",
+    difficulty: "intermediate",
+    estimatedTime: "20 minutes",
     isPremium: true,
-    difficulty: "advanced",
-    estimatedTime: "32 minutes",
     vocabulary: [
-      { word: "idiom", translation: "expression", romanization: "ehks-preh-SYOHN" },
-      { word: "expression", translation: "expression", romanization: "ehks-preh-SYOHN" },
-      { word: "proverb", translation: "proverbe", romanization: "proh-VEHRB" },
-      { word: "metaphor", translation: "métaphore", romanization: "may-tah-FOHR" },
-      { word: "saying", translation: "dicton", romanization: "deek-TOHN" },
-      { word: "cultural", translation: "culturel", romanization: "kool-too-REHL" },
-      { word: "traditional", translation: "traditionnel", romanization: "trah-dee-syoh-NEHL" },
-      { word: "modern", translation: "moderne", romanization: "moh-DEHRN" },
-      { word: "colloquial", translation: "familier", romanization: "fah-mee-LYAY" },
-      { word: "formal", translation: "formel", romanization: "fohr-MEHL" }
-    ],
-    phrases: [
-      { english: "It's a piece of cake", translation: "C'est du gâteau", romanization: "seh doo gah-TOH" },
-      { english: "Don't count your chickens", translation: "Il ne faut pas vendre la peau de l'ours", romanization: "eel nuh foh pah vahn-druh lah poh duh LOOR" },
-      { english: "The early bird catches the worm", translation: "L'avenir appartient à ceux qui se lèvent tôt", romanization: "lah-vuh-NEER ah-pahr-TYEHN ah suh kee suh leh-VEH TOH" },
-      { english: "Actions speak louder than words", translation: "Les actes valent mieux que les paroles", romanization: "lay ZAHKT vahl MYUH kuh lay pah-ROHL" },
-      { english: "Better late than never", translation: "Mieux vaut tard que jamais", romanization: "MYUH voh TAHR kuh zhah-MEH" }
-    ],
-    grammar: {
-      point: "Cultural context",
-      explanation: "French idioms often reflect cultural values and historical context. Understanding the cultural background helps in proper usage.",
-      examples: [
-        { sentence: "C'est du gâteau", romanization: "seh doo gah-TOH", english: "It's a piece of cake (literally: it's cake)" },
-        { sentence: "L'avenir appartient à ceux qui se lèvent tôt", romanization: "lah-vuh-NEER ah-pahr-TYEHN ah suh kee suh leh-VEH TOH", english: "The future belongs to those who rise early" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'It's a piece of cake' in French?",
-        options: ["C'est du gâteau", "Il ne faut pas vendre la peau de l'ours", "L'avenir appartient à ceux qui se lèvent tôt", "Les actes valent mieux que les paroles"],
-        correct: 0
+        english: "I went",
+        translation: "Je suis allé",
+        pronunciation: "zhuh swee zah-LAY",
+        example: "Hier je suis allé au cinéma",
+        exampleEnglish: "I went to the movies yesterday"
+      },
+      {
+        english: "I ate",
+        translation: "J'ai mangé",
+        pronunciation: "zhay mahn-ZHAY",
+        example: "Hier soir j'ai mangé une pizza",
+        exampleEnglish: "I ate pizza last night"
+      },
+      {
+        english: "I saw",
+        translation: "J'ai vu",
+        pronunciation: "zhay vew",
+        example: "J'ai vu un film",
+        exampleEnglish: "I saw a movie"
+      },
+      {
+        english: "I did",
+        translation: "J'ai fait",
+        pronunciation: "zhay feh",
+        example: "J'ai fait mes devoirs",
+        exampleEnglish: "I did my homework"
+      },
+      {
+        english: "I said",
+        translation: "J'ai dit",
+        pronunciation: "zhay dee",
+        example: "J'ai dit oui",
+        exampleEnglish: "I said yes"
+      },
+      {
+        english: "I came",
+        translation: "Je suis venu",
+        pronunciation: "zhuh swee vuh-NEW",
+        example: "Je suis venu tôt",
+        exampleEnglish: "I came early"
+      },
+      {
+        english: "I had",
+        translation: "J'ai eu",
+        pronunciation: "zhay uh",
+        example: "J'ai eu une idée",
+        exampleEnglish: "I had an idea"
+      },
+      {
+        english: "I was",
+        translation: "J'étais",
+        pronunciation: "zhay-TEH",
+        example: "J'étais à la maison",
+        exampleEnglish: "I was at home"
+      },
+      {
+        english: "I wanted",
+        translation: "J'ai voulu",
+        pronunciation: "zhay voo-LEW",
+        example: "J'ai voulu vous aider",
+        exampleEnglish: "I wanted to help you"
+      },
+      {
+        english: "I knew",
+        translation: "J'ai su",
+        pronunciation: "zhay sew",
+        example: "J'ai su la réponse",
+        exampleEnglish: "I knew the answer"
       }
     ]
   },
   {
     id: 19,
-    title: "Conversation Practice",
-    description: "Advanced conversation skills and natural dialogue",
+    title: "Making Plans",
+    description: "Learn phrases for making plans and arrangements",
+    difficulty: "intermediate",
+    estimatedTime: "18 minutes",
     isPremium: true,
-    difficulty: "advanced",
-    estimatedTime: "40 minutes",
     vocabulary: [
-      { word: "conversation", translation: "conversation", romanization: "kohn-vehr-sah-SYOHN" },
-      { word: "dialogue", translation: "dialogue", romanization: "dyah-LOHG" },
-      { word: "discussion", translation: "discussion", romanization: "dees-koo-SYOHN" },
-      { word: "debate", translation: "débat", romanization: "day-BAH" },
-      { word: "negotiation", translation: "négociation", romanization: "nay-goh-syah-SYOHN" },
-      { word: "persuasion", translation: "persuasion", romanization: "pehr-swah-SYOHN" },
-      { word: "agreement", translation: "accord", romanization: "ah-KOHR" },
-      { word: "disagreement", translation: "désaccord", romanization: "day-zah-KOHR" },
-      { word: "compromise", translation: "compromis", romanization: "kohn-proh-MEE" },
-      { word: "consensus", translation: "consensus", romanization: "kohn-sehn-SOOS" }
-    ],
-    phrases: [
-      { english: "What do you think about...?", translation: "Que pensez-vous de...?", romanization: "kuh pahn-say VOO duh...?" },
-      { english: "I agree with you", translation: "Je suis d'accord avec vous", romanization: "zhuh SWEE dah-KOHR ah-VEHK VOO" },
-      { english: "I have a different opinion", translation: "J'ai une opinion différente", romanization: "zhay oon oh-pee-NYOHN dee-fay-RAHNT" },
-      { english: "Let's discuss this further", translation: "Discutons-en davantage", romanization: "dees-koo-TOHN ahn dah-vahn-TAHZH" },
-      { english: "I understand your point", translation: "Je comprends votre point de vue", romanization: "zhuh kohn-PRAHN voh-truh PWEHN duh VUH" }
-    ],
-    grammar: {
-      point: "Advanced conversation patterns",
-      explanation: "Advanced conversations use complex sentence structures, conditional forms, and nuanced expressions to convey subtle meanings.",
-      examples: [
-        { sentence: "Que pensez-vous de...?", romanization: "kuh pahn-say VOO duh...?", english: "What do you think about...?" },
-        { sentence: "Je suis d'accord avec vous", romanization: "zhuh SWEE dah-KOHR ah-VEHK VOO", english: "I agree with you" }
-      ]
-    },
-    exercises: [
       {
-        type: "multiple-choice",
-        question: "How do you say 'What do you think about...?' in French?",
-        options: ["Que pensez-vous de...?", "Je suis d'accord avec vous", "J'ai une opinion différente", "Discutons-en davantage"],
-        correct: 0
+        english: "Let's meet",
+        translation: "Rencontrons-nous",
+        pronunciation: "rahn-kohn-TROHN noo",
+        example: "Rencontrons-nous à huit heures",
+        exampleEnglish: "Let's meet at eight"
+      },
+      {
+        english: "I'm free",
+        translation: "Je suis libre",
+        pronunciation: "zhuh swee LEE-bruh",
+        example: "Samedi je suis libre",
+        exampleEnglish: "I'm free on Saturday"
+      },
+      {
+        english: "I'm busy",
+        translation: "Je suis occupé",
+        pronunciation: "zhuh swee oh-kew-PAY",
+        example: "Demain je suis occupé",
+        exampleEnglish: "I'm busy tomorrow"
+      },
+      {
+        english: "What time?",
+        translation: "À quelle heure ?",
+        pronunciation: "ah kehl UHR",
+        example: "À quelle heure voulez-vous nous rencontrer ?",
+        exampleEnglish: "What time do you want to meet?"
+      },
+      {
+        english: "Where?",
+        translation: "Où ?",
+        pronunciation: "oo",
+        example: "Où nous rencontrons-nous ?",
+        exampleEnglish: "Where do we meet?"
+      },
+      {
+        english: "I can't",
+        translation: "Je ne peux pas",
+        pronunciation: "zhuh nuh puh pah",
+        example: "Demain je ne peux pas y aller",
+        exampleEnglish: "I can't go tomorrow"
+      },
+      {
+        english: "I can",
+        translation: "Je peux",
+        pronunciation: "zhuh puh",
+        example: "Vendredi je peux y aller",
+        exampleEnglish: "I can go on Friday"
+      },
+      {
+        english: "Maybe",
+        translation: "Peut-être",
+        pronunciation: "puh-TEHT-ruh",
+        example: "Peut-être que je peux y aller",
+        exampleEnglish: "Maybe I can go"
+      },
+      {
+        english: "See you",
+        translation: "À bientôt",
+        pronunciation: "ah byehn-TOH",
+        example: "À demain",
+        exampleEnglish: "See you tomorrow"
+      },
+      {
+        english: "Cancel",
+        translation: "Annuler",
+        pronunciation: "ah-new-LAY",
+        example: "Je dois annuler",
+        exampleEnglish: "I have to cancel"
       }
     ]
   }
