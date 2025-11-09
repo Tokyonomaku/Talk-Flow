@@ -98,7 +98,7 @@ const Lessons = () => {
                   </div>
                   <div className="flex items-center space-x-2">
                     <CheckCircle2 className="w-4 h-4" />
-                    <span>{lesson.vocabulary.length} vocabulary words</span>
+                    <span>{lesson.vocabulary?.length || 0} vocabulary words</span>
                   </div>
                 </div>
                 
@@ -107,13 +107,7 @@ const Lessons = () => {
                     <p className="font-medium text-gray-900 mb-3">What you'll learn:</p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       <Badge variant="secondary" className="text-sm">
-                        {lesson.vocabulary.length} vocabulary words
-                      </Badge>
-                      <Badge variant="secondary" className="text-sm">
-                        {lesson.phrases.length} phrases
-                      </Badge>
-                      <Badge variant="secondary" className="text-sm">
-                        Grammar: {lesson.grammar.point}
+                        {lesson.vocabulary?.length || 0} vocabulary words
                       </Badge>
                     </div>
                   </div>

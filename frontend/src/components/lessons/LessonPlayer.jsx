@@ -404,66 +404,85 @@ const LessonDetail = () => {
         {/* Vocabulary Section */}
         <Card className="border-2 border-blue-100 bg-gradient-to-br from-blue-50 to-white">
           <CardHeader>
-            <CardTitle>Vocabulary ({lesson.vocabulary.length} words)</CardTitle>
+            <CardTitle>Vocabulary ({lesson.vocabulary?.length || 0} words)</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {lesson.vocabulary.map((word, i) => (
-                <div key={i} className="p-4 bg-white rounded-lg border border-blue-200">
-                  <div className="text-lg font-bold text-gray-900 mb-1">{word.word}</div>
-                  <div className="text-blue-600 font-medium mb-1">{word.translation}</div>
-                  {word.romanization && (
-                    <div className="text-sm text-gray-500 italic">{word.romanization}</div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-        
-        {/* Phrases Section */}
-        <Card className="border-2 border-green-100 bg-gradient-to-br from-green-50 to-white">
-          <CardHeader>
-            <CardTitle>Useful Phrases ({lesson.phrases.length} phrases)</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              {lesson.phrases.map((phrase, i) => (
-                <div key={i} className="p-4 bg-white rounded-lg border border-green-200">
-                  <div className="text-lg font-bold text-gray-900 mb-1">{phrase.english}</div>
-                  <div className="text-green-600 font-medium mb-1">{phrase.translation}</div>
-                  {phrase.romanization && (
-                    <div className="text-sm text-gray-500 italic">{phrase.romanization}</div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-        
-        {/* Grammar Section */}
-        <Card className="border-2 border-purple-100 bg-gradient-to-br from-purple-50 to-white">
-          <CardHeader>
-            <CardTitle>Grammar: {lesson.grammar.point}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-800 mb-4">{lesson.grammar.explanation}</p>
-            {lesson.grammar.examples && (
-              <div className="space-y-2">
-                <h4 className="font-semibold text-gray-900">Examples:</h4>
-                {lesson.grammar.examples.map((example, i) => (
-                  <div key={i} className="p-3 bg-white rounded border border-purple-200">
-                    <div className="font-medium text-gray-800">{example.sentence}</div>
-                    {example.romanization && (
-                      <div className="text-purple-600 text-sm">{example.romanization}</div>
+              {lesson.vocabulary?.map((word, i) => {
+                // Handle both formats: standard (english, pronunciation) and alternative (word, romanization)
+                const wordText = word.word || word.english || '';
+                const pronunciation = word.romanization || word.pronunciation || '';
+                
+                return (
+                  <div key={i} className="p-4 bg-white rounded-lg border border-blue-200">
+                    <div className="text-lg font-bold text-gray-900 mb-1">{wordText}</div>
+                    <div className="text-blue-600 font-medium mb-1">{word.translation}</div>
+                    {pronunciation && (
+                      <div className="text-sm text-gray-500 italic">{pronunciation}</div>
                     )}
-                    <div className="text-gray-600 text-sm italic">{example.english}</div>
+                    {/* Show examples for standard format */}
+                    {word.example && (
+                      <div className="mt-2 pt-2 border-t border-blue-100">
+                        <div className="text-sm text-gray-700">{word.example}</div>
+                        {word.exampleEnglish && (
+                          <div className="text-xs text-gray-500 italic mt-1">{word.exampleEnglish}</div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </CardContent>
+        </Card>
+        
+        {/* Phrases Section - Only show if phrases exist */}
+        {lesson.phrases && lesson.phrases.length > 0 && (
+          <Card className="border-2 border-green-100 bg-gradient-to-br from-green-50 to-white">
+            <CardHeader>
+              <CardTitle>Useful Phrases ({lesson.phrases.length} phrases)</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-3">
+                {lesson.phrases.map((phrase, i) => (
+                  <div key={i} className="p-4 bg-white rounded-lg border border-green-200">
+                    <div className="text-lg font-bold text-gray-900 mb-1">{phrase.english}</div>
+                    <div className="text-green-600 font-medium mb-1">{phrase.translation}</div>
+                    {phrase.romanization && (
+                      <div className="text-sm text-gray-500 italic">{phrase.romanization}</div>
+                    )}
                   </div>
                 ))}
               </div>
-            )}
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        )}
+        
+        {/* Grammar Section - Only show if grammar exists */}
+        {lesson.grammar && (
+          <Card className="border-2 border-purple-100 bg-gradient-to-br from-purple-50 to-white">
+            <CardHeader>
+              <CardTitle>Grammar: {lesson.grammar.point}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-gray-800 mb-4">{lesson.grammar.explanation}</p>
+              {lesson.grammar.examples && lesson.grammar.examples.length > 0 && (
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-gray-900">Examples:</h4>
+                  {lesson.grammar.examples.map((example, i) => (
+                    <div key={i} className="p-3 bg-white rounded border border-purple-200">
+                      <div className="font-medium text-gray-800">{example.sentence}</div>
+                      {example.romanization && (
+                        <div className="text-purple-600 text-sm">{example.romanization}</div>
+                      )}
+                      <div className="text-gray-600 text-sm italic">{example.english}</div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        )}
         
         {/* Exercises Section */}
         {lesson.exercises && lesson.exercises.length > 0 && (
