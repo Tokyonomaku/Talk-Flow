@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, BookOpen, MessageSquare, Brain, Award, List, Plane, Globe } from 'lucide-react';
 import { AppContext } from '@/App';
@@ -9,6 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from '@/components/ui/button';
+import languagesStats from '@/data/languages-stats.json';
 
 const Navigation = () => {
   const location = useLocation();
@@ -25,17 +26,18 @@ const Navigation = () => {
     { path: '/quiz', icon: Award, label: 'Quiz' },
   ];
   
-  // Language selector configuration
-  const languageOptions = [
-    { code: 'ja', name: 'Japanese', flag: '🇯🇵' },
-    { code: 'es', name: 'Spanish', flag: '🇪🇸' },
-    { code: 'fr', name: 'French', flag: '🇫🇷' },
-    { code: 'de', name: 'German', flag: '🇩🇪' },
-    { code: 'zh', name: 'Chinese', flag: '🇨🇳' },
-    { code: 'ru', name: 'Russian', flag: '🇷🇺' },
-    { code: 'ar', name: 'Arabic', flag: '🇸🇦' },
-    { code: 'ko', name: 'Korean', flag: '🇰🇷' }
-  ];
+  // Language selector configuration - loaded from JSON data source
+  const languageOptions = useMemo(() => {
+    const flagMap = {
+      'ja': '🇯🇵', 'es': '🇪🇸', 'fr': '🇫🇷', 'de': '🇩🇪',
+      'zh': '🇨🇳', 'ru': '🇷🇺', 'ar': '🇸🇦'
+    };
+    return languagesStats.languages.map(lang => ({
+      code: lang.code,
+      name: lang.name,
+      flag: flagMap[lang.code] || '🌐'
+    }));
+  }, []);
   
   // Sync with context and localStorage
   useEffect(() => {
@@ -61,14 +63,13 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center space-x-4">
             <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-green-600 bg-clip-text text-transparent">
-              {selectedLanguage === 'ja' && '日本語 '}
-              {selectedLanguage === 'es' && 'Español '}
-              {selectedLanguage === 'fr' && 'Français '}
-              {selectedLanguage === 'de' && 'Deutsch '}
-              {selectedLanguage === 'zh' && '中文 '}
-              {selectedLanguage === 'ru' && 'Русский '}
-              {selectedLanguage === 'ar' && 'العربية '}
-              {selectedLanguage === 'ko' && '한국어 '}
+              {(() => {
+                const nativeNameMap = {
+                  'ja': '日本語', 'es': 'Español', 'fr': 'Français', 'de': 'Deutsch',
+                  'zh': '中文', 'ru': 'Русский', 'ar': 'العربية'
+                };
+                return nativeNameMap[selectedLanguage] ? `${nativeNameMap[selectedLanguage]} ` : '';
+              })()}
               TalkFlow
             </h1>
             

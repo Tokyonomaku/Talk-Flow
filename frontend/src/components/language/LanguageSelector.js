@@ -1,16 +1,48 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '@/App';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Globe, ArrowRight } from 'lucide-react';
+import languagesStats from '@/data/languages-stats.json';
+
+// Flag mappings for languages
+const flagMap = {
+  'ja': '🇯🇵',
+  'es': '🇪🇸',
+  'fr': '🇫🇷',
+  'de': '🇩🇪',
+  'zh': '🇨🇳',
+  'ru': '🇷🇺',
+  'ar': '🇸🇦'
+};
+
+// Native name mappings
+const nativeNameMap = {
+  'ja': '日本語',
+  'es': 'Español',
+  'fr': 'Français',
+  'de': 'Deutsch',
+  'zh': '中文',
+  'ru': 'Русский',
+  'ar': 'العربية'
+};
 
 const LanguageSelector = () => {
-  const { selectedLanguage, changeLanguage, languages } = useContext(AppContext);
+  const { selectedLanguage, changeLanguage } = useContext(AppContext);
   const navigate = useNavigate();
 
-  const handleSelectLanguage = (langKey) => {
-    changeLanguage(langKey);
+  // Get languages from JSON data source
+  const languages = useMemo(() => {
+    return languagesStats.languages.map(lang => ({
+      ...lang,
+      flag: flagMap[lang.code] || '🌐',
+      nativeName: nativeNameMap[lang.code] || lang.name
+    }));
+  }, []);
+
+  const handleSelectLanguage = (langCode) => {
+    changeLanguage(langCode);
     navigate('/lessons');
   };
 
@@ -27,14 +59,14 @@ const LanguageSelector = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {Object.entries(languages).map(([key, lang]) => (
+        {languages.map((lang) => (
           <Card
-            key={key}
+            key={lang.code}
             className={`card-hover border-2 cursor-pointer overflow-hidden ${
-              selectedLanguage === key ? 'border-blue-500 bg-blue-50' : 'border-gray-200'
+              selectedLanguage === lang.code ? 'border-blue-500 bg-blue-50' : 'border-gray-200'
             }`}
-            onClick={() => handleSelectLanguage(key)}
-            data-testid={`select-language-${key}`}
+            onClick={() => handleSelectLanguage(lang.code)}
+            data-testid={`select-language-${lang.code}`}
           >
             <div className="h-3 bg-gradient-to-r from-blue-500 to-green-500"></div>
             <CardContent className="p-8 text-center">
@@ -45,6 +77,9 @@ const LanguageSelector = () => {
               <p className="text-2xl text-gray-600 mb-6">
                 {lang.nativeName}
               </p>
+              <div className="text-sm text-gray-500 mb-4">
+                {lang.lessons_count} lessons • {lang.vocab_count} words
+              </div>
               <Button
                 size="lg"
                 className="w-full bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700"

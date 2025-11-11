@@ -1,0 +1,55 @@
+{
+  "languages": [
+    {
+      "code": "ja",
+      "name": "Japanese",
+      "lessons_count": 19,
+      "vocab_count": 200,
+      "free_lessons": 5
+    },
+    {
+      "code": "es",
+      "name": "Spanish",
+      "lessons_count": 19,
+      "vocab_count": 200,
+      "free_lessons": 5
+    },
+    {
+      "code": "fr",
+      "name": "French",
+      "lessons_count": 19,
+      "vocab_count": 200,
+      "free_lessons": 5
+    },
+    {
+      "code": "de",
+      "name": "German",
+      "lessons_count": 19,
+      "vocab_count": 200,
+      "free_lessons": 5
+    },
+    {
+      "code": "zh",
+      "name": "Chinese",
+      "lessons_count": 19,
+      "vocab_count": 190,
+      "free_lessons": 5
+    },
+    {
+      "code": "ru",
+      "name": "Russian",
+      "lessons_count": 19,
+      "vocab_count": 190,
+      "free_lessons": 5
+    },
+    {
+      "code": "ar",
+      "name": "Arabic",
+      "lessons_count": 19,
+      "vocab_count": 190,
+      "free_lessons": 5
+    }
+  ]
+}
+
+
