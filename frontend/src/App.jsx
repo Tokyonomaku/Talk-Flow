@@ -1,89 +1,94 @@
-import { useEffect, useState } from "react";
+// src/App.jsx
 
-import { languages } from "./simpleTalkFlowConfig.js";
+import { useState } from "react";
 
-// 👉 adjust this import to wherever your real lesson loader is
+import { languages } from "./simpleTalkFlowConfig";
 
-// e.g. import { getLessonsForLanguage } from "./lib/lessonsApi";
 
-import { getLessonsForLanguage } from "./data/lessons";
 
-// Wrap synchronous function to be async-compatible
-const getLessonsForLanguageAsync = async (langCode) => {
-  return Promise.resolve(getLessonsForLanguage(langCode));
+// Simple mock lessons for now so the UI actually changes when you click
+
+const mockLessonsByLanguage = {
+
+  ja: [
+
+    { id: "ja-1", title: "Greetings in Japanese", description: "Learn basic greetings like こんにちは and ありがとう." },
+
+    { id: "ja-2", title: "Introduce Yourself", description: "Practice saying your name, where you're from, and what you like." },
+
+  ],
+
+  es: [
+
+    { id: "es-1", title: "Hola & Buenos días", description: "Start conversations with basic Spanish greetings." },
+
+    { id: "es-2", title: "Ordering Food", description: "Learn phrases for restaurants and cafes." },
+
+  ],
+
+  fr: [
+
+    { id: "fr-1", title: "Bonjour !", description: "Simple French greetings and polite phrases." },
+
+    { id: "fr-2", title: "Talking About Yourself", description: "Say your name, age, and where you live in French." },
+
+  ],
+
+  de: [
+
+    { id: "de-1", title: "Hallo & Guten Morgen", description: "Basic German greetings and introductions." },
+
+    { id: "de-2", title: "Small Talk Basics", description: "Talk about the weather and your day in German." },
+
+  ],
+
+  zh: [
+
+    { id: "zh-1", title: "你好 (Nǐ hǎo)", description: "First greetings and tones in Mandarin Chinese." },
+
+    { id: "zh-2", title: "Numbers 1–10", description: "Count from 1 to 10 in Mandarin." },
+
+  ],
+
+  ru: [
+
+    { id: "ru-1", title: "Здравствуйте & Привет", description: "Formal and informal Russian greetings." },
+
+    { id: "ru-2", title: "The Russian Alphabet", description: "Get familiar with Cyrillic characters." },
+
+  ],
+
+  ar: [
+
+    { id: "ar-1", title: "مرحبا (Marhaban)", description: "Basic greetings in Arabic and how they're pronounced." },
+
+    { id: "ar-2", title: "Introductions", description: "Say who you are and where you're from in Arabic." },
+
+  ],
+
 };
 
 
 
 export default function App() {
 
+  // Start with Japanese selected
+
   const [activeLangCode, setActiveLangCode] = useState("ja");
 
-  const [lessons, setLessons] = useState([]);
-
-  const [loading, setLoading] = useState(false);
 
 
+  // Find the full language object from the list
 
-  const activeLang = languages.find((l) => l.code === activeLangCode) ?? languages[0];
+  const activeLang =
 
-
-
-  useEffect(() => {
-
-    let cancelled = false;
+    languages.find((l) => l.code === activeLangCode) ?? languages[0];
 
 
 
-    async function load() {
+  // Get mock lessons for the active language, or [] if we don't have any yet
 
-      setLoading(true);
-
-      try {
-
-        const data = await getLessonsForLanguageAsync(activeLangCode);
-
-        if (!cancelled) {
-
-          setLessons(Array.isArray(data) ? data : []);
-
-        }
-
-      } catch (err) {
-
-        console.error("Failed to load lessons for", activeLangCode, err);
-
-        if (!cancelled) {
-
-          setLessons([]);
-
-        }
-
-      } finally {
-
-        if (!cancelled) {
-
-          setLoading(false);
-
-        }
-
-      }
-
-    }
-
-
-
-    load();
-
-
-
-    return () => {
-
-      cancelled = true;
-
-    };
-
-  }, [activeLangCode]);
+  const lessons = mockLessonsByLanguage[activeLangCode] ?? [];
 
 
 
@@ -109,7 +114,11 @@ export default function App() {
 
               <h1 className="text-lg font-semibold">TalkFlow</h1>
 
-              <p className="text-xs text-slate-400">Speak your next language in vibes, not drills.</p>
+              <p className="text-xs text-slate-400">
+
+                Speak your next language in vibes, not drills.
+
+              </p>
 
             </div>
 
@@ -139,7 +148,9 @@ export default function App() {
 
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
 
-              Choose your<br />
+              Choose your
+
+              <br />
 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-400">
 
@@ -181,7 +192,9 @@ export default function App() {
 
                     "bg-slate-900/40 border-slate-700/60 hover:border-cyan-400/60 hover:bg-slate-900",
 
-                    isActive && "border-cyan-400 bg-slate-900 shadow-[0_0_30px_rgba(34,211,238,0.35)]",
+                    isActive &&
+
+                      "border-cyan-400 bg-slate-900 shadow-[0_0_30px_rgba(34,211,238,0.35)]",
 
                   ]
 
@@ -253,7 +266,7 @@ export default function App() {
 
               <p className="text-xs text-slate-400">
 
-                Showing {lessons.length || activeLang.totalLessons} lessons
+                Showing {lessons.length} sample lessons
 
               </p>
 
@@ -265,23 +278,19 @@ export default function App() {
 
           <div className="flex-1 rounded-xl bg-slate-950/60 border border-slate-800/80 p-3 md:p-4 overflow-auto">
 
-            {loading && (
-
-              <div className="text-sm text-slate-300">Loading lessons…</div>
-
-            )}
-
-
-
-            {!loading && lessons.length === 0 && (
+            {lessons.length === 0 && (
 
               <div className="text-sm text-slate-400">
 
-                No lesson details loaded yet, but we know this language has{" "}
+                No sample lessons yet for {activeLang.name}. Add some to
 
-                {activeLang.totalLessons} lessons. Next step is wiring the real
+                <code className="text-xs mx-1">
 
-                lesson API into <code className="text-xs">getLessonsForLanguage</code>.
+                  mockLessonsByLanguage["{activeLang.code}"]
+
+                </code>
+
+                to make this panel come alive.
 
               </div>
 
@@ -289,7 +298,7 @@ export default function App() {
 
 
 
-            {!loading && lessons.length > 0 && (
+            {lessons.length > 0 && (
 
               <ol className="space-y-2 text-sm">
 
@@ -297,7 +306,7 @@ export default function App() {
 
                   <li
 
-                    key={lesson.id ?? `${activeLang.code}-${index}`}
+                    key={lesson.id}
 
                     className="flex items-start gap-2 rounded-lg border border-slate-800/70 bg-slate-900/70 px-3 py-2"
 
@@ -319,7 +328,7 @@ export default function App() {
 
                       {lesson.description && (
 
-                        <div className="text-[11px] text-slate-400 mt-0.5 line-clamp-2">
+                        <div className="text-[11px] text-slate-400 mt-0.5">
 
                           {lesson.description}
 
@@ -343,9 +352,9 @@ export default function App() {
 
           <footer className="mt-4 text-[11px] text-slate-500">
 
-            This is the MVP lesson browser. Next steps: per-lesson pages,
+            This is the MVP lesson browser. Next step: connect real lesson
 
-            spaced repetition, and AI tutor.
+            data instead of mockLessonsByLanguage.
 
           </footer>
 
