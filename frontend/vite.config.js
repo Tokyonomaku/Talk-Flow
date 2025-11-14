@@ -5,13 +5,13 @@ import path from 'path';
 export default defineConfig({
   plugins: [
     react({
-      include: '**/*.{jsx,js}',
+      include: '**/*.{jsx,js,tsx,ts}',
       jsxRuntime: 'automatic',
     }),
   ],
   esbuild: {
     loader: 'jsx',
-    include: /src\/.*\.jsx?$/,
+    include: /src\/.*\.(jsx?|tsx?)$/,
     exclude: [],
   },
   resolve: {

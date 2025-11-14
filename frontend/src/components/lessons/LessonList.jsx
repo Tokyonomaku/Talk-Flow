@@ -7,11 +7,11 @@ import { Button } from '@/components/ui/button';
 import { CheckCircle2, Clock, BookOpen, Play } from 'lucide-react';
 
 // Import lesson data and utility functions
-import { getLessonsForLanguage } from '@/data/lessons';
+import { getLessonsWithMetadata } from '@/utils/lessonsMetadata';
 import { isPremium } from '@/utils/premiumCheck';
 
 const Lessons = () => {
-  const { selectedLanguage } = useContext(AppContext);
+  const { selectedLanguage, languages } = useContext(AppContext);
   const navigate = useNavigate();
   const [lessons, setLessons] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -23,7 +23,7 @@ const Lessons = () => {
   
   const loadLessons = () => {
     try {
-      const languageLessons = getLessonsForLanguage(selectedLanguage);
+      const languageLessons = getLessonsWithMetadata(selectedLanguage);
       setLessons(languageLessons);
     } catch (error) {
       console.error('Failed to load lessons:', error);
@@ -51,13 +51,13 @@ const Lessons = () => {
           Learning Path
         </h1>
         <p className="text-lg text-gray-600">
-          Structured lessons to guide your Japanese journey
+          Structured lessons to guide your {languages[selectedLanguage]?.name || 'language'} journey
         </p>
       </div>
       
       <div className="space-y-6">
         {lessons.map((lesson, index) => {
-          const isLocked = lesson.isPremium && !userIsPremium;
+          const isLocked = (lesson.isPremium || !lesson.free) && !userIsPremium;
           
           return (
             <Card 

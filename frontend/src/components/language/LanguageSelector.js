@@ -4,7 +4,7 @@ import { AppContext } from '@/App';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Globe, ArrowRight } from 'lucide-react';
-import languagesStats from '@/data/languages-stats.json';
+import { languages } from '@/data/languages';
 
 // Flag mappings for languages
 const flagMap = {
@@ -32,9 +32,9 @@ const LanguageSelector = () => {
   const { selectedLanguage, changeLanguage } = useContext(AppContext);
   const navigate = useNavigate();
 
-  // Get languages from JSON data source
-  const languages = useMemo(() => {
-    return languagesStats.languages.map(lang => ({
+  // Get languages from TypeScript data source
+  const languagesWithFlags = useMemo(() => {
+    return languages.map(lang => ({
       ...lang,
       flag: flagMap[lang.code] || '🌐',
       nativeName: nativeNameMap[lang.code] || lang.name
@@ -59,7 +59,7 @@ const LanguageSelector = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {languages.map((lang) => (
+        {languagesWithFlags.map((lang) => (
           <Card
             key={lang.code}
             className={`card-hover border-2 cursor-pointer overflow-hidden ${
@@ -78,7 +78,7 @@ const LanguageSelector = () => {
                 {lang.nativeName}
               </p>
               <div className="text-sm text-gray-500 mb-4">
-                {lang.lessons_count} lessons • {lang.vocab_count} words
+                {lang.totalLessons} lessons • {lang.totalVocab} words
               </div>
               <Button
                 size="lg"

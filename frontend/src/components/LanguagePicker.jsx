@@ -1,9 +1,9 @@
-import langs from "../data/SimpleTalkFlow.json";
+import { languages } from "../data/languages";
 
 function LanguagePicker() {
   return (
     <select>
-      {langs.languages.map(lang => (
+      {languages.map(lang => (
         <option key={lang.code} value={lang.code}>
           {lang.name}
         </option>
@@ -13,5 +13,9 @@ function LanguagePicker() {
 }
 
 export default LanguagePicker;
+
+
+
+
 
 

@@ -9,7 +9,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from '@/components/ui/button';
-import languagesStats from '@/data/languages-stats.json';
+import { languages as languagesData } from '@/data/languages';
 
 const Navigation = () => {
   const location = useLocation();
@@ -26,13 +26,13 @@ const Navigation = () => {
     { path: '/quiz', icon: Award, label: 'Quiz' },
   ];
   
-  // Language selector configuration - loaded from JSON data source
+  // Language selector configuration - loaded from TypeScript data source
   const languageOptions = useMemo(() => {
     const flagMap = {
       'ja': '🇯🇵', 'es': '🇪🇸', 'fr': '🇫🇷', 'de': '🇩🇪',
       'zh': '🇨🇳', 'ru': '🇷🇺', 'ar': '🇸🇦'
     };
-    return languagesStats.languages.map(lang => ({
+    return languagesData.map(lang => ({
       code: lang.code,
       name: lang.name,
       flag: flagMap[lang.code] || '🌐'

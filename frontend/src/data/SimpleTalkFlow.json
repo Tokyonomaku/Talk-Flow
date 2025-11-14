@@ -1,55 +1,48 @@
 {
   "languages": [
-    {
-      "code": "ja",
-      "name": "Japanese",
-      "lessons_count": 19,
-      "vocab_count": 200,
-      "free_lessons": 5
-    },
-    {
-      "code": "es",
-      "name": "Spanish",
-      "lessons_count": 19,
-      "vocab_count": 200,
-      "free_lessons": 5
-    },
-    {
-      "code": "fr",
-      "name": "French",
-      "lessons_count": 19,
-      "vocab_count": 200,
-      "free_lessons": 5
-    },
-    {
-      "code": "de",
-      "name": "German",
-      "lessons_count": 19,
-      "vocab_count": 200,
-      "free_lessons": 5
-    },
-    {
-      "code": "zh",
-      "name": "Chinese",
-      "lessons_count": 19,
-      "vocab_count": 190,
-      "free_lessons": 5
-    },
-    {
-      "code": "ru",
-      "name": "Russian",
-      "lessons_count": 19,
-      "vocab_count": 190,
-      "free_lessons": 5
-    },
-    {
-      "code": "ar",
-      "name": "Arabic",
-      "lessons_count": 19,
-      "vocab_count": 190,
-      "free_lessons": 5
-    }
-  ]
+    { "code": "ja", "name": "Japanese" },
+    { "code": "es", "name": "Spanish" },
+    { "code": "fr", "name": "French" },
+    { "code": "de", "name": "German" },
+    { "code": "zh", "name": "Chinese" },
+    { "code": "ru", "name": "Russian" },
+    { "code": "ar", "name": "Arabic" }
+  ],
+  "lessons": {
+    "ja": [
+      { "id": 1, "title": "Greetings (ja-1)", "free": true },
+      { "id": 2, "title": "Numbers (ja-2)", "free": true },
+      { "id": 3, "title": "Introducing Yourself (ja-3)", "free": true }
+    ],
+    "es": [
+      { "id": 1, "title": "Greetings (es-1)", "free": true },
+      { "id": 2, "title": "Introducing Yourself (es-2)", "free": true },
+      { "id": 3, "title": "Numbers 1-20 (es-3)", "free": true }
+    ],
+    "fr": [
+      { "id": 1, "title": "Greetings (fr-1)", "free": true },
+      { "id": 2, "title": "Introducing Yourself (fr-2)", "free": true },
+      { "id": 3, "title": "Numbers 1-20 (fr-3)", "free": true }
+    ],
+    "de": [
+      { "id": 1, "title": "Greetings (de-1)", "free": true },
+      { "id": 2, "title": "Introducing Yourself (de-2)", "free": true },
+      { "id": 3, "title": "Numbers 1-20 (de-3)", "free": true }
+    ],
+    "zh": [
+      { "id": 1, "title": "Greetings (zh-1)", "free": true },
+      { "id": 2, "title": "Numbers 1-10 (zh-2)", "free": true },
+      { "id": 3, "title": "Family Members (zh-3)", "free": true }
+    ],
+    "ru": [
+      { "id": 1, "title": "Greetings (ru-1)", "free": true },
+      { "id": 2, "title": "Numbers 1-10 (ru-2)", "free": true },
+      { "id": 3, "title": "Family Members (ru-3)", "free": true }
+    ],
+    "ar": [
+      { "id": 1, "title": "Greetings (ar-1)", "free": true },
+      { "id": 2, "title": "Numbers 1-10 (ar-2)", "free": true },
+      { "id": 3, "title": "Family Members (ar-3)", "free": true }
+    ]
+  }
 }
-
-
