@@ -1,4 +1,4 @@
-import SimpleTalkFlowUI from "./components/SimpleTalkFlowUI";
+import SimpleTalkFlowUI from "./SimpleTalkFlowUI";
 
 export default function App() {
   return <SimpleTalkFlowUI />;
