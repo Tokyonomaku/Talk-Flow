@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { getLessonsForLanguage, getAvailableLanguages } from '@/data/lessons';
+import { LANGUAGES, mockLessonsByLanguage } from '@/simpleTalkFlowData';
+import LessonViewer from './LessonViewer';
 
 /**
  * SimpleTalkFlowUI - MVP component for TalkFlow
@@ -9,25 +10,14 @@ import { getLessonsForLanguage, getAvailableLanguages } from '@/data/lessons';
  */
 export default function SimpleTalkFlowUI() {
   const [activeLangCode, setActiveLangCode] = useState('ja');
-  const [selectedLessonId, setSelectedLessonId] = useState(null);
+  const lessons = mockLessonsByLanguage[activeLangCode] ?? [];
+  const [selectedLesson, setSelectedLesson] = useState(null);
 
-  const languages = getAvailableLanguages();
-  const activeLanguage = languages.find(lang => lang.code === activeLangCode) || languages[0];
-  const lessons = getLessonsForLanguage(activeLangCode);
+  const activeLanguage = LANGUAGES.find(lang => lang.code === activeLangCode) ?? LANGUAGES[0];
 
   const handleLanguageChange = (langCode) => {
     setActiveLangCode(langCode);
-    setSelectedLessonId(null); // Reset selected lesson when language changes
-  };
-
-  const handleLessonClick = (lesson) => {
-    console.log('Lesson clicked:', {
-      id: lesson.id,
-      title: lesson.title,
-      language: activeLangCode,
-      isPremium: lesson.isPremium
-    });
-    setSelectedLessonId(lesson.id);
+    setSelectedLesson(null); // Reset selected lesson when language changes
   };
 
   return (
@@ -47,7 +37,7 @@ export default function SimpleTalkFlowUI() {
 
       {/* LANGUAGE SELECTOR */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
-        {languages.map((lang) => (
+        {LANGUAGES.map((lang) => (
           <button
             key={lang.code}
             onClick={() => handleLanguageChange(lang.code)}
@@ -84,80 +74,40 @@ export default function SimpleTalkFlowUI() {
           <p style={{ opacity: 0.8 }}>No lessons available for this language.</p>
         )}
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '12px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {lessons.map((lesson) => (
             <button
               key={lesson.id}
-              onClick={() => handleLessonClick(lesson)}
+              onClick={() => setSelectedLesson(lesson)}
               style={{
                 textAlign: 'left',
                 padding: '12px',
                 borderRadius: '8px',
-                border: selectedLessonId === lesson.id ? '2px solid #38bdf8' : '1px solid #1f2937',
-                backgroundColor: selectedLessonId === lesson.id ? '#0f172a' : '#020617',
+                border: selectedLesson?.id === lesson.id ? '2px solid #38bdf8' : '1px solid #1f2937',
+                backgroundColor: selectedLesson?.id === lesson.id ? '#0f172a' : '#020617',
                 color: 'white',
                 cursor: 'pointer',
                 fontSize: '14px',
-                transition: 'all 0.2s',
-              }}
-              onMouseEnter={(e) => {
-                if (selectedLessonId !== lesson.id) {
-                  e.currentTarget.style.backgroundColor = '#1e293b';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (selectedLessonId !== lesson.id) {
-                  e.currentTarget.style.backgroundColor = '#020617';
-                }
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
-                <span style={{ fontWeight: '600' }}>
-                  {lesson.id}. {lesson.title}
-                </span>
-                <span
-                  style={{
-                    fontSize: '11px',
-                    padding: '2px 6px',
-                    borderRadius: '999px',
-                    backgroundColor: lesson.isPremium ? '#4b5563' : '#16a34a',
-                  }}
-                >
-                  {lesson.isPremium ? 'Premium' : 'Free'}
-                </span>
-              </div>
-              {lesson.description && (
-                <div style={{ fontSize: '12px', opacity: 0.7, marginTop: '4px' }}>
-                  {lesson.description}
-                </div>
-              )}
-              {lesson.difficulty && (
-                <div style={{ fontSize: '11px', opacity: 0.6, marginTop: '4px' }}>
-                  {lesson.difficulty} • {lesson.estimatedTime || 'N/A'}
-                </div>
-              )}
+              {lesson.title}
             </button>
           ))}
         </div>
       </div>
 
-      {/* SELECTED LESSON INFO */}
-      {selectedLessonId && (
+      {selectedLesson ? (
+        <LessonViewer lesson={selectedLesson} />
+      ) : (
         <div
           style={{
             marginTop: '24px',
-            background: '#020617',
-            borderRadius: '12px',
-            padding: '16px',
-            border: '1px solid #1f2937',
+            padding: '24px',
+            textAlign: 'center',
+            opacity: 0.7,
           }}
         >
-          <h3 style={{ fontSize: '16px', marginBottom: '8px' }}>
-            Selected: {lessons.find(l => l.id === selectedLessonId)?.title}
-          </h3>
-          <p style={{ fontSize: '12px', opacity: 0.7 }}>
-            Check the console to see lesson details. Lesson content will be displayed here in future updates.
-          </p>
+          <p style={{ fontSize: '16px' }}>Choose a lesson to start learning</p>
         </div>
       )}
     </div>
