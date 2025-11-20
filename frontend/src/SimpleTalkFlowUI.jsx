@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LANGUAGES, mockLessonsByLanguage } from '@/simpleTalkFlowData';
+import { LANGUAGES, mockLessonsByLanguage } from './simpleTalkFlowData';
 import LessonViewer from './LessonViewer';
 
 /**
