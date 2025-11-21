@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SimpleTalkFlowUI from "./SimpleTalkFlowUI";
 import Pricing from "./pages/Pricing";
@@ -5,6 +6,8 @@ import Activate from "./pages/Activate";
 import ErrorBoundary from "./ErrorBoundary";
 
 export default function App() {
+  console.log('App component rendering...');
+  
   return (
     <ErrorBoundary>
       <Router>
