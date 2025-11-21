@@ -27,8 +27,10 @@ next-env.d.ts
 
 # Production builds
 /build
-dist/
-dist
+frontend/build/
+frontend/build-obfuscated/
+static/
+# dist/ - Keep dist for Vercel deployment (it's built during deploy)
 
 # Environment files (comprehensive coverage)
 
