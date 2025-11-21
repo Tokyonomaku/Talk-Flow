@@ -13,23 +13,51 @@ export default function SimpleTalkFlowUI() {
   const [activeLangCode, setActiveLangCode] = useState('ja');
   const [selectedLesson, setSelectedLesson] = useState(null);
   const [isPremium, setIsPremium] = useState(false);
+  const [lessons, setLessons] = useState([]);
+  const [activeLanguage, setActiveLanguage] = useState(LANGUAGES[0] || { name: 'Japanese', code: 'ja' });
+  const [error, setError] = useState(null);
   
-  // Safely check localStorage only on client side and load lessons
+  // Safely check localStorage and load lessons
   useEffect(() => {
     try {
       setIsPremium(localStorage.getItem('talkflow_premium') === 'true');
-    } catch (error) {
-      console.error('Error accessing localStorage:', error);
+      
+      // Safely get lessons
+      const langLessons = (mockLessonsByLanguage && mockLessonsByLanguage[activeLangCode]) || [];
+      setLessons(langLessons);
+      
+      // Safely get language
+      const lang = (LANGUAGES && LANGUAGES.find(l => l.code === activeLangCode)) || LANGUAGES[0] || { name: 'Language', code: activeLangCode };
+      setActiveLanguage(lang);
+      
+      console.log('Lessons loaded:', langLessons.length, 'for language:', activeLangCode);
+    } catch (err) {
+      console.error('Error in SimpleTalkFlowUI:', err);
+      setError(err.message);
     }
-  }, []);
-  
-  const lessons = mockLessonsByLanguage[activeLangCode] || [];
-  const activeLanguage = LANGUAGES.find(lang => lang.code === activeLangCode) || LANGUAGES[0];
+  }, [activeLangCode]);
 
   const handleLanguageChange = (langCode) => {
     setActiveLangCode(langCode);
     setSelectedLesson(null); // Reset selected lesson when language changes
   };
+
+  // Show error if something failed
+  if (error) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        padding: '40px',
+        fontFamily: 'system-ui, sans-serif',
+        background: '#0f172a',
+        color: 'white',
+      }}>
+        <h1>Error Loading App</h1>
+        <p style={{ color: '#ef4444' }}>{error}</p>
+        <button onClick={() => window.location.reload()}>Reload</button>
+      </div>
+    );
+  }
 
   return (
     <div

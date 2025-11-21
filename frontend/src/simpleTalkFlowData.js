@@ -1,5 +1,5 @@
 // SimpleTalkFlow data: 7 languages, 19 lessons each
-import { lessonData } from './data/lessons';
+import { lessonData } from './data/lessons/index.js';
 
 export const LANGUAGES = [
   { code: "ja", name: "Japanese" },

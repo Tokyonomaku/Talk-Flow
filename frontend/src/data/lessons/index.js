@@ -1,11 +1,11 @@
 // Import all lesson data
-import { lessons as japaneseLessons } from './japanese';
-import { lessons as spanishLessons } from './spanish';
-import { lessons as frenchLessons } from './french';
-import { lessons as germanLessons } from './german';
-import { lessons as chineseLessons } from './chinese';
-import { lessons as russianLessons } from './russian';
-import { lessons as arabicLessons } from './arabic';
+import { lessons as japaneseLessons } from './japanese.js';
+import { lessons as spanishLessons } from './spanish.js';
+import { lessons as frenchLessons } from './french.js';
+import { lessons as germanLessons } from './german.js';
+import { lessons as chineseLessons } from './chinese.js';
+import { lessons as russianLessons } from './russian.js';
+import { lessons as arabicLessons } from './arabic.js';
 
 // Language code mapping
 const lessonData = {
