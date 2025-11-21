@@ -191,7 +191,7 @@ export default function SimpleTalkFlowUI() {
 
       {/* LANGUAGE SELECTOR */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
-        {LANGUAGES.map((lang) => (
+        {(LANGUAGES && Array.isArray(LANGUAGES) ? LANGUAGES : []).map((lang) => (
           <button
             key={lang.code}
             onClick={() => handleLanguageChange(lang.code)}
