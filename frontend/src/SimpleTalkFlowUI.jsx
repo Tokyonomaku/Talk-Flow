@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { LANGUAGES, mockLessonsByLanguage } from './simpleTalkFlowData';
 import LessonViewer from './LessonViewer';
 
@@ -12,6 +13,7 @@ export default function SimpleTalkFlowUI() {
   const [activeLangCode, setActiveLangCode] = useState('ja');
   const lessons = mockLessonsByLanguage[activeLangCode] ?? [];
   const [selectedLesson, setSelectedLesson] = useState(null);
+  const isPremium = localStorage.getItem('talkflow_premium') === 'true';
 
   const activeLanguage = LANGUAGES.find(lang => lang.code === activeLangCode) ?? LANGUAGES[0];
 
@@ -30,10 +32,56 @@ export default function SimpleTalkFlowUI() {
         color: 'white',
       }}
     >
-      <h1 style={{ fontSize: '28px', marginBottom: '8px' }}>TalkFlow MVP</h1>
-      <p style={{ marginBottom: '24px', opacity: 0.8 }}>
-        Choose a language → pick a lesson → see lesson details.
-      </p>
+      {/* Navigation */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '12px' }}>
+        <div>
+          <h1 style={{ fontSize: '28px', marginBottom: '8px', margin: 0 }}>TalkFlow</h1>
+          <p style={{ margin: 0, opacity: 0.8, fontSize: '14px' }}>
+            Choose a language → pick a lesson → see lesson details.
+          </p>
+        </div>
+        <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+          {isPremium && (
+            <span style={{ 
+              padding: '6px 12px', 
+              backgroundColor: '#10b981', 
+              borderRadius: '6px', 
+              fontSize: '12px',
+              fontWeight: '600'
+            }}>
+              ✓ Premium
+            </span>
+          )}
+          <Link 
+            to="/pricing" 
+            style={{ 
+              padding: '8px 16px', 
+              backgroundColor: '#6366f1', 
+              borderRadius: '8px', 
+              color: 'white', 
+              textDecoration: 'none',
+              fontSize: '14px',
+              fontWeight: '600'
+            }}
+          >
+            {isPremium ? 'Manage' : 'Upgrade'}
+          </Link>
+          <Link 
+            to="/activate" 
+            style={{ 
+              padding: '8px 16px', 
+              backgroundColor: '#1f2937', 
+              borderRadius: '8px', 
+              color: 'white', 
+              textDecoration: 'none',
+              fontSize: '14px',
+              border: '1px solid #374151'
+            }}
+          >
+            Activate
+          </Link>
+        </div>
+      </div>
 
       {/* LANGUAGE SELECTOR */}
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '24px' }}>
@@ -75,24 +123,50 @@ export default function SimpleTalkFlowUI() {
         )}
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          {lessons.map((lesson) => (
-            <button
-              key={lesson.id}
-              onClick={() => setSelectedLesson(lesson)}
-              style={{
-                textAlign: 'left',
-                padding: '12px',
-                borderRadius: '8px',
-                border: selectedLesson?.id === lesson.id ? '2px solid #38bdf8' : '1px solid #1f2937',
-                backgroundColor: selectedLesson?.id === lesson.id ? '#0f172a' : '#020617',
-                color: 'white',
-                cursor: 'pointer',
-                fontSize: '14px',
-              }}
-            >
-              {lesson.title}
-            </button>
-          ))}
+          {lessons.map((lesson) => {
+            const isPremiumLesson = lesson.isPremium === true;
+            const canAccess = !isPremiumLesson || isPremium;
+            
+            return (
+              <button
+                key={lesson.id}
+                onClick={() => {
+                  if (canAccess) {
+                    setSelectedLesson(lesson);
+                  } else {
+                    window.location.href = '/pricing';
+                  }
+                }}
+                style={{
+                  textAlign: 'left',
+                  padding: '12px',
+                  borderRadius: '8px',
+                  border: selectedLesson?.id === lesson.id ? '2px solid #38bdf8' : '1px solid #1f2937',
+                  backgroundColor: selectedLesson?.id === lesson.id ? '#0f172a' : '#020617',
+                  color: canAccess ? 'white' : '#6b7280',
+                  cursor: canAccess ? 'pointer' : 'not-allowed',
+                  fontSize: '14px',
+                  opacity: canAccess ? 1 : 0.6,
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}
+              >
+                <span>{lesson.title}</span>
+                {isPremiumLesson && !isPremium && (
+                  <span style={{ 
+                    fontSize: '10px', 
+                    backgroundColor: '#9333ea', 
+                    padding: '2px 6px', 
+                    borderRadius: '4px',
+                    marginLeft: '8px'
+                  }}>
+                    Premium
+                  </span>
+                )}
+              </button>
+            );
+          })}
         </div>
       </div>
 

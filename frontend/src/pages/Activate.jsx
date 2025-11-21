@@ -239,12 +239,11 @@ const styles = {
   input: {
     width: '100%',
     padding: '14px',
-    fontSize: '15px',
+    fontSize: '14px',
     border: '2px solid #E5E7EB',
     borderRadius: '10px',
     marginBottom: '12px',
     fontFamily: 'monospace',
-    fontSize: '14px',
     boxSizing: 'border-box',
     transition: 'border-color 0.2s'
   },
