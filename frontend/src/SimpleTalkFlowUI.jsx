@@ -11,6 +11,8 @@ import LessonViewer from './LessonViewer';
  */
 export default function SimpleTalkFlowUI() {
   console.log('SimpleTalkFlowUI rendering...');
+  console.log('LANGUAGES available:', !!LANGUAGES, 'Type:', typeof LANGUAGES, 'Is Array:', Array.isArray(LANGUAGES));
+  console.log('mockLessonsByLanguage available:', !!mockLessonsByLanguage, 'Type:', typeof mockLessonsByLanguage);
   
   const [activeLangCode, setActiveLangCode] = useState('ja');
   const [selectedLesson, setSelectedLesson] = useState(null);
@@ -18,7 +20,10 @@ export default function SimpleTalkFlowUI() {
   const [lessons, setLessons] = useState([]);
   const [activeLanguage, setActiveLanguage] = useState(() => {
     try {
-      return LANGUAGES && LANGUAGES[0] ? LANGUAGES[0] : { name: 'Japanese', code: 'ja' };
+      if (LANGUAGES && Array.isArray(LANGUAGES) && LANGUAGES.length > 0) {
+        return LANGUAGES[0];
+      }
+      return { name: 'Japanese', code: 'ja' };
     } catch (e) {
       console.error('Error initializing activeLanguage:', e);
       return { name: 'Japanese', code: 'ja' };

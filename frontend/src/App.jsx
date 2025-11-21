@@ -11,7 +11,7 @@ export default function App() {
   try {
     return (
       <ErrorBoundary>
-        <Router basename="/">
+        <Router>
           <Routes>
             <Route path="/" element={<SimpleTalkFlowUI />} />
             <Route path="/pricing" element={<Pricing />} />

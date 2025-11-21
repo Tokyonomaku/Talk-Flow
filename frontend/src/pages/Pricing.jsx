@@ -1,9 +1,17 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Pricing = () => {
   const navigate = useNavigate();
-  const isPremium = localStorage.getItem('talkflow_premium') === 'true';
+  const [isPremium, setIsPremium] = React.useState(false);
+  
+  React.useEffect(() => {
+    try {
+      setIsPremium(localStorage.getItem('talkflow_premium') === 'true');
+    } catch (e) {
+      console.warn('localStorage access failed:', e);
+    }
+  }, []);
 
   const plans = [
     {
