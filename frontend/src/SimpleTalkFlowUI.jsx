@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { LANGUAGES, mockLessonsByLanguage } from './simpleTalkFlowData';
 import LessonViewer from './LessonViewer';
@@ -11,11 +11,20 @@ import LessonViewer from './LessonViewer';
  */
 export default function SimpleTalkFlowUI() {
   const [activeLangCode, setActiveLangCode] = useState('ja');
-  const lessons = mockLessonsByLanguage[activeLangCode] ?? [];
   const [selectedLesson, setSelectedLesson] = useState(null);
-  const isPremium = localStorage.getItem('talkflow_premium') === 'true';
-
-  const activeLanguage = LANGUAGES.find(lang => lang.code === activeLangCode) ?? LANGUAGES[0];
+  const [isPremium, setIsPremium] = useState(false);
+  
+  // Safely check localStorage only on client side and load lessons
+  useEffect(() => {
+    try {
+      setIsPremium(localStorage.getItem('talkflow_premium') === 'true');
+    } catch (error) {
+      console.error('Error accessing localStorage:', error);
+    }
+  }, []);
+  
+  const lessons = mockLessonsByLanguage[activeLangCode] || [];
+  const activeLanguage = LANGUAGES.find(lang => lang.code === activeLangCode) || LANGUAGES[0];
 
   const handleLanguageChange = (langCode) => {
     setActiveLangCode(langCode);
