@@ -1,18 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { LANGUAGES, mockLessonsByLanguage } from './simpleTalkFlowData';
 import LessonViewer from './LessonViewer';
-
-// Safe imports with fallbacks
-let LANGUAGES = [{ code: "ja", name: "Japanese" }];
-let mockLessonsByLanguage = { ja: [] };
-
-try {
-  const data = require('./simpleTalkFlowData.js');
-  LANGUAGES = data.LANGUAGES || LANGUAGES;
-  mockLessonsByLanguage = data.mockLessonsByLanguage || mockLessonsByLanguage;
-} catch (e) {
-  console.error('Error loading lesson data:', e);
-}
 
 /**
  * SimpleTalkFlowUI - MVP component for TalkFlow
