@@ -10,30 +10,62 @@ import LessonViewer from './LessonViewer';
  * - Does NOT depend on Supabase, MongoDB, or AI chat
  */
 export default function SimpleTalkFlowUI() {
+  console.log('SimpleTalkFlowUI rendering...');
+  
   const [activeLangCode, setActiveLangCode] = useState('ja');
   const [selectedLesson, setSelectedLesson] = useState(null);
   const [isPremium, setIsPremium] = useState(false);
   const [lessons, setLessons] = useState([]);
-  const [activeLanguage, setActiveLanguage] = useState(LANGUAGES[0] || { name: 'Japanese', code: 'ja' });
+  const [activeLanguage, setActiveLanguage] = useState(() => {
+    try {
+      return LANGUAGES && LANGUAGES[0] ? LANGUAGES[0] : { name: 'Japanese', code: 'ja' };
+    } catch (e) {
+      console.error('Error initializing activeLanguage:', e);
+      return { name: 'Japanese', code: 'ja' };
+    }
+  });
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   
   // Safely check localStorage and load lessons
   useEffect(() => {
+    console.log('SimpleTalkFlowUI useEffect running...');
     try {
-      setIsPremium(localStorage.getItem('talkflow_premium') === 'true');
+      // Check premium status
+      try {
+        setIsPremium(localStorage.getItem('talkflow_premium') === 'true');
+      } catch (e) {
+        console.warn('localStorage access failed:', e);
+      }
       
       // Safely get lessons
-      const langLessons = (mockLessonsByLanguage && mockLessonsByLanguage[activeLangCode]) || [];
-      setLessons(langLessons);
+      let langLessons = [];
+      try {
+        if (mockLessonsByLanguage && typeof mockLessonsByLanguage === 'object') {
+          langLessons = mockLessonsByLanguage[activeLangCode] || [];
+        }
+        console.log('Lessons loaded:', langLessons.length, 'for language:', activeLangCode);
+        setLessons(langLessons);
+      } catch (e) {
+        console.error('Error loading lessons:', e);
+        setLessons([]);
+      }
       
       // Safely get language
-      const lang = (LANGUAGES && LANGUAGES.find(l => l.code === activeLangCode)) || LANGUAGES[0] || { name: 'Language', code: activeLangCode };
-      setActiveLanguage(lang);
+      try {
+        const lang = (LANGUAGES && Array.isArray(LANGUAGES) && LANGUAGES.find(l => l.code === activeLangCode)) 
+          || (LANGUAGES && Array.isArray(LANGUAGES) && LANGUAGES[0]) 
+          || { name: 'Language', code: activeLangCode };
+        setActiveLanguage(lang);
+      } catch (e) {
+        console.error('Error setting language:', e);
+      }
       
-      console.log('Lessons loaded:', langLessons.length, 'for language:', activeLangCode);
+      setIsLoading(false);
     } catch (err) {
-      console.error('Error in SimpleTalkFlowUI:', err);
+      console.error('Error in SimpleTalkFlowUI useEffect:', err);
       setError(err.message);
+      setIsLoading(false);
     }
   }, [activeLangCode]);
 
@@ -41,6 +73,26 @@ export default function SimpleTalkFlowUI() {
     setActiveLangCode(langCode);
     setSelectedLesson(null); // Reset selected lesson when language changes
   };
+
+  // Show loading state
+  if (isLoading) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        padding: '40px',
+        fontFamily: 'system-ui, sans-serif',
+        background: '#0f172a',
+        color: 'white',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column'
+      }}>
+        <h1>Loading TalkFlow...</h1>
+        <p>Please wait</p>
+      </div>
+    );
+  }
 
   // Show error if something failed
   if (error) {
@@ -59,6 +111,23 @@ export default function SimpleTalkFlowUI() {
     );
   }
 
+  // Ensure we have valid data before rendering
+  if (!LANGUAGES || !Array.isArray(LANGUAGES) || LANGUAGES.length === 0) {
+    return (
+      <div style={{
+        minHeight: '100vh',
+        padding: '40px',
+        fontFamily: 'system-ui, sans-serif',
+        background: '#0f172a',
+        color: 'white',
+      }}>
+        <h1>Configuration Error</h1>
+        <p>LANGUAGES data not available</p>
+      </div>
+    );
+  }
+
+  console.log('SimpleTalkFlowUI rendering main UI...');
   return (
     <div
       style={{
